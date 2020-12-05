@@ -1,19 +1,19 @@
 <template>
-  <div class="about">
+  <div>
     <base-site></base-site>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import BaseSite from '../components/UI/BaseSite.vue'
+import BaseSite from '../UI/BaseSite.vue'
 
 export default {
-  name: 'Home',
   components: {
     BaseSite
   }
 }
 </script>
 
+<!-- Add "scoped" a
+LogoBarttribute to limit CSS to this component only -->
 <style scoped></style>
