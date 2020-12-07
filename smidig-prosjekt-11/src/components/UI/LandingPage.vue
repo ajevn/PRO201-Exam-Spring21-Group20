@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import BaseSite from '../UI/BaseSite.vue'
+import BaseSite from '@/components/UI/BaseSite.vue'
 
 export default {
   components: {
