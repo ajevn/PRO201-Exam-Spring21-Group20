@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <base-site></base-site>
+    <h1 ></h1>
   </div>
 </template>
 
