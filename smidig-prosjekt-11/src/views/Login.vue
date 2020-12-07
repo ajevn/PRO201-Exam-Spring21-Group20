@@ -41,12 +41,10 @@
 
 <script>
 import BaseSite from '@/components/UI/BaseSite.vue'
-import NavBar from '../components/Nav/navBar.vue'
+import NavBar from '@/components/Nav/NavBar.vue'
 import { ref } from 'vue'
-import navBar from '../../../../PRO201-1-20H/smidig-prosjekt-11/src/components/navBar.vue'
 
 export default {
-  components: { navBar },
   name: 'login',
   setup() {
     const username = ref('')

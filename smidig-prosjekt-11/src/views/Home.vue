@@ -13,8 +13,8 @@
 // @ is an alias to /src
 import BaseSite from '@/components/UI/BaseSite.vue'
 import HomeSelect from '@/components/Nav/HomeSelect.vue'
-import NavBar from '../components/Nav/navBar.vue'
-import LandingPage from '../components/UI/LandingPage.vue'
+import NavBar from '@/components/Nav/NavBar.vue'
+import LandingPage from '@/components/UI/LandingPage.vue'
 
 export default {
   name: 'Home',

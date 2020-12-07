@@ -10,7 +10,7 @@
 <script>
 // @ is an alias to /src
 import BaseSite from '@/components/UI/BaseSite.vue'
-import NavBar from '../components/Nav/navBar.vue'
+import NavBar from '@/components/Nav/NavBar.vue'
 export default {
   name: 'Home',
   components: {
