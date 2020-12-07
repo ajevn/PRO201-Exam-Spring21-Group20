@@ -3,7 +3,7 @@
   <div class="base">
     <header>
       <div id="logo-bar" class="md:w-auto bg-logoBar">
-        <img id="logo-img" class="relative w-1/7 h-3/5" src="../../assets/Images/brightLogo.png" />
+        <img id="logo-img" class="relative w-1/7 h-3/5" src="@/assets/Images/brightLogo.png" />
         <div id="employee-div">
           <h1 class="text-secondary">Employee, Name</h1>
         </div>
