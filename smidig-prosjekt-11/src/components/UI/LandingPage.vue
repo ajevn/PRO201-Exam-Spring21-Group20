@@ -1,19 +1,17 @@
 <template>
   <div>
-    <base-site></base-site>
+    <slot />
   </div>
 </template>
 
 <script>
-import BaseSite from '@/components/UI/BaseSite.vue'
-
+import { ref } from 'vue'
 export default {
-  components: {
-    BaseSite
+  setup() {
+    let regNumber = ref()
+    return { regNumber }
   }
 }
 </script>
 
-<!-- Add "scoped" a
-LogoBarttribute to limit CSS to this component only -->
 <style scoped></style>

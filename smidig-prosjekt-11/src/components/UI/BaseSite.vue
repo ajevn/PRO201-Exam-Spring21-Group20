@@ -9,7 +9,7 @@
         </div>
       </div>
     </header>
-
+    <slot />
     <footer>
       <div id="footer-div" class="absolute">
         <small>Copyright &copy; 2020 - Smidig-Prosjekt Gruppe 11</small>
