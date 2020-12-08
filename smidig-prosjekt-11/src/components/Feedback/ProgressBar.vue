@@ -1,6 +1,6 @@
 <template>
     <div id="progress-bar">
-        <div class="relative pt-8 w-2/3 m-auto">
+        <div class="relative pt-8 w-3/5 m-auto">
 
             <!-- Green line -->
             <div id="progress-bar-border" 
@@ -92,12 +92,12 @@ export default {
         }
 
         .progress-bar-icons {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             position: absolute;
             left: 0;
-            top: 10px;
+            top: 14px;
             display: flex;
             justify-content: center;
             align-items: center;
