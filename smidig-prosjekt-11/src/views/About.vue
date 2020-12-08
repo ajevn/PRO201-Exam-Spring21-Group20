@@ -6,7 +6,7 @@
         <h1></h1>
     </div>
 
-    <progress-bar />
+    <progress-bar></progress-bar>
 </template>
 
 <script>
@@ -15,7 +15,6 @@ import BaseSite from '@/components/UI/BaseSite.vue';
 import NavBar from '@/components/Nav/NavBar.vue';
 
 // To change color of elements in progressbar
-
 import ProgressBar from '../components/Feedback/ProgressBar.vue';
 
 export default {
@@ -24,7 +23,6 @@ export default {
         BaseSite,
         NavBar,
         ProgressBar
-        
     }
 };
 </script>

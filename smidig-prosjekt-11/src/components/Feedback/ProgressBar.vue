@@ -22,6 +22,10 @@
             </div>
         </div>
 
+        <!-- Temporary btn -->
+        <router-link id="btn" to="/entry-successful">Halla</router-link>
+
+
     </div>
 </template>
 
@@ -88,7 +92,17 @@ export default {
             background-color: #848484;
         }
 
+        #btn {
+            border: 2px solid black;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
         
+    }
+
+    .progress-bar-successful-line {
+        width: 100%;
     }
 
 </style>
