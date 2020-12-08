@@ -29,7 +29,7 @@
         </div>
 
         <!-- Temporary btn -->
-        <router-link id="btn" @click="updateProgressbar()" to="/entry-successful">Halla</router-link>
+        <router-link id="btn" to="/entry-successful">Halla</router-link>
 
 
     </div>
@@ -45,8 +45,10 @@ export default {
             isUnsuccessfulReport: true
         }
     },
-    methods: {
-        updateProgressbar() {
+
+    // Implementing Lifecycle hooks to change classes
+    // depending on url
+    created: function() {
             let url = window.location.href;
 
             if (url.indexOf("entry-successful") > -1) {
@@ -57,7 +59,7 @@ export default {
                 this.isUnsuccessfulReport = true
             }
         }
-    }
+    
 };
 </script>
 
