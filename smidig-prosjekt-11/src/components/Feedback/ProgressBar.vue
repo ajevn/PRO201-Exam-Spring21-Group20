@@ -29,7 +29,7 @@
         </div>
 
         <!-- Temporary btn -->
-        <router-link id="btn" @click="isSuccessfulReport = !isSuccessfulReport, isUnsuccessfulReport = !isUnsuccessfulReport" to="/entry-successful">Halla</router-link>
+        <router-link id="btn" @click="updateProgressbar()" to="/entry-successful">Halla</router-link>
 
 
     </div>
@@ -43,6 +43,19 @@ export default {
         return {
             isSuccessfulReport: false,
             isUnsuccessfulReport: true
+        }
+    },
+    methods: {
+        updateProgressbar() {
+            let url = window.location.href;
+
+            if (url.indexOf("entry-successful") > -1) {
+                this.isSuccessfulReport = true
+                this.isUnsuccessfulReport = false
+            } else {
+                this.isSuccessfulReport = false
+                this.isUnsuccessfulReport = true
+            }
         }
     }
 };
