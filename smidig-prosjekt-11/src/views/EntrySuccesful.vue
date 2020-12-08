@@ -4,6 +4,8 @@
         <nav-bar />
     </div>
     <approved-report />
+
+    <progress-bar />
 </template>
 
 <script>
@@ -11,13 +13,15 @@
 import BaseSite from '@/components/UI/BaseSite.vue';
 import ApprovedReport from '../components/Feedback/ApprovedReport.vue';
 import NavBar from '../components/Nav/NavBar.vue';
+import ProgressBar from '../components/Feedback/ProgressBar.vue'
 
 export default {
     name: 'Home',
     components: {
         BaseSite,
         ApprovedReport,
-        NavBar
+        NavBar,
+        ProgressBar
     }
 };
 </script>
