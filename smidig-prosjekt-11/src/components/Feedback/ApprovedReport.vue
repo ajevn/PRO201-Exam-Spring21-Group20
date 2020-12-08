@@ -31,15 +31,15 @@ export default {
 
     img {
         margin: auto;
-        margin-top: 50px;
+        margin-top: 75px;
     }
 
     a {
         margin: 0;
 
         div {
-            margin: auto;
-            margin-top: 50px;
+            display: inline-block;
+            margin-top: 75px;
             width: 250px;
             height: 70px;
             background-color: #423048;
