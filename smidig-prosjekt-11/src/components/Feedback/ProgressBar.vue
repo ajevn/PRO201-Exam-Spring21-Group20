@@ -29,12 +29,12 @@
         </div>
 
         <!-- Button to go back to previous page -->
-        <router-link to="/about">
+        <router-link :to="'/' + prevBtn">
             <img class="progress-bar-btns" id="back-btn" src="@/assets/Images/Icons/forward-back-icon.png" alt="Go to previous page">
         </router-link>
 
         <!-- Button to go to next page -->
-        <router-link to="/entry-successful">
+        <router-link :to="'/' + nextBtn">
             <img class="progress-bar-btns" id="forward-btn" src="@/assets/Images/Icons/forward-back-icon.png" alt="Go to previous page">  
         </router-link>
 
@@ -48,7 +48,9 @@ export default {
     data: () => {
         return {
             isSuccessfulReport: false,
-            isUnsuccessfulReport: true
+            isUnsuccessfulReport: true,
+            prevBtn: 'about',
+            nextBtn: 'entry-successful'
         }
     },
 
