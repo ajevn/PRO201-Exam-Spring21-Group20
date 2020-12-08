@@ -4,6 +4,11 @@ import Home from '@/views/Home.vue'
 const routes = [
   {
     path: '/',
+    name: 'Repair',
+    component: () => import('@/views/RepairPage.vue')
+  },
+  {
+    path: '/',
     name: 'Home',
     component: Home
   },
