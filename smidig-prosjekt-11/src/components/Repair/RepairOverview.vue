@@ -20,7 +20,7 @@ export default {}
     background-color: #7EB46B;
     height: 30px;
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: auto auto 30% auto;
     align-items: center;
 
     label {
