@@ -1,12 +1,12 @@
 <template>
   <div id="button-div">
     <div>
-      <button
-        type="button"
+      <router-link to="/repair"
+        tag="button"
         class="rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-logoBar"
       >
         Repair
-      </button>
+      </router-link>
     </div>
     <div>
       <button
