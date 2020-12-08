@@ -34,7 +34,7 @@
         </router-link>
 
         <!-- Button to go to next page -->
-        <router-link :to="'/' + nextBtn">
+        <router-link :to="'/' + nextBtn" :class="{ 'next-btn-none': isSuccessfulReport }">
             <img class="progress-bar-btns" id="forward-btn" src="@/assets/Images/Icons/forward-back-icon.png" alt="Go to previous page">  
         </router-link>
 
@@ -62,9 +62,11 @@ export default {
             if (url.indexOf("entry-successful") > -1) {
                 this.isSuccessfulReport = true
                 this.isUnsuccessfulReport = false
+                this.prevBtn = 'about'
             } else {
                 this.isSuccessfulReport = false
                 this.isUnsuccessfulReport = true
+                this.prevBtn = '#'
             }
         }
     
@@ -151,6 +153,10 @@ export default {
 
     .progress-bar-successful-line {
         width: 100%;
+    }
+
+    .next-btn-none {
+        display: none;
     }
 
 </style>
