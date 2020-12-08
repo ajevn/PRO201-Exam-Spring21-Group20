@@ -1,6 +1,7 @@
 <template>
     <!-- Root element -->
     <div>
+        <!-- https://forum.vuejs.org/t/popup-how-to-hide-a-popup-by-clicking-outside-of-the-popup-window/59693 -- Mulighet for å trykke utenfor popup for å lukke? -->
         <div
             id="parts-popup"
             class="border-2 border-gray-500 shadow-lg rounded-md bg-gray-300"

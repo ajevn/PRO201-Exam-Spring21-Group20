@@ -1,11 +1,13 @@
 <template>
-    <div class="entry-succesful">
-        <base-site />
-        <nav-bar />
-    </div>
-    <approved-report />
+    <div>
+        <div class="entry-succesful">
+            <base-site />
+            <nav-bar />
+        </div>
+        <approved-report />
 
-    <progress-bar />
+        <progress-bar />
+    </div>
 </template>
 
 <script>
