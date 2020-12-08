@@ -28,7 +28,7 @@
 
 <script>
 export default {
-    name: 'Home',
+    name: 'Progress bar',
     components: {}
 };
 </script>
