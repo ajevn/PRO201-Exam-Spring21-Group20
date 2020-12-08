@@ -5,7 +5,7 @@
                 type="button"
                 class="rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-logoBar"
             >
-                Repair
+                Repair 
             </button>
         </div>
         <div>
@@ -44,5 +44,6 @@ export default {
     cursor: pointer;
     width: 100%;
     margin-top: 10%;
+    outline: none;
 }
 </style>
