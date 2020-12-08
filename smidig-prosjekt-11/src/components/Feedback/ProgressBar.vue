@@ -13,7 +13,6 @@
                 ></div>
             </div>
 
-
             <!-- Images -->
             <div class="progress-bar-done progress-bar-icons" id="progress-bar-home">
                 <img src="@/assets/Images/Icons/home-icon.png"  alt="Progress bar, Home button" />
@@ -26,11 +25,18 @@
             <div :class="{ 'progress-bar-done': isSuccessfulReport, 'progress-bar-not-done' : isUnsuccessfulReport }" class="progress-bar-icons" id="progress-bar-success">
                 <img src="@/assets/Images/Icons/report-success-white-icon.png" alt="Progress bar, Report sent" />
             </div>
+
         </div>
 
-        <!-- Temporary btn -->
-        <router-link id="btn" to="/entry-successful">Halla</router-link>
+        <!-- Button to go back to previous page -->
+        <router-link to="/about">
+            <img class="progress-bar-btns" id="back-btn" src="@/assets/Images/Icons/forward-back-icon.png" alt="Go to previous page">
+        </router-link>
 
+        <!-- Button to go to next page -->
+        <router-link to="/entry-successful">
+            <img class="progress-bar-btns" id="forward-btn" src="@/assets/Images/Icons/forward-back-icon.png" alt="Go to previous page">  
+        </router-link>
 
     </div>
 </template>
@@ -117,11 +123,22 @@ export default {
             background-color: #848484;
         }
 
-        #btn {
-            border: 2px solid black;
+
+        // Buttons to go back and forward
+        .progress-bar-btns {
             position: absolute;
-            right: 20px;
-            top: 20px;
+            width: 50px;
+        }
+
+        #back-btn {
+            left: 15px;
+            top: 15px;
+        }
+
+        #forward-btn {
+            right: 10px;
+            top: 5px;
+            transform: rotate(180deg);
         }
         
     }
