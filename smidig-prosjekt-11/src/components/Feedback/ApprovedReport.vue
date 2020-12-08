@@ -5,7 +5,7 @@
         <a href="#">
             <div>
                 <p>HOME</p>
-                <img src="@/assets/Images/Icons/home-icon.png"  alt="Home button" />
+                <img src="@/assets/Images/Icons/home-icon.png" alt="Home button" />
             </div>
         </a>
     </div>

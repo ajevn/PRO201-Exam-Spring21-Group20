@@ -13,7 +13,7 @@
 import BaseSite from '@/components/UI/BaseSite.vue';
 import ApprovedReport from '../components/Feedback/ApprovedReport.vue';
 import NavBar from '../components/Nav/NavBar.vue';
-import ProgressBar from '../components/Feedback/ProgressBar.vue'
+import ProgressBar from '../components/Feedback/ProgressBar.vue';
 
 export default {
     name: 'Entry Successful',

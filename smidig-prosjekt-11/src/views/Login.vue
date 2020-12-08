@@ -5,7 +5,9 @@
             <div class="container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center">
                 <form @submit.prevent="post" method="post">
                     <div>
-                        <label class="block mb-2 text-secondary text-indigo-500" for="username">Username</label>
+                        <label class="block mb-2 text-secondary text-indigo-500" for="username"
+                            >Username</label
+                        >
                         <input
                             class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300"
                             v-model="username"

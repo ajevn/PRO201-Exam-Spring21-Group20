@@ -5,7 +5,7 @@
                 type="button"
                 class="rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-logoBar"
             >
-                Repair 
+                Repair
             </button>
         </div>
         <div>
