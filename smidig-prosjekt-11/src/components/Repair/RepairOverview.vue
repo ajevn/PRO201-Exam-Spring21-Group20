@@ -21,6 +21,7 @@ export default {}
     height: 30px;
     display: grid;
     grid-template-columns: repeat(4, auto);
+    align-items: center;
 
     label {
       color: #273422;
