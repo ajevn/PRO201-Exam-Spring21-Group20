@@ -9,7 +9,7 @@
             >
                 <div id="progress-bar-width" 
                     class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"
-                    :class="{ 'progress-bar-successful-line': isSuccessfulReport }" 
+                    :class="{ 'progress-bar-successful-line': isSuccessfulReport, 'progress-bar-unsuccessful-line' : isUnsuccessfulReport }" 
                 ></div>
             </div>
 
@@ -62,7 +62,6 @@ export default {
             background-color: #848484;
             
             #progress-bar-width {
-                width: 50%;
                 background-color: #7EB46B;
             }
         }
@@ -110,6 +109,10 @@ export default {
             top: 20px;
         }
         
+    }
+
+    .progress-bar-unsuccessful-line {
+        width: 50%;
     }
 
     .progress-bar-successful-line {
