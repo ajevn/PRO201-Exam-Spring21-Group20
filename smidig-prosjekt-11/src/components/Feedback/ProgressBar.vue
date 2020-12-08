@@ -57,15 +57,16 @@ export default {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            display: inline-block;
             position: absolute;
             left: 0;
             top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             img {
-                width: 30px;
+                width: 60%;
                 margin: auto;
-                vertical-align: middle;
             }
         }
 
