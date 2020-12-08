@@ -1,10 +1,42 @@
 <template>
-  <div class="bg-green-500 h-full">
-    <label>Product</label><label>Serial Number</label><label>Parts</label><label>Edit</label
-    ><label>Delete</label>
+  <div id="overview-container">
+    <label>Product</label>
+    <label>Serial Number</label>
+    <label>Parts</label>
+    <div id="edit-delete-label">
+      <label>Edit</label>
+      <label>Delete</label>
+    </div>
   </div>
 </template>
 
 <script>
 export default {}
 </script>
+
+
+<style lang="scss" scoped>
+  #overview-container {
+    background-color: #7EB46B;
+    height: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+
+    label {
+      color: #273422;
+      font-weight: bold;
+      text-align: center;
+      display: inline-block;
+    }
+
+    #edit-delete-label  {
+      grid-column: 4;
+      display: inline-block;
+      text-align: center;
+
+      label {
+        margin-left:30px;
+      }
+    }
+  }
+</style>
