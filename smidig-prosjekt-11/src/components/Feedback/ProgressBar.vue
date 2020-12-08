@@ -1,9 +1,13 @@
 <template>
     <div id="progress-bar">
-        <div class="relative pt-5">
-        <div id="progress-bar-border" class="overflow-hidden h-1 mb-4 text-xs flex rounded bg-pink-200 w-2/3 m-auto">
-            <div id="progress-bar-width" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"></div>
-        </div>
+        <div class="relative pt-8 w-2/3 m-auto">
+
+            <!-- Green line -->
+            <div id="progress-bar-border" class="overflow-hidden h-1 mb-4 text-xs flex rounded bg-pink-200">
+                <div id="progress-bar-width" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"></div>
+            </div>
+
+
             <!-- Images -->
             <div class="progress-bar-done progress-bar-icons" id="progress-bar-home">
                 <img src="@/assets/Images/Icons/home-icon.png"  alt="Progress bar, Home button" />
@@ -54,13 +58,24 @@ export default {
             height: 50px;
             border-radius: 50%;
             display: inline-block;
-            position: relative;
+            position: absolute;
+            left: 0;
+            top: 10px;
 
             img {
                 width: 30px;
                 margin: auto;
                 vertical-align: middle;
             }
+        }
+
+        #progress-bar-edit-report {
+            left: 47%;
+        }
+
+        #progress-bar-success {
+            left: 93%;
+            
         }
         
     }
