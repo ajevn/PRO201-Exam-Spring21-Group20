@@ -1,11 +1,11 @@
 <template>
     <div id="approved-report-container" class="text-center">
         <h1>ENTRY SUCCESFUL</h1>
-        <img src="@/assets/Images/Icons/report-sucess-icon.png" alt="Report succesfully sent" />
+        <img src="@/assets/Images/Icons/report-success-icon.png" alt="Report succesfully sent" />
         <a href="#">
             <div>
                 <p>HOME</p>
-                <img src="@/assets/Images/Icons/home-icon.png" />
+                <img src="@/assets/Images/Icons/home-icon.png"  alt="Home button" />
             </div>
         </a>
     </div>
