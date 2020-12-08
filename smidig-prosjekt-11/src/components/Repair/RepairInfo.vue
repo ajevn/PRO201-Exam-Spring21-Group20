@@ -13,7 +13,6 @@
 
 <script>
 export default {
-  emits: ['add-repair'],
   data() {
     return {
       id: '',
