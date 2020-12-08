@@ -17,7 +17,7 @@
                 <img src="@/assets/Images/Icons/edit-report-icon.png" alt="Progress bar, Edit report" />
             </div>
 
-            <div class="progress-bar-done progress-bar-icons" id="progress-bar-success">
+            <div class="progress-bar-not-done progress-bar-icons" id="progress-bar-success">
                 <img src="@/assets/Images/Icons/report-success-white-icon.png" alt="Progress bar, Report sent" />
             </div>
         </div>
@@ -53,7 +53,6 @@ export default {
         }
 
         .progress-bar-icons {
-            background-color: #7EB46B;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -71,13 +70,24 @@ export default {
         }
 
         #progress-bar-edit-report {
-            left: 47%;
+            left: 48%;
         }
 
         #progress-bar-success {
-            left: 93%;
+            left: 97%;
             
         }
+
+        // Classes to change from done and not done steps
+        // in the repair prosess
+        .progress-bar-done {
+            background-color: #7EB46B;
+        }
+
+        .progress-bar-not-done {
+            background-color: #848484;
+        }
+
         
     }
 
