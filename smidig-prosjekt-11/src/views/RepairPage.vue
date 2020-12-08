@@ -7,6 +7,8 @@
                 <repair-info></repair-info>
             </section>
         </base-site>
+
+        <progress-bar />
     </div>
 </template>
 
@@ -15,6 +17,7 @@ import BaseSite from '@/components/UI/BaseSite.vue';
 import NavBar from '@/components/Nav/NavBar.vue';
 import RepairOverview from '@/components/Repair/RepairOverview.vue';
 import RepairInfo from '@/components/Repair/RepairInfo.vue';
+import ProgressBar from '../components/Feedback/ProgressBar.vue';
 export default {
     data() {
         return {
@@ -26,7 +29,8 @@ export default {
         BaseSite,
         NavBar,
         RepairOverview,
-        RepairInfo
+        RepairInfo,
+        ProgressBar
     }
 };
 </script>

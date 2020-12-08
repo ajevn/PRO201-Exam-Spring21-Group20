@@ -66,7 +66,7 @@ export default {
         return {
             isSuccessfulReport: false,
             isUnsuccessfulReport: true,
-            prevBtn: 'about',
+            prevBtn: 'repair',
             nextBtn: 'entry-successful'
         };
     },
@@ -79,7 +79,7 @@ export default {
         if (url.indexOf('entry-successful') > -1) {
             this.isSuccessfulReport = true;
             this.isUnsuccessfulReport = false;
-            this.prevBtn = 'about';
+            this.prevBtn = 'repair';
         } else {
             this.isSuccessfulReport = false;
             this.isUnsuccessfulReport = true;
