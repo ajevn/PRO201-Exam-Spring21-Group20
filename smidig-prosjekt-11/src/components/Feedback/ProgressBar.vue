@@ -17,13 +17,13 @@
                 <img src="@/assets/Images/Icons/edit-report-icon.png" alt="Progress bar, Edit report" />
             </div>
 
-            <div class="progress-bar-not-done progress-bar-icons" id="progress-bar-success">
+            <div :class="{ 'progress-bar-done': isSuccessfulReport }" class="progress-bar-icons" id="progress-bar-success">
                 <img src="@/assets/Images/Icons/report-success-white-icon.png" alt="Progress bar, Report sent" />
             </div>
         </div>
 
         <!-- Temporary btn -->
-        <router-link id="btn" to="/entry-successful">Halla</router-link>
+        <router-link id="btn" @click="isSuccessfulReport = !isSuccessfulReport" to="/entry-successful">Halla</router-link>
 
 
     </div>
@@ -33,7 +33,11 @@
 <script>
 export default {
     name: 'Progress bar',
-    components: {}
+    data: () => {
+        return {
+            isSuccessfulReport: false
+        }
+    }
 };
 </script>
 
