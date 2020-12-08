@@ -3,8 +3,14 @@
         <div class="relative pt-8 w-2/3 m-auto">
 
             <!-- Green line -->
-            <div id="progress-bar-border" class="overflow-hidden h-1 mb-4 text-xs flex rounded bg-pink-200">
-                <div id="progress-bar-width" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"></div>
+            <div id="progress-bar-border" 
+                class="overflow-hidden h-1 mb-4 text-xs flex rounded bg-pink-200"
+     
+            >
+                <div id="progress-bar-width" 
+                    class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"
+                    :class="{ 'progress-bar-successful-line': isSuccessfulReport }" 
+                ></div>
             </div>
 
 
@@ -17,13 +23,13 @@
                 <img src="@/assets/Images/Icons/edit-report-icon.png" alt="Progress bar, Edit report" />
             </div>
 
-            <div :class="{ 'progress-bar-done': isSuccessfulReport }" class="progress-bar-icons" id="progress-bar-success">
+            <div :class="{ 'progress-bar-done': isSuccessfulReport, 'progress-bar-not-done' : isUnsuccessfulReport }" class="progress-bar-icons" id="progress-bar-success">
                 <img src="@/assets/Images/Icons/report-success-white-icon.png" alt="Progress bar, Report sent" />
             </div>
         </div>
 
         <!-- Temporary btn -->
-        <router-link id="btn" @click="isSuccessfulReport = !isSuccessfulReport" to="/entry-successful">Halla</router-link>
+        <router-link id="btn" @click="isSuccessfulReport = !isSuccessfulReport, isUnsuccessfulReport = !isUnsuccessfulReport" to="/entry-successful">Halla</router-link>
 
 
     </div>
@@ -35,7 +41,8 @@ export default {
     name: 'Progress bar',
     data: () => {
         return {
-            isSuccessfulReport: false
+            isSuccessfulReport: false,
+            isUnsuccessfulReport: true
         }
     }
 };
