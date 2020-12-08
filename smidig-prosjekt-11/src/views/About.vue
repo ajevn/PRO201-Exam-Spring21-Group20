@@ -19,7 +19,7 @@ import NavBar from '@/components/Nav/NavBar.vue';
 import ProgressBar from '../components/Feedback/ProgressBar.vue';
 
 export default {
-    name: 'Home',
+    name: 'About',
     components: {
         BaseSite,
         NavBar,
