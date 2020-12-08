@@ -2,7 +2,7 @@
     <!-- Base site layout. Can be used as a component inside other pages. Includes Logo, Logo-Bar and employee name -->
     <div class="base">
         <header>
-            <div id="logo-bar" class="md:w-auto bg-logoBar">
+            <div id="logo-bar" class="md:w-auto bg-logoBar" v>
                 <img id="logo-img" class="relative w-1/7 h-3/5" src="@/assets/Images/brightLogo.png" />
                 <div id="employee-div">
                     <h1 class="text-secondary">Employee, Name</h1>
