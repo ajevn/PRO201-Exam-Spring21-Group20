@@ -1,5 +1,5 @@
 <template>
-    <div class="entrySuccesful">
+    <div class="entry-succesful">
         <base-site />
         <nav-bar />
     </div>

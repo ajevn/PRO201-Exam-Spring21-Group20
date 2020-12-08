@@ -5,6 +5,8 @@
     <router-link to="/repair">Repair</router-link>
     |
     <router-link to="/login">Login</router-link>
+    |
+    <router-link to="/entry-successful">Entry successful</router-link>
   </div>
 </template>
 
