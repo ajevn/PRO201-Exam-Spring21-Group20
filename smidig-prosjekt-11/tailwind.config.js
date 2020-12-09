@@ -6,7 +6,7 @@ module.exports = {
             ...theme('colors'),
             logoBar: '#405C6A',
             secondary: '#ffed4a',
-            danger: '#e3342f'
+            universalGreen: '#7EB46B'
         }),
         textColor: {
             primary: '#3490dc',

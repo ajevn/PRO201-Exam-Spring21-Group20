@@ -4,32 +4,41 @@
             <h1>PRODUCT</h1>
             <div class="grid grid-cols-2 content-center">
                 <div>
-                    <img src="../../assets/Images/Parts/sunbellProductImage.png" alt="" />
-                    <h2><b>Sunbell</b></h2>
+                    <img
+                        src="../../assets/Images/Parts/sunbellProductImage.png"
+                        alt=""
+                        class="rounded-lg shadow-lg border-2 border-green-700 border-opacity-75 hover:bg-universalGreen"
+                    />
+                    <h2>Sunbell</h2>
                 </div>
                 <div>
                     <img
+                        class="rounded-lg shadow-lg border-2 border-green-700 border-opacity-75 hover:bg-universalGreen"
                         src="../../assets/Images/Parts/batteryPackLightUnitComplete-removebg-preview.png"
                         alt=""
                     />
-                    <h2><b>Start+</b></h2>
+                    <h2>Start+</h2>
                 </div>
             </div>
         </div>
         <div id="parts" class="col-span-2">
             <h1>PARTS</h1>
-            <div class="grid grid-cols-4">
+            <div class="grid grid-flow grid-cols-4 grid-rows-3 gap-10">
                 <div v-for="product in productImages" :key="product">
                     <img
                         :id="product.id"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
+                        class="rounded shadow-lg border-2 border-green-700 border-opacity-75 hover:bg-universalGreen"
                         @click="pushProducts(product)"
                     />
+                    <h2>
+                        {{ product.partName }}
+                    </h2>
                 </div>
             </div>
         </div>
         <div id="exit-btn" @click="closePopup"></div>
-        <button id="next-btn" @click="submitPartsSelected">NEXT</button>
+        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
     </div>
 </template>
 
@@ -41,27 +50,44 @@ export default {
             productImages: [
                 {
                     id: 'Solarpanel',
+                    partName: 'Solar Panel',
                     imgName: 'solarPanelCompleteWithCable-removebg-preview',
                     isChecked: false
                 },
                 {
                     id: 'Battery',
+                    partName: 'Battery',
                     imgName: 'battery-removebg-preview',
                     isChecked: false
                 },
                 {
                     id: 'Gummi',
+                    partName: 'Seal',
                     imgName: 'powerSwitchCoverNew-removebg-preview',
                     isChecked: false
                 },
                 {
                     id: 'noe',
+                    partName: 'USB Connector',
                     imgName: 'directUsbPort-removebg-preview',
                     isChecked: false
                 },
                 {
                     id: 'ledning',
+                    partName: 'Neck plus light',
                     imgName: 'batteryPackLightUnitComplete-removebg-preview',
+                    isChecked: false
+                },
+                {
+                    id: 'Torx-5',
+                    partName: 'Torx-5',
+                    imgName: 'batteryBoxTorx5-removebg-preview',
+                    isChecked: false
+                },
+                {
+                    id: 'Torx-6',
+                    partName: 'Torx-6',
+                    imgName: 'batteryBoxTorx6-removebg-preview',
                     isChecked: false
                 }
             ],
@@ -114,17 +140,15 @@ export default {
 img {
     width: 8vw;
     max-width: 125px;
-    height: 12vh;
-    border: 1px solid black;
+    height: 11vh;
     cursor: pointer;
+    padding: 10px 10px 10px 10px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
     /*background: green;*/
 }
-img:hover {
-    background: rgb(61, 98, 119);
-}
+
 #products-container {
     border-right: 1px solid black;
 }
@@ -132,6 +156,7 @@ img:hover {
 }
 h1 {
     margin: 3vh;
+    padding-bottom: 2vh;
 }
 
 #next-btn {
@@ -140,7 +165,6 @@ h1 {
     position: absolute;
     right: 30px;
     bottom: 30px;
-    background: green;
     border: 1px solid black;
     border-radius: 2px;
 }
