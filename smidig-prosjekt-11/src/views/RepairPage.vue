@@ -15,7 +15,8 @@
 import BaseSite from '@/components/UI/BaseSite.vue';
 import RepairOverview from '@/components/Repair/RepairOverview.vue';
 import RepairInfo from '@/components/Repair/RepairInfo.vue';
-import ProgressBar from '../components/Feedback/ProgressBar.vue';
+import ProgressBar from '@/components/Feedback/ProgressBar.vue';
+
 export default {
     data() {
         return {
@@ -28,6 +29,10 @@ export default {
         RepairOverview,
         RepairInfo,
         ProgressBar
+    },
+    methods: {
+        toggleBlur: function() {}
     }
 };
 </script>
+<style scoped></style>

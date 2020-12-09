@@ -1,7 +1,8 @@
 <template>
     <div>
-        <div class="entry-successful">
+        <div class="entry-succesful">
             <base-site />
+            <nav-bar />
         </div>
         <approved-report />
 
