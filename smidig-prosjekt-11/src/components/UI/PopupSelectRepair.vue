@@ -133,18 +133,7 @@ img:hover {
 h1 {
     margin: 3vh;
 }
-#exit-btn {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    font-size: 25px;
-    right: 0px;
-    top: 0px;
-    cursor: pointer;
-}
-#exit-btn:hover {
-    background: rgb(187, 44, 44);
-}
+
 #next-btn {
     width: 85px;
     height: 45px;

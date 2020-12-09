@@ -1,10 +1,10 @@
 <template>
-    <div id="blur-target" class="repair">
+    <div class="repair">
         <base-site>
             <nav-bar />
             <repair-overview />
             <section class="ListRepairs">
-                <repair-info @blurEnabled="toggleBlur"></repair-info>
+                <repair-info></repair-info>
             </section>
         </base-site>
 
@@ -38,3 +38,4 @@ export default {
     }
 };
 </script>
+<style scoped></style>
