@@ -5,7 +5,7 @@
                 tag="button"
                 to="/repair"
                 type="button"
-                class="rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-logoBar"
+                class="rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-logoBar home-repair-ico-src home-ico-style"
             >
                 Repair
             </router-link>
@@ -13,7 +13,7 @@
         <div>
             <button
                 type="button"
-                class="rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-logoBar"
+                class="rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-logoBar home-learn-ico-src home-ico-style"
             >
                 E-Learning
             </button>
@@ -34,18 +34,32 @@ export default {
     width: 35vh;
 }
 .button {
-    background-color: #72b506;
+    background-color: #9fd18d;;
     border: none;
     display: inline block;
-    padding: 15px 32px;
+    padding: 8px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #423048;
     margin: 4px 2px;
     cursor: pointer;
     width: 100%;
+    height: 50px;
     margin-top: 10%;
     outline: none;
+}
+.home-repair-ico-src {
+  background-image: url('../../assets/Images/Icons/landing_repair.png');
+}
+.home-learn-ico-src {
+  background-image: url('../../assets/Images/Icons/landing_elearn.png');
+}
+.home-ico-style {
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 35px;
 }
 </style>
