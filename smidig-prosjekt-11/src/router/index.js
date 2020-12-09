@@ -23,7 +23,7 @@ const routes = [
     {
         path: '/entry-successful',
         name: 'Entry Successful',
-        component: () => import('../views/EntrySuccessful.vue')
+        component: () => import('@/views/EntrySuccessful.vue')
     }
 ];
 
