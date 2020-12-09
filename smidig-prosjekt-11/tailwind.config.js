@@ -14,6 +14,10 @@ module.exports = {
             secondary: '#9FD18D',
             danger: '#e3342f'
         },
+        fontFamily: {
+            'standardText': ['Helvetica-Neue', 'Arial', 'sans-serif'],
+           },
+
         extend: {}
     },
     variants: {

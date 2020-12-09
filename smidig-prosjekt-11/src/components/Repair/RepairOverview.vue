@@ -1,11 +1,11 @@
 <template>
     <div id="overview-container">
-        <label>Product</label>
-        <label>Serial Number</label>
-        <label>Parts</label>
+        <label class="font-standardText">Product</label>
+        <label class="font-standardText">Serial Number</label>
+        <label class="font-standardText">Parts</label>
         <div id="edit-delete-label">
-            <label>Edit</label>
-            <label>Delete</label>
+            <label class="font-standardText">Edit</label>
+            <label class="font-standardText">Delete</label>
         </div>
     </div>
 </template>

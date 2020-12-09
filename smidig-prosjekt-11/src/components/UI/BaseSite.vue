@@ -5,7 +5,7 @@
             <div id="logo-bar" class="md:w-auto bg-logoBar" v>
                 <img id="logo-img" class="relative w-1/7 h-3/5" src="@/assets/Images/brightLogo.png" />
                 <div id="employee-div">
-                    <h1 class="text-secondary">Employee, Name</h1>
+                    <h1 class="font-standardText text-secondary">Employee, Name</h1>
                 </div>
                 <login-button class="pl-20" />
                 <nav-bar class="pl-10" />
@@ -14,7 +14,7 @@
         <slot />
         <footer>
             <div id="footer-div" class="absolute">
-                <small>Copyright &copy; 2020 - Smidig-Prosjekt Gruppe 11</small>
+                <small class="font-standardText">Copyright &copy; 2020 - Smidig-Prosjekt Gruppe 11</small>
             </div>
         </footer>
     </div>
