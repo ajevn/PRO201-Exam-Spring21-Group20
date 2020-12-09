@@ -14,10 +14,9 @@
         <!-- Grid system for submitted models -->
         <section id="entity-list-container">
             <div>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
+                <div v-for="entity in entities" :key="entity.entitySerialNr">
+                    <repair-entity :entityParts="entity.parts"></repair-entity>
+                </div>
 
                 <img
                     v-show="showRepair == false"
@@ -38,9 +37,12 @@ import RepairEntity from '@/components/UI/RepairEntity.vue';
 export default {
     data() {
         return {
-            entities: {},
+            entities: [],
             showRepair: false
         };
+    },
+    created() {
+        this.entities = this.$store.getters.getEntities;
     },
     components: { PopupSelectRepair, RepairEntity },
     methods: {
@@ -50,18 +52,18 @@ export default {
         addRepair() {
             // show new overlay
             this.showRepair = true;
-            this.$store.getEnm;
         },
         closeRepair() {
             // show new overlay
             this.showRepair = false;
-        },
-        getEntities() {
+            // Updates entities from state manually
             this.entities = this.$store.getters.getEntities;
-            console.log(this.entities);
         }
     },
     watch: {
+        entities: function() {
+            console.log('entites updated from watch');
+        }
         // REACT TO STATE CHANGE -- RUN GET ENTITIES METHOd
     }
 };

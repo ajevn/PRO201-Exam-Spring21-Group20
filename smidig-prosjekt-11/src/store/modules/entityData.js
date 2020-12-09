@@ -4,12 +4,8 @@ const state = {
 
 const mutations = {
         addEntity(state, payload) {
-                var entity = {   
-                        entitySerialNr: payload.serialNr,
-                        parts: payload,
-                }
-            state.entityArray.push(entity);
-            console.log("payload = " + payload)
+            state.entityArray.push(payload);
+            console.log("State updated:  " + payload)
         },
 }
 

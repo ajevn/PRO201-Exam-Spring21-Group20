@@ -39,6 +39,7 @@
 export default {
     data() {
         return {
+            serialNr: 1,
             productImages: [
                 {
                     partNumber: '1',
@@ -105,7 +106,11 @@ export default {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
-            this.$store.commit('addEntity', this.partsChosen);
+            var newEntity = {
+                entitySerialNr: this.serialNr,
+                parts: this.partsChosen
+            };
+            this.$store.commit('addEntity', newEntity);
             this.$emit('clicked');
         }
     },

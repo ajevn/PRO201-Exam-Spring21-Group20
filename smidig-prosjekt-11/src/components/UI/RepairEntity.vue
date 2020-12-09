@@ -4,8 +4,16 @@
             <img class="product-image-sunbell" src="@/assets/Images/Parts/sunbellProductImage.png" />
         </div>
         <span><input type="text" v-model="serialNumber"/></span>
-        <img class="part-imgs" src="@/assets/Images/Parts/battery-removebg-preview.png" alt="parts" />
 
+        <div id="parts-container">
+            <img
+                v-for="parts in entityParts"
+                :key="parts.partNumber"
+                class="part-imgs"
+                :src="require('@/assets/Images/Parts/' + parts.imgName + '.png')"
+                alt="parts"
+            />
+        </div>
         <!-- Div to hold both edit and repair -->
         <div class="edit-delete-img">
             <button @click="editRepair">
@@ -24,7 +32,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+    props: {
+        entityParts: {
+            Type: Object
+        }
+    },
+    created() {
+        console.log('Passed as prop' + this.entityParts);
+    }
+};
 </script>
 
 <style lang="scss">
@@ -52,8 +69,19 @@ export default {};
     }
 
     .part-imgs {
-        width: 55px;
+        height: 3.5vh;
+        width: 2.5vw;
         margin: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #parts-container {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 100%;
     }
 
     .edit-delete-img {
