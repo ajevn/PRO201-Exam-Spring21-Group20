@@ -17,7 +17,8 @@ import BaseSite from '@/components/UI/BaseSite.vue';
 import NavBar from '@/components/Nav/NavBar.vue';
 import RepairOverview from '@/components/Repair/RepairOverview.vue';
 import RepairInfo from '@/components/Repair/RepairInfo.vue';
-import ProgressBar from '../components/Feedback/ProgressBar.vue';
+import ProgressBar from '@/components/Feedback/ProgressBar.vue';
+
 export default {
     data() {
         return {

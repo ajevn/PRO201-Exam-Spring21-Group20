@@ -4,12 +4,13 @@
         <!-- https://forum.vuejs.org/t/popup-how-to-hide-a-popup-by-clicking-outside-of-the-popup-window/59693 -- Mulighet for å trykke utenfor popup for å lukke? -->
         <div
             id="parts-popup"
-            class="border-2 border-gray-500 shadow-lg rounded-md bg-gray-300"
+            class="border-2 border-gray-500 shadow-lg rounded-md"
             v-show="showRepair == true"
         >
+            <popup-select-repair @clicked="closeRepair()"></popup-select-repair>
             <img
                 id="close-repair-btn"
-                class="self-end cursor-pointer hover:bg-gray-400 rounded-full transform hover:translate-y-0.5 hover:translate-x-0.5"
+                class="self-end cursor-pointer rounded-full transform hover:translate-y-0.5 hover:translate-x-0.5"
                 src="@/assets/Images/delete-icon.png"
                 v-on:click="closeRepair"
             />
@@ -151,6 +152,8 @@
 </template>
 
 <script>
+import PopupSelectRepair from '@/components/UI/PopupSelectRepair.vue';
+
 export default {
     data() {
         return {
@@ -162,6 +165,7 @@ export default {
             showRepair: false
         };
     },
+    components: { PopupSelectRepair },
     methods: {
         editRepair() {
             // show entity-spesific repair overlay
@@ -179,12 +183,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#parts-popup {
-    position: absolute;
-    width: 66vw;
-    height: 70vh;
-    left: 17vw;
-}
 #product-container {
     width: 100%;
     height: 100px;
@@ -235,5 +233,19 @@ export default {
     margin: auto;
     margin-top: 3vh;
     outline: none;
+}
+#parts-popup {
+    background-color: white;
+    position: absolute;
+    width: 65vw;
+    height: 60vh;
+    top: 20%;
+    left: 15vw;
+    border: 1px solid black;
+}
+#close-repair-btn {
+    position: relative;
+    left: 63.5vw;
+    bottom: 34vh;
 }
 </style>
