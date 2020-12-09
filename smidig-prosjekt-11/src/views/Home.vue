@@ -4,7 +4,8 @@
             <landing-page>
                 <home-select class="home-select-container" />
             </landing-page>
-        </base-site>
+            |</base-site
+        >
     </div>
 </template>
 

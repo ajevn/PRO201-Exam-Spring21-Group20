@@ -11,25 +11,18 @@
                     />
                     <h2>Sunbell</h2>
                 </div>
-                <div>
-                    <img
-                        class="rounded-lg shadow-lg border-2 border-green-700 border-opacity-75 hover:bg-universalGreen"
-                        src="../../assets/Images/Parts/batteryPackLightUnitComplete-removebg-preview.png"
-                        alt=""
-                    />
-                    <h2>Start+</h2>
-                </div>
             </div>
         </div>
         <div id="parts" class="col-span-2">
             <h1>PARTS</h1>
             <div class="grid grid-flow grid-cols-4 grid-rows-3 gap-10">
-                <div v-for="product in productImages" :key="product">
+                <div v-for="product in productImages" :key="product.partNumber">
                     <img
-                        :id="product.id"
+                        :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
-                        class="rounded shadow-lg border-2 border-green-700 border-opacity-75 hover:bg-universalGreen"
-                        @click="pushProducts(product)"
+                        class="rounded shadow-lg border-2 border-green-700 border-opacity-75
+                    hover:bg-universalGreen"
+                        @click="selectPart(product)"
                     />
                     <h2>
                         {{ product.partName }}
@@ -46,46 +39,45 @@
 export default {
     data() {
         return {
-            id: 'Variabelnavn',
             productImages: [
                 {
-                    id: 'Solarpanel',
+                    partNumber: '1',
                     partName: 'Solar Panel',
                     imgName: 'solarPanelCompleteWithCable-removebg-preview',
                     isChecked: false
                 },
                 {
-                    id: 'Battery',
+                    partNumber: '2',
                     partName: 'Battery',
                     imgName: 'battery-removebg-preview',
                     isChecked: false
                 },
                 {
-                    id: 'Gummi',
+                    partNumber: '3',
                     partName: 'Seal',
                     imgName: 'powerSwitchCoverNew-removebg-preview',
                     isChecked: false
                 },
                 {
-                    id: 'noe',
+                    partNumber: '4',
                     partName: 'USB Connector',
                     imgName: 'directUsbPort-removebg-preview',
                     isChecked: false
                 },
                 {
-                    id: 'ledning',
+                    partNumber: '5',
                     partName: 'Neck plus light',
                     imgName: 'batteryPackLightUnitComplete-removebg-preview',
                     isChecked: false
                 },
                 {
-                    id: 'Torx-5',
+                    partNumber: '6',
                     partName: 'Torx-5',
                     imgName: 'batteryBoxTorx5-removebg-preview',
                     isChecked: false
                 },
                 {
-                    id: 'Torx-6',
+                    partNumber: '7',
                     partName: 'Torx-6',
                     imgName: 'batteryBoxTorx6-removebg-preview',
                     isChecked: false
@@ -95,33 +87,25 @@ export default {
         };
     },
     methods: {
-        pushProducts(product) {
+        selectPart(product) {
             //let test = document.getElementById(product.id); // <--- NOOB METODE
             //$this.refs.value.partname
-
             product.isChecked = !product.isChecked;
+            if (product.isChecked == true) {
+                event.target.style.backgroundColor = '#7EB46B';
+            } else {
+                event.target.style.backgroundColor = 'White';
+            }
             //console.log(product.isChecked)
-            console.log(product.id);
-            for (let i = 0; i < this.partsChosen.length; i++) {
-                var isChecked = false;
-                if (product === this.partsChosen[i]) {
-                    isChecked = true;
-                    this.partsChosen.splice(i);
-                    //test.style.background = "green"
-                }
-            }
-            if (!isChecked) {
-                this.partsChosen.push(product);
-                for (var x in this.partsChosen) {
-                    console.log(this.partsChosen[x]);
-                    //product.style.background = "white"
-                }
-            }
             return;
         },
         submitPartsSelected() {
-            // Midlertidig
-            // EMITTE INFORMASJON TIL PARENT COMPONENT
+            for (let i = 0; i < this.productImages.length; i++) {
+                if (this.productImages[i].isChecked) {
+                    this.partsChosen.push(this.productImages[i]);
+                }
+            }
+            this.$store.commit('addEntity', this.partsChosen);
             this.$emit('clicked');
         }
     },
@@ -136,6 +120,7 @@ export default {
 #container {
     width: 100%;
     height: 100%;
+    user-select: none;
 }
 img {
     width: 8vw;

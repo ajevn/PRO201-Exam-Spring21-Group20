@@ -2,11 +2,7 @@
     <!-- Root element -->
     <div>
         <!-- https://forum.vuejs.org/t/popup-how-to-hide-a-popup-by-clicking-outside-of-the-popup-window/59693 -- Mulighet for å trykke utenfor popup for å lukke? -->
-        <div
-            id="parts-popup"
-            class="border-2 border-gray-500 shadow-lg rounded-md"
-            v-show="showRepair == true"
-        >
+        <div id="parts-popup" class="border-2 border-gray-500 shadow-lg rounded-md" v-if="showRepair == true">
             <popup-select-repair @clicked="closeRepair()"></popup-select-repair>
             <img
                 id="close-repair-btn"
@@ -18,17 +14,6 @@
         <!-- Grid system for submitted models -->
         <section id="entity-list-container">
             <div>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
-                <repair-entity></repair-entity>
                 <repair-entity></repair-entity>
                 <repair-entity></repair-entity>
                 <repair-entity></repair-entity>
@@ -53,11 +38,7 @@ import RepairEntity from '@/components/UI/RepairEntity.vue';
 export default {
     data() {
         return {
-            entity: {
-                id: '',
-                serialNumber: '',
-                parts: []
-            },
+            entities: {},
             showRepair: false
         };
     },
@@ -69,11 +50,19 @@ export default {
         addRepair() {
             // show new overlay
             this.showRepair = true;
+            this.$store.getEnm;
         },
         closeRepair() {
             // show new overlay
             this.showRepair = false;
+        },
+        getEntities() {
+            this.entities = this.$store.getters.getEntities;
+            console.log(this.entities);
         }
+    },
+    watch: {
+        // REACT TO STATE CHANGE -- RUN GET ENTITIES METHOd
     }
 };
 </script>
