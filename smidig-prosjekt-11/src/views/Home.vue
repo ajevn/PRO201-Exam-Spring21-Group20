@@ -1,7 +1,6 @@
 <template>
     <div class="home">
         <base-site>
-            <nav-bar />
             <landing-page>
                 <home-select class="home-select-container" />
             </landing-page>
@@ -13,7 +12,6 @@
 // @ is an alias to /src
 import BaseSite from '@/components/UI/BaseSite.vue';
 import HomeSelect from '@/components/Nav/HomeSelect.vue';
-import NavBar from '@/components/Nav/NavBar.vue';
 import LandingPage from '@/components/UI/LandingPage.vue';
 
 export default {
@@ -21,7 +19,6 @@ export default {
     components: {
         BaseSite,
         HomeSelect,
-        NavBar,
         LandingPage
     }
 };

@@ -1,7 +1,6 @@
 <template>
     <div class="entry-succesful">
         <base-site />
-        <nav-bar />
     </div>
     <approved-report />
 
@@ -11,16 +10,15 @@
 <script>
 // @ is an alias to /src
 import BaseSite from '@/components/UI/BaseSite.vue';
-import ApprovedReport from '../components/Feedback/ApprovedReport.vue';
-import NavBar from '../components/Nav/NavBar.vue';
+import ApprovedReport from '@/components/Feedback/ApprovedReport.vue';
 import ProgressBar from '../components/Feedback/ProgressBar.vue';
 
+
 export default {
-    name: 'Entry Successful',
+    name: 'entrySuccesful',
     components: {
         BaseSite,
         ApprovedReport,
-        NavBar,
         ProgressBar
     }
 };

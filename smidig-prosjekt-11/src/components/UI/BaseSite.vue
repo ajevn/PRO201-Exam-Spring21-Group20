@@ -7,6 +7,8 @@
                 <div id="employee-div">
                     <h1 class="text-secondary">Employee, Name</h1>
                 </div>
+                <login-button class="pl-20" />
+                <nav-bar class="pl-10" />
             </div>
         </header>
         <slot />
@@ -19,15 +21,23 @@
 </template>
 
 <script>
+import NavBar from '@/components/Nav/NavBar.vue';
+import LoginButton from '@/components/UI/LoginButton.vue';
 export default {
-    name: 'LogoBar'
+    name: 'LogoBar',
+    setup() {
+        return {
+            NavBar,
+            LoginButton
+        };
+    }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #logo-bar {
-    height: 10vh;
+    height: 15vh;
 }
 #logo-img {
     top: 2vh;
@@ -40,6 +50,6 @@ export default {
 #employee-div {
     text-align: right;
     padding-right: 1.7vw;
-    top: 30px;
+    top: 10px;
 }
 </style>

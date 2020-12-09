@@ -4,9 +4,7 @@
         |
         <router-link to="/repair">Repair</router-link>
         |
-        <router-link to="/entry-successful">Entry Successful</router-link>
-        |
-        <router-link to="/login">login</router-link>
+        <router-link to="/entry-succesful">Entry Succesful</router-link>
     </div>
 </template>
 
@@ -15,4 +13,11 @@ export default {};
 </script>
 
 <style scoped>
+#nav a {
+    font-weight: bold;
+    color: #3c1964;
+}
+#nav a.router-link-exact-active {
+    color: #9fd18d;
+}
 </style>

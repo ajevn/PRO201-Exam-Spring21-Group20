@@ -1,6 +1,11 @@
 <template>
-    <div>
-        <slot />
+    <div class="w-full h-auto">
+        <div class=" sidebar w-1/5 bg-logoBar bg-opacity-70  ">
+            <div class="p-28"></div>
+        </div>
+        <div>
+            <slot />
+        </div>
     </div>
 </template>
 
@@ -14,4 +19,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.sidebar {
+    height: 85vh;
+}
+</style>

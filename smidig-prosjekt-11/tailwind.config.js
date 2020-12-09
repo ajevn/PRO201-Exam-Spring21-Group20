@@ -5,8 +5,8 @@ module.exports = {
         backgroundColor: theme => ({
             ...theme('colors'),
             logoBar: '#405C6A',
-            secondary: '#ffed4a',
-            danger: '#e3342f'
+            secondary: '#3490dc',
+            green: '#9FD18D'
         }),
         textColor: {
             primary: '#3490dc',
