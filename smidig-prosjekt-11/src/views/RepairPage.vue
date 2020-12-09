@@ -1,10 +1,10 @@
 <template>
-    <div class="repair">
+    <div id="blur-target" class="repair">
         <base-site>
             <nav-bar />
             <repair-overview />
             <section class="ListRepairs">
-                <repair-info></repair-info>
+                <repair-info @blurEnabled="toggleBlur"></repair-info>
             </section>
         </base-site>
 
@@ -32,6 +32,9 @@ export default {
         RepairOverview,
         RepairInfo,
         ProgressBar
+    },
+    methods: {
+        toggleBlur: function() {}
     }
 };
 </script>

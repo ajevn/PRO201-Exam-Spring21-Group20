@@ -1,6 +1,6 @@
 <template>
     <!-- Root element -->
-    <div>
+    <div class="blurred">
         <!-- https://forum.vuejs.org/t/popup-how-to-hide-a-popup-by-clicking-outside-of-the-popup-window/59693 -- Mulighet for å trykke utenfor popup for å lukke? -->
         <div
             id="parts-popup"
@@ -79,6 +79,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.blurred {
+    filter: blur(50);
+}
 #plus-btn {
     margin: auto;
     margin-top: 3vh;

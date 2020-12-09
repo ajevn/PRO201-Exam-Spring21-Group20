@@ -1,5 +1,5 @@
 <template>
-    <div id="container" class="grid grid-cols-3 text-center bg-red-200">
+    <div id="container" class="grid grid-cols-3 text-center">
         <div id="products-container">
             <h1>PRODUCT</h1>
             <div class="grid grid-cols-2 content-center">
@@ -107,6 +107,10 @@ export default {
 };
 </script>
 <style scoped>
+#container {
+    width: 100%;
+    height: 100%;
+}
 img {
     width: 8vw;
     max-width: 125px;
