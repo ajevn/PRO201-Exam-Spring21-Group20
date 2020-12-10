@@ -1,36 +1,43 @@
 <template>
-    <div id="container" class="grid grid-cols-3 text-center">
-        <div id="products-container">
+    <div id="container" class="text-center">
+        <div id="products-container" class="grid-rows-3">
             <h1>PRODUCT</h1>
-            <div class="grid grid-cols-2 content-center">
-                <div>
-                    <img
-                        src="../../assets/Images/Parts/sunbellProductImage.png"
-                        alt=""
-                        class="rounded-lg shadow-lg border-2 border-green-700 border-opacity-75 hover:bg-universalGreen"
-                    />
+            <div class="content-center">
+                <div id="popup-static-product-style">
+                    <img src="../../assets/Images/Parts/sunbellProductImage.png" alt="Product: Sunbell" />
                     <h2>Sunbell</h2>
                 </div>
+            </div>
+
+            <hr />
+
+            <div id="serialnum-container">
+                <h3>SERIAL NUMBER</h3>
+                <input ref="inputSerialNumber" type="text" :v-model="serialNr" placeholder="Serial Number" />
             </div>
         </div>
         <div id="parts" class="col-span-2">
             <h1>PARTS</h1>
-            <div class="grid grid-flow grid-cols-4 grid-rows-3 gap-10">
-                <div v-for="product in productImages" :key="product.partNumber">
+            <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
+                <a
+                    class="popup-products"
+                    v-for="product in productImages"
+                    :key="product.partNumber"
+                    @click="selectPart(product)"
+                >
                     <img
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
-                        class="rounded shadow-lg border-2 border-green-700 border-opacity-75
-                    hover:bg-universalGreen"
-                        @click="selectPart(product)"
                     />
                     <h2>
                         {{ product.partName }}
                     </h2>
-                </div>
+                </a>
             </div>
         </div>
-        <div id="exit-btn" @click="closePopup"></div>
+
+        <!-- Creating space for the close button of the project -->
+        <slot />
         <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
     </div>
 </template>
@@ -39,7 +46,10 @@
 export default {
     data() {
         return {
-            serialNr: 1,
+            serialNr: {
+                Type: Number,
+                Required: true
+            },
             productImages: [
                 {
                     partNumber: '1',
@@ -92,22 +102,29 @@ export default {
             //let test = document.getElementById(product.id); // <--- NOOB METODE
             //$this.refs.value.partname
             product.isChecked = !product.isChecked;
+            let parentEl = event.target.parentElement;
+
+            // To prevent user to change color of the wrong parent
+            if (parentEl.id === 'parts-cont-no-change') return;
+
             if (product.isChecked == true) {
-                event.target.style.backgroundColor = '#7EB46B';
+                parentEl.style.backgroundColor = '#7EB46B';
             } else {
-                event.target.style.backgroundColor = 'White';
+                parentEl.style.backgroundColor = ' #F8F6F2';
             }
             //console.log(product.isChecked)
             return;
         },
+
         submitPartsSelected() {
             for (let i = 0; i < this.productImages.length; i++) {
                 if (this.productImages[i].isChecked) {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
-            var newEntity = {
-                entitySerialNr: this.serialNr,
+            //this.serialNr =  this.$refs.inputSerialNumber.value;
+            let newEntity = {
+                entitySerialNr: this.$refs.inputSerialNumber.value,
                 parts: this.partsChosen
             };
             this.$store.commit('addEntity', newEntity);
@@ -121,42 +138,124 @@ export default {
     // emits
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 #container {
     width: 100%;
     height: 100%;
     user-select: none;
-}
-img {
-    width: 8vw;
-    max-width: 125px;
-    height: 11vh;
-    cursor: pointer;
-    padding: 10px 10px 10px 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    /*background: green;*/
-}
+    background-color: #f8f6f2;
 
-#products-container {
-    border-right: 1px solid black;
-}
-#parts {
-}
-h1 {
-    margin: 3vh;
-    padding-bottom: 2vh;
-}
+    display: grid;
+    grid-template-columns: auto 70%;
 
-#next-btn {
-    width: 85px;
-    height: 45px;
-    position: absolute;
-    right: 30px;
-    bottom: 30px;
-    border: 1px solid black;
-    border-radius: 2px;
+    h1 {
+        margin: 3vh;
+        padding-bottom: 2vh;
+        font-weight: bold;
+        color: #38293c;
+    }
+
+    img {
+        width: 8vw;
+        max-width: 125px;
+        height: 11vh;
+        cursor: pointer;
+        padding: 10px 10px 10px 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        /*background: green;*/
+    }
+
+    #products-container {
+        border-right: 1px solid black;
+        grid-column: 1;
+        background-color: #f8f6f2;
+
+        // Creating grid for products-container to
+        // position both product and serial number
+        display: grid;
+        grid-template-rows: max-content 35% 2px auto;
+        height: 100%;
+
+        #popup-static-product-style {
+            background-color: #7eb46b;
+            width: 15vh;
+            height: 15vh;
+            margin: auto;
+
+            h2 {
+                font-weight: bold;
+                font-size: 17px;
+            }
+
+            img {
+                -webkit-user-drag: none;
+                cursor: default;
+            }
+        }
+
+        #serialnum-container {
+            grid-row: 3;
+            margin-top: 30px;
+
+            h3 {
+                font-weight: bold;
+                color: #38293c;
+            }
+
+            input {
+                border: 1.5px solid #423048;
+                border-radius: 5px;
+                background-color: #fffefd;
+                color: #050505;
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+    }
+
+    #parts {
+        grid-column: 2;
+        margin: 0 3vw 0 3vw;
+        background-color: #f8f6f2;
+    }
+
+    #exit-btn {
+        position: absolute;
+        top: 0;
+        height: 200px;
+    }
+
+    #next-btn {
+        width: 85px;
+        height: 45px;
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+        border: 1px solid black;
+        border-radius: 2px;
+    }
+
+    .popup-products {
+        background-color: #f8f6f2;
+        width: 15vh;
+        height: 15vh;
+
+        h2 {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        img {
+            -webkit-user-drag: none;
+        }
+
+        &:hover {
+            background-color: #7eb46b;
+        }
+    }
 }
 
 /* FILTER BLUR */
