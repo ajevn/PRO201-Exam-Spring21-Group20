@@ -7,7 +7,6 @@ module.exports = {
             logoBar: '#405C6A',
             secondary: '#ffed4a',
             universalGreen: '#7EB46B'
-
         }),
         textColor: {
             primary: '#3490dc',
@@ -15,8 +14,8 @@ module.exports = {
             danger: '#e3342f'
         },
         fontFamily: {
-            'standardText': ['Helvetica-Neue', 'Arial', 'sans-serif'],
-           },
+            standardText: ['Helvetica-Neue', 'Arial', 'sans-serif']
+        },
 
         extend: {}
     },

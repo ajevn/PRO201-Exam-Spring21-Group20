@@ -14,5 +14,4 @@ export default {};
 * {
     font-family: Calibre, Arial, Helvetica, sans-serif;
 }
-
 </style>

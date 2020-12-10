@@ -35,7 +35,7 @@ export default {
 <style scoped>
 #logo-bar {
     height: 13vh;
-    display:grid;
+    display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto max-content;
 }
@@ -60,5 +60,4 @@ export default {
 #employee-div h1 {
     font-size: 20px;
 }
-
 </style>

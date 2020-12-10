@@ -6,7 +6,7 @@ import entityData from './modules/entityData';
 export default createStore({
     modules: {
         user,
-        entityData,
+        entityData
     },
     plugins: [createPersistedState()]
 });
