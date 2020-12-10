@@ -7,6 +7,7 @@
         :icon='but.icon'
         :link='but.link'>
         </hamburger-button>
+        <div class="triangle"></div>
     </div>
 </template>
 
@@ -21,12 +22,12 @@ export default {
         buttons: [
             {
                 bValue: 'User',
-                icon: "certificate-icon.png",
+                icon: 'user-person-icon.png',
                 link: '/repair'
             },
             {
                 bValue: 'Certifications',
-                icon: 'user-person-icon.png',
+                icon: "certificate-icon.png",
                 link: '/entry-successful'
             }
         ]
@@ -42,17 +43,36 @@ export default {
 .hamburger-menu {
     z-index: 999;
     position: absolute;
-    /*background-color: #423048;*/
-	background-color: #848484;
+    
+	background-color: #405C6A;
 	opacity: 0.9;
-    padding-top: 5vh;
-    height: 85vh;
-    /*margin-left: 3vh; */
-    width: 15vw;
+    height: auto;
+    width: 200px;
+    top: 75px;
+    border-radius: 7px;
+    
+    margin-top: 2vh;
+    margin-left: 1.5vh;
+    padding-bottom: 3vh;
     
     display: flex;
     flex-direction: column;
+    align-items: center;
+    
+    /*background-color: #423048;*/
 }
+
+.triangle {
+    position: absolute;
+    left: 14px;
+    top: -18px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 19.5px 30px 19.5px;
+    border-color: transparent transparent #405c6a transparent;
+}
+
 
 
 /*
