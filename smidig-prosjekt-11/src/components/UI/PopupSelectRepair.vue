@@ -3,11 +3,10 @@
         <div id="products-container" class="grid-rows-3">
             <h1>PRODUCT</h1>
             <div class="content-center">
-                <div>
+                <div id="popup-static-product-style">
                     <img
                         src="../../assets/Images/Parts/sunbellProductImage.png"
-                        alt=""
-                        class="shadow-lg border-2 border-opacity-75 hover:bg-universalGreen"
+                        alt="Product: Sunbell"
                     />
                     <h2>Sunbell</h2>
                 </div>
@@ -141,6 +140,7 @@ export default {
     width: 100%;
     height: 100%;
     user-select: none;
+    background-color: #F8F6F2;
 
     display: grid;
     grid-template-columns: auto 70%;
@@ -175,6 +175,17 @@ export default {
         display: grid;
         grid-template-rows: max-content auto auto;
         height: 100%;
+
+        #popup-static-product-style {
+            background-color: #7EB46B;
+            width: 15vh;
+            height: 15vh;
+            margin: auto;
+
+            img {
+                -webkit-user-drag: none;
+            }
+        }
 
         #serialnum-container {
             grid-row: 3;
@@ -227,6 +238,10 @@ export default {
 
         h2 {
             padding-bottom: 10px;
+        }
+
+        img {
+            -webkit-user-drag: none;
         }
     }
 }
