@@ -3,7 +3,7 @@
         <div class="ProductImg">
             <img class="product-image-sunbell" src="@/assets/Images/Parts/sunbellProductImage.png" />
         </div>
-        <span><input type="text" v-model="serialNumber"/></span>
+        <span><input type="text"/></span>
 
         <div id="parts-container">
             <img
@@ -40,7 +40,6 @@ export default {
     },
     created() {
         console.log('Passed as prop' + this.entityParts);
-        console.log(this.entityParts.entitySerialNr);
     }
 };
 </script>

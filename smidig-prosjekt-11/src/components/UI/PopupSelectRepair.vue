@@ -15,7 +15,7 @@
             <div id="serialnum-container">
                 <hr />
                 <label>Serial Number</label>
-                <input type="text" v-model="serialNr" />
+                <input type="text" :v-model="serialNr" placeholder="serialnumber" />
             </div>
         </div>
         <div id="parts" class="col-span-2">
@@ -114,7 +114,7 @@ export default {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
-            var newEntity = {
+            let newEntity = {
                 entitySerialNr: this.serialNr,
                 parts: this.partsChosen
             };
@@ -149,8 +149,6 @@ img {
 
 #products-container {
     border-right: 1px solid black;
-}
-#parts {
 }
 h1 {
     margin: 3vh;
