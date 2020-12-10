@@ -20,7 +20,7 @@
         <div id="parts" class="col-span-2">
             <h1>PARTS</h1>
             <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
-                <a class="popup-products hover:bg-universalGreen" 
+                <a class="popup-products" 
                     v-for="product in productImages" :key="product.partNumber"
                     @click="selectPart(product)"
                     >
@@ -182,6 +182,11 @@ export default {
             height: 15vh;
             margin: auto;
 
+            h2 {
+                font-weight: bold;
+                font-size: 17px;
+            }
+
             img {
                 -webkit-user-drag: none;
                 cursor: default;
@@ -239,10 +244,16 @@ export default {
 
         h2 {
             cursor: pointer;
+            font-weight: bold;
+            font-size: 17px;
         }
 
         img {
             -webkit-user-drag: none;
+        }
+
+        &:hover {
+            background-color: #7EB46B;
         }
     }
 }
