@@ -45,10 +45,10 @@ export default {
     /*background-color: #423048;*/
 	background-color: #848484;
 	opacity: 0.9;
-    /* margin-top: 3vh;
-    margin-left: 3vh; */
+    padding-top: 5vh;
     height: 85vh;
-    width: 20vw;
+    /*margin-left: 3vh; */
+    width: 15vw;
     
     display: flex;
     flex-direction: column;
