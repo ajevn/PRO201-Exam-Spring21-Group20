@@ -7,7 +7,7 @@
                     <img
                         src="../../assets/Images/Parts/sunbellProductImage.png"
                         alt=""
-                        class="rounded-lg shadow-lg border-2 border-green-700 border-opacity-75 hover:bg-universalGreen"
+                        class="shadow-lg border-2 border-opacity-75 hover:bg-universalGreen"
                     />
                     <h2>Sunbell</h2>
                 </div>
@@ -20,14 +20,14 @@
         </div>
         <div id="parts" class="col-span-2">
             <h1>PARTS</h1>
-            <div class="grid grid-flow grid-cols-4 grid-rows-2 gap-10">
-                <div v-for="product in productImages" :key="product.partNumber">
+            <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
+                <div class="popup-products hover:bg-universalGreen" 
+                    v-for="product in productImages" :key="product.partNumber"
+                    @click="selectPart(product)"
+                    >
                     <img
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
-                        class="rounded shadow-lg border-2 border-green-700 border-opacity-75
-                    hover:bg-universalGreen"
-                        @click="selectPart(product)"
                     />
                     <h2>
                         {{ product.partName }}
@@ -102,10 +102,15 @@ export default {
             //let test = document.getElementById(product.id); // <--- NOOB METODE
             //$this.refs.value.partname
             product.isChecked = !product.isChecked;
+            let parentEl = event.target.parentElement;
+
+            // To prevent user to change color of the wrong parent
+            if (parentEl.id === 'parts-cont-no-change') return;
+
             if (product.isChecked == true) {
-                event.target.style.backgroundColor = '#7EB46B';
+                parentEl.style.backgroundColor = '#7EB46B';
             } else {
-                event.target.style.backgroundColor = 'White';
+                parentEl.style.backgroundColor = ' #F8F6F2';
             }
             //console.log(product.isChecked)
             return;
@@ -163,6 +168,8 @@ export default {
     #products-container {
         border-right: 1px solid black;
         grid-column: 1;
+        background-color: #F8F6F2;
+
         // Creating grid for products-container to
         // position both product and serial number
         display: grid;
@@ -174,6 +181,7 @@ export default {
             
             h3 {
                 font-weight: bold;
+                color: #38293C
             }
             
             input {
@@ -190,6 +198,8 @@ export default {
 
     #parts {
         grid-column: 2;
+        margin: 0 3vw 0 3vw ;
+               background-color: #F8F6F2;
     }
 
 
@@ -210,6 +220,15 @@ export default {
         border-radius: 2px;
     }
 
+    .popup-products {
+        background-color: #F8F6F2;
+        width: 15vh;
+        height: 15vh;
+
+        h2 {
+            padding-bottom: 10px;
+        }
+    }
 }
 
 
