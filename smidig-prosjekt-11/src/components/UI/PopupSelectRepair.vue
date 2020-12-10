@@ -14,8 +14,8 @@
             </div>
             <div id="serialnum-container">
                 <hr />
-                <label>Serial Number</label>
-                <input type="text" :v-model="serialNr" placeholder="serialnumber" />
+                <label>Serial Number: </label>
+                <input ref="inputSerialNumber" type="text" :v-model="serialNr" placeholder="Serial Number" />
             </div>
         </div>
         <div id="parts" class="col-span-2">
@@ -53,43 +53,50 @@ export default {
                     partNumber: '1',
                     partName: 'Solar Panel',
                     imgName: 'solarPanelCompleteWithCable-removebg-preview',
-                    isChecked: false
+                    isChecked: false,
+                    serialNumber: ""
                 },
                 {
                     partNumber: '2',
                     partName: 'Battery',
                     imgName: 'battery-removebg-preview',
-                    isChecked: false
+                    isChecked: false,
+                    serialNumber: ""
                 },
                 {
                     partNumber: '3',
                     partName: 'Seal',
                     imgName: 'powerSwitchCoverNew-removebg-preview',
-                    isChecked: false
+                    isChecked: false,
+                    serialNumber: ""
                 },
                 {
                     partNumber: '4',
                     partName: 'USB Connector',
                     imgName: 'directUsbPort-removebg-preview',
-                    isChecked: false
+                    isChecked: false,
+                    serialNumber: ""
                 },
                 {
                     partNumber: '5',
                     partName: 'Neck plus light',
                     imgName: 'batteryPackLightUnitComplete-removebg-preview',
-                    isChecked: false
+                    isChecked: false,
+                    serialNumber: ""
                 },
                 {
                     partNumber: '6',
                     partName: 'Torx-5',
                     imgName: 'batteryBoxTorx5-removebg-preview',
-                    isChecked: false
+                    isChecked: false,
+                    serialNumber: ""
                 },
                 {
                     partNumber: '7',
                     partName: 'Torx-6',
                     imgName: 'batteryBoxTorx6-removebg-preview',
-                    isChecked: false
+                    isChecked: false,
+                    serialNumber: ""
                 }
             ],
             partsChosen: []
@@ -108,14 +115,16 @@ export default {
             //console.log(product.isChecked)
             return;
         },
+
         submitPartsSelected() {
             for (let i = 0; i < this.productImages.length; i++) {
                 if (this.productImages[i].isChecked) {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
+            //this.serialNr =  this.$refs.inputSerialNumber.value; 
             let newEntity = {
-                entitySerialNr: this.serialNr,
+                entitySerialNr: this.$refs.inputSerialNumber.value,
                 parts: this.partsChosen
             };
             this.$store.commit('addEntity', newEntity);

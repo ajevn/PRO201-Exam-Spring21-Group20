@@ -15,7 +15,8 @@
         <section id="entity-list-container">
             <div>
                 <div v-for="entity in entities" :key="entity.entitySerialNr">
-                    <repair-entity :entityParts="entity.parts"></repair-entity>
+                    <repair-entity :entitySerialNumber="entity.entitySerialNr" :entityParts="entity.parts"></repair-entity>
+                    
                 </div>
 
                 <img
@@ -33,6 +34,7 @@
 <script>
 import PopupSelectRepair from '@/components/UI/PopupSelectRepair.vue';
 import RepairEntity from '@/components/UI/RepairEntity.vue';
+
 
 export default {
     data() {
