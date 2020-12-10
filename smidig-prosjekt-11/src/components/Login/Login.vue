@@ -4,7 +4,7 @@
             <div>
                 <label class="block mb-2 text-indigo-500" for="username">Username</label>
                 <input
-                    class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-blue-500 outline-none focus:bg-gray-300"
+                    class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-green-500 outline-none focus:bg-gray-300"
                     v-model="username"
                     type="text"
                     placeholder="Enter Username"
@@ -15,7 +15,7 @@
             <div>
                 <label class="block mb-2 text-indigo-500" for="password">Password</label>
                 <input
-                    class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-blue-500 outline-none focus:bg-gray-300"
+                    class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-green-500 outline-none focus:bg-gray-300"
                     v-model="password"
                     type="password"
                     placeholder="Enter Password"
@@ -26,7 +26,7 @@
 
             <div>
                 <input
-                    class="w-full bg-green hover:bg-secondary text-white font-bold py-2 px-4 mb-6 rounded"
+                    class="w-full bg-gray-200 hover:bg-universalGreen text-white font-bold py-2 px-4 mb-6 rounded"
                     type="submit"
                 />
             </div>
