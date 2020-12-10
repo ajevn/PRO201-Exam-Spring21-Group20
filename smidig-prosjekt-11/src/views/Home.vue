@@ -1,9 +1,7 @@
 <template>
     <div class="home">
         <base-site>
-            <landing-page>
-                <home-select class="home-select-container" />
-            </landing-page>
+            <home-select class="home-select-container" />
         </base-site>
     </div>
 </template>
@@ -12,14 +10,12 @@
 // @ is an alias to /src
 import BaseSite from '@/components/UI/BaseSite.vue';
 import HomeSelect from '@/components/Nav/HomeSelect.vue';
-import LandingPage from '@/components/UI/LandingPage.vue';
 
 export default {
     name: 'Home',
     components: {
         BaseSite,
-        HomeSelect,
-        LandingPage
+        HomeSelect
     }
 };
 </script>
