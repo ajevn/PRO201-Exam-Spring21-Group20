@@ -46,6 +46,7 @@
 export default {
     data() {
         return {
+            showModal: true,
             serialNr: {
                 Type: Number,
                 Required: true
@@ -127,8 +128,16 @@ export default {
                 entitySerialNr: this.$refs.inputSerialNumber.value,
                 parts: this.partsChosen
             };
-            this.$store.commit('addEntity', newEntity);
-            this.$emit('clicked');
+            var stateEntities = this.$store.getters.getEntities;
+
+            let exists = stateEntities.findIndex(entity => entity.entitySerialNr === newEntity.entitySerialNr);
+                if(exists == -1){
+                    this.$store.commit('addEntity', newEntity);
+                    this.$emit('clicked');
+                } else {
+                    alert("Serial Number Already Exists")
+                }
+                
         }
     },
     name: 'PopupSelect',
