@@ -3,12 +3,11 @@
     <div class="base">
         <header>
             <div id="logo-bar" class="md:w-auto bg-logoBar" v>
-                <img id="logo-img" class="relative w-1/7 h-3/5" src="@/assets/Images/brightLogo.png" />
+                <img id="logo-img" class="relative" src="@/assets/Images/brightLogo.png" />
                 <div id="employee-div">
                     <h1 class="font-standardText text-secondary">Employee, Name</h1>
                 </div>
                 <login-button class="pl-20" />
-                <nav-bar class="pl-10" />
             </div>
         </header>
         <slot />
@@ -21,13 +20,11 @@
 </template>
 
 <script>
-import NavBar from '@/components/Nav/NavBar.vue';
 import LoginButton from '@/components/UI/LoginButton.vue';
 export default {
     name: 'LogoBar',
     setup() {
         return {
-            NavBar,
             LoginButton
         };
     }
@@ -37,19 +34,31 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #logo-bar {
-    height: 15vh;
+    height: 13vh;
+    display:grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto max-content;
 }
 #logo-img {
-    top: 2vh;
-    left: 1.7vw;
+    margin: auto;
+    margin-left: 1.5vh;
+    height: 65%;
+    grid-column: 1;
+    grid-row: 1;
 }
 #footer-div {
     left: 1vw;
     bottom: 1vh;
 }
 #employee-div {
-    text-align: right;
-    padding-right: 1.7vw;
-    top: 10px;
+    grid-column: 2;
+    grid-row: 1;
+    margin: auto;
+    margin-right: 2.5vh;
 }
+
+#employee-div h1 {
+    font-size: 20px;
+}
+
 </style>
