@@ -128,7 +128,7 @@ export default {
     }
 
     #progress-bar-success {
-        left: 97%;
+        left: 98%;
     }
 
     // Classes to change from done and not done steps

@@ -1,5 +1,5 @@
 <template>
-    <div class="repair">
+    <div class="repair" v-if="user">
         <base-site>
             <repair-overview />
             <section class="ListRepairs">
@@ -9,16 +9,20 @@
 
         <progress-bar />
     </div>
+    <redirect-login v-else />
 </template>
 
 <script>
 import BaseSite from '@/components/UI/BaseSite.vue';
 import RepairOverview from '@/components/Repair/RepairOverview.vue';
 import RepairInfo from '@/components/Repair/RepairInfo.vue';
-import ProgressBar from '../components/Feedback/ProgressBar.vue';
+import ProgressBar from '@/components/Feedback/ProgressBar.vue';
+import RedirectLogin from '@/components/Login/RedirectLogin.vue';
+
 export default {
     data() {
         return {
+            user: this.$store.getters.getUserId,
             ListOfRepairs: []
         };
     },
@@ -27,7 +31,12 @@ export default {
         BaseSite,
         RepairOverview,
         RepairInfo,
-        ProgressBar
+        ProgressBar,
+        RedirectLogin
+    },
+    methods: {
+        toggleBlur: function() {}
     }
 };
 </script>
+<style scoped></style>

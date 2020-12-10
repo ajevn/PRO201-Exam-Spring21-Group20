@@ -10,4 +10,8 @@
 export default {};
 </script>
 
-<style></style>
+<style>
+* {
+    font-family: Calibre, Arial, Helvetica, sans-serif;
+}
+</style>

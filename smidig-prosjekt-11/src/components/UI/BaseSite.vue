@@ -5,30 +5,25 @@
             <div id="logo-bar" class="md:w-auto bg-logoBar" v>
                 <div class="image-container">
                 
-            <button type="button" @click="showSideBar"  class="burger-button" title="Menu">
-                <span class="hidden">Toggle menu</span>
-                <span class="burger-bar burger-bar--1"></span>
-                <span class="burger-bar burger-bar--2"></span>
-                <span class="burger-bar burger-bar--3"></span> 
-            </button>
+                <button type="button" @click="showSideBar"  class="burger-button" title="Menu">
+                    <span class="hidden">Toggle menu</span>
+                    <span class="burger-bar burger-bar--1"></span>
+                    <span class="burger-bar burger-bar--2"></span>
+                    <span class="burger-bar burger-bar--3"></span> 
+                </button>
 
-                    <!-- <img 
-                    id="hamburger-icon" 
-					class="cursor-pointer" 
-                    @click="showSideBar" 
-                    src="@/assets/Images/Icons/hamburger-icon.png" /> -->
-                    
-                    <img 
-                    id="logo-img" 
-                    src="@/assets/Images/brightLogo.png" />
-                    <!-- class="relative w-1/7 h-3/5"  -->
-                </div>
-                
-                
+            
+                    <router-link to="/">
+                        <img 
+                        id="logo-img" 
+                        src="@/assets/Images/brightLogo.png" />
+                    </router-link>
+            </div>
+
                 <div id="employee-div">
-                    <h1 class="text-secondary">Employee, Name</h1>
+                    <h1 class="font-standardText text-secondary">Employee, {{ user || 'x' }}</h1>
                 </div>
-                <nav-bar class="nav-bar" />
+                <login-button class="pl-20" />
             </div>
         </header>
         
@@ -37,26 +32,39 @@
         
         <slot />
         <footer>
-            <div id="footer-div" class="absolute { cr-highlight: this.sideBarVisible  }">
-                <small>Copyright &copy; 2020 - Smidig-Prosjekt Gruppe 11</small>
+            <div id="footer-div" class="absolute">
+                <small class="font-standardText">Copyright &copy; 2020 - Smidig-Prosjekt Gruppe 11</small>
             </div>
         </footer>
     </div>
 </template>
 
 <script>
-import NavBar from '@/components/Nav/NavBar.vue';
+
 import Hamburger from '@/components/Nav/Hamburger.vue';
+import LoginButton from '@/components/Login/LoginButton.vue';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 export default {
     components: { 
-        NavBar,
         Hamburger 
     },
     name: 'LogoBar',
     setup() {
+        const store = useStore();
+        const router = useRouter();
+        const user = computed(() => {
+            return store.getters.getUserId;
+        });
+        function goHome() {
+            router.push({ name: 'home' });
+        }
         return {
-            NavBar,
-            Hamburger
+            Hamburger,
+            LoginButton,
+            user,
+            goHome
         };
     },
     data() {
@@ -158,7 +166,10 @@ button:focus {
 
 /* old version  */
 #logo-bar {
-    height: 15vh;
+    height: 13vh;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto max-content;   
 }
 .image-container {
     position: relative;
@@ -178,28 +189,24 @@ button:focus {
 }
 
 #logo-img {
-    height: 8vh;
-}
-
-
-
-.nav-bar {
-    position: relative;
-    display: inline-block;
-    bottom: 4vh;
-    left: 3vh;
+    margin: auto;
+    margin-left: 1.5vh;
+    height: 65%;
+    grid-column: 1;
+    grid-row: 1;
 }
 #footer-div {
     left: 1vw;
     bottom: 1vh;
 }
 #employee-div {
-    position: relative;
-    text-align: right;
-    padding-right: 1.7vw;
-    bottom: 1vh;
+    grid-column: 2;
+    grid-row: 1;
+    margin: auto;
+    margin-right: 2.5vh;
 }
-.cr-highlight {
-    color: #9FD18D;
+
+#employee-div h1 {
+    font-size: 20px;
 }
 </style>

@@ -2,14 +2,13 @@
     <div>
         <base-site>
             <login />
-            <login-button />
         </base-site>
     </div>
 </template>
 
 <script>
 import BaseSite from '@/components/UI/BaseSite.vue';
-import Login from '@/components/UI/Login.vue';
+import Login from '@/components/Login/Login.vue';
 export default {
     name: 'LoginPage',
     setup() {
