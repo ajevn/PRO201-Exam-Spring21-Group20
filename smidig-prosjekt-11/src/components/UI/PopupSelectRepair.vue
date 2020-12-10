@@ -4,16 +4,13 @@
             <h1>PRODUCT</h1>
             <div class="content-center">
                 <div id="popup-static-product-style">
-                    <img
-                        src="../../assets/Images/Parts/sunbellProductImage.png"
-                        alt="Product: Sunbell"
-                    />
+                    <img src="../../assets/Images/Parts/sunbellProductImage.png" alt="Product: Sunbell" />
                     <h2>Sunbell</h2>
                 </div>
             </div>
-            
+
             <hr />
-            
+
             <div id="serialnum-container">
                 <h3>SERIAL NUMBER</h3>
                 <input ref="inputSerialNumber" type="text" :v-model="serialNr" placeholder="Serial Number" />
@@ -22,10 +19,12 @@
         <div id="parts" class="col-span-2">
             <h1>PARTS</h1>
             <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
-                <a class="popup-products" 
-                    v-for="product in productImages" :key="product.partNumber"
+                <a
+                    class="popup-products"
+                    v-for="product in productImages"
+                    :key="product.partNumber"
                     @click="selectPart(product)"
-                    >
+                >
                     <img
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
@@ -36,7 +35,7 @@
                 </a>
             </div>
         </div>
-        
+
         <!-- Creating space for the close button of the project -->
         <slot />
         <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
@@ -123,7 +122,7 @@ export default {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
-            //this.serialNr =  this.$refs.inputSerialNumber.value; 
+            //this.serialNr =  this.$refs.inputSerialNumber.value;
             let newEntity = {
                 entitySerialNr: this.$refs.inputSerialNumber.value,
                 parts: this.partsChosen
@@ -144,7 +143,7 @@ export default {
     width: 100%;
     height: 100%;
     user-select: none;
-    background-color: #F8F6F2;
+    background-color: #f8f6f2;
 
     display: grid;
     grid-template-columns: auto 70%;
@@ -153,7 +152,7 @@ export default {
         margin: 3vh;
         padding-bottom: 2vh;
         font-weight: bold;
-        color: #38293C;
+        color: #38293c;
     }
 
     img {
@@ -168,11 +167,10 @@ export default {
         /*background: green;*/
     }
 
-
     #products-container {
         border-right: 1px solid black;
         grid-column: 1;
-        background-color: #F8F6F2;
+        background-color: #f8f6f2;
 
         // Creating grid for products-container to
         // position both product and serial number
@@ -181,7 +179,7 @@ export default {
         height: 100%;
 
         #popup-static-product-style {
-            background-color: #7EB46B;
+            background-color: #7eb46b;
             width: 15vh;
             height: 15vh;
             margin: auto;
@@ -200,12 +198,12 @@ export default {
         #serialnum-container {
             grid-row: 3;
             margin-top: 30px;
-            
+
             h3 {
                 font-weight: bold;
-                color: #38293C
+                color: #38293c;
             }
-            
+
             input {
                 border: 1.5px solid #423048;
                 border-radius: 5px;
@@ -217,14 +215,11 @@ export default {
         }
     }
 
-
     #parts {
         grid-column: 2;
-        margin: 0 3vw 0 3vw ;
-               background-color: #F8F6F2;
+        margin: 0 3vw 0 3vw;
+        background-color: #f8f6f2;
     }
-
-
 
     #exit-btn {
         position: absolute;
@@ -243,7 +238,7 @@ export default {
     }
 
     .popup-products {
-        background-color: #F8F6F2;
+        background-color: #f8f6f2;
         width: 15vh;
         height: 15vh;
 
@@ -258,11 +253,10 @@ export default {
         }
 
         &:hover {
-            background-color: #7EB46B;
+            background-color: #7eb46b;
         }
     }
 }
-
 
 /* FILTER BLUR */
 </style>

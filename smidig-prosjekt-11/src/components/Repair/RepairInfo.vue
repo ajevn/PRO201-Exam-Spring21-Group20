@@ -16,8 +16,10 @@
         <section id="entity-list-container">
             <div>
                 <div v-for="entity in entities" :key="entity.entitySerialNr">
-                    <repair-entity :entitySerialNumber="entity.entitySerialNr" :entityParts="entity.parts"></repair-entity>
-                    
+                    <repair-entity
+                        :entitySerialNumber="entity.entitySerialNr"
+                        :entityParts="entity.parts"
+                    ></repair-entity>
                 </div>
 
                 <img
@@ -35,7 +37,6 @@
 <script>
 import PopupSelectRepair from '@/components/UI/PopupSelectRepair.vue';
 import RepairEntity from '@/components/UI/RepairEntity.vue';
-
 
 export default {
     data() {
@@ -87,7 +88,6 @@ export default {
     left: 15vw;
     border: 1px solid #423048;
 }
-
 
 #close-repair-btn {
     position: absolute;

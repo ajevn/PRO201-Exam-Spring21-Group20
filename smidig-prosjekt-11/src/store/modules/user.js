@@ -1,5 +1,5 @@
 const state = {
-    userId: null,
+    userId: null
 };
 
 const mutations = {
@@ -11,7 +11,7 @@ const mutations = {
     }
 };
 const getters = {
-    getUserId: state => state.userId,
+    getUserId: state => state.userId
 };
 
 export default {

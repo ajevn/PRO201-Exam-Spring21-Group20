@@ -1,16 +1,16 @@
 const state = {
-        entityArray: [],
+    entityArray: []
 };
 
 const mutations = {
-        addEntity(state, payload) {
-            state.entityArray.push(payload);
-            console.log("State updated:  " + payload)
-        },
-}
+    addEntity(state, payload) {
+        state.entityArray.push(payload);
+        console.log('State updated:  ' + payload);
+    }
+};
 
 const getters = {
-    getEntities(state){
+    getEntities(state) {
         return state.entityArray;
     }
 };

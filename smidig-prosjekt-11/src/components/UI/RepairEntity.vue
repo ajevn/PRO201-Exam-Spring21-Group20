@@ -3,7 +3,9 @@
         <div class="ProductImg">
             <img class="product-image-sunbell" src="@/assets/Images/Parts/sunbellProductImage.png" />
         </div>
-        <span><div class="border-solid border-2">{{this.entitySerialNumber}}</div></span>
+        <span
+            ><div class="border-solid border-2">{{ this.entitySerialNumber }}</div></span
+        >
 
         <div id="parts-container">
             <img
@@ -42,8 +44,7 @@ export default {
         }
     },
     created() {
-        
-        console.log("Serial number: " + this.entitySerialNumber );
+        console.log('Serial number: ' + this.entitySerialNumber);
     }
 };
 </script>
