@@ -11,8 +11,9 @@
                     <h2>Sunbell</h2>
                 </div>
             </div>
+                            <hr />
             <div id="serialnum-container">
-                <hr />
+
                 <h3>SERIAL NUMBER</h3>
                 <input type="text" v-model="serialNr" />
             </div>
@@ -173,7 +174,7 @@ export default {
         // Creating grid for products-container to
         // position both product and serial number
         display: grid;
-        grid-template-rows: max-content auto auto;
+        grid-template-rows: max-content 35% 2px auto;
         height: 100%;
 
         #popup-static-product-style {
@@ -195,6 +196,7 @@ export default {
 
         #serialnum-container {
             grid-row: 3;
+            margin-top: 30px;
             
             h3 {
                 font-weight: bold;
