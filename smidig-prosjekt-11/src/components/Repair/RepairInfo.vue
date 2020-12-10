@@ -2,7 +2,7 @@
     <!-- Root element -->
     <div>
         <!-- https://forum.vuejs.org/t/popup-how-to-hide-a-popup-by-clicking-outside-of-the-popup-window/59693 -- Mulighet for å trykke utenfor popup for å lukke? -->
-        <div id="parts-popup" class="border-2 border-gray-500 shadow-lg rounded-md" v-if="showRepair == true">
+        <div id="parts-popup" class="border-2 border-gray-500 shadow-lg" v-if="showRepair == true">
             <popup-select-repair @clicked="closeRepair()"></popup-select-repair>
             <img
                 id="close-repair-btn"
@@ -71,8 +71,8 @@ export default {
 
 <style lang="scss" scoped>
 #plus-btn {
-    margin: auto;
-    margin-top: 3vh;
+    margin: 2.5vh auto 2.5vh auto;
+    width: 3vw;
     outline: none;
 }
 #parts-popup {
@@ -90,7 +90,7 @@ export default {
     bottom: 59.5vh;
 }
 #entity-list-container {
-    height: 80vh;
+    height: 75vh;
     width: 100%;
     overflow-y: scroll;
 }
