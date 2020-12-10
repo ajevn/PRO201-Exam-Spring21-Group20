@@ -3,9 +3,11 @@
     <div class="base">
         <header>
             <div id="logo-bar" class="md:w-auto bg-logoBar" v>
-                <img id="logo-img" class="relative" src="@/assets/Images/brightLogo.png" />
+                <router-link to="/">
+                    <img id="logo-img" class="relative" src="@/assets/Images/brightLogo.png" />
+                </router-link>
                 <div id="employee-div">
-                    <h1 class="font-standardText text-secondary">Employee, Name</h1>
+                    <h1 class="font-standardText text-secondary">Employee, {{ user || 'x' }}</h1>
                 </div>
                 <login-button class="pl-20" />
             </div>
@@ -20,12 +22,25 @@
 </template>
 
 <script>
-import LoginButton from '@/components/UI/LoginButton.vue';
+import LoginButton from '@/components/Login/LoginButton.vue';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 export default {
     name: 'LogoBar',
     setup() {
+        const store = useStore();
+        const router = useRouter();
+        const user = computed(() => {
+            return store.getters.getUserId;
+        });
+        function goHome() {
+            router.push({ name: 'home' });
+        }
         return {
-            LoginButton
+            LoginButton,
+            user,
+            goHome
         };
     }
 };
