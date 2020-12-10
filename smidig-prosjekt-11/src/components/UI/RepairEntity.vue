@@ -42,7 +42,7 @@ export default {
         }
     },
     created() {
-        console.log('Passed as prop ' + this.entityParts[0].partNumber);
+        
         console.log("Serial number: " + this.entitySerialNumber );
     }
 };

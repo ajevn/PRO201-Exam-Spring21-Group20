@@ -16,7 +16,7 @@
             
             <div id="serialnum-container">
                 <h3>SERIAL NUMBER</h3>
-                <input type="text" v-model="serialNr" />
+                <input ref="inputSerialNumber" type="text" :v-model="serialNr" placeholder="Serial Number" />
             </div>
         </div>
         <div id="parts" class="col-span-2">
