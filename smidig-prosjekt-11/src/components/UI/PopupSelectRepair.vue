@@ -14,7 +14,7 @@
             </div>
             <div id="serialnum-container">
                 <hr />
-                <h3>Serial Number</h3>
+                <h3>SERIAL NUMBER</h3>
                 <input type="text" v-model="serialNr" />
             </div>
         </div>
@@ -36,7 +36,8 @@
             </div>
         </div>
         
-        <div id="exit-btn" @click="closePopup"></div>
+        <!-- Creating space for the close button of the project -->
+        <slot />
         <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
     </div>
 </template>
@@ -170,13 +171,25 @@ export default {
 
         #serialnum-container {
             grid-row: 3;
+            
+            h3 {
+                font-weight: bold;
+            }
+            
+            input {
+                border: 1.5px solid #423048;
+                border-radius: 5px;
+                background-color: #fffefd;
+                color: #050505;
+                text-align: center;
+                font-weight: bold;
+            }
         }
     }
 
 
     #parts {
         grid-column: 2;
-        
     }
 
 
@@ -198,6 +211,7 @@ export default {
     }
 
 }
+
 
 /* FILTER BLUR */
 </style>
