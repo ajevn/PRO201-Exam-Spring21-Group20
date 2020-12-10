@@ -1,22 +1,40 @@
 <template>
     <div class="hamburger-button">
-        Test
+        <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
     name: 'HamburgerButton',
-    components: {}
+    components: {},
+    
+    props: {
+        buttonValue: String,
+        icon: String,
+        link: String
+    }
 }
+
+
+
 </script>
 
 <style>
 
 .hamburger-button {
     position: absolute;
-    color: #3c1964;;
+    width: 30vh;
+    height: 8vh;
+    background-color: #9FD18D;;
     margin-top: 3vh;
-    margin-left: 3vh;   
+    margin-left: 1.5vh;
+    
+    text-align: center;
+    font-size: 25px;   
+    box-sizing: border-box;
+    padding-top: 1.8vh;
+    padding-bottom: 1.8vh;
+    
 }
 </style>

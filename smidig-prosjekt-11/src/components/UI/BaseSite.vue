@@ -29,7 +29,7 @@
         
         <slot />
         <footer>
-            <div id="footer-div" class="absolute">
+            <div id="footer-div" class="absolute { cr-highlight: this.sideBarVisible  }">
                 <small>Copyright &copy; 2020 - Smidig-Prosjekt Gruppe 11</small>
             </div>
         </footer>
@@ -107,5 +107,8 @@ export default {
     text-align: right;
     padding-right: 1.7vw;
     bottom: 1vh;
+}
+.cr-highlight {
+    color: #9FD18D;
 }
 </style>
