@@ -1,6 +1,6 @@
 <template>
     <div id="container" class="grid grid-cols-3 text-center">
-        <div id="products-container">
+        <div id="products-container" class="grid-rows-3">
             <h1>PRODUCT</h1>
             <div class="grid grid-cols-2 content-center">
                 <div>
@@ -11,6 +11,11 @@
                     />
                     <h2>Sunbell</h2>
                 </div>
+            </div>
+            <div id="serialnum-container">
+                <hr />
+                <label>Serial Number</label>
+                <input type="text" v-model="serialNr" />
             </div>
         </div>
         <div id="parts" class="col-span-2">
@@ -39,7 +44,10 @@
 export default {
     data() {
         return {
-            serialNr: 1,
+            serialNr: {
+                Type: Number,
+                Required: true
+            },
             productImages: [
                 {
                     partNumber: '1',

@@ -40,6 +40,7 @@ export default {
     },
     created() {
         console.log('Passed as prop' + this.entityParts);
+        console.log(this.entityParts.entitySerialNr);
     }
 };
 </script>
