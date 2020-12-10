@@ -11,9 +11,10 @@
                     <h2>Sunbell</h2>
                 </div>
             </div>
-                            <hr />
+            
+            <hr />
+            
             <div id="serialnum-container">
-
                 <h3>SERIAL NUMBER</h3>
                 <input type="text" v-model="serialNr" />
             </div>
@@ -115,14 +116,16 @@ export default {
             //console.log(product.isChecked)
             return;
         },
+
         submitPartsSelected() {
             for (let i = 0; i < this.productImages.length; i++) {
                 if (this.productImages[i].isChecked) {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
-            var newEntity = {
-                entitySerialNr: this.serialNr,
+            //this.serialNr =  this.$refs.inputSerialNumber.value; 
+            let newEntity = {
+                entitySerialNr: this.$refs.inputSerialNumber.value,
                 parts: this.partsChosen
             };
             this.$store.commit('addEntity', newEntity);
