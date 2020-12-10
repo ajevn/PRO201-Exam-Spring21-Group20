@@ -38,11 +38,13 @@ export default {
 .hamburger-menu {
     z-index: 999;
     position: absolute;
-    background-color: #423048;
+    /*background-color: #423048;*/
+	background-color: #848484;
+	opacity: 0.9;
     /* margin-top: 3vh;
     margin-left: 3vh; */
     height: 85vh;
-    width: 35vh;
+    width: 20vw;
     
     display: flex;
 }

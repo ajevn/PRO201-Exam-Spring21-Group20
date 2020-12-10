@@ -6,8 +6,9 @@
                 <div class="image-container">
                 
                     <img 
-                    id="hamburger-icon"
-                    @click="showSideBar"  
+                    id="hamburger-icon" 
+					class="cursor-pointer" 
+                    @click="showSideBar" 
                     src="@/assets/Images/Icons/hamburger-icon.png" />
                     
                     <img 
