@@ -4,21 +4,15 @@
         <header>
             <div id="logo-bar" class="md:w-auto bg-logoBar" v>
                 <div class="image-container">
+                    <hamburger-icon @click="toggleSidebar" />
+                    
+                    <div class="logo-wrapper"><router-link to="/">
+                        <img 
+                            id="logo-img" 
+                            src="@/assets/Images/brightLogo.png" />
+                    </router-link></div>
+                </div>
                 
-                <button type="button" @click="showSideBar"  class="burger-button" title="Menu">
-                    <span class="burger-bar burger-bar--1"></span>
-                    <span class="burger-bar burger-bar--2"></span>
-                    <span class="burger-bar burger-bar--3"></span> 
-                </button>
-
-            
-                <router-link to="/">
-                    <img 
-                    id="logo-img" 
-                    src="@/assets/Images/brightLogo.png" />
-                </router-link>
-            </div>
-
                 <div id="employee-div">
                     <h1 class="font-standardText text-secondary">Employee, {{ user || 'x' }}</h1>
                 </div>
@@ -40,6 +34,7 @@
 <script>
 
 import Hamburger from '@/components/Nav/Hamburger.vue';
+import HamburgerIcon from '@/components/UI/HamburgerIcon.vue';
 import LoginButton from '@/components/Login/LoginButton.vue';
 import { computed } from 'vue';
 import { useStore } from 'vuex';
@@ -60,6 +55,7 @@ export default {
         }
         return {
             Hamburger,
+            HamburgerIcon,
             LoginButton,
             user,
             goHome
@@ -72,7 +68,7 @@ export default {
         
     }, 
     methods: {
-        showSideBar () {
+        toggleSidebar() {
             const sideBarBool = this.sideBarVisible
             this.sideBarVisible = !sideBarBool
         }
@@ -81,7 +77,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 
 button {
   cursor: pointer;
@@ -89,26 +85,47 @@ button {
 
 /* old version  */
 #logo-bar {
+    width: 100vw;
     height: 75px;
     display: grid;
     grid-template-rows: max-content auto max-content;   
 }
+.image-container {
+    position: absolute;
+    height: 75px;
+    width: 410px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 30px;
 
- #logo-img {
-    display: inline-block;
-    margin-left: 1.5vh;
-    height: 60%;
+    .logo-wrapper {
+        display: inline;
+        width: 350px;
+
+        img {
+            height: 90%;
+            margin-top: 5px;
+        }
+    }
+
 }
 
 #employee-div {
-    grid-column: 2;
-    grid-row: 1;
-    margin: auto;
-    margin-right: 2.5vh;
-}
+    
+    position: absolute;
+    right: 0px;
+    height: 75px;
+    width: 200px;
 
-#employee-div h1 {
-    font-size: 20px;
+    h1 {
+        position: absolute;
+        display: inline-block;
+        right: 15px;
+        margin-top: 40px;
+        
+        font-size: 20px;
+    }
 }
 
 #footer-div {
@@ -116,56 +133,14 @@ button {
     bottom: 1vh;
 }
 
+
 /* remove blue outline */
 button:focus {
   outline: 0;
 }
 
-.burger-button {
-    height: 5rem;
-    width: 5rem;
-    background-color: transparent;
-    pointer-events: all;
-    transition: all .5s;
 
-} 
 
-.burger-bar {
-  background-color: #130f40;
-  position: absolute;
-  right: 0;
-  left: 1rem;
-  height: 0.4em;
-  width: 2.8em;
-  border-radius: 2px;
-    transition: all .5s;
-
-}
-
-.burger-bar--1 {
-    top: 1.2rem;
-  -webkit-transform: translateY(-6px);
-  transform: translateY(-6px);
-}
-
-.burger-bar--2 {
-    top: 2rem;
-    transform-origin: 100% 50%;
-    transform: scaleX(0.8);
-}
-
-.burger-bar--3 {
-    top: 2.8rem;
-    transform: translateY(6px);
-}
-
-.burger-button:hover .burger-bar--2 {
-  transform: scaleX(1);
-}
-
-.burger-button:hover span{
-      background-color: #A0D28E;
-}
 
 
 </style>

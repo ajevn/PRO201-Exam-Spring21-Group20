@@ -1,9 +1,10 @@
 <template>
-    <div class="hamburger-button rounded-r-3xl font-standardText">
+    <div class="hamburger-button font-standardText">
         <router-link :to="this.link">
-            <div class="button-wrapper">      
-                {{ this.bValue }}
-                <img :src="require(`@/assets/Images/Icons/${this.icon}`)">
+            <div class="button-wrapper">     
+                <img :src="require(`@/assets/Images/Icons/${this.icon}`)"> 
+                <div>{{ this.bValue }}</div>
+                
             </div>
         </router-link>            
     </div>
@@ -23,19 +24,18 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+    
+
 
 .hamburger-button {
-    position: relative;
-    width: 100%;
+
+    width: 70%;
     height: 8vh;
-    background-color: #fff; /*background-color: #9FD18D;*/
+    background-color:#9fd18d;
     margin-top: 3vh;
-    /*margin-left: 1.5vh;*/
-    
-    text-align: center;
-	font-size: 1.5em; /*font-size: 25px;*/
-    box-sizing: border-box;
+    border-radius: 5px;
+   
 
 }
 
@@ -43,13 +43,22 @@ export default {
     position: relative;
     height: 100%;
     width: 100%;
+    color: #423048;
+    padding-top: 10px;
     
-    padding-top: 1.8vh;
-    padding-bottom: 1.8vh;
+    font-size: 1.2em;
+    font-weight: bold;
+    
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     align-content: center;
-    justify-content: space-around;
+    justify-content: center;
+    text-align: center;
+    
+    img {
+        margin: 0 auto;
+        width: 25%;
+    }
 }
 
 
