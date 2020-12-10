@@ -1,7 +1,11 @@
 <template>
     <div class="hamburger-menu">
-        <hamburger-button v-for='(but, index) in buttons' v-bind:key='index'>
-            {{ but.value }}
+        <hamburger-button 
+        v-for='(but, index) in buttons' 
+        v-bind:key='index'
+        :bValue='but.bValue'
+        :icon='but.icon'
+        :link='but.link'>
         </hamburger-button>
     </div>
 </template>
@@ -16,13 +20,13 @@ export default {
     return {
         buttons: [
             {
-                value: 'User',
-                icon: '@/assets/Images/Icons/edit-report-icon.png',
+                bValue: 'User',
+                icon: "certificate-icon.png",
                 link: '/repair'
             },
             {
-                value: 'Certifications',
-                icon: '@/assets/Images/Icons/edit-report-icon.png',
+                bValue: 'Certifications',
+                icon: 'user-person-icon.png',
                 link: '/entry-successful'
             }
         ]
@@ -45,6 +49,7 @@ export default {
     width: 35vh;
     
     display: flex;
+    flex-direction: column;
 }
 
 
