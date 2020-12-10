@@ -82,7 +82,7 @@ export default {
     height: 60vh;
     top: 20%;
     left: 15vw;
-    border: 1px solid black;
+    border: 1px solid #423048;
 }
 #close-repair-btn {
     position: relative;

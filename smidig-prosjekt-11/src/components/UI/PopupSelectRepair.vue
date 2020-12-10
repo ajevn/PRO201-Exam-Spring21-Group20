@@ -1,8 +1,8 @@
 <template>
-    <div id="container" class="grid grid-cols-3 text-center">
+    <div id="container" class="text-center">
         <div id="products-container" class="grid-rows-3">
             <h1>PRODUCT</h1>
-            <div class="grid grid-cols-2 content-center">
+            <div class="content-center">
                 <div>
                     <img
                         src="../../assets/Images/Parts/sunbellProductImage.png"
@@ -14,13 +14,13 @@
             </div>
             <div id="serialnum-container">
                 <hr />
-                <label>Serial Number</label>
+                <h3>Serial Number</h3>
                 <input type="text" v-model="serialNr" />
             </div>
         </div>
         <div id="parts" class="col-span-2">
             <h1>PARTS</h1>
-            <div class="grid grid-flow grid-cols-4 grid-rows-3 gap-10">
+            <div class="grid grid-flow grid-cols-4 grid-rows-2 gap-10">
                 <div v-for="product in productImages" :key="product.partNumber">
                     <img
                         :id="product.partNumber"
@@ -35,6 +35,7 @@
                 </div>
             </div>
         </div>
+        
         <div id="exit-btn" @click="closePopup"></div>
         <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
     </div>
@@ -129,42 +130,73 @@ export default {
     // emits
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 #container {
     width: 100%;
     height: 100%;
     user-select: none;
-}
-img {
-    width: 8vw;
-    max-width: 125px;
-    height: 11vh;
-    cursor: pointer;
-    padding: 10px 10px 10px 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    /*background: green;*/
-}
 
-#products-container {
-    border-right: 1px solid black;
-}
-#parts {
-}
-h1 {
-    margin: 3vh;
-    padding-bottom: 2vh;
-}
+    display: grid;
+    grid-template-columns: auto 70%;
 
-#next-btn {
-    width: 85px;
-    height: 45px;
-    position: absolute;
-    right: 30px;
-    bottom: 30px;
-    border: 1px solid black;
-    border-radius: 2px;
+    h1 {
+        margin: 3vh;
+        padding-bottom: 2vh;
+        font-weight: bold;
+        color: #38293C;
+    }
+
+    img {
+        width: 8vw;
+        max-width: 125px;
+        height: 11vh;
+        cursor: pointer;
+        padding: 10px 10px 10px 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        /*background: green;*/
+    }
+
+
+    #products-container {
+        border-right: 1px solid black;
+        grid-column: 1;
+        // Creating grid for products-container to
+        // position both product and serial number
+        display: grid;
+        grid-template-rows: max-content auto auto;
+        height: 100%;
+
+        #serialnum-container {
+            grid-row: 3;
+        }
+    }
+
+
+    #parts {
+        grid-column: 2;
+        
+    }
+
+
+
+    #exit-btn {
+        position: absolute;
+        top: 0;
+        height: 200px;
+    }
+
+    #next-btn {
+        width: 85px;
+        height: 45px;
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+        border: 1px solid black;
+        border-radius: 2px;
+    }
+
 }
 
 /* FILTER BLUR */
