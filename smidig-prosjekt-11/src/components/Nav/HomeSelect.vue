@@ -5,7 +5,7 @@
                 tag="button"
                 to="/repair"
                 type="button"
-                class="font-standardText rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-black home-repair-ico-src home-ico-style"
+                class="font-standardText rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-logoBar home-repair-ico-src home-ico-style"
             >
                 Repair
             </router-link>
