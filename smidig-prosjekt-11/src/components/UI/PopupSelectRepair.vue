@@ -20,7 +20,7 @@
         <div id="parts" class="col-span-2">
             <h1>PARTS</h1>
             <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
-                <div class="popup-products hover:bg-universalGreen" 
+                <a class="popup-products hover:bg-universalGreen" 
                     v-for="product in productImages" :key="product.partNumber"
                     @click="selectPart(product)"
                     >
@@ -31,7 +31,7 @@
                     <h2>
                         {{ product.partName }}
                     </h2>
-                </div>
+                </a>
             </div>
         </div>
         
@@ -184,6 +184,7 @@ export default {
 
             img {
                 -webkit-user-drag: none;
+                cursor: default;
             }
         }
 
@@ -237,7 +238,7 @@ export default {
         height: 15vh;
 
         h2 {
-            padding-bottom: 10px;
+            cursor: pointer;
         }
 
         img {
