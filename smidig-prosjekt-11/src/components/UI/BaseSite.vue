@@ -5,11 +5,18 @@
             <div id="logo-bar" class="md:w-auto bg-logoBar" v>
                 <div class="image-container">
                 
-                    <img 
+            <button type="button" @click="showSideBar"  class="burger-button" title="Menu">
+                <span class="hidden">Toggle menu</span>
+                <span class="burger-bar burger-bar--1"></span>
+                <span class="burger-bar burger-bar--2"></span>
+                <span class="burger-bar burger-bar--3"></span> 
+            </button>
+
+                    <!-- <img 
                     id="hamburger-icon" 
 					class="cursor-pointer" 
                     @click="showSideBar" 
-                    src="@/assets/Images/Icons/hamburger-icon.png" />
+                    src="@/assets/Images/Icons/hamburger-icon.png" /> -->
                     
                     <img 
                     id="logo-img" 
@@ -69,6 +76,87 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+
+
+button {
+  cursor: pointer;
+}
+
+/* remove blue outline */
+button:focus {
+  outline: 0;
+}
+
+ .burger-button {
+    position: absolute;
+    top:0;
+    height: 5rem;
+    width: 5rem;
+    display: block;
+    background-color: transparent;
+    pointer-events: all;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+} 
+
+.burger-bar {
+  background-color: #130f40;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 0.5em;
+  width: 3em;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.6
+    s cubic-bezier(0.165, 0.84, 0.44, 1); 
+}
+
+.burger-bar--1 {
+    top: 2em;
+  -webkit-transform: translateY(-6px);
+  transform: translateY(-6px);
+}
+
+.burger-bar--2 {
+    top: 3rem;
+    transform-origin: 100% 50%;
+    transform: scaleX(0.8);
+}
+
+.burger-button:hover .burger-bar--2 {
+  transform: scaleX(1);
+}
+
+.burger-bar--3 {
+    top: 4rem;
+    transform: translateY(6px);
+}
+
+#burger.active .burger-button {
+  transform: rotate(-180deg);
+}
+
+#burger.active .burger-bar {
+  background-color: #fff;
+}
+
+#burger.active .burger-bar--1 {
+  transform: rotate(45deg);
+}
+
+#burger.active .burger-bar--2 {
+  opacity: 0;
+}
+
+#burger.active .burger-bar--3 {
+  transform: rotate(-45deg);
+}
+
+
+
+
+/* old version  */
 #logo-bar {
     height: 15vh;
 }
@@ -92,6 +180,8 @@ export default {
 #logo-img {
     height: 8vh;
 }
+
+
 
 .nav-bar {
     position: relative;
