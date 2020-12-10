@@ -6,24 +6,22 @@
                 <div class="image-container">
                 
                 <button type="button" @click="showSideBar"  class="burger-button" title="Menu">
-                    <span class="hidden">Toggle menu</span>
                     <span class="burger-bar burger-bar--1"></span>
                     <span class="burger-bar burger-bar--2"></span>
                     <span class="burger-bar burger-bar--3"></span> 
                 </button>
 
             
-                    <router-link to="/">
-                        <img 
-                        id="logo-img" 
-                        src="@/assets/Images/brightLogo.png" />
-                    </router-link>
+                <router-link to="/">
+                    <img 
+                    id="logo-img" 
+                    src="@/assets/Images/brightLogo.png" />
+                </router-link>
             </div>
 
                 <div id="employee-div">
                     <h1 class="font-standardText text-secondary">Employee, {{ user || 'x' }}</h1>
                 </div>
-                <login-button class="pl-20" />
             </div>
         </header>
         
@@ -85,120 +83,23 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-
-
 button {
   cursor: pointer;
 }
 
-/* remove blue outline */
-button:focus {
-  outline: 0;
-}
-
- .burger-button {
-    position: absolute;
-    top:0;
-    height: 5rem;
-    width: 5rem;
-    display: block;
-    background-color: transparent;
-    pointer-events: all;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-} 
-
-.burger-bar {
-  background-color: #130f40;
-  position: absolute;
-  right: 0;
-  left: 0;
-  height: 0.5em;
-  width: 3em;
-  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
-    opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-    background-color 0.6
-    s cubic-bezier(0.165, 0.84, 0.44, 1); 
-}
-
-.burger-bar--1 {
-    top: 2em;
-  -webkit-transform: translateY(-6px);
-  transform: translateY(-6px);
-}
-
-.burger-bar--2 {
-    top: 3rem;
-    transform-origin: 100% 50%;
-    transform: scaleX(0.8);
-}
-
-.burger-button:hover .burger-bar--2 {
-  transform: scaleX(1);
-}
-
-.burger-bar--3 {
-    top: 4rem;
-    transform: translateY(6px);
-}
-
-#burger.active .burger-button {
-  transform: rotate(-180deg);
-}
-
-#burger.active .burger-bar {
-  background-color: #fff;
-}
-
-#burger.active .burger-bar--1 {
-  transform: rotate(45deg);
-}
-
-#burger.active .burger-bar--2 {
-  opacity: 0;
-}
-
-#burger.active .burger-bar--3 {
-  transform: rotate(-45deg);
-}
-
-
-
-
 /* old version  */
 #logo-bar {
-    height: 13vh;
+    height: 75px;
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto max-content;   
-}
-.image-container {
-    position: relative;
-    width: 40vh;
-    height: 80%;
-    top: 1.5vh;
-    left: 1.5vh;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-#hamburger-icon {
-    height: 5vh;
-    width: auto;
+    grid-template-rows: max-content auto max-content;   
 }
 
-#logo-img {
-    margin: auto;
+ #logo-img {
+    display: inline-block;
     margin-left: 1.5vh;
-    height: 65%;
-    grid-column: 1;
-    grid-row: 1;
+    height: 60%;
 }
-#footer-div {
-    left: 1vw;
-    bottom: 1vh;
-}
+
 #employee-div {
     grid-column: 2;
     grid-row: 1;
@@ -209,4 +110,62 @@ button:focus {
 #employee-div h1 {
     font-size: 20px;
 }
+
+#footer-div {
+    left: 1vw;
+    bottom: 1vh;
+}
+
+/* remove blue outline */
+button:focus {
+  outline: 0;
+}
+
+.burger-button {
+    height: 5rem;
+    width: 5rem;
+    background-color: transparent;
+    pointer-events: all;
+    transition: all .5s;
+
+} 
+
+.burger-bar {
+  background-color: #130f40;
+  position: absolute;
+  right: 0;
+  left: 1rem;
+  height: 0.4em;
+  width: 2.8em;
+  border-radius: 2px;
+    transition: all .5s;
+
+}
+
+.burger-bar--1 {
+    top: 1.2rem;
+  -webkit-transform: translateY(-6px);
+  transform: translateY(-6px);
+}
+
+.burger-bar--2 {
+    top: 2rem;
+    transform-origin: 100% 50%;
+    transform: scaleX(0.8);
+}
+
+.burger-bar--3 {
+    top: 2.8rem;
+    transform: translateY(6px);
+}
+
+.burger-button:hover .burger-bar--2 {
+  transform: scaleX(1);
+}
+
+.burger-button:hover span{
+      background-color: #A0D28E;
+}
+
+
 </style>
