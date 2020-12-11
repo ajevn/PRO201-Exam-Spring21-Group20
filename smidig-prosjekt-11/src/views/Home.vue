@@ -29,7 +29,7 @@ export default {
 }
 #background-image {
     width: 100vw;
-    height: 92.4vh;
+    height: 92vh;
     background-image: url('../assets/Images/Background/Background.jpg');
     filter: grayscale(100%);
     overflow: hidden;

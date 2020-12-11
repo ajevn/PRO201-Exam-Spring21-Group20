@@ -1,5 +1,5 @@
 <template>
-    <div class="hamburger-menu">
+    <div class="hamburger-menu" >
         <hamburger-button
             v-for="(but, index) in buttons"
             v-bind:key="index"
