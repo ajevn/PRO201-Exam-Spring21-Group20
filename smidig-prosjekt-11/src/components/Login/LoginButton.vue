@@ -36,5 +36,9 @@ export default {
         font-weight: bold;
         color: #54445A;
         box-shadow: 1px 1px 3px #000000;
+
+        &:hover {
+            background-color: rgb(231, 241, 227);
+        }
     }
 </style>
