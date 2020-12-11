@@ -8,15 +8,23 @@
         :link='but.link'>
         </hamburger-button>
         <div class="triangle"></div>
+		<div class="hamburger-button font-standardText">
+			<login-button class="button-wrapper" />
+		</div>
     </div>
 </template>
 
 <script>
-import HamburgerButton from '../UI/HamburgerButton.vue'
-
+import HamburgerButton from '../UI/HamburgerButton.vue';
+import LoginButton from '@/components/Login/LoginButton.vue';
 export default {
     name: 'Hamburger',
     components: {HamburgerButton},
+    setup() {
+        return {
+            LoginButton,
+        };
+    },
     data() {
     return {
         buttons: [
@@ -72,8 +80,6 @@ export default {
     border-width: 0 19.5px 30px 19.5px;
     border-color: transparent transparent #405c6a transparent;
 }
-
-
 
 /*
 logoBar: '#405C6A',
