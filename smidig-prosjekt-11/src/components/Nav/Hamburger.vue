@@ -42,8 +42,6 @@ export default {
                     bValue: 'Log in',
                     icon: 'login-icon.png',
                     link: '/login'
-                    alt: 'Certifications icon'
-
                 }
             ] 
         };
