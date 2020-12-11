@@ -10,16 +10,21 @@
                 >
                     <header class="modal-header" id="modalTitle">
                         <img src="@/assets/Images/alert.png" id="header-image" />
-                        <slot class="slot-text font-standardText"  name="header" />
+                        <slot class="slot-text font-standardText" name="header" />
                     </header>
                     <section class="modal-body" id="modalDescription">
-                        <slot class="slot-text font-standardText"  name="body"/>
+                        <slot class="slot-text font-standardText" name="body" />
                     </section>
                     <footer class="modal-footer">
                         <slot class="slot-text font-standardText" name="footer" />
-                            <button type="button" class="btn-green font-standardText" @click="close" aria-label="Close modal">
-                                Okay
-                            </button>
+                        <button
+                            type="button"
+                            class="btn-green font-standardText"
+                            @click="close"
+                            aria-label="Close modal"
+                        >
+                            Okay
+                        </button>
                     </footer>
                 </div>
             </div>
@@ -40,7 +45,6 @@ export default {
 </script>
 
 <style scoped>
-
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -54,7 +58,7 @@ export default {
 }
 
 .modal {
-    background: #F8F6F2;
+    background: #f8f6f2;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: auto;
     display: flex;
@@ -64,7 +68,7 @@ export default {
 .modal-header {
     padding: 15px;
     display: flex;
-    margin:auto;
+    margin: auto;
 }
 .modal-footer {
     padding: 15px;
@@ -72,13 +76,12 @@ export default {
 }
 
 .modal-header {
-    color: #F27474;
+    color: #f27474;
     justify-content: space-between;
     font-size: 2em;
 }
 
 #header-image {
-
 }
 
 .modal-body {
@@ -96,7 +99,6 @@ export default {
     border-top: 1px solid #eeeeee;
     justify-content: flex-end;
 }
-
 
 .btn-green {
     color: white;

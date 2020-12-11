@@ -1,5 +1,8 @@
 <template>
-    <div id="login-container" class=" relative container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center">
+    <div
+        id="login-container"
+        class=" relative container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center"
+    >
         <form @submit.prevent="post">
             <div>
                 <label class="block mb-2" for="username">Username</label>
@@ -72,7 +75,7 @@ export default {
 
     label {
         font-weight: bold;
-        color: #A8D598;
+        color: #a8d598;
     }
 
     input {
@@ -82,14 +85,11 @@ export default {
     }
 
     #login-submit {
-        background-color: #A8D598;
-        
+        background-color: #a8d598;
+
         &:hover {
             background-color: rgb(231, 241, 227);
         }
     }
-
-
 }
-
 </style>

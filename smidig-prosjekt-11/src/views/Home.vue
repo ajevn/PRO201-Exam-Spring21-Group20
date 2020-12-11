@@ -14,14 +14,12 @@ import HomeSelect from '@/components/Nav/HomeSelect.vue';
 
 export default {
     data() {
-        return {
-
-        };
+        return {};
     },
     name: 'Home',
     components: {
         BaseSite,
-        HomeSelect,
+        HomeSelect
     }
 };
 </script>

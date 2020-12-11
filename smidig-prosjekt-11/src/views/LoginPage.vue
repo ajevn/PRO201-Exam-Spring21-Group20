@@ -5,7 +5,6 @@
         </div>
         <img src="@/assets/Images/Background/Background.jpg" id="background-image" />
     </base-site>
-    
 </template>
 
 <script>
@@ -24,7 +23,7 @@ export default {
 
 <style scoped>
 .login-base {
-    margin-top: 7vh
+    margin-top: 7vh;
 }
 #background-image {
     position: absolute;
@@ -36,5 +35,4 @@ export default {
     filter: grayscale(100%);
     overflow: hidden;
 }
-
 </style>

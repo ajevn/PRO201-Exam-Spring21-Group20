@@ -19,11 +19,8 @@
             </div>
         </header>
 
-
-        <hamburger 
-            :class="{showburger: sideBarVisible, hideburger: !sideBarVisible}"
-            ref="hamburger">
-            </hamburger>
+        <hamburger :class="{ showburger: sideBarVisible, hideburger: !sideBarVisible }" ref="hamburger">
+        </hamburger>
 
         <slot />
         <footer>
@@ -150,6 +147,4 @@ button:focus {
     left: -8vw;
     visibility: hidden;
 }
-
-
 </style>

@@ -1,7 +1,6 @@
 <template>
     <div class="logout-base">
-        <base-site>
-        </base-site>
+        <base-site> </base-site>
         <h1>You are now logged out</h1>
         <home-button class="home-b"></home-button>
     </div>
@@ -17,24 +16,24 @@ export default {
         return {
             BaseSite,
             HomeButton
-        }
+        };
     },
-    created: function () {
+    created: function() {
         this.$store.commit('logout');
     }
-}
+};
 </script>
 
 <style scoped>
-    .logout-base {
-        text-align: center;
-    }
-    .home-b {
-        margin-top: 4vh;
-    }
-    h1 {
-        margin-top: 16vh;
-        font-size: 70px;
-        color: #405c6a;
-    }
+.logout-base {
+    text-align: center;
+}
+.home-b {
+    margin-top: 4vh;
+}
+h1 {
+    margin-top: 16vh;
+    font-size: 70px;
+    color: #405c6a;
+}
 </style>

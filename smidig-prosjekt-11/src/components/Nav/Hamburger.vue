@@ -1,5 +1,5 @@
 <template>
-    <div class="hamburger-menu" >
+    <div class="hamburger-menu">
         <hamburger-button
             v-for="(but, index) in buttons"
             v-bind:key="index"
@@ -36,34 +36,38 @@ export default {
                 {
                     bValue: 'Certifications',
                     icon: 'certificate-icon.png',
-                    link: '/entry-successful'
+                    link: '/entry-successful',
+                    alt: 'Certifications icon'
                 },
                 {
                     bValue: 'Log in',
                     icon: 'login-icon.png',
-                    link: '/login'
+                    link: '/login',
+                    alt: 'Login icon'
                 }
-            ] 
+            ]
         };
     },
     methods: {
-        updateloginValues () {
-            let userId = this.$store.getters.getUserId
-            console.log(userId)
-            if(!userId) {
-                this.buttons[2].bValue = 'Log in'
-                this.buttons[2].icon = 'login-icon.png'
-                this.buttons[2].link = '/login'
+        updateloginValues() {
+            let userId = this.$store.getters.getUserId;
+            console.log(userId);
+            if (!userId) {
+                this.buttons[2].bValue = 'Log in';
+                this.buttons[2].icon = 'login-icon.png';
+                this.buttons[2].link = '/login';
+                this.buttons[2].alt = 'login icon';
             } else {
-                this.buttons[2].bValue = 'Log out'
-                this.buttons[2].icon = 'logout-icon.png'
-                this.buttons[2].link = '/logout'
+                this.buttons[2].bValue = 'Log out';
+                this.buttons[2].icon = 'logout-icon.png';
+                this.buttons[2].link = '/logout';
+                this.buttons[2].alt = 'logout icon';
             }
         },
-        logOut () {
-            alert("logout")
+        logOut() {
+            alert('logout');
             //this.updateloginValues();
-        }  
+        }
     }
 };
 </script>

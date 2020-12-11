@@ -17,12 +17,11 @@
             </div>
         </div>
         <div id="parts" class="col-span-2">
-
-        <modal-error-message v-if="showModal == true" @close="showModal = false">
-            <template v-slot:body>
-                Serial Number Already Exists
-            </template>
-        </modal-error-message>
+            <modal-error-message v-if="showModal == true" @close="showModal = false">
+                <template v-slot:body>
+                    Serial Number Already Exists
+                </template>
+            </modal-error-message>
 
             <h1>PARTS</h1>
             <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
@@ -52,9 +51,9 @@
 <script>
 import ModalErrorMessage from '@/components/Modals/ModalErrorMessage.vue';
 
-export default{
-    components: { 
-        ModalErrorMessage 
+export default {
+    components: {
+        ModalErrorMessage
     },
     data() {
         return {
@@ -142,14 +141,15 @@ export default{
             };
             var stateEntities = this.$store.getters.getEntities;
 
-            let exists = stateEntities.findIndex(entity => entity.entitySerialNr === newEntity.entitySerialNr);
-                if(exists == -1){
-                    this.$store.commit('addEntity', newEntity);
-                    this.$emit('clicked');
-                } else {
-                    this.showModal = true;
-                }
-                
+            let exists = stateEntities.findIndex(
+                entity => entity.entitySerialNr === newEntity.entitySerialNr
+            );
+            if (exists == -1) {
+                this.$store.commit('addEntity', newEntity);
+                this.$emit('clicked');
+            } else {
+                this.showModal = true;
+            }
         }
     },
     name: 'PopupSelect',
