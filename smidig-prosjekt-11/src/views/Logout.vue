@@ -20,7 +20,6 @@ export default {
         }
     },
     created: function () {
-        alert("logout!")
         this.$store.commit('logout');
     }
 }
