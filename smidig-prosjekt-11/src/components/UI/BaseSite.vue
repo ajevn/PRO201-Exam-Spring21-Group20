@@ -8,7 +8,7 @@
 
                     <div class="logo-wrapper">
                         <router-link to="/">
-                            <img id="logo-img" src="@/assets/Images/brightLogo.png" />
+                            <img id="logo-img" src="@/assets/Images/brightLogo.png" alt="Bright" />
                         </router-link>
                     </div>
                 </div>

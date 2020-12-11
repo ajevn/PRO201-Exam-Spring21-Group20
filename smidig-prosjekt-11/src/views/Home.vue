@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <base-site>
-            <img src="@/assets/Images/Background/Background.jpg" id="background-image" />
+            <img src="@/assets/Images/Background/Background.jpg" id="background-image" alt="background" />
             <home-select class="home-select-container" />
         </base-site>
     </div>

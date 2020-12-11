@@ -28,6 +28,7 @@
                     <img
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
+                        alt="{{product.partname}}"
                     />
                     <h2>
                         {{ product.partName }}
