@@ -1,4 +1,4 @@
-<template>
+|<template>
     <div>
         <router-link to="/login" v-if="user == null">
             <button>
