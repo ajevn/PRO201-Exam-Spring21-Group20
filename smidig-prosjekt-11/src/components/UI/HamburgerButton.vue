@@ -1,42 +1,34 @@
 <template>
     <div class="hamburger-button font-standardText">
         <router-link :to="this.link">
-            <div class="button-wrapper">     
-                <img :src="require(`@/assets/Images/Icons/${this.icon}`)"> 
+            <div class="button-wrapper">
+                <img :src="require(`@/assets/Images/Icons/${this.icon}`)" />
                 <div>{{ this.bValue }}</div>
-                
             </div>
-        </router-link>            
+        </router-link>
     </div>
-
 </template>
 
 <script>
 export default {
     name: 'HamburgerButton',
     components: {},
-    
+
     props: {
         bValue: String,
         icon: String,
         link: String
     }
-}
+};
 </script>
 
 <style lang="scss">
-    
-
-
 .hamburger-button {
-
     width: 70%;
     height: 8vh;
-    background-color:#9fd18d;
+    background-color: #9fd18d;
     margin-top: 3vh;
     border-radius: 5px;
-   
-
 }
 
 .button-wrapper {
@@ -45,21 +37,19 @@ export default {
     width: 100%;
     color: #423048;
     padding-top: 10px;
-    
+
     font-size: 1.2em;
     font-weight: bold;
-    
-    display:flex;
+
+    display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
     text-align: center;
-    
+
     img {
         margin: 0 auto;
         width: 25%;
     }
 }
-
-
 </style>

@@ -130,14 +130,15 @@ export default {
             };
             var stateEntities = this.$store.getters.getEntities;
 
-            let exists = stateEntities.findIndex(entity => entity.entitySerialNr === newEntity.entitySerialNr);
-                if(exists == -1){
-                    this.$store.commit('addEntity', newEntity);
-                    this.$emit('clicked');
-                } else {
-                    alert("Serial Number Already Exists")
-                }
-                
+            let exists = stateEntities.findIndex(
+                entity => entity.entitySerialNr === newEntity.entitySerialNr
+            );
+            if (exists == -1) {
+                this.$store.commit('addEntity', newEntity);
+                this.$emit('clicked');
+            } else {
+                alert('Serial Number Already Exists');
+            }
         }
     },
     name: 'PopupSelect',

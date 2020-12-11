@@ -19,11 +19,20 @@
         <!-- Div to hold both edit and repair -->
         <div class="edit-delete-img">
             <button @click="editRepair">
-                <img class="edit-delete-img-width" src="@/assets/Images/edit-icon.png" alt="Edit entity button" />
+                <img
+                    class="edit-delete-img-width"
+                    src="@/assets/Images/edit-icon.png"
+                    alt="Edit entity button"
+                />
             </button>
 
             <button>
-                <img class="edit-delete-img-width" src="@/assets/Images/delete-icon.png" @click="deleteEntity(this.entity)" alt="Delete button" />
+                <img
+                    class="edit-delete-img-width"
+                    src="@/assets/Images/delete-icon.png"
+                    @click="deleteEntity(this.entity)"
+                    alt="Delete button"
+                />
             </button>
         </div>
         <!-- Not needed in this page -->
@@ -45,7 +54,7 @@ export default {
     },
     methods: {
         deleteEntity: function() {
-            console.log("Serial nr submitted: " + this.entitySerialNumber)
+            console.log('Serial nr submitted: ' + this.entitySerialNumber);
             this.$store.commit('deleteEntity', this.entitySerialNumber);
         }
     }

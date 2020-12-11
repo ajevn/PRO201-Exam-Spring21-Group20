@@ -5,23 +5,22 @@
             <div id="logo-bar" class="md:w-auto bg-logoBar" v>
                 <div class="image-container">
                     <hamburger-icon @click="toggleSidebar" />
-                    
-                    <div class="logo-wrapper"><router-link to="/">
-                        <img 
-                            id="logo-img" 
-                            src="@/assets/Images/brightLogo.png" />
-                    </router-link></div>
+
+                    <div class="logo-wrapper">
+                        <router-link to="/">
+                            <img id="logo-img" src="@/assets/Images/brightLogo.png" />
+                        </router-link>
+                    </div>
                 </div>
-                
+
                 <div id="employee-div">
                     <h1 class="font-standardText text-secondary">Employee, {{ user || 'x' }}</h1>
                 </div>
             </div>
         </header>
-        
+
         <hamburger v-if="sideBarVisible"></hamburger>
-        
-        
+
         <slot />
         <footer>
             <div id="footer-div" class="absolute">
@@ -32,7 +31,6 @@
 </template>
 
 <script>
-
 import Hamburger from '@/components/Nav/Hamburger.vue';
 import HamburgerIcon from '@/components/UI/HamburgerIcon.vue';
 import LoginButton from '@/components/Login/LoginButton.vue';
@@ -40,8 +38,8 @@ import { computed } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 export default {
-    components: { 
-        Hamburger 
+    components: {
+        Hamburger
     },
     name: 'LogoBar',
     setup() {
@@ -64,23 +62,21 @@ export default {
     data() {
         return {
             sideBarVisible: true
-        }
-        
-    }, 
+        };
+    },
     methods: {
         toggleSidebar() {
-            const sideBarBool = this.sideBarVisible
-            this.sideBarVisible = !sideBarBool
+            const sideBarBool = this.sideBarVisible;
+            this.sideBarVisible = !sideBarBool;
         }
-    },
+    }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* old version  */
@@ -88,7 +84,7 @@ button {
     width: 100vw;
     height: 75px;
     display: grid;
-    grid-template-rows: max-content auto max-content;   
+    grid-template-rows: max-content auto max-content;
 }
 .image-container {
     position: absolute;
@@ -108,11 +104,9 @@ button {
             margin-top: 5px;
         }
     }
-
 }
 
 #employee-div {
-    
     position: absolute;
     right: 0px;
     height: 75px;
@@ -123,7 +117,7 @@ button {
         display: inline-block;
         right: 15px;
         margin-top: 40px;
-        
+
         font-size: 20px;
     }
 }
@@ -133,14 +127,8 @@ button {
     bottom: 1vh;
 }
 
-
 /* remove blue outline */
 button:focus {
-  outline: 0;
+    outline: 0;
 }
-
-
-
-
-
 </style>
