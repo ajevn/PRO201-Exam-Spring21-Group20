@@ -1,9 +1,11 @@
 <template>
-    <div>
-        <base-site>
+    <base-site>
+        <div class="login-base">
             <login />
-        </base-site>
-    </div>
+        </div>
+        <img src="@/assets/Images/Background/Background.jpg" id="background-image" />
+    </base-site>
+    
 </template>
 
 <script>
@@ -20,4 +22,19 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.login-base {
+    margin-top: 7vh
+}
+#background-image {
+    position: absolute;
+    top: 8vh;
+    z-index: -10;
+    width: 100vw;
+    height: 92vh;
+    background-image: url('../assets/Images/Background/Background.jpg');
+    filter: grayscale(100%);
+    overflow: hidden;
+}
+
+</style>

@@ -1,44 +1,49 @@
 |<template>
     <div>
-        <router-link to="/login" v-if="user == null">
-            <button>
-                Login
-            </button>
+
+        <router-link class="link-base" to="/login">
+            <div>
+                <p>LOG IN</p>
+                <img src="@/assets/Images/Icons/login-icon.png" alt="Home button" />
+            </div>
         </router-link>
-        <button @click="logout" v-else>
-            Logout
-        </button>
     </div>
 </template>
 
+
 <script>
-import { computed } from 'vue';
-import { useStore } from 'vuex';
-
 export default {
-    setup() {
-        const store = useStore();
-        const user = computed(() => {
-            return store.getters.getUserId;
-        });
-        const logout = () => store.commit('logout');
-
-        return { user, logout };
-    }
+    name: "Login Button"
 };
 </script>
 
-<style lang="scss" scoped>
-    button {
-        border-radius: 5px;
-        padding: 5px 20px;
-        background-color: #A8D598;
-        font-weight: bold;
-        color: #54445A;
-        box-shadow: 1px 1px 3px #000000;
+<style lang="scss">
+.link-base {
+    div {
+    display: inline-block;
+    margin-top: 75px;
+    width: 250px;
+    height: 70px;
+    background-color: #423048;
+    position: relative;
+    border-radius: 5px;
 
-        &:hover {
-            background-color: rgb(231, 241, 227);
-        }
+    p {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 30px;
+        text-align: left;
+        padding: 10px 20px;
     }
+
+    img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 15px;
+        width: 40px;
+    }
+    }
+}
+
 </style>

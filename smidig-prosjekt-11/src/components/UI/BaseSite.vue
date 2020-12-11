@@ -19,7 +19,11 @@
             </div>
         </header>
 
-        <hamburger v-if="sideBarVisible"></hamburger>
+
+        <hamburger 
+            :class="{showburger: sideBarVisible, hideburger: !sideBarVisible}"
+            ref="hamburger">
+            </hamburger>
 
         <slot />
         <footer>
@@ -68,6 +72,7 @@ export default {
         toggleSidebar() {
             const sideBarBool = this.sideBarVisible;
             this.sideBarVisible = !sideBarBool;
+            this.$refs.hamburger.updateloginValues();
         }
     }
 };
@@ -82,13 +87,13 @@ button {
 /* old version  */
 #logo-bar {
     width: 100vw;
-    height: 75px;
+    height: 8vh;
     display: grid;
     grid-template-rows: max-content auto max-content;
 }
 .image-container {
     position: absolute;
-    height: 75px;
+    height: 8vh;
     width: 410px;
     display: flex;
     flex-direction: row;
@@ -109,7 +114,7 @@ button {
 #employee-div {
     position: absolute;
     right: 0px;
-    height: 75px;
+    height: 8vh;
     width: 200px;
 
     h1 {
@@ -131,4 +136,20 @@ button {
 button:focus {
     outline: 0;
 }
+
+.showburger {
+    transition: all 0.3s;
+    opacity: 1;
+    left: 0vw;
+    visibility: visible;
+}
+
+.hideburger {
+    transition: all 0.3s;
+    opacity: 0;
+    left: -8vw;
+    visibility: hidden;
+}
+
+
 </style>

@@ -2,20 +2,21 @@
     <div id="approved-report-container" class="text-center">
         <h1>ENTRY SUCCESSFUL</h1>
         <img src="@/assets/Images/Icons/report-success-icon.png" alt="Report succesfully sent" />
-        <a href="#">
-            <div>
-                <p>HOME</p>
-                <img src="@/assets/Images/Icons/home-icon.png" alt="Home button" />
-            </div>
-        </a>
+        
+        <home-button></home-button>
     </div>
 </template>
 
 <script>
+import HomeButton from '../UI/HomeButton.vue'
 export default {
     name: 'Home',
-    components: {}
-};
+    setup() {
+        return {
+            HomeButton
+        }
+    }
+}
 </script>
 
 <!-- Adding some scss to style text and position items -->
