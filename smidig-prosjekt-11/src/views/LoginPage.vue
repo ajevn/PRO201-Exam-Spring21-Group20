@@ -1,9 +1,10 @@
 <template>
-    <div>
-        <base-site>
+    <base-site>
+        <div class="login-base">
             <login />
-        </base-site>
-    </div>
+        </div>
+    </base-site>
+    
 </template>
 
 <script>
@@ -20,4 +21,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.login-base {
+    margin-top: 7vh
+}
+
+</style>
