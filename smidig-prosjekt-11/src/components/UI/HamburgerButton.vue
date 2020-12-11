@@ -1,6 +1,6 @@
 <template>
     <div class="hamburger-button font-standardText">
-        <router-link :to="this.link">
+        <router-link v-if="this.link" :to="this.link">
             <div class="button-wrapper">
                 <img :src="require(`@/assets/Images/Icons/${this.icon}`)" />
                 <div>{{ this.bValue }}</div>

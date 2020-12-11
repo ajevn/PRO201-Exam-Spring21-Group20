@@ -8,10 +8,7 @@
             :link="but.link"
         >
         </hamburger-button>
-        <div class="triangle"></div>
-        <div class="hamburger-button font-standardText">
-            <login-button class="button-wrapper" />
-        </div>
+        <div class="triangle" @click="logout"></div>
     </div>
 </template>
 
@@ -38,9 +35,33 @@ export default {
                     bValue: 'Certifications',
                     icon: 'certificate-icon.png',
                     link: '/entry-successful'
+                },
+                {
+                    bValue: 'Log in',
+                    icon: 'login-icon.png',
+                    link: '/login'
                 }
-            ]
+            ] 
         };
+    },
+    methods: {
+        updateloginValues () {
+            let userId = this.$store.getters.getUserId
+            console.log(userId)
+            if(!userId) {
+                this.buttons[2].bValue = 'Log in'
+                this.buttons[2].icon = 'login-icon.png'
+                this.buttons[2].link = '/login'
+            } else {
+                this.buttons[2].bValue = 'Log out'
+                this.buttons[2].icon = 'logout-icon.png'
+                this.buttons[2].link = '/logout'
+            }
+        },
+        logOut () {
+            alert("logout")
+            //this.updateloginValues();
+        }  
     }
 };
 </script>

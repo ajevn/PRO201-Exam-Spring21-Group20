@@ -21,7 +21,9 @@
 
 
         <hamburger 
-            :class="{showburger: sideBarVisible, hideburger: !sideBarVisible}"></hamburger>
+            :class="{showburger: sideBarVisible, hideburger: !sideBarVisible}"
+            ref="hamburger">
+            </hamburger>
 
         <slot />
         <footer>
@@ -70,6 +72,7 @@ export default {
         toggleSidebar() {
             const sideBarBool = this.sideBarVisible;
             this.sideBarVisible = !sideBarBool;
+            this.$refs.hamburger.updateloginValues();
         }
     }
 };
