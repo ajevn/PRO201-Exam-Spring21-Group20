@@ -29,12 +29,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    button {
-        border-radius: 5px;
-        padding: 5px 20px;
-        background-color: #A8D598;
-        font-weight: bold;
-        color: #54445A;
-        box-shadow: 1px 1px 3px #000000;
-    }
+button {
+    border-radius: 5px;
+    padding: 5px 20px;
+    background-color: #a8d598;
+    font-weight: bold;
+    color: #54445a;
+    box-shadow: 1px 1px 3px #000000;
+}
 </style>
