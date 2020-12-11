@@ -1,7 +1,11 @@
 <template>
     <div id="product-container">
         <div class="ProductImg">
-            <img class="product-image-sunbell" src="@/assets/Images/Parts/sunbellProductImage.png" />
+            <img
+                class="product-image-sunbell"
+                src="@/assets/Images/Parts/sunbellProductImage.png"
+                alt="sunbell"
+            />
         </div>
         <span
             ><div class="border-solid border-2">{{ this.entitySerialNumber }}</div></span
@@ -13,17 +17,13 @@
                 :key="parts.partNumber"
                 class="part-imgs"
                 :src="require('@/assets/Images/Parts/' + parts.imgName + '.png')"
-                alt="parts"
+                alt="{{parts.partName}}"
             />
         </div>
         <!-- Div to hold both edit and repair -->
         <div class="edit-delete-img">
             <button @click="editRepair">
-                <img
-                    class="edit-delete-img-width"
-                    src="@/assets/Images/edit-icon.png"
-                    alt="Edit entity button"
-                />
+                <img class="edit-delete-img-width" src="@/assets/Images/edit-icon.png" alt="Edit button" />
             </button>
 
             <button>
@@ -35,9 +35,6 @@
                 />
             </button>
         </div>
-        <!-- Not needed in this page -->
-        <!--<input type="checkbox" name="approve" />-->
-
         <hr />
     </div>
 </template>
@@ -86,8 +83,8 @@ export default {
     }
 
     .part-imgs {
-        height: 3.5vh;
-        width: 2.5vw;
+        height: 5vh;
+        width: 3vw;
         margin: auto;
         margin-left: auto;
         margin-right: auto;

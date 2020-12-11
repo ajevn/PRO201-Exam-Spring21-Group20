@@ -2,7 +2,7 @@
     <div class="hamburger-button font-standardText">
         <router-link v-if="this.link" :to="this.link">
             <div class="button-wrapper">
-                <img :src="require(`@/assets/Images/Icons/${this.icon}`)" />
+                <img :src="require(`@/assets/Images/Icons/${this.icon}`)" alt="{{this.alt}}" />
                 <div>{{ this.bValue }}</div>
             </div>
         </router-link>
@@ -17,7 +17,8 @@ export default {
     props: {
         bValue: String,
         icon: String,
-        link: String
+        link: String,
+        alt: String
     }
 };
 </script>

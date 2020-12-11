@@ -1,5 +1,5 @@
 <template>
-    <div id="container" class="text-center">
+    <div id="container" class="text-center rounded-lg">
         <div id="products-container" class="grid-rows-3">
             <h1>PRODUCT</h1>
             <div class="content-center">
@@ -17,6 +17,13 @@
             </div>
         </div>
         <div id="parts" class="col-span-2">
+
+        <modal-error-message v-if="showModal == true" @close="showModal = false">
+            <template v-slot:body>
+                Serial Number Already Exists
+            </template>
+        </modal-error-message>
+
             <h1>PARTS</h1>
             <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
                 <a
@@ -43,10 +50,15 @@
 </template>
 
 <script>
-export default {
+import ModalErrorMessage from '@/components/Modals/ModalErrorMessage.vue';
+
+export default{
+    components: { 
+        ModalErrorMessage 
+    },
     data() {
         return {
-            showModal: true,
+            showModal: false,
             serialNr: {
                 Type: Number,
                 Required: true
@@ -130,15 +142,14 @@ export default {
             };
             var stateEntities = this.$store.getters.getEntities;
 
-            let exists = stateEntities.findIndex(
-                entity => entity.entitySerialNr === newEntity.entitySerialNr
-            );
-            if (exists == -1) {
-                this.$store.commit('addEntity', newEntity);
-                this.$emit('clicked');
-            } else {
-                alert('Serial Number Already Exists');
-            }
+            let exists = stateEntities.findIndex(entity => entity.entitySerialNr === newEntity.entitySerialNr);
+                if(exists == -1){
+                    this.$store.commit('addEntity', newEntity);
+                    this.$emit('clicked');
+                } else {
+                    this.showModal = true;
+                }
+                
         }
     },
     name: 'PopupSelect',

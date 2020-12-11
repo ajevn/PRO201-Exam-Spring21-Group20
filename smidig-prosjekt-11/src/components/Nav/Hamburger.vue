@@ -6,6 +6,7 @@
             :bValue="but.bValue"
             :icon="but.icon"
             :link="but.link"
+            :alt="but.alt"
         >
         </hamburger-button>
         <div class="triangle" @click="logout"></div>
@@ -13,7 +14,7 @@
 </template>
 
 <script>
-import HamburgerButton from '../UI/HamburgerButton.vue';
+import HamburgerButton from '@/components/UI/HamburgerButton.vue';
 import LoginButton from '@/components/Login/LoginButton.vue';
 export default {
     name: 'Hamburger',
@@ -29,7 +30,8 @@ export default {
                 {
                     bValue: 'User',
                     icon: 'user-person-icon.png',
-                    link: '/repair'
+                    link: '/repair',
+                    alt: 'User icon'
                 },
                 {
                     bValue: 'Certifications',
@@ -40,6 +42,8 @@ export default {
                     bValue: 'Log in',
                     icon: 'login-icon.png',
                     link: '/login'
+                    alt: 'Certifications icon'
+
                 }
             ] 
         };

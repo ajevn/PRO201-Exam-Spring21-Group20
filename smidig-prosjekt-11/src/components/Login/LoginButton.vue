@@ -1,5 +1,6 @@
-<template>
+|<template>
     <div>
+
         <router-link class="link-base" to="/login">
             <div>
                 <p>LOG IN</p>
@@ -44,4 +45,5 @@ export default {
     }
     }
 }
+
 </style>

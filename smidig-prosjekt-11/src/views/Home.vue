@@ -1,8 +1,8 @@
 <template>
     <div class="home">
         <base-site>
-            <img src="@/assets/Images/Background/Background.jpg" id="background-image" />
-            <home-select class="home-select-container" />
+            <img src="@/assets/Images/Background/Background.jpg" id="background-image" alt="background" />
+            <home-select @click="showModal = true" class="home-select-container" />
         </base-site>
     </div>
 </template>
@@ -13,10 +13,15 @@ import BaseSite from '@/components/UI/BaseSite.vue';
 import HomeSelect from '@/components/Nav/HomeSelect.vue';
 
 export default {
+    data() {
+        return {
+
+        };
+    },
     name: 'Home',
     components: {
         BaseSite,
-        HomeSelect
+        HomeSelect,
     }
 };
 </script>
