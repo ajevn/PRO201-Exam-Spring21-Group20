@@ -1,5 +1,5 @@
 <template>
-    <div class="hamburger-button font-standardText">
+    <div class="hamburger-button font-standardText hover:bg-white">
         <router-link v-if="this.link" :to="this.link">
             <div class="button-wrapper">
                 <img :src="require(`@/assets/Images/Icons/${this.icon}`)" alt="{{this.alt}}" />
