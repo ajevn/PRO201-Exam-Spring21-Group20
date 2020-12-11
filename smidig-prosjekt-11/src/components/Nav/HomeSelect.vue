@@ -33,7 +33,7 @@ export default {
     padding: 0px 1vw;
     height: 21.2vh;
     width: 20vw;
-    background-color: #405C6A;
+    background-color: #405c6a;
 }
 .button {
     background-color: #9fd18d;

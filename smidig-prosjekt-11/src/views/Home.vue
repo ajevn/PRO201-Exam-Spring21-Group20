@@ -1,9 +1,9 @@
 <template>
     <div class="home">
-            <base-site>
-                <img src="@/assets/Images/Background/Background.jpg" id="background-image" />
-                <home-select class="home-select-container" />
-            </base-site>
+        <base-site>
+            <img src="@/assets/Images/Background/Background.jpg" id="background-image" />
+            <home-select class="home-select-container" />
+        </base-site>
     </div>
 </template>
 
@@ -34,5 +34,4 @@ export default {
     filter: grayscale(100%);
     overflow: hidden;
 }
-
 </style>
