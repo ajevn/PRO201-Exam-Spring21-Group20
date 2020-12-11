@@ -1,5 +1,5 @@
 <template>
-    <div id="button-div" class="rounded-lg">
+    <div id="button-div" class="rounded-lg shadow-lg ring-2 ring-black ring-opacity-50">
         <div>
             <router-link
                 tag="button"
