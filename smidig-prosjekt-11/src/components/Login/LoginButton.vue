@@ -2,11 +2,11 @@
     <div>
         <router-link to="/login" v-if="user == null">
             <button>
-                login
+                Login
             </button>
         </router-link>
         <button @click="logout" v-else>
-            logout
+            Logout
         </button>
     </div>
 </template>
@@ -27,3 +27,14 @@ export default {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+    button {
+        border-radius: 5px;
+        padding: 5px 20px;
+        background-color: #A8D598;
+        font-weight: bold;
+        color: #54445A;
+        box-shadow: 1px 1px 3px #000000;
+    }
+</style>
