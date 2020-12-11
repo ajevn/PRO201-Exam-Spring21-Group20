@@ -8,7 +8,9 @@
         :link='but.link'>
         </hamburger-button>
         <div class="triangle"></div>
-		<login-button class="pl-20 hamburger-button font-standardText" />
+		<div class="hamburger-button font-standardText">
+			<login-button class="button-wrapper" />
+		</div>
     </div>
 </template>
 
@@ -78,8 +80,6 @@ export default {
     border-width: 0 19.5px 30px 19.5px;
     border-color: transparent transparent #405c6a transparent;
 }
-
-
 
 /*
 logoBar: '#405C6A',
