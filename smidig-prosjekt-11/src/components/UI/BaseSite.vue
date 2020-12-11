@@ -61,7 +61,7 @@ export default {
     },
     data() {
         return {
-            sideBarVisible: true
+            sideBarVisible: false
         };
     },
     methods: {
