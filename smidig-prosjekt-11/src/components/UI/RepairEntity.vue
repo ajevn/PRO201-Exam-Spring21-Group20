@@ -83,8 +83,8 @@ export default {
     }
 
     .part-imgs {
-        height: 3.5vh;
-        width: 2.5vw;
+        height: 5vh;
+        width: 3vw;
         margin: auto;
         margin-left: auto;
         margin-right: auto;
