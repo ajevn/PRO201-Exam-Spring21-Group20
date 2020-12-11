@@ -5,7 +5,7 @@
       default content
     -->
         <h3 slot="header">custom header</h3>
-      </modal>
+    </modal>
 </template>
 
 <script>
