@@ -1,5 +1,5 @@
 <template>
-    <base-site>
+    <base-site isDark="true">
         <div class="login-base">
             <login />
         </div>

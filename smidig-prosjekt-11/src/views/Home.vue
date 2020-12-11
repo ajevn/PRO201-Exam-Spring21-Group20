@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <base-site>
+        <base-site isDark="true">
             <img src="@/assets/Images/Background/Background.jpg" id="background-image" alt="background" />
             <home-select @click="showModal = true" class="home-select-container" />
         </base-site>

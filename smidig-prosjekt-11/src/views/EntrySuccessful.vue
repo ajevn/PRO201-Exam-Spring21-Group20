@@ -2,7 +2,6 @@
     <div v-if="user">
         <div class="entry-succesful">
             <base-site />
-            <nav-bar />
         </div>
         <approved-report />
 
