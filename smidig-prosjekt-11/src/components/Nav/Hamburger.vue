@@ -8,15 +8,21 @@
         :link='but.link'>
         </hamburger-button>
         <div class="triangle"></div>
+		<login-button class="pl-20 hamburger-button font-standardText" />
     </div>
 </template>
 
 <script>
-import HamburgerButton from '../UI/HamburgerButton.vue'
-
+import HamburgerButton from '../UI/HamburgerButton.vue';
+import LoginButton from '@/components/Login/LoginButton.vue';
 export default {
     name: 'Hamburger',
     components: {HamburgerButton},
+    setup() {
+        return {
+            LoginButton,
+        };
+    },
     data() {
     return {
         buttons: [
