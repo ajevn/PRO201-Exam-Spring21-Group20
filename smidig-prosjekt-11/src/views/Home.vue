@@ -1,8 +1,9 @@
 <template>
     <div class="home">
-        <base-site>
-            <home-select class="home-select-container" />
-        </base-site>
+            <base-site>
+                <img src="@/assets/Images/Background/Background.jpg" id="background-image" />
+                <home-select class="home-select-container" />
+            </base-site>
     </div>
 </template>
 
@@ -26,4 +27,12 @@ export default {
     left: 41vw;
     top: 40vh;
 }
+#background-image {
+    width: 100vw;
+    height: 92.4vh;
+    background-image: url('../assets/Images/Background/Background.jpg');
+    filter: grayscale(100%);
+    overflow: hidden;
+}
+
 </style>

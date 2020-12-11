@@ -9,15 +9,23 @@
         >
         </hamburger-button>
         <div class="triangle"></div>
+        <div class="hamburger-button font-standardText">
+            <login-button class="button-wrapper" />
+        </div>
     </div>
 </template>
 
 <script>
 import HamburgerButton from '../UI/HamburgerButton.vue';
-
+import LoginButton from '@/components/Login/LoginButton.vue';
 export default {
     name: 'Hamburger',
-    components: { HamburgerButton },
+    setup() {
+        return {
+            LoginButton,
+            HamburgerButton
+        };
+    },
     data() {
         return {
             buttons: [

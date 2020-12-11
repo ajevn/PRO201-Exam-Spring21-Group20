@@ -36,7 +36,8 @@ export default {
     height: 100%;
     width: 100%;
     color: #423048;
-    padding-top: 10px;
+    padding-top: 17px;
+    padding-bottom: 13px;
 
     font-size: 1.2em;
     font-weight: bold;

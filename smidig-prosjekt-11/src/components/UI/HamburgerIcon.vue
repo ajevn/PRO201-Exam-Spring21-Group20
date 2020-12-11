@@ -10,7 +10,7 @@ export default {
     name: 'HamburgerIcon',
     data() {
         return {
-            menuSelected: true
+            menuSelected: false
         };
     },
     methods: {

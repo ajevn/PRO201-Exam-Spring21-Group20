@@ -1,11 +1,11 @@
 <template>
-    <div id="button-div">
+    <div id="button-div" class="rounded-lg">
         <div>
             <router-link
                 tag="button"
                 to="/repair"
                 type="button"
-                class="font-standardText rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-logoBar home-repair-ico-src home-ico-style"
+                class="font-standardText rounded-full button shadow-lg ring-4 ring-black ring-opacity-50 hover:bg-white home-repair-ico-src home-ico-style"
             >
                 Repair
             </router-link>
@@ -13,7 +13,7 @@
         <div>
             <button
                 type="button"
-                class="font-standardText rounded-full button shadow-lg ring-4 ring-gray-300 ring-opacity-50 hover:bg-logoBar home-learn-ico-src home-ico-style"
+                class="font-standardText rounded-full button shadow-lg ring-4 ring-black ring-opacity-50 hover:bg-white home-learn-ico-src home-ico-style"
             >
                 E-Learning
             </button>
@@ -30,8 +30,10 @@ export default {
 
 <style scoped>
 #button-div {
-    height: 25vh;
-    width: 35vh;
+    padding: 0px 1vw;
+    height: 21.2vh;
+    width: 20vw;
+    background-color: #405C6A;
 }
 .button {
     background-color: #9fd18d;
@@ -41,7 +43,7 @@ export default {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 22px;
+    font-size: 1.5em;
     font-weight: bold;
     color: #423048;
     margin: 4px 2px;
