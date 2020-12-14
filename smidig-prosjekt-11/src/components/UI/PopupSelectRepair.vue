@@ -1,5 +1,6 @@
 <template>
     <div id="container" class="text-center rounded-lg">
+        <!-- PRODUCT-DIV -->
         <div id="products-container" class="grid-rows-3">
             <h1>Продукт</h1>
             <!-- Product -->
@@ -14,10 +15,11 @@
 
             <div id="serialnum-container">
                 <h3>серийный номер</h3>
-                <!-- SERIAL NUMBER -->
+                <!-- Serial number -->
                 <input ref="inputSerialNumber" type="text" :v-model="serialNr" placeholder="Serial Number" />
             </div>
         </div>
+        <!-- PARTS-DIV -->
         <div id="parts" class="col-span-2">
             <modal-error-message v-if="showModal == true" @close="showModal = false">
 
@@ -115,9 +117,8 @@ export default {
     },
     methods: {
         selectPart(product) {
-            //let test = document.getElementById(product.id); // <--- NOOB METODE
-            //$this.refs.value.partname
-            product.isChecked = !product.isChecked;
+            
+            product.isChecked = !product.isChecked;         // Flips the boolean value, true->false, false->true
             let parentEl = event.target.parentElement;
 
             // To prevent user to change color of the wrong parent
@@ -128,17 +129,17 @@ export default {
             } else {
                 parentEl.style.backgroundColor = ' #F8F6F2';
             }
-            //console.log(product.isChecked)
             return;
         },
 
         submitPartsSelected() {
+            // Adding the marked parts to the partsChosen-array 
             for (let i = 0; i < this.productImages.length; i++) {
                 if (this.productImages[i].isChecked) {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
-            //this.serialNr =  this.$refs.inputSerialNumber.value;
+            // Making a new object that holds informasjon about the repair, this will be sent to state, so we can access it from other components
             let newEntity = {
                 entitySerialNr: this.$refs.inputSerialNumber.value,
                 parts: this.partsChosen
@@ -148,6 +149,7 @@ export default {
             let exists = stateEntities.findIndex(
                 entity => entity.entitySerialNr === newEntity.entitySerialNr
             );
+            // Committing the objekt to the state
             if (exists == -1) {
                 this.$store.commit('addEntity', newEntity);
                 this.$emit('clicked');
@@ -160,7 +162,6 @@ export default {
     props: {
         pictures: Array
     }
-    // emits
 };
 </script>
 <style lang="scss" scoped>
@@ -190,7 +191,6 @@ export default {
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 10px;
-        /*background: green;*/
     }
 
     #products-container {
@@ -283,6 +283,4 @@ export default {
         }
     }
 }
-
-/* FILTER BLUR */
 </style>
