@@ -174,6 +174,7 @@ export default {
     grid-template-columns: auto 70%;
 
     h1 {
+        font-size: 1.5em;
         margin: 3vh;
         padding-bottom: 2vh;
         font-weight: bold;
