@@ -17,13 +17,19 @@
                 <h3>серийный номер</h3>
 
                 <!-- SERIAL NUMBER -->
-                <input ref="inputSerialNumber" v-on:keydown="serialInputIsEmpty = false" v-bind:class="{ serialInputEmpty: serialInputIsEmpty }" type="text" :v-model="serialNr" placeholder="серийный номер" />
+                <input
+                    ref="inputSerialNumber"
+                    v-on:keydown="serialInputIsEmpty = false"
+                    v-bind:class="{ serialInputEmpty: serialInputIsEmpty }"
+                    type="text"
+                    :v-model="serialNr"
+                    placeholder="серийный номер"
+                />
             </div>
         </div>
         <!-- PARTS-DIV -->
         <div id="parts" class="col-span-2">
             <modal-error-message v-if="showModal == true" @close="showModal = false">
-
                 <template v-slot:body>{{ modalTextBody }}</template
                 ><!-- Serial Number Already Exists -->
             </modal-error-message>
@@ -43,7 +49,6 @@
                     />
                     <h2></h2>
                     <!--{{ product.partName }} -->
-
                 </a>
             </div>
         </div>
@@ -52,7 +57,6 @@
         <slot />
         <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">следующий</button
         ><!-- NEXT -->
-
     </div>
 </template>
 
@@ -66,7 +70,7 @@ export default {
     data() {
         return {
             serialInputIsEmpty: false,
-            modalTextBody: "",
+            modalTextBody: '',
 
             showModal: false,
             serialNr: {
@@ -122,7 +126,7 @@ export default {
     },
     methods: {
         selectPart(product) {
-            product.isChecked = !product.isChecked;         // Flips the boolean value, true->false, false->true
+            product.isChecked = !product.isChecked; // Flips the boolean value, true->false, false->true
 
             let parentEl = event.target.parentElement;
 
@@ -138,24 +142,24 @@ export default {
         },
 
         submitPartsSelected() {
-            // Adding the marked parts to the partsChosen-array 
+            // Adding the marked parts to the partsChosen-array
             for (let i = 0; i < this.productImages.length; i++) {
                 if (this.productImages[i].isChecked) {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
-            var serialNr =  this.$refs.inputSerialNumber.value;
+            var serialNr = this.$refs.inputSerialNumber.value;
 
-            if(serialNr == "") {
+            if (serialNr == '') {
                 this.partsChosen = [];
                 this.serialInputIsEmpty = true;
-                                    //Please input serial number
-                this.modalTextBody = "серийный номер уже существует";
+                //Please input serial number
+                this.modalTextBody = 'серийный номер уже существует';
                 this.showModal = true;
                 return;
-            } else if(this.partsChosen.length == 0){
-                                     //Please choose part
-                this.modalTextBody = "существует номер серийный";
+            } else if (this.partsChosen.length == 0) {
+                //Please choose part
+                this.modalTextBody = 'существует номер серийный';
                 this.showModal = true;
                 return;
             }
@@ -170,17 +174,16 @@ export default {
             let exists = stateEntities.findIndex(
                 entity => entity.entitySerialNr === newEntity.entitySerialNr
             );
-                if (exists == -1) {
-                    this.serialInputIsEmpty = true;
-                    this.$store.commit('addEntity', newEntity);
-                    this.$emit('clicked');
-                } else {
-                                            //Serial nr doesnt exist
-                    this.modalTextBody = "серийный номер уже существует";
-                    this.showModal = true;
-                    this.partsChosen = [];
-                }
-
+            if (exists == -1) {
+                this.serialInputIsEmpty = true;
+                this.$store.commit('addEntity', newEntity);
+                this.$emit('clicked');
+            } else {
+                //Serial nr doesnt exist
+                this.modalTextBody = 'серийный номер уже существует';
+                this.showModal = true;
+                this.partsChosen = [];
+            }
         }
     },
     name: 'PopupSelect',
@@ -190,7 +193,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
 #container {
     width: 100%;
     height: 100%;
@@ -256,13 +258,11 @@ export default {
                 color: #38293c;
             }
 
-            
             .serialInputEmpty {
-                box-shadow: 0px 0px 8px #CC0000;
+                box-shadow: 0px 0px 8px #cc0000;
             }
 
             input {
-
                 border: 1.5px solid #423048;
                 border-radius: 5px;
                 background-color: #fffefd;

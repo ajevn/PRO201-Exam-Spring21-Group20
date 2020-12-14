@@ -14,7 +14,6 @@ import HomeSelect from '@/components/Nav/HomeSelect.vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 
-
 export default {
     data() {
         return {};

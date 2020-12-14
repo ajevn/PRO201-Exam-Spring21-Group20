@@ -29,7 +29,6 @@
                     src="@/assets/Images/edit-icon.png"
                     alt="Edit entity button"
                 />
-
             </button>
 
             <button>
