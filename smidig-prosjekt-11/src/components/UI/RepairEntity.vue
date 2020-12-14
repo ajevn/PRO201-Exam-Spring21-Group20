@@ -10,6 +10,7 @@
         <span
             ><div class="border-solid border-2">{{ this.entitySerialNumber }}</div></span
         >
+        <!-- Loops through the selected parts for this repair, and displays their images -->
 
         <div id="parts-container">
             <img
@@ -23,7 +24,11 @@
         <!-- Div to hold both edit and repair -->
         <div class="edit-delete-img">
             <button @click="editRepair">
-                <img class="edit-delete-img-width" src="@/assets/Images/edit-icon.png" alt="Edit button" />
+                <img
+                    class="edit-delete-img-width"
+                    src="@/assets/Images/edit-icon.png"
+                    alt="Edit entity button"
+                />
             </button>
 
             <button>
@@ -51,7 +56,6 @@ export default {
     },
     methods: {
         deleteEntity: function() {
-            console.log('Serial nr submitted: ' + this.entitySerialNumber);
             this.$store.commit('deleteEntity', this.entitySerialNumber);
         }
     }

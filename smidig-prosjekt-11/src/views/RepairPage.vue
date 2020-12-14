@@ -33,9 +33,6 @@ export default {
         RepairInfo,
         ProgressBar,
         RedirectLogin
-    },
-    methods: {
-        toggleBlur: function() {}
     }
 };
 </script>

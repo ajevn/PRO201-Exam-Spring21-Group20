@@ -23,8 +23,9 @@
                             @click="close"
                             aria-label="Close modal"
                         >
-                            Okay
+                            Хорошо
                         </button>
+                        <!-- Okay -->
                     </footer>
                 </div>
             </div>
@@ -79,9 +80,6 @@ export default {
     color: #f27474;
     justify-content: space-between;
     font-size: 2em;
-}
-
-#header-image {
 }
 
 .modal-body {

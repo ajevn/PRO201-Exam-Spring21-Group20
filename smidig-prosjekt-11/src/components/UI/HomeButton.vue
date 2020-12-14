@@ -2,7 +2,8 @@
     <div class="home-button">
         <a href="#">
             <div>
-                <p>HOME</p>
+                <p>Главная</p>
+                <!-- Home -->
                 <img src="@/assets/Images/Icons/home-icon.png" alt="Home button" />
             </div>
         </a>

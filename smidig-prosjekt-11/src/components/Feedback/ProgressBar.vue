@@ -3,6 +3,7 @@
         <div class="relative pt-8 w-3/5 m-auto">
             <!-- Green line -->
             <div id="progress-bar-border" class="overflow-hidden h-1 mb-4 text-xs flex rounded bg-pink-200">
+                <!-- Setting class if isSuccessfulReport and/or isUnsuccessfulReport is true -->
                 <div
                     id="progress-bar-width"
                     class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"
@@ -22,6 +23,7 @@
                 <img src="@/assets/Images/Icons/edit-report-icon.png" alt="Progress bar, Edit report" />
             </div>
 
+            <!-- Setting class if isSuccessfulReport and/or isUnsuccessfulReport is true -->
             <div
                 :class="{
                     'progress-bar-done': isSuccessfulReport,
@@ -48,6 +50,7 @@
         </router-link>
 
         <!-- Button to go to next page -->
+        <!-- Setting class if isSuccessfulReport is true -->
         <router-link :to="'/' + nextBtn" :class="{ 'next-btn-none': isSuccessfulReport }">
             <img
                 class="progress-bar-btns"

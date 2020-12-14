@@ -1,7 +1,9 @@
 <template>
     <div id="container" class="text-center rounded-lg">
+        <!-- PRODUCT-DIV -->
         <div id="products-container" class="grid-rows-3">
-            <h1>PRODUCT</h1>
+            <h1>Продукт</h1>
+            <!-- Product -->
             <div class="content-center">
                 <div id="popup-static-product-style">
                     <img src="../../assets/Images/Parts/sunbellProductImage.png" alt="Product: Sunbell" />
@@ -12,18 +14,28 @@
             <hr />
 
             <div id="serialnum-container">
-                <h3>SERIAL NUMBER</h3>
-                <input ref="inputSerialNumber" type="text" :v-model="serialNr" placeholder="Serial Number" />
+                <h3>серийный номер</h3>
+
+                <!-- SERIAL NUMBER -->
+                <input
+                    ref="inputSerialNumber"
+                    v-on:keydown="serialInputIsEmpty = false"
+                    v-bind:class="{ serialInputEmpty: serialInputIsEmpty }"
+                    type="text"
+                    :v-model="serialNr"
+                    placeholder="серийный номер"
+                />
             </div>
         </div>
+        <!-- PARTS-DIV -->
         <div id="parts" class="col-span-2">
             <modal-error-message v-if="showModal == true" @close="showModal = false">
-                <template v-slot:body>
-                    Serial Number Already Exists
-                </template>
+                <template v-slot:body>{{ modalTextBody }}</template
+                ><!-- Serial Number Already Exists -->
             </modal-error-message>
 
-            <h1>PARTS</h1>
+            <h1>Запчасти</h1>
+            <!-- Parts -->
             <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
                 <a
                     class="popup-products"
@@ -35,16 +47,16 @@
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
                     />
-                    <h2>
-                        {{ product.partName }}
-                    </h2>
+                    <h2></h2>
+                    <!--{{ product.partName }} -->
                 </a>
             </div>
         </div>
 
         <!-- Creating space for the close button of the project -->
         <slot />
-        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
+        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">следующий</button
+        ><!-- NEXT -->
     </div>
 </template>
 
@@ -57,6 +69,9 @@ export default {
     },
     data() {
         return {
+            serialInputIsEmpty: false,
+            modalTextBody: '',
+
             showModal: false,
             serialNr: {
                 Type: Number,
@@ -111,9 +126,8 @@ export default {
     },
     methods: {
         selectPart(product) {
-            //let test = document.getElementById(product.id); // <--- NOOB METODE
-            //$this.refs.value.partname
-            product.isChecked = !product.isChecked;
+            product.isChecked = !product.isChecked; // Flips the boolean value, true->false, false->true
+
             let parentEl = event.target.parentElement;
 
             // To prevent user to change color of the wrong parent
@@ -124,19 +138,35 @@ export default {
             } else {
                 parentEl.style.backgroundColor = ' #F8F6F2';
             }
-            //console.log(product.isChecked)
             return;
         },
 
         submitPartsSelected() {
+            // Adding the marked parts to the partsChosen-array
             for (let i = 0; i < this.productImages.length; i++) {
                 if (this.productImages[i].isChecked) {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
-            //this.serialNr =  this.$refs.inputSerialNumber.value;
+            var serialNr = this.$refs.inputSerialNumber.value;
+
+            if (serialNr == '') {
+                this.partsChosen = [];
+                this.serialInputIsEmpty = true;
+                //Please input serial number
+                this.modalTextBody = 'серийный номер уже существует';
+                this.showModal = true;
+                return;
+            } else if (this.partsChosen.length == 0) {
+                //Please choose part
+                this.modalTextBody = 'существует номер серийный';
+                this.showModal = true;
+                return;
+            }
+
             let newEntity = {
-                entitySerialNr: this.$refs.inputSerialNumber.value,
+                entitySerialNr: serialNr,
+
                 parts: this.partsChosen
             };
             var stateEntities = this.$store.getters.getEntities;
@@ -145,10 +175,14 @@ export default {
                 entity => entity.entitySerialNr === newEntity.entitySerialNr
             );
             if (exists == -1) {
+                this.serialInputIsEmpty = true;
                 this.$store.commit('addEntity', newEntity);
                 this.$emit('clicked');
             } else {
+                //Serial nr doesnt exist
+                this.modalTextBody = 'серийный номер уже существует';
                 this.showModal = true;
+                this.partsChosen = [];
             }
         }
     },
@@ -156,7 +190,6 @@ export default {
     props: {
         pictures: Array
     }
-    // emits
 };
 </script>
 <style lang="scss" scoped>
@@ -170,6 +203,7 @@ export default {
     grid-template-columns: auto 70%;
 
     h1 {
+        font-size: 1.5em;
         margin: 3vh;
         padding-bottom: 2vh;
         font-weight: bold;
@@ -185,7 +219,6 @@ export default {
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 10px;
-        /*background: green;*/
     }
 
     #products-container {
@@ -223,6 +256,10 @@ export default {
             h3 {
                 font-weight: bold;
                 color: #38293c;
+            }
+
+            .serialInputEmpty {
+                box-shadow: 0px 0px 8px #cc0000;
             }
 
             input {
@@ -278,6 +315,4 @@ export default {
         }
     }
 }
-
-/* FILTER BLUR */
 </style>
