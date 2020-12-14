@@ -11,15 +11,23 @@
 // @ is an alias to /src
 import BaseSite from '@/components/UI/BaseSite.vue';
 import HomeSelect from '@/components/Nav/HomeSelect.vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+import { onBeforeMount } from 'vue';
 
 export default {
-    data() {
-        return {};
-    },
     name: 'Home',
-    components: {
-        BaseSite,
-        HomeSelect
+    setup() {
+        const store = useStore();
+        const router = useRouter();
+        onBeforeMount(() => {
+            if (store.getters.getUserId == null) router.push({ name: 'LoginPage' });
+        });
+
+        return {
+            BaseSite,
+            HomeSelect
+        };
     }
 };
 </script>
