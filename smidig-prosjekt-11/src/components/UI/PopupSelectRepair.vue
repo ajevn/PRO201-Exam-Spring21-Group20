@@ -18,7 +18,6 @@
 
                 <!-- SERIAL NUMBER -->
                 <input ref="inputSerialNumber" v-on:keydown="serialInputIsEmpty = false" v-bind:class="{ serialInputEmpty: serialInputIsEmpty }" type="text" :v-model="serialNr" placeholder="серийный номер" />
-
             </div>
         </div>
         <!-- PARTS-DIV -->
@@ -31,7 +30,6 @@
 
             <h1>Запчасти</h1>
             <!-- Parts -->
-
             <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
                 <a
                     class="popup-products"
@@ -45,6 +43,7 @@
                     />
                     <h2></h2>
                     <!--{{ product.partName }} -->
+
                 </a>
             </div>
         </div>
@@ -53,6 +52,7 @@
         <slot />
         <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">следующий</button
         ><!-- NEXT -->
+
     </div>
 </template>
 
@@ -67,6 +67,7 @@ export default {
         return {
             serialInputIsEmpty: false,
             modalTextBody: "",
+
             showModal: false,
             serialNr: {
                 Type: Number,
@@ -121,8 +122,8 @@ export default {
     },
     methods: {
         selectPart(product) {
-            
             product.isChecked = !product.isChecked;         // Flips the boolean value, true->false, false->true
+
             let parentEl = event.target.parentElement;
 
             // To prevent user to change color of the wrong parent
@@ -143,8 +144,6 @@ export default {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
-
-
             var serialNr =  this.$refs.inputSerialNumber.value;
 
             if(serialNr == "") {
@@ -163,6 +162,7 @@ export default {
 
             let newEntity = {
                 entitySerialNr: serialNr,
+
                 parts: this.partsChosen
             };
             var stateEntities = this.$store.getters.getEntities;
@@ -170,7 +170,6 @@ export default {
             let exists = stateEntities.findIndex(
                 entity => entity.entitySerialNr === newEntity.entitySerialNr
             );
-
                 if (exists == -1) {
                     this.serialInputIsEmpty = true;
                     this.$store.commit('addEntity', newEntity);
@@ -181,6 +180,7 @@ export default {
                     this.showModal = true;
                     this.partsChosen = [];
                 }
+
         }
     },
     name: 'PopupSelect',
@@ -207,7 +207,6 @@ export default {
         font-weight: bold;
         color: #38293c;
     }
-
 
     img {
         width: 8vw;

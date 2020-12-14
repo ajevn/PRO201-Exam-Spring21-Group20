@@ -1,19 +1,24 @@
 <template>
     <div id="product-container">
         <div class="ProductImg">
-            <img class="product-image-sunbell" src="@/assets/Images/Parts/sunbellProductImage.png" />
+            <img
+                class="product-image-sunbell"
+                src="@/assets/Images/Parts/sunbellProductImage.png"
+                alt="sunbell"
+            />
         </div>
         <span
             ><div class="border-solid border-2">{{ this.entitySerialNumber }}</div></span
         >
         <!-- Loops through the selected parts for this repair, and displays their images -->
+
         <div id="parts-container">
             <img
                 v-for="parts in entityParts"
                 :key="parts.partNumber"
                 class="part-imgs"
                 :src="require('@/assets/Images/Parts/' + parts.imgName + '.png')"
-                alt="parts"
+                alt="{{parts.partName}}"
             />
         </div>
         <!-- Div to hold both edit and repair -->
@@ -24,6 +29,7 @@
                     src="@/assets/Images/edit-icon.png"
                     alt="Edit entity button"
                 />
+
             </button>
 
             <button>
@@ -82,8 +88,8 @@ export default {
     }
 
     .part-imgs {
-        height: 3.5vh;
-        width: 2.5vw;
+        height: 5vh;
+        width: 3vw;
         margin: auto;
         margin-left: auto;
         margin-right: auto;
