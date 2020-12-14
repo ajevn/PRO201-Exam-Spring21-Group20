@@ -1,22 +1,24 @@
-|<template>
-    <div>
-        <router-link class="link-base" to="/login">
+<template>
+    <div class="home-button">
+        <a href="#">
             <div>
-                <p>LOG IN</p>
-                <img src="@/assets/Images/Icons/login-icon.png" alt="Home button" />
+                <p>HOME</p>
+                <img src="@/assets/Images/Icons/home-icon.png" alt="Home button" />
             </div>
-        </router-link>
+        </a>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Login Button'
+    name: 'HomeButton'
 };
 </script>
 
-<style lang="scss">
-.link-base {
+<style lang="scss" scoped>
+a {
+    margin: 0;
+
     div {
         display: inline-block;
         margin-top: 75px;

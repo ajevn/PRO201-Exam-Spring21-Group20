@@ -1,9 +1,8 @@
 <template>
     <div class="home">
-        <base-site>
-            <landing-page>
-                <home-select class="home-select-container" />
-            </landing-page>
+        <base-site isDark="true">
+            <img src="@/assets/Images/Background/Background.jpg" id="background-image" alt="background" />
+            <home-select @click="showModal = true" class="home-select-container" />
         </base-site>
     </div>
 </template>
@@ -12,14 +11,15 @@
 // @ is an alias to /src
 import BaseSite from '@/components/UI/BaseSite.vue';
 import HomeSelect from '@/components/Nav/HomeSelect.vue';
-import LandingPage from '@/components/UI/LandingPage.vue';
 
 export default {
+    data() {
+        return {};
+    },
     name: 'Home',
     components: {
         BaseSite,
-        HomeSelect,
-        LandingPage
+        HomeSelect
     }
 };
 </script>
@@ -29,5 +29,12 @@ export default {
     position: absolute;
     left: 41vw;
     top: 40vh;
+}
+#background-image {
+    width: 100vw;
+    height: 92vh;
+    background-image: url('../assets/Images/Background/Background.jpg');
+    filter: grayscale(100%);
+    overflow: hidden;
 }
 </style>

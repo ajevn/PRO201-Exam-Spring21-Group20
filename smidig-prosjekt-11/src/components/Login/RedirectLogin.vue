@@ -1,6 +1,6 @@
 <template>
-    <base-site>
-        <h1>you need to login</h1>
+    <base-site class="base-site">
+        <h1>Access denied, please log in</h1>
         <login-button />
     </base-site>
 </template>
@@ -18,4 +18,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.base-site {
+    text-align: center;
+}
+h1 {
+    margin-top: 16vh;
+
+    font-size: 70px;
+    color: #405c6a;
+}
+</style>

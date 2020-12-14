@@ -1,10 +1,13 @@
 <template>
-    <div class=" relative container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center">
+    <div
+        id="login-container"
+        class=" relative container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center"
+    >
         <form @submit.prevent="post">
             <div>
-                <label class="block mb-2 text-indigo-500" for="username">Username</label>
+                <label class="block mb-2" for="username">Username</label>
                 <input
-                    class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-blue-500 outline-none focus:bg-gray-300"
+                    class="w-full p-2 mb-6 border-b-2 border-green-500 outline-none focus:bg-gray-300"
                     v-model="username"
                     type="text"
                     placeholder="Enter Username"
@@ -13,9 +16,9 @@
                 />
             </div>
             <div>
-                <label class="block mb-2 text-indigo-500" for="password">Password</label>
+                <label class="block mb-2" for="password">Password</label>
                 <input
-                    class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-blue-500 outline-none focus:bg-gray-300"
+                    class="w-full p-2 mb-6 border-b-2 border-green-500 outline-none focus:bg-gray-300"
                     v-model="password"
                     type="password"
                     placeholder="Enter Password"
@@ -26,7 +29,8 @@
 
             <div>
                 <input
-                    class="w-full bg-green hover:bg-secondary text-white font-bold py-2 px-4 mb-6 rounded"
+                    id="login-submit"
+                    class="w-full hover:bg-universalGreen text-white font-bold py-2 px-4 mb-6 rounded"
                     type="submit"
                 />
             </div>
@@ -64,3 +68,28 @@ export default {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+#login-container {
+    margin-top: 20vh;
+
+    label {
+        font-weight: bold;
+        color: #a8d598;
+    }
+
+    input {
+        color: #433149;
+        border-color: #433149;
+        font-weight: bold;
+    }
+
+    #login-submit {
+        background-color: #a8d598;
+
+        &:hover {
+            background-color: rgb(231, 241, 227);
+        }
+    }
+}
+</style>

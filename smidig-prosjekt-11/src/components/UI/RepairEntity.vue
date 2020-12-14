@@ -1,9 +1,15 @@
 <template>
     <div id="product-container">
         <div class="ProductImg">
-            <img class="product-image-sunbell" src="@/assets/Images/Parts/sunbellProductImage.png" />
+            <img
+                class="product-image-sunbell"
+                src="@/assets/Images/Parts/sunbellProductImage.png"
+                alt="sunbell"
+            />
         </div>
-        <span><input type="text" v-model="serialNumber"/></span>
+        <span
+            ><div class="border-solid border-2">{{ this.entitySerialNumber }}</div></span
+        >
 
         <div id="parts-container">
             <img
@@ -11,22 +17,24 @@
                 :key="parts.partNumber"
                 class="part-imgs"
                 :src="require('@/assets/Images/Parts/' + parts.imgName + '.png')"
-                alt="parts"
+                alt="{{parts.partName}}"
             />
         </div>
         <!-- Div to hold both edit and repair -->
         <div class="edit-delete-img">
             <button @click="editRepair">
-                <img class="edit-delete-img-width" src="@/assets/Images/edit-icon.png" alt="editbtn" />
+                <img class="edit-delete-img-width" src="@/assets/Images/edit-icon.png" alt="Edit button" />
             </button>
 
             <button>
-                <img class="edit-delete-img-width" src="@/assets/Images/delete-icon.png" alt="editbtn" />
+                <img
+                    class="edit-delete-img-width"
+                    src="@/assets/Images/delete-icon.png"
+                    @click="deleteEntity(this.entity)"
+                    alt="Delete button"
+                />
             </button>
         </div>
-        <!-- Not needed in this page -->
-        <!--<input type="checkbox" name="approve" />-->
-
         <hr />
     </div>
 </template>
@@ -36,10 +44,16 @@ export default {
     props: {
         entityParts: {
             Type: Object
+        },
+        entitySerialNumber: {
+            Type: String
         }
     },
-    created() {
-        console.log('Passed as prop' + this.entityParts);
+    methods: {
+        deleteEntity: function() {
+            console.log('Serial nr submitted: ' + this.entitySerialNumber);
+            this.$store.commit('deleteEntity', this.entitySerialNumber);
+        }
     }
 };
 </script>
@@ -69,8 +83,8 @@ export default {
     }
 
     .part-imgs {
-        height: 3.5vh;
-        width: 2.5vw;
+        height: 5vh;
+        width: 3vw;
         margin: auto;
         margin-left: auto;
         margin-right: auto;
