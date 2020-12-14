@@ -13,16 +13,14 @@ import BaseSite from '@/components/UI/BaseSite.vue';
 import HomeSelect from '@/components/Nav/HomeSelect.vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
-import { onBeforeMount } from 'vue';
 
 export default {
     name: 'Home',
     setup() {
         const store = useStore();
         const router = useRouter();
-        onBeforeMount(() => {
-            if (store.getters.getUserId == null) router.push({ name: 'LoginPage' });
-        });
+
+        if (store.getters.getUserId == null) router.push({ name: 'LoginPage' });
 
         return {
             BaseSite,
