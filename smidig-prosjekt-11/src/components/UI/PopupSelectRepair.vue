@@ -1,7 +1,8 @@
 <template>
     <div id="container" class="text-center rounded-lg">
         <div id="products-container" class="grid-rows-3">
-            <h1>PRODUCT</h1>
+            <h1>Продукт</h1>
+            <!-- Product -->
             <div class="content-center">
                 <div id="popup-static-product-style">
                     <img src="../../assets/Images/Parts/sunbellProductImage.png" alt="Product: Sunbell" />
@@ -12,18 +13,21 @@
             <hr />
 
             <div id="serialnum-container">
-                <h3>SERIAL NUMBER</h3>
+                <h3>серийный номер</h3>
+                <!-- SERIAL NUMBER -->
                 <input ref="inputSerialNumber" type="text" :v-model="serialNr" placeholder="Serial Number" />
             </div>
         </div>
         <div id="parts" class="col-span-2">
             <modal-error-message v-if="showModal == true" @close="showModal = false">
-                <template v-slot:body>
-                    Serial Number Already Exists
-                </template>
+
+                <template v-slot:body> серийный номер уже существует </template
+                ><!-- Serial Number Already Exists -->
             </modal-error-message>
 
-            <h1>PARTS</h1>
+            <h1>Запчасти</h1>
+            <!-- Parts -->
+
             <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
                 <a
                     class="popup-products"
@@ -35,16 +39,16 @@
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
                     />
-                    <h2>
-                        {{ product.partName }}
-                    </h2>
+                    <h2></h2>
+                    <!--{{ product.partName }} -->
                 </a>
             </div>
         </div>
 
         <!-- Creating space for the close button of the project -->
         <slot />
-        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
+        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">следующий</button
+        ><!-- NEXT -->
     </div>
 </template>
 

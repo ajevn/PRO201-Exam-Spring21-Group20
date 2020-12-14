@@ -1,6 +1,7 @@
 <template>
     <base-site class="base-site">
-        <h1>Access denied, please log in</h1>
+        <h1>В доступе отказано, пожалуйста, войдите</h1>
+        <!-- Access denied, please log in -->
         <login-button />
     </base-site>
 </template>

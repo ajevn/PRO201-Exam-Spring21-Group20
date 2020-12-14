@@ -7,16 +7,16 @@
                 type="button"
                 class="font-standardText rounded-full button shadow-lg ring-4 ring-black ring-opacity-50 hover:bg-white home-repair-ico-src home-ico-style"
             >
-                Repair
-            </router-link>
+                Ремонт </router-link
+            ><!-- Repair -->
         </div>
         <div>
             <button
                 type="button"
                 class="font-standardText rounded-full button shadow-lg ring-4 ring-black ring-opacity-50 hover:bg-white home-learn-ico-src home-ico-style"
             >
-                E-Learning
-            </button>
+                Электронное обучение</button
+            ><!-- E-learning -->
         </div>
     </div>
 </template>
