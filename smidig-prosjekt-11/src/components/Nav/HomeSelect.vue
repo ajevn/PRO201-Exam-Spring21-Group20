@@ -15,7 +15,7 @@
                 type="button"
                 class="font-standardText rounded-full button shadow-lg ring-4 ring-black ring-opacity-50 hover:bg-white home-learn-ico-src home-ico-style"
             >
-                Электронное обучение</button
+                Электронное </button
             ><!-- E-learning -->
         </div>
     </div>
