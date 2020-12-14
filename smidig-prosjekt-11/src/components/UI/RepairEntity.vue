@@ -6,7 +6,7 @@
         <span
             ><div class="border-solid border-2">{{ this.entitySerialNumber }}</div></span
         >
-
+        <!-- Loops through the selected parts for this repair, and displays their images -->
         <div id="parts-container">
             <img
                 v-for="parts in entityParts"
@@ -35,9 +35,6 @@
                 />
             </button>
         </div>
-        <!-- Not needed in this page -->
-        <!--<input type="checkbox" name="approve" />-->
-
         <hr />
     </div>
 </template>
@@ -54,7 +51,6 @@ export default {
     },
     methods: {
         deleteEntity: function() {
-            console.log('Serial nr submitted: ' + this.entitySerialNumber);
             this.$store.commit('deleteEntity', this.entitySerialNumber);
         }
     }
