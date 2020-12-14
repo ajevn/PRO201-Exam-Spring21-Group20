@@ -17,7 +17,7 @@
                 <h3>серийный номер</h3>
 
                 <!-- SERIAL NUMBER -->
-                <input ref="inputSerialNumber" v-on:keydown="serialInputIsEmpty = false" v-bind:class="{ serialInputEmpty: serialInputIsEmpty }" type="text" :v-model="serialNr" placeholder="Serial Number" />
+                <input ref="inputSerialNumber" v-on:keydown="serialInputIsEmpty = false" v-bind:class="{ serialInputEmpty: serialInputIsEmpty }" type="text" :v-model="serialNr" placeholder="серийный номер" />
 
             </div>
         </div>
