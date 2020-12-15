@@ -23,9 +23,8 @@
                             @click="close"
                             aria-label="Close modal"
                         >
-                            Хорошо
+                            Okay
                         </button>
-                        <!-- Okay -->
                     </footer>
                 </div>
             </div>

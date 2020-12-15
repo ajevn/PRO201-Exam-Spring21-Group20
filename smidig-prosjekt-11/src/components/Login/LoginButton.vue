@@ -2,8 +2,7 @@
     <div>
         <router-link class="link-base" to="/login">
             <div>
-                <p>войти в систему</p>
-                <!-- LOG IN -->
+                <p>LOG IN</p>
 
                 <img src="@/assets/Images/Icons/login-icon.png" alt="Home button" />
             </div>

@@ -1,7 +1,6 @@
 <template>
     <div id="approved-report-container" class="text-center">
-        <h1>вход успешен</h1>
-        <!-- ENTRY SUCCESSFUL -->
+        <h1>ENTRY SUCCESSFUL</h1>
         <img src="@/assets/Images/Icons/report-success-icon.png" alt="Report succesfully sent" />
 
         <home-button></home-button>
