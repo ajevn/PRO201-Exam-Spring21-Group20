@@ -79,12 +79,12 @@ export default {
             isSuccessfulReport: false,
             isUnsuccessfulReport: true,
             prevBtn: 'repair',
-            nextBtn: 'entry-successful',
+            nextBtn: 'entry-successful'
         };
     },
     // Updating the amount of products rendered
     computed: {
-        updateTotalProducts(){
+        updateTotalProducts() {
             return this.$store.getters.getNumOfEntities;
         }
     },
