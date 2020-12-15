@@ -1,23 +1,23 @@
 <template>
     <div id="button-div" class="rounded-lg shadow-lg ring-2 ring-black ring-opacity-50">
-        <div>
-            <router-link
-                tag="button"
-                to="/repair"
-                type="button"
-                class="font-standardText rounded-full button shadow-lg ring-4 ring-black ring-opacity-50 hover:bg-white home-repair-ico-src home-ico-style"
-            >
-                Ремонт </router-link
-            ><!-- Repair -->
-        </div>
-        <div>
-            <button
-                type="button"
-                class="font-standardText rounded-full button shadow-lg ring-4 ring-black ring-opacity-50 hover:bg-white home-learn-ico-src home-ico-style"
-            >
-                Электронное</button
-            ><!-- E-learning -->
-        </div>
+
+        <router-link
+            tag="button"
+            to="/repair"
+            type="button"
+            class="font-standardText button shadow-lg home-repair-ico-src home-ico-style"
+        >
+            <h4>Ремонт</h4>
+        </router-link><!-- Repair -->
+
+        <router-link
+            tag="button"
+            to="/#"
+            type="button"
+            class="font-standardText button shadow-lg home-learn-ico-src home-ico-style"
+        >
+            <h4>Электронное</h4>
+        </router-link><!-- E-learning -->
     </div>
 </template>
 
@@ -28,30 +28,36 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #button-div {
     padding: 0px 1vw;
-    height: 21.2vh;
+    height: 20vh;
     width: 20vw;
     background-color: #405c6a;
 }
 .button {
     background-color: #9fd18d;
-    border: none;
-    display: inline block;
-    padding: 8px 32px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 1.5em;
     font-weight: bold;
+    border: 2px solid #433149;
+    border-radius: 10px;
     color: #423048;
-    margin: 4px 2px;
     cursor: pointer;
     width: 100%;
-    height: 50px;
-    margin-top: 10%;
+    height: 30%;
+    margin: auto;
+    margin-top: 7%;
     outline: none;
+
+    
+    &:hover {
+        background-color: white;
+    }
+
+    h4 {
+        margin-top: 2%;
+    }
 }
 .home-repair-ico-src {
     background-image: url('../../assets/Images/Icons/landing_repair.png');
@@ -62,6 +68,6 @@ export default {
 .home-ico-style {
     background-repeat: no-repeat;
     background-position: right 10px center;
-    background-size: 35px;
+    background-size: 10%;
 }
 </style>
