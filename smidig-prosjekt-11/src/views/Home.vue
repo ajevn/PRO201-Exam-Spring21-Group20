@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <base-site isDark="true">
+        <base-site>
             <div id="home-select-container">
                             <home-select @click="showModal = true" class="home-select-container" />
             </div>
