@@ -56,17 +56,25 @@
             <!-- Button to go to next page -->
             <!-- Setting class if isSuccessfulReport is true -->
             <router-link :to="'/' + nextBtn" :class="{ 'next-btn-none': isSuccessfulReport }">
-                <img
+                <button id="forward-btn" class="text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center duration-75 hover:text-white transform hover:scale-110 motion-reduce:transform-none ">
+
+                    <span class="font-standardText">Submit {{ updateTotalProducts }} Repairs</span>
+                    <img
+                        src="@/assets/Images/Icons/enter.png"
+                        alt="Go to next page"
+                        id="submit-icon"
+                     />
+
+                </button>
+                <!-- <img
                     class="progress-bar-btns"
                     id="forward-btn"
                     src="@/assets/Images/Icons/forward-back-icon.png"
                     alt="Go to previous page"
-                />
+                /> -->
             </router-link>
             <!-- Using a getter from store to display the amount of products rendered -->
-            <div id="total-products">
-                <b>Total Products: {{ updateTotalProducts }}</b>
-            </div>
+           
         </div>
     </div>
 </template>
@@ -174,11 +182,23 @@ export default {
             left: 15px;
             top: 15px;
         }
+        #submit-icon {
+            padding-right: 10px;
+            padding-top: 1px;
+            height: 27px;
+            width: 34px;
+            transform: scaleX(-1);
+        }
 
         #forward-btn {
-            right: 10px;
-            top: 5px;
-            transform: rotate(180deg);
+            right: -100px;
+            top: 10px;
+            position: absolute;
+            background-color: white;
+            border: 2px solid gray;
+        }
+        #forward-btn:hover {
+            background-color: #7EB46B;
         }
     }
 }

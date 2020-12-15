@@ -23,7 +23,7 @@
         </div>
         <!-- Div to hold both edit and repair -->
         <div class="edit-delete-img">
-            <button @click="editRepair" class="transform hover:scale-110 motion-reduce:transform-none">
+            <button @click="editRepair" class="duration-75 transform hover:scale-110 motion-reduce:transform-none">
                 <img
                     class="edit-delete-img-width"
                     src="@/assets/Images/edit-icon.png"
@@ -31,7 +31,7 @@
                 />
             </button>
 
-            <button class="transform hover:scale-110 motion-reduce:transform-none">
+            <button class="duration-75 transform hover:scale-110 motion-reduce:transform-none">
                 <img
                     class="edit-delete-img-width"
                     src="@/assets/Images/delete-icon.png"

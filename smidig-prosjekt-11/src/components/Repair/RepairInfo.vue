@@ -26,7 +26,7 @@
                 <img
                     v-show="showRepair == false"
                     id="plus-btn"
-                    class="cursor-pointer hover:bg-gray-400 rounded-full transform hover:translate-y-0.5 hover:translate-x-0.5"
+                    class="duration-75 cursor-pointer hover:bg-gray-400 rounded-full transform hover:translate-y-0.5 hover:translate-x-0.5"
                     src="@/assets/Images/Icons/plus-icon.png"
                     v-on:click="addRepair()"
                     alt="add new repair"
