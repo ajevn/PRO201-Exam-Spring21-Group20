@@ -1,6 +1,6 @@
 <template>
     <!-- Root element -->
-    <div>
+    <div :class="{backdrop: showRepair}">
         <!-- https://forum.vuejs.org/t/popup-how-to-hide-a-popup-by-clicking-outside-of-the-popup-window/59693 -- Mulighet for å trykke utenfor popup for å lukke? -->
         <div id="parts-popup" class="border-2 border-gray-500 shadow-lg" v-if="showRepair == true">
             <popup-select-repair @clicked="closeRepair()">
@@ -76,6 +76,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.backdrop{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #plus-btn {
     margin: 2.5vh auto 2.5vh auto;
     width: 3vw;

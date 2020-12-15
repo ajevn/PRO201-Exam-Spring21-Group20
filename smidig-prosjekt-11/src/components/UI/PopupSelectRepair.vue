@@ -198,7 +198,6 @@ export default {
     height: 100%;
     user-select: none;
     background-color: #f8f6f2;
-
     display: grid;
     grid-template-columns: auto 70%;
 
