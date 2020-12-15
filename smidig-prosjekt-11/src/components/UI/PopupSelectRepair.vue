@@ -149,12 +149,12 @@ export default {
             if (serialNr == '') {
                 this.partsChosen = [];
                 this.serialInputIsEmpty = true;
-                this.modalTextBody = 'Please Input Serial Number';
+                this.modalTextBody = 'Please input serial number';
                 this.showModal = true;
                 return;
             } else if (this.partsChosen.length == 0) {
                 //
-                this.modalTextBody = 'Please Select Parts';
+                this.modalTextBody = 'Please choose part';
                 this.showModal = true;
                 return;
             }
@@ -174,6 +174,7 @@ export default {
                 this.serialInputIsEmpty = true;
                 this.$store.commit('addEntity', newEntity);
                 this.$emit('clicked');
+                
             } else {
                 this.modalTextBody = 'Serial nr doesnt exist';
                 this.showModal = true;
