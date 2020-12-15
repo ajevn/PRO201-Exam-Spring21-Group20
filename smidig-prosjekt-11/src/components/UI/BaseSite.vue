@@ -21,7 +21,7 @@
 
         <hamburger :class="{ showburger: sideBarVisible, hideburger: !sideBarVisible }" ref="hamburger">
         </hamburger>
-
+        
         <slot />
         <footer>
             <div id="footer-div" class="absolute">
@@ -96,6 +96,7 @@ button {
     display: grid;
     grid-template-rows: max-content auto max-content;
 }
+
 .image-container {
     position: absolute;
     height: 8vh;

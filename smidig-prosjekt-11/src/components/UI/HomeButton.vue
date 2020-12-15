@@ -1,7 +1,7 @@
 <template>
     <div class="home-button">
         <a href="#">
-            <div>
+            <div class="transform hover:scale-110">
                 <p>Home</p>
                 <img src="@/assets/Images/Icons/home-icon.png" alt="Home button" />
             </div>
@@ -24,7 +24,7 @@ a {
         margin-top: 8vh;
         width: 250px;
         height: 70px;
-        background-color: #423048;
+        background-color: #405C6A;
         position: relative;
         border-radius: 5px;
 
@@ -42,6 +42,10 @@ a {
             right: 0;
             margin: 15px;
             width: 16%;
+        }
+
+        &:hover {
+            background-color: #423048;
         }
     }
 }
