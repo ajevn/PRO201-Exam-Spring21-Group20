@@ -23,7 +23,7 @@
                     v-bind:class="{ serialInputEmpty: serialInputIsEmpty }"
                     type="text"
                     :v-model="serialNr"
-                    placeholder="серийный номер"
+                    placeholder="1234"
                 />
             </div>
         </div>
@@ -47,8 +47,8 @@
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
                     />
-                    <h2></h2>
-                    <!--{{ product.partName }} -->
+                    <h2>{{ product.partName }}</h2>
+
                 </a>
             </div>
         </div>
