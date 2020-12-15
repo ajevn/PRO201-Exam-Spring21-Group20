@@ -8,7 +8,7 @@
             />
         </div>
         <span
-            ><div class="border-solid border-2">{{ this.entitySerialNumber }}</div></span
+            ><div class="border-solid border-2">{{ this.entitySerialNumber }}  </div></span
         >
         <!-- Loops through the selected parts for this repair, and displays their images -->
 
@@ -46,6 +46,11 @@
 
 <script>
 export default {
+    data() {
+        return {
+           
+        }
+    },
     props: {
         entityParts: {
             Type: Object
@@ -53,10 +58,12 @@ export default {
         entitySerialNumber: {
             Type: String
         }
+     
     },
     methods: {
         deleteEntity: function() {
             this.$store.commit('deleteEntity', this.entitySerialNumber);
+            // totalProducts --
         }
     }
 };

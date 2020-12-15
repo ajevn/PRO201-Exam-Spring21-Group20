@@ -18,6 +18,9 @@ const mutations = {
 const getters = {
     getEntities(state) {
         return state.entityArray;
+    },
+    getNumOfEntities(state){
+        return state.entityArray.length;
     }
 };
 
