@@ -2,8 +2,7 @@
     <div id="container" class="text-center rounded-lg">
         <!-- PRODUCT-DIV -->
         <div id="products-container" class="grid-rows-3">
-            <h1>Продукт</h1>
-            <!-- Product -->
+            <h1>Product</h1>
             <div class="content-center">
                 <div id="popup-static-product-style">
                     <img src="../../assets/Images/Parts/sunbellProductImage.png" alt="Product: Sunbell" />
@@ -14,16 +13,15 @@
             <hr />
 
             <div id="serialnum-container">
-                <h3>серийный номер</h3>
+                <h3>SERIAL NUMBER</h3>
 
-                <!-- SERIAL NUMBER -->
                 <input
                     ref="inputSerialNumber"
                     v-on:keydown="serialInputIsEmpty = false"
                     v-bind:class="{ serialInputEmpty: serialInputIsEmpty }"
                     type="text"
                     :v-model="serialNr"
-                    placeholder="1234"
+                    placeholder="Example: 1234 5678"
                 />
             </div>
         </div>
@@ -34,8 +32,7 @@
                 ><!-- Serial Number Already Exists -->
             </modal-error-message>
 
-            <h1>Запчасти</h1>
-            <!-- Parts -->
+            <h1>Parts</h1>
             <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
                 <a
                     class="popup-products"
@@ -55,8 +52,7 @@
 
         <!-- Creating space for the close button of the project -->
         <slot />
-        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">следующий</button
-        ><!-- NEXT -->
+        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
     </div>
 </template>
 
@@ -153,17 +149,16 @@ export default {
             if (serialNr == '') {
                 this.partsChosen = [];
                 this.serialInputIsEmpty = true;
-                //Please input serial number
-                this.modalTextBody = 'серийный номер уже существует';
+                this.modalTextBody = 'Please input serial number';
                 this.showModal = true;
                 return;
             } else if (this.partsChosen.length == 0) {
-                //Please choose part
-                this.modalTextBody = 'существует номер серийный';
+                //
+                this.modalTextBody = 'Please choose part';
                 this.showModal = true;
                 return;
             }
-
+            // Creating an entity of chosen part(s) and serialnumber, and parsing to state
             let newEntity = {
                 entitySerialNr: serialNr,
 
@@ -174,13 +169,14 @@ export default {
             let exists = stateEntities.findIndex(
                 entity => entity.entitySerialNr === newEntity.entitySerialNr
             );
+            // Check for serialnumber
+            // Validation for serialnumber should prob be added
             if (exists == -1) {
                 this.serialInputIsEmpty = true;
                 this.$store.commit('addEntity', newEntity);
                 this.$emit('clicked');
             } else {
-                //Serial nr doesnt exist
-                this.modalTextBody = 'серийный номер уже существует';
+                this.modalTextBody = 'Serial nr doesnt exist';
                 this.showModal = true;
                 this.partsChosen = [];
             }
@@ -268,6 +264,7 @@ export default {
                 color: #050505;
                 text-align: center;
                 font-weight: bold;
+                font-style: italic;
             }
         }
     }
