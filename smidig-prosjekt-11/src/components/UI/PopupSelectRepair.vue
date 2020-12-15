@@ -67,12 +67,13 @@ export default {
         return {
             serialInputIsEmpty: false,
             modalTextBody: '',
-
+            totalProducts: 0,
             showModal: false,
             serialNr: {
                 Type: Number,
                 Required: true
             },
+            
             productImages: [
                 {
                     partNumber: '1',
@@ -161,7 +162,7 @@ export default {
             // Creating an entity of chosen part(s) and serialnumber, and parsing to state
             let newEntity = {
                 entitySerialNr: serialNr,
-
+                totalProducts: this.totalProducts,
                 parts: this.partsChosen
             };
             var stateEntities = this.$store.getters.getEntities;
@@ -175,6 +176,7 @@ export default {
                 this.serialInputIsEmpty = true;
                 this.$store.commit('addEntity', newEntity);
                 this.$emit('clicked');
+                this.totalProducts++;
             } else {
                 this.modalTextBody = 'Serial nr doesnt exist';
                 this.showModal = true;

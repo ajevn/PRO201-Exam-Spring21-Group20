@@ -39,7 +39,8 @@
                     />
                 </div>
             </div>
-
+           
+            
             <!-- Button to go back to previous page -->
             <router-link :to="'/' + prevBtn">
                 <img
@@ -49,7 +50,7 @@
                     alt="Go to previous page"
                 />
             </router-link>
-
+            
             <!-- Button to go to next page -->
             <!-- Setting class if isSuccessfulReport is true -->
             <router-link :to="'/' + nextBtn" :class="{ 'next-btn-none': isSuccessfulReport }">
@@ -60,6 +61,7 @@
                     alt="Go to previous page"
                 />
             </router-link>
+            <div id="total-products"><b>Total Products: {{numberOfEntities}}</b></div>
         </div>
     </div>
 </template>
@@ -67,12 +69,13 @@
 <script>
 export default {
     name: 'Progress bar',
-    data: () => {
+    data() {
         return {
             isSuccessfulReport: false,
             isUnsuccessfulReport: true,
             prevBtn: 'repair',
-            nextBtn: 'entry-successful'
+            nextBtn: 'entry-successful',
+            numberOfEntities: this.$store.getters.getNumOfEntities,
         };
     },
 
@@ -171,6 +174,8 @@ export default {
     }
 }
 
+
+
 .progress-bar-unsuccessful-line {
     width: 50%;
 }
@@ -182,4 +187,11 @@ export default {
 .next-btn-none {
     display: none;
 }
+
+#total-products{
+    position: absolute;
+    right: 50px;
+    bottom: -10px;
+}
+
 </style>
