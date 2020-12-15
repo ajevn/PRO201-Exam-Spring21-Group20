@@ -149,12 +149,12 @@ export default {
             if (serialNr == '') {
                 this.partsChosen = [];
                 this.serialInputIsEmpty = true;
-                this.modalTextBody = 'Please input serial number';
+                this.modalTextBody = 'Please Input Serial Number';
                 this.showModal = true;
                 return;
             } else if (this.partsChosen.length == 0) {
                 //
-                this.modalTextBody = 'Please choose part';
+                this.modalTextBody = 'Please Select Parts';
                 this.showModal = true;
                 return;
             }
