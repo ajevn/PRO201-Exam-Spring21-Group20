@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import PopupSelectRepair from '@/components/UI/PopupSelectRepair.vue';
+import PopupSelectRepair from '@/components/Repair/PopupSelectRepair.vue';
 import RepairEntity from '@/components/Repair/RepairEntity.vue';
 export default {
     data() {

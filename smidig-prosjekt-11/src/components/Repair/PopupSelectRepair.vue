@@ -51,7 +51,7 @@
 
         <!-- Creating space for the close button of the project -->
         <slot />
-        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
+        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">next</button>
     </div>
 </template>
 
