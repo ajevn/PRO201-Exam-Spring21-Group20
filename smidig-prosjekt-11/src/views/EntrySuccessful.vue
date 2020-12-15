@@ -3,6 +3,8 @@
         <div class="entry-succesful">
             <base-site />
         </div>
+
+        <!-- Renders Component to show text/icon/home-btn -->
         <approved-report />
 
         <progress-bar />

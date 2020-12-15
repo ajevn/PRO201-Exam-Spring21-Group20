@@ -22,7 +22,7 @@ a {
 
     div {
         display: inline-block;
-        margin-top: 75px;
+        margin-top: 8vh;
         width: 250px;
         height: 70px;
         background-color: #423048;
@@ -42,7 +42,7 @@ a {
             top: 0;
             right: 0;
             margin: 15px;
-            width: 40px;
+            width: 16%;
         }
     }
 }
