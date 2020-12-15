@@ -90,7 +90,7 @@ export default {
         height: 5vh;
         width: 3vw;
         margin: auto;
-        margin-left: auto;
+        margin-left: 4vw;
         margin-right: auto;
     }
 
@@ -107,8 +107,8 @@ export default {
 
         .edit-delete-img-width {
             width: 20px;
-            margin-left: 35px;
-            margin-right: 15px;
+            margin-left: 50px;
+            margin-right: -4px;
         }
     }
 

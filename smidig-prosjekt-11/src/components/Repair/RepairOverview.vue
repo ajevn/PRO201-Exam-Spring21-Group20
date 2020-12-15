@@ -1,16 +1,11 @@
 <template>
     <div id="overview-container">
-        <label class="font-standardText">Продукт</label
-        ><!-- Product -->
-        <label class="font-standardText">Серийный номер</label>
-        <!-- Serial Number -->
-        <label class="font-standardText">Запчасти</label>
-        <!-- Parts -->
+        <label class="font-standardText">Product</label>
+        <label class="font-standardText">Serial Number</label>
+        <label class="font-standardText">Parts</label>
         <div id="edit-delete-label">
-            <label class="font-standardText">редактировать</label>
-            <!-- Edit -->
-            <label class="font-standardText">редактировать</label>
-            <!-- Delete -->
+            <label class="font-standardText">Edit</label>
+            <label class="font-standardText">Delete</label>
         </div>
     </div>
 </template>

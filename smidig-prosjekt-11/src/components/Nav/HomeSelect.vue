@@ -7,8 +7,8 @@
             type="button"
             class="font-standardText button shadow-lg home-repair-ico-src home-ico-style"
         >
-            <h4>Ремонт</h4>
-        </router-link><!-- Repair -->
+            <h4>Repair</h4>
+        </router-link>
 
         <router-link
             tag="button"
@@ -16,8 +16,8 @@
             type="button"
             class="font-standardText button shadow-lg home-learn-ico-src home-ico-style"
         >
-            <h4>Электронное</h4>
-        </router-link><!-- E-learning -->
+            <h4>E-learning</h4>
+        </router-link>
     </div>
 </template>
 
