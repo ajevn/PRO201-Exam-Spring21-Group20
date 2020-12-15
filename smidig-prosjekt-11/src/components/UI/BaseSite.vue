@@ -96,6 +96,7 @@ button {
     display: grid;
     grid-template-rows: max-content auto max-content;
 }
+
 .image-container {
     position: absolute;
     height: 8vh;

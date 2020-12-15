@@ -43,30 +43,9 @@ a {
             margin: 15px;
             width: 16%;
         }
-    }
-    div:hover {
-        display: inline-block;
-        margin-top: 8vh;
-        width: 250px;
-        height: 70px;
-        background-color: #423048;
-        position: relative;
-        border-radius: 5px;
 
-        p {
-            color: #ffffff;
-            font-weight: bold;
-            font-size: 30px;
-            text-align: left;
-            padding: 10px 20px;
-        }
-
-        img {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 15px;
-            width: 16%;
+        &:hover {
+            background-color: #423048;
         }
     }
 }
