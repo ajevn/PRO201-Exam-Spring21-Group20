@@ -101,7 +101,7 @@ export default {
 }
 
 #entity-list-container {
-    height: 75vh;
+    height: 82vh;
     width: 100%;
     overflow-y: scroll;
 }
