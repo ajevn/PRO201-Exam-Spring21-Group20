@@ -138,11 +138,11 @@ export default {
         }
 
         #progress-bar-edit-report {
-            left: 48%;
+            left: 46%;
         }
 
         #progress-bar-success {
-            left: 98%;
+            left: 95%;
         }
 
         // Classes to change from done and not done steps
