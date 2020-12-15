@@ -175,7 +175,7 @@ export default {
                 this.$store.commit('addEntity', newEntity);
                 this.$emit('clicked');
             } else {
-                this.modalTextBody = 'Serial nr doesnt exist';
+                this.modalTextBody = 'Serial Number Already Submitted';
                 this.showModal = true;
                 this.partsChosen = [];
             }
