@@ -14,7 +14,7 @@
             </popup-select-repair>
         </div>
         <!-- Grid system for submitted models -->
-        <section id="entity-list-container" ref="test">
+        <section id="entity-list-container" ref="repairsContainer">
             <div>
                 <div v-for="entity in entities" :key="entity.entitySerialNr">
                     <repair-entity
@@ -69,7 +69,7 @@ export default {
             this.entities = this.$store.getters.getEntities;
         },
         scrollToEnd: function() {
-            let container = this.$refs.test;
+            const container = this.$refs.repairsContainer;
             container.scrollTop = container.scrollHeight;
         }
     }
