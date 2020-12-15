@@ -21,7 +21,7 @@
 
         <hamburger :class="{ showburger: sideBarVisible, hideburger: !sideBarVisible }" ref="hamburger">
         </hamburger>
-
+        
         <slot />
         <footer>
             <div id="footer-div" class="absolute">
