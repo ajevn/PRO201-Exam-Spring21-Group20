@@ -61,6 +61,7 @@
                     alt="Go to previous page"
                 />
             </router-link>
+            <!-- Using a getter from store to display the amount of products rendered -->
             <div id="total-products"><b>Total Products: {{numberOfEntities}}</b></div>
         </div>
     </div>
