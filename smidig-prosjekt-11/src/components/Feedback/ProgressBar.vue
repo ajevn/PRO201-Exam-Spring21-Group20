@@ -197,7 +197,7 @@ export default {
 
 #total-products {
     position: absolute;
-    right: 50px;
+    right: -150px;
     bottom: -10px;
 }
 </style>
