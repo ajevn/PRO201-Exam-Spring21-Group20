@@ -23,7 +23,6 @@ export default {
 <!-- Adding some scss to style text and position items -->
 <style lang="scss" scoped>
 #approved-report-container {
-
     h1 {
         font-size: 50px;
         margin-top: 10vh;

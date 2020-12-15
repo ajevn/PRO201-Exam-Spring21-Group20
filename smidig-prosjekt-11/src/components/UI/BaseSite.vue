@@ -9,7 +9,6 @@
                     <router-link to="/">
                         <img id="logo-img" src="@/assets/Images/brightLogo.png" alt="Bright" />
                     </router-link>
-
                 </div>
 
                 <div id="employee-div">
@@ -20,7 +19,7 @@
 
         <hamburger :class="{ showburger: sideBarVisible, hideburger: !sideBarVisible }" ref="hamburger">
         </hamburger>
-        
+
         <slot />
         <footer>
             <div id="footer-div" class="absolute">

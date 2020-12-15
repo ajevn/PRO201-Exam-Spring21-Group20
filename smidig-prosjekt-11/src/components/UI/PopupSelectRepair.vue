@@ -45,7 +45,6 @@
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
                     />
                     <h2>{{ product.partName }}</h2>
-
                 </a>
             </div>
         </div>
@@ -72,7 +71,7 @@ export default {
                 Type: Number,
                 Required: true
             },
-            
+
             productImages: [
                 {
                     partNumber: '1',
@@ -174,7 +173,6 @@ export default {
                 this.serialInputIsEmpty = true;
                 this.$store.commit('addEntity', newEntity);
                 this.$emit('clicked');
-                
             } else {
                 this.modalTextBody = 'Serial nr doesnt exist';
                 this.showModal = true;
@@ -182,8 +180,8 @@ export default {
             }
         }
     },
-    updated(){
-        alert("cool");
+    updated() {
+        alert('cool');
     },
     name: 'PopupSelect',
     props: {

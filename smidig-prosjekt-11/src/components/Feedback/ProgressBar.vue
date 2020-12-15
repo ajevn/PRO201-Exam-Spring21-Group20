@@ -3,7 +3,10 @@
         <div id="progress-bar">
             <div class="relative pt-8 w-3/5 m-auto">
                 <!-- Green line -->
-                <div id="progress-bar-border" class="overflow-hidden h-1 mb-4 text-xs flex rounded bg-pink-200">
+                <div
+                    id="progress-bar-border"
+                    class="overflow-hidden h-1 mb-4 text-xs flex rounded bg-pink-200"
+                >
                     <!-- Setting class if isSuccessfulReport and/or isUnsuccessfulReport is true -->
                     <div
                         id="progress-bar-width"
@@ -39,8 +42,7 @@
                     />
                 </div>
             </div>
-           
-            
+
             <!-- Button to go back to previous page -->
             <router-link :to="'/' + prevBtn">
                 <img
@@ -50,7 +52,7 @@
                     alt="Go to previous page"
                 />
             </router-link>
-            
+
             <!-- Button to go to next page -->
             <!-- Setting class if isSuccessfulReport is true -->
             <router-link :to="'/' + nextBtn" :class="{ 'next-btn-none': isSuccessfulReport }">
@@ -62,7 +64,9 @@
                 />
             </router-link>
             <!-- Using a getter from store to display the amount of products rendered -->
-            <div id="total-products"><b>Total Products: {{numberOfEntities}}</b></div>
+            <div id="total-products">
+                <b>Total Products: {{ numberOfEntities }}</b>
+            </div>
         </div>
     </div>
 </template>
@@ -76,7 +80,7 @@ export default {
             isUnsuccessfulReport: true,
             prevBtn: 'repair',
             nextBtn: 'entry-successful',
-            numberOfEntities: this.$store.getters.getNumOfEntities,
+            numberOfEntities: this.$store.getters.getNumOfEntities
         };
     },
 
@@ -99,14 +103,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 #progress-bar-border-top {
-        position: absolute;
-        bottom: 0;
-        height: 70px;
-        width: 100%;
-        border-top: 1px solid black;
-        background-color: #f8f6f2;
+    position: absolute;
+    bottom: 0;
+    height: 70px;
+    width: 100%;
+    border-top: 1px solid black;
+    background-color: #f8f6f2;
 
     #progress-bar {
         position: relative;
@@ -175,8 +178,6 @@ export default {
     }
 }
 
-
-
 .progress-bar-unsuccessful-line {
     width: 50%;
 }
@@ -189,10 +190,9 @@ export default {
     display: none;
 }
 
-#total-products{
+#total-products {
     position: absolute;
     right: 50px;
     bottom: -10px;
 }
-
 </style>

@@ -1,6 +1,5 @@
 <template>
     <div id="button-div" class="rounded-lg shadow-lg ring-2 ring-black ring-opacity-50">
-
         <router-link
             tag="button"
             to="/repair"
@@ -50,7 +49,6 @@ export default {
     margin-top: 7%;
     outline: none;
 
-    
     &:hover {
         background-color: white;
     }

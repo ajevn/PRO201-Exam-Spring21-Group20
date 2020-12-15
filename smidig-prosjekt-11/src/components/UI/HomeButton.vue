@@ -24,7 +24,7 @@ a {
         margin-top: 8vh;
         width: 250px;
         height: 70px;
-        background-color: #405C6A;
+        background-color: #405c6a;
         position: relative;
         border-radius: 5px;
 

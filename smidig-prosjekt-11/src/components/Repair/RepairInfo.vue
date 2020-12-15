@@ -1,6 +1,6 @@
 <template>
     <!-- Root element -->
-    <div :class="{backdrop: showRepair}">
+    <div :class="{ backdrop: showRepair }">
         <!-- https://forum.vuejs.org/t/popup-how-to-hide-a-popup-by-clicking-outside-of-the-popup-window/59693 -- Mulighet for å trykke utenfor popup for å lukke? -->
         <div id="parts-popup" class="border-2 border-gray-500 shadow-lg" v-if="showRepair == true">
             <popup-select-repair @clicked="closeRepair()">
@@ -14,7 +14,7 @@
             </popup-select-repair>
         </div>
         <!-- Grid system for submitted models -->
-        <section id="entity-list-container">
+        <section id="entity-list-container" ref="test">
             <div>
                 <div v-for="entity in entities" :key="entity.entitySerialNr">
                     <repair-entity
@@ -37,9 +37,8 @@
 </template>
 
 <script>
-import PopupSelectRepair from '@/components/Repair/PopupSelectRepair.vue';
+import PopupSelectRepair from '@/components/UI/PopupSelectRepair.vue';
 import RepairEntity from '@/components/Repair/RepairEntity.vue';
-
 export default {
     data() {
         return {
@@ -49,6 +48,10 @@ export default {
     },
     created() {
         this.entities = this.$store.getters.getEntities;
+    },
+    // Using updated lifecycle hook to scroll to bottom of div when re-rendering page
+    updated() {
+        this.$nextTick(() => this.scrollToEnd());
     },
     components: { PopupSelectRepair, RepairEntity },
     methods: {
@@ -64,19 +67,17 @@ export default {
             this.showRepair = false;
             // Updates entities from state manually
             this.entities = this.$store.getters.getEntities;
+        },
+        scrollToEnd: function() {
+            let container = this.$refs.test;
+            container.scrollTop = container.scrollHeight;
         }
-    },
-    watch: {
-        entities: function() {
-            console.log('entites updated from watch');
-        }
-        // REACT TO STATE CHANGE -- RUN GET ENTITIES METHOd
     }
 };
 </script>
 
 <style lang="scss" scoped>
-.backdrop{
+.backdrop {
     background-color: rgba(0, 0, 0, 0.3);
 }
 #plus-btn {

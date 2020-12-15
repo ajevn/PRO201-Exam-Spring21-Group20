@@ -2,7 +2,7 @@
     <div class="home">
         <base-site>
             <div id="home-select-container">
-                            <home-select @click="showModal = true" class="home-select-container" />
+                <home-select @click="showModal = true" class="home-select-container" />
             </div>
             <img src="@/assets/Images/Background/Background.jpg" id="background-image" alt="background" />
         </base-site>
@@ -36,7 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 // Adding div around element to center home-select-component
 #home-select-container {
     width: 100%;
@@ -51,7 +50,6 @@ export default {
         top: 37%;
     }
 }
-
 
 #background-image {
     width: 100vw;

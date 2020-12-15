@@ -45,7 +45,6 @@
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
                     />
                     <h2>{{ product.partName }}</h2>
-
                 </a>
             </div>
         </div>
@@ -72,7 +71,7 @@ export default {
                 Type: Number,
                 Required: true
             },
-            
+
             productImages: [
                 {
                     partNumber: '1',

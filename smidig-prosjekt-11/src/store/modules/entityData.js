@@ -19,7 +19,7 @@ const getters = {
     getEntities(state) {
         return state.entityArray;
     },
-    getNumOfEntities(state){
+    getNumOfEntities(state) {
         return state.entityArray.length;
     }
 };
