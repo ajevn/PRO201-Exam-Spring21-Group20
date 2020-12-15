@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss">
 .hamburger-button {
-    width: 70%;
+    width: 75%;
     height: 8vh;
     background-color: #9fd18d;
     margin-top: 3vh;
@@ -33,7 +33,6 @@ export default {
 }
 
 .button-wrapper {
-    position: relative;
     height: 100%;
     width: 100%;
     color: #423048;
@@ -45,12 +44,11 @@ export default {
 
     display: flex;
     flex-direction: column;
-    align-content: center;
     justify-content: center;
     text-align: center;
 
     img {
-        margin: 0 auto;
+        margin: auto;
         width: 25%;
     }
 }

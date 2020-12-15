@@ -1,7 +1,7 @@
 <template>
     <div
         id="login-container"
-        class=" relative container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center"
+        class="relative container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center"
     >
         <form @submit.prevent="post">
             <div>

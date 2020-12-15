@@ -33,7 +33,7 @@ export default {
 }
 h1 {
     margin-top: 16vh;
-    font-size: 70px;
+    font-size: 45px;
     color: #405c6a;
 }
 </style>

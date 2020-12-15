@@ -6,11 +6,10 @@
                 <div class="image-container">
                     <hamburger-icon @click="toggleSidebar" />
 
-                    <div class="logo-wrapper">
-                        <router-link to="/">
-                            <img id="logo-img" src="@/assets/Images/brightLogo.png" alt="Bright" />
-                        </router-link>
-                    </div>
+                    <router-link to="/">
+                        <img id="logo-img" src="@/assets/Images/brightLogo.png" alt="Bright" />
+                    </router-link>
+
                 </div>
 
                 <div id="employee-div">
@@ -25,10 +24,7 @@
         <slot />
         <footer>
             <div id="footer-div" class="absolute">
-                <small v-if="isDark === 'true'" class="font-standardText cc">
-                    Copyright &copy; 2020 - Smidig-Prosjekt Gruppe 11
-                </small>
-                <small v-else class="font-standardText">
+                <small class="font-standardText white-text">
                     Copyright &copy; 2020 - Smidig-Prosjekt Gruppe 11
                 </small>
             </div>
@@ -46,9 +42,6 @@ import { useRouter } from 'vue-router';
 export default {
     components: {
         Hamburger
-    },
-    props: {
-        isDark: String
     },
     name: 'LogoBar',
     setup() {
@@ -89,7 +82,6 @@ button {
     cursor: pointer;
 }
 
-/* old version  */
 #logo-bar {
     width: 100vw;
     height: 8vh;
@@ -106,32 +98,25 @@ button {
     justify-content: space-between;
     margin-left: 30px;
 
-    .logo-wrapper {
-        display: inline;
-        width: 350px;
-
-        img {
-            height: 90%;
-            margin-top: 5px;
-        }
+    img {
+        height: 90%;
+        margin-top: 5px;
     }
 }
-.cc {
+.white-text {
     color: white;
 }
 #employee-div {
     position: absolute;
-    right: 0px;
+    right: 20px;
     height: 8vh;
     width: 200px;
 
     h1 {
         position: absolute;
-        display: inline-block;
-        right: 15px;
-        margin-top: 40px;
-
+        bottom: 1vh;
         font-size: 20px;
+        white-space: nowrap;
     }
 }
 
@@ -140,7 +125,7 @@ button {
     bottom: 1vh;
 }
 
-/* remove blue outline */
+// Removes blue outline of hamburgerbar
 button:focus {
     outline: 0;
 }
