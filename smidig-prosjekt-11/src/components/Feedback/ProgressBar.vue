@@ -65,7 +65,7 @@
             </router-link>
             <!-- Using a getter from store to display the amount of products rendered -->
             <div id="total-products">
-                <b>Total Products: {{ numberOfEntities }}</b>
+                <b>Total Products: {{ updateTotalProducts }}</b>
             </div>
         </div>
     </div>
@@ -80,8 +80,13 @@ export default {
             isUnsuccessfulReport: true,
             prevBtn: 'repair',
             nextBtn: 'entry-successful',
-            numberOfEntities: this.$store.getters.getNumOfEntities
         };
+    },
+    // Updating the amount of products rendered
+    computed: {
+        updateTotalProducts(){
+            return this.$store.getters.getNumOfEntities;
+        }
     },
 
     // Implementing Lifecycle hooks to change classes
