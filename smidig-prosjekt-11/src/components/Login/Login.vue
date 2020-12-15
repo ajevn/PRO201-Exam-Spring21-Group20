@@ -1,10 +1,13 @@
 <template>
+    <!-- main page to login -->
     <div
         id="login-container"
-        class=" relative container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center"
+        class="relative container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center"
     >
+        <!-- from to post -->
         <form @submit.prevent="post">
             <div>
+                <!-- username innput -->
                 <label class="block mb-2" for="username">Username</label>
                 <input
                     class="w-full p-2 mb-6 border-b-2 border-green-500 outline-none focus:bg-gray-300"
@@ -16,6 +19,7 @@
                 />
             </div>
             <div>
+                <!-- password innput -->
                 <label class="block mb-2" for="password">Password</label>
                 <input
                     class="w-full p-2 mb-6 border-b-2 border-green-500 outline-none focus:bg-gray-300"
@@ -28,6 +32,7 @@
             </div>
 
             <div>
+                <!-- submit button -->
                 <input
                     id="login-submit"
                     class="w-full hover:bg-universalGreen text-white font-bold py-2 px-4 mb-6 rounded"
@@ -42,20 +47,25 @@ import { ref, computed } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 export default {
+    //composision API
     setup() {
         const store = useStore();
         const router = useRouter();
         const username = ref('');
         const password = ref('');
+
+        //computed property from store
         const user = computed(() => {
             return store.getters.getUserId;
         });
+        //is called on form submit
         function post() {
             login(username.value);
             router.push({ name: 'Home' });
         }
+        // validate and send data to backend
         function login(userId) {
-            //submit to database
+            //TODO submit to database and validate data
             store.commit('login', userId);
         }
 

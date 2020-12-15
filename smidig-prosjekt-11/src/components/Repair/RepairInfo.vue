@@ -1,6 +1,6 @@
 <template>
     <!-- Root element -->
-    <div>
+    <div :class="{ backdrop: showRepair }">
         <!-- https://forum.vuejs.org/t/popup-how-to-hide-a-popup-by-clicking-outside-of-the-popup-window/59693 -- Mulighet for å trykke utenfor popup for å lukke? -->
         <div id="parts-popup" class="border-2 border-gray-500 shadow-lg" v-if="showRepair == true">
             <popup-select-repair @clicked="closeRepair()">
@@ -14,7 +14,7 @@
             </popup-select-repair>
         </div>
         <!-- Grid system for submitted models -->
-        <section id="entity-list-container">
+        <section id="entity-list-container" ref="repairsContainer">
             <div>
                 <div v-for="entity in entities" :key="entity.entitySerialNr">
                     <repair-entity
@@ -38,8 +38,7 @@
 
 <script>
 import PopupSelectRepair from '@/components/UI/PopupSelectRepair.vue';
-import RepairEntity from '@/components/UI/RepairEntity.vue';
-
+import RepairEntity from '@/components/Repair/RepairEntity.vue';
 export default {
     data() {
         return {
@@ -49,6 +48,10 @@ export default {
     },
     created() {
         this.entities = this.$store.getters.getEntities;
+    },
+    // Using updated lifecycle hook to scroll to bottom of div when re-rendering page
+    updated() {
+        this.$nextTick(() => this.scrollToEnd());
     },
     components: { PopupSelectRepair, RepairEntity },
     methods: {
@@ -64,18 +67,19 @@ export default {
             this.showRepair = false;
             // Updates entities from state manually
             this.entities = this.$store.getters.getEntities;
+        },
+        scrollToEnd: function() {
+            const container = this.$refs.repairsContainer;
+            container.scrollTop = container.scrollHeight;
         }
-    },
-    watch: {
-        entities: function() {
-            console.log('entites updated from watch');
-        }
-        // REACT TO STATE CHANGE -- RUN GET ENTITIES METHOd
     }
 };
 </script>
 
 <style lang="scss" scoped>
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+}
 #plus-btn {
     margin: 2.5vh auto 2.5vh auto;
     width: 3vw;
@@ -98,7 +102,7 @@ export default {
 }
 
 #entity-list-container {
-    height: 75vh;
+    height: 82vh;
     width: 100%;
     overflow-y: scroll;
 }

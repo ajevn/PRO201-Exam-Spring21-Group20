@@ -1,8 +1,10 @@
 <template>
     <div class="home">
-        <base-site isDark="true">
+        <base-site>
+            <div id="home-select-container">
+                <home-select @click="showModal = true" class="home-select-container" />
+            </div>
             <img src="@/assets/Images/Background/Background.jpg" id="background-image" alt="background" />
-            <home-select @click="showModal = true" class="home-select-container" />
         </base-site>
     </div>
 </template>
@@ -33,12 +35,22 @@ export default {
 };
 </script>
 
-<style scoped>
-.home-select-container {
+<style lang="scss" scoped>
+// Adding div around element to center home-select-component
+#home-select-container {
+    width: 100%;
+    height: 92%;
     position: absolute;
-    left: 41vw;
-    top: 40vh;
+    z-index: 2;
+    margin: auto;
+
+    .home-select-container {
+        margin: auto;
+        position: relative;
+        top: 37%;
+    }
 }
+
 #background-image {
     width: 100vw;
     height: 92vh;

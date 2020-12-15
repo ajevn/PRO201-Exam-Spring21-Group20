@@ -23,7 +23,7 @@
         </div>
         <!-- Div to hold both edit and repair -->
         <div class="edit-delete-img">
-            <button @click="editRepair">
+            <button @click="editRepair" class="transform hover:scale-110 motion-reduce:transform-none">
                 <img
                     class="edit-delete-img-width"
                     src="@/assets/Images/edit-icon.png"
@@ -31,7 +31,7 @@
                 />
             </button>
 
-            <button>
+            <button class="transform hover:scale-110 motion-reduce:transform-none">
                 <img
                     class="edit-delete-img-width"
                     src="@/assets/Images/delete-icon.png"
@@ -46,6 +46,9 @@
 
 <script>
 export default {
+    data() {
+        return {};
+    },
     props: {
         entityParts: {
             Type: Object
@@ -57,6 +60,7 @@ export default {
     methods: {
         deleteEntity: function() {
             this.$store.commit('deleteEntity', this.entitySerialNumber);
+            // totalProducts --
         }
     }
 };
@@ -90,7 +94,7 @@ export default {
         height: 5vh;
         width: 3vw;
         margin: auto;
-        margin-left: auto;
+        margin-left: 4vw;
         margin-right: auto;
     }
 
@@ -107,8 +111,8 @@ export default {
 
         .edit-delete-img-width {
             width: 20px;
-            margin-left: 35px;
-            margin-right: 15px;
+            margin-left: 50px;
+            margin-right: -4px;
         }
     }
 
