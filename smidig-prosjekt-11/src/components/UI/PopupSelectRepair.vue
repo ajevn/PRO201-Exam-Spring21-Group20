@@ -182,6 +182,9 @@ export default {
             }
         }
     },
+    updated(){
+        alert("cool");
+    },
     name: 'PopupSelect',
     props: {
         pictures: Array
