@@ -1,7 +1,7 @@
 <template>
     <div class="home-button">
         <a href="#">
-            <div class="transform hover:scale-110">
+            <div class="transform hover:scale-110 duration-50">
                 <p>Home</p>
                 <img src="@/assets/Images/Icons/home-icon.png" alt="Home button" />
             </div>

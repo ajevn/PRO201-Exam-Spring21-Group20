@@ -56,7 +56,7 @@
             <!-- Button to go to next page -->
             <!-- Setting class if isSuccessfulReport is true -->
             <router-link :to="'/' + nextBtn" :class="{ 'next-btn-none': isSuccessfulReport }">
-                <button id="forward-btn" class="text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center duration-75 hover:text-white transform hover:scale-110 motion-reduce:transform-none ">
+                <button id="forward-btn" class="text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center duration-75 hover:text-white transform hover:scale-105 motion-reduce:transform-none ">
 
                     <span class="font-standardText">Submit {{ updateTotalProducts }} Repairs</span>
                     <img
@@ -191,7 +191,7 @@ export default {
         }
 
         #forward-btn {
-            right: -100px;
+            right: -120px;
             top: 10px;
             position: absolute;
             background-color: white;

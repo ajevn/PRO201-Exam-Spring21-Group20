@@ -1,7 +1,7 @@
 <template>
     <div id="container" class="text-center rounded-lg">
         <!-- PRODUCT-DIV -->
-        <div id="products-container" class="grid-rows-3">
+        <div id="products-container" class="grid-rows-3 ">
             <h1>Product</h1>
             <div class="content-center">
                 <div id="popup-static-product-style">
@@ -33,7 +33,7 @@
             </modal-error-message>
 
             <h1>Parts</h1>
-            <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
+            <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5 ">
                 <a
                     class="popup-products"
                     v-for="product in productImages"
@@ -41,6 +41,7 @@
                     @click="selectPart(product)"
                 >
                     <img
+                        class="duration-75 transform rounded-md hover:scale-105 rounded-lg "
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
                     />
@@ -51,7 +52,7 @@
 
         <!-- Creating space for the close button of the project -->
         <slot />
-        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">next</button>
+        <button class="font-standardText duration-75 transform rounded-md hover:scale-105 motion-reduce:transform-none bg-universalGreen" id="next-btn" @click="submitPartsSelected"><h3>NEXT</h3></button>
     </div>
 </template>
 
@@ -286,7 +287,6 @@ export default {
         right: 30px;
         bottom: 30px;
         border: 1px solid black;
-        border-radius: 2px;
     }
 
     .popup-products {

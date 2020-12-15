@@ -6,7 +6,7 @@
             <popup-select-repair @clicked="closeRepair()">
                 <img
                     id="close-repair-btn"
-                    class="self-end cursor-pointer rounded-full transform hover:translate-y-0.5 hover:translate-x-0.5"
+                    class="self-end duration-75 transform cursor-pointer rounded-full transform hover:scale-110 "
                     src="@/assets/Images/delete-icon.png"
                     v-on:click="closeRepair"
                     alt="close repair tab"
@@ -26,7 +26,7 @@
                 <img
                     v-show="showRepair == false"
                     id="plus-btn"
-                    class="duration-75 cursor-pointer hover:bg-gray-400 rounded-full transform hover:translate-y-0.5 hover:translate-x-0.5"
+                    class="duration-75 cursor-pointer hover:bg-gray-400 rounded-full transform hover:scale-105"
                     src="@/assets/Images/Icons/plus-icon.png"
                     v-on:click="addRepair()"
                     alt="add new repair"
