@@ -6,21 +6,29 @@
             <popup-select-repair @clicked="closeRepair()">
                 <img
                     id="close-repair-btn"
-                    class="self-end duration-75 transform cursor-pointer rounded-full transform hover:scale-110 "
+                    class="self-end duration-75 cursor-pointer rounded-full transform hover:scale-110 "
                     src="@/assets/Images/delete-icon.png"
                     v-on:click="closeRepair"
                     alt="close repair tab"
                 />
             </popup-select-repair>
         </div>
+
+        <div id="edit-popup" class="border-2 border-gray-500 shadow-lg" v-if="showEdit">
+            <popup-edit-repair ref="editref" @clicked="closeEdit()" :serialToEdit="editSerial">
+            </popup-edit-repair>
+        </div>
+
         <!-- Grid system for submitted models -->
         <section id="entity-list-container" ref="repairsContainer">
             <div>
                 <div v-for="entity in entities" :key="entity.entitySerialNr">
                     <repair-entity
+                        @edit-entity="editRepair($event)"
                         :entitySerialNumber="entity.entitySerialNr"
                         :entityParts="entity.parts"
-                    ></repair-entity>
+                    >
+                    </repair-entity>
                 </div>
 
                 <img
@@ -39,11 +47,15 @@
 <script>
 import PopupSelectRepair from '@/components/Repair/PopupSelectRepair.vue';
 import RepairEntity from '@/components/Repair/RepairEntity.vue';
+import PopupEditRepair from '@/components/UI/PopupEditRepair.vue';
+
 export default {
     data() {
         return {
             entities: [],
-            showRepair: false
+            showRepair: false,
+            showEdit: false,
+            editSerial: 'EditSerial'
         };
     },
     created() {
@@ -53,14 +65,24 @@ export default {
     updated() {
         this.$nextTick(() => this.scrollToEnd());
     },
-    components: { PopupSelectRepair, RepairEntity },
+    components: {
+        PopupSelectRepair,
+        RepairEntity,
+        PopupEditRepair
+    },
     methods: {
-        editRepair() {
-            // show entity-spesific repair overlay
+        editRepair(serial) {
+            this.editSerial = serial;
+
+            //Function to render selected entity parts
+            //this.$refs.editref.renderSelects();
+
+            this.showEdit = true;
         },
         addRepair() {
             // show new overlay
             this.showRepair = true;
+            //alert(this.editSerial)
         },
         closeRepair() {
             // show new overlay
@@ -68,7 +90,13 @@ export default {
             // Updates entities from state manually
             this.entities = this.$store.getters.getEntities;
         },
-        scrollToEnd: function() {
+        closeEdit() {
+            // show new overlay
+            this.showEdit = false;
+            // Updates entities from state manually
+            this.entities = this.$store.getters.getEntities;
+        },
+        scrollToEnd() {
             const container = this.$refs.repairsContainer;
             container.scrollTop = container.scrollHeight;
         }
@@ -95,10 +123,16 @@ export default {
     border: 1px solid #423048;
 }
 
-#close-repair-btn {
+#edit-popup {
+    z-index: 10;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    left: 30vw;
+    width: 38vw;
+    height: 55vh;
+    top: 20%;
+
+    background-color: white;
+    border: 1px solid #423048;
 }
 
 #entity-list-container {

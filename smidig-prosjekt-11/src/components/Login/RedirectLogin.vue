@@ -2,6 +2,7 @@
     <!-- redirect page to login  -->
     <base-site class="base-site">
         <h1>Access denied, please log in</h1>
+
         <login-button />
     </base-site>
 </template>
