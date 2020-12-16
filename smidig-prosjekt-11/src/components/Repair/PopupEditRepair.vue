@@ -39,13 +39,15 @@
 
         <img
             id="close-repair-btn"
-            class="self-end cursor-pointer rounded-full transform hover:translate-y-0.5 hover:translate-x-0.5"
+            class="self-end cursor-pointer rounded-full transform hover:scale-110 motion-reduce:transform-none"
             src="@/assets/Images/delete-icon.png"
             v-on:click="closePopup"
             alt="close repair tab"
         />
 
-        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
+        <button class="font-standardText duration-75 transform rounded-md hover:scale-105 motion-reduce:transform-none bg-logoBar" id="next-btn" @click="submitPartsSelected">
+            <h3 style="color: white;">Update</h3>
+        </button>
     </div>
 </template>
 
@@ -267,8 +269,8 @@ export default {
 
     #close-repair-btn {
         position: absolute;
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
         right: 10px;
         top: 10px;
     }

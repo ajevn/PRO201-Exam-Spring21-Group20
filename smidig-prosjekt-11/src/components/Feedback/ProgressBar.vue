@@ -60,7 +60,7 @@
                     id="forward-btn"
                     class="text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center duration-75 hover:text-white transform hover:scale-105 motion-reduce:transform-none "
                 >
-                    <span class="font-standardText">Submit {{ updateTotalProducts }} Repairs</span>
+                    <span class="font-standardText">Submit <span style="font-size: 1.1em;">{{ updateTotalProducts }}</span> Repairs</span>
                     <img src="@/assets/Images/Icons/enter.png" alt="Go to next page" id="submit-icon" />
                 </button>
                 <!-- <img
@@ -194,7 +194,8 @@ export default {
             border: 2px solid gray;
         }
         #forward-btn:hover {
-            background-color: #7eb46b;
+            background-color: #405C6A;
+            color: white;
         }
     }
 }

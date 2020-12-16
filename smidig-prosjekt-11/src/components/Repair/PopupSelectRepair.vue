@@ -53,11 +53,11 @@
         <!-- Creating space for the close button of the project -->
         <slot />
         <button
-            class="font-standardText duration-75 transform rounded-md hover:scale-105 motion-reduce:transform-none bg-universalGreen"
+            class="font-standardText duration-75 transform rounded-md hover:scale-105 motion-reduce:transform-none bg-logoBar"
             id="next-btn"
             @click="submitPartsSelected"
         >
-            <h3>NEXT</h3>
+            <h3 style="color: white;">Submit</h3>
         </button>
     </div>
 </template>
@@ -161,7 +161,7 @@ export default {
                 // No serial number provided
                 this.partsChosen = [];
                 this.serialInputIsEmpty = true;
-                this.modalTextBody = 'Please input serial number';
+                this.modalTextBody = 'Please Input Serial Number';
                 this.showModal = true;
                 return;
             } else if (serialNr.length > 20) {
@@ -176,7 +176,7 @@ export default {
                 return;
             } else if (this.partsChosen.length == 0) {
                 // Please choose part
-                this.modalTextBody = 'Please choose part';
+                this.modalTextBody = 'Please Select Parts';
                 this.showModal = true;
                 return;
             }
@@ -196,6 +196,7 @@ export default {
                 }
             }
 
+            //Creates object which later is injected into Vue state
             const newEntity = {
                 id: newId,
                 entitySerialNr: serialNr,
@@ -212,7 +213,7 @@ export default {
                 this.$store.commit('addEntity', newEntity);
                 this.closePopup();
             } else {
-                this.modalTextBody = 'Serial number already submitted';
+                this.modalTextBody = 'Serial Number Already Exists';
                 this.showModal = true;
                 this.partsChosen = [];
             }
@@ -329,6 +330,7 @@ export default {
             font-weight: bold;
             font-size: 17px;
         }
+
 
         img {
             -webkit-user-drag: none;

@@ -1,4 +1,5 @@
 <template>
+    <!-- Component creates two buttons. Is used in home screen for selecting Repair/Elearning if user is logged in -->
     <div id="button-div" class="rounded-lg shadow-lg ring-2 ring-black ring-opacity-50">
         <router-link
             tag="button"

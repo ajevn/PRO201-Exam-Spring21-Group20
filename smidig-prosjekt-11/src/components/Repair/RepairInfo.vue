@@ -145,8 +145,8 @@ export default {
 
 #close-repair-btn {
     position: absolute;
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     right: 10px;
     top: 10px;
 }

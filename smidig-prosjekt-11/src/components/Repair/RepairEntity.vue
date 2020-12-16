@@ -20,7 +20,7 @@
                 class="part-imgs"
                 :src="require('@/assets/Images/Parts/' + parts.imgName + '.png')"
                 alt="{{parts.partName}}"
-            />
+            >
         </div>
         <!-- Div to hold both edit and repair -->
         <div class="edit-delete-img">
@@ -105,6 +105,12 @@ export default {
         margin: auto;
         margin-left: 4vw;
         margin-right: auto;
+    }
+
+    #part-image-separator{
+    border-right: 1px solid #DEDEDE;
+    margin-right:-10px; /* size of gutter */
+    padding-right:10px; /* size of gutter */
     }
 
     #parts-container {
