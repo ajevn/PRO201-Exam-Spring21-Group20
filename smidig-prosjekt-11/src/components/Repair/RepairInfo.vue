@@ -68,6 +68,7 @@ export default {
             // Updates entities from state manually
             this.entities = this.$store.getters.getEntities;
         },
+        // Function for scrolling to bottom of a div
         scrollToEnd: function() {
             const container = this.$refs.repairsContainer;
             container.scrollTop = container.scrollHeight;
