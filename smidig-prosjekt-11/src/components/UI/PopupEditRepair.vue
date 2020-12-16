@@ -229,7 +229,7 @@ export default {
 
     #serialnum-container {
         position: absolute;
-        grid-row: 3;
+        grid-row: 4;
         left: 40px;
         bottom: 30px;
 
@@ -254,8 +254,8 @@ export default {
 
     #close-repair-btn {
         position: absolute;
-        height: 70px;
-        width: 70px;
+        height: 60px;
+        width: 60px;
         right: 10px;
         top: 10px;
     }
@@ -267,9 +267,11 @@ export default {
         margin: 30px;
         background-color: #f8f6f2;
     }
+
     #next-btn {
         width: 85px;
         height: 45px;
+        font-weight: bold;
         position: absolute;
         right: 30px;
         bottom: 30px;

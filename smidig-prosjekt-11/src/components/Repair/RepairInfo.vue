@@ -108,6 +108,7 @@ export default {
 .backdrop {
     background-color: rgba(0, 0, 0, 0.3);
 }
+
 #plus-btn {
     margin: 2.5vh auto 2.5vh auto;
     width: 3vw;
@@ -131,8 +132,16 @@ export default {
     height: 55vh;
     top: 20%;
 
-    background-color: white;
+    background-color: #F8F6F2;
     border: 1px solid #423048;
+}
+
+#close-repair-btn {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        right: 10px;
+        top: 10px;
 }
 
 #entity-list-container {

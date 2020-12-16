@@ -294,14 +294,6 @@ export default {
         }
     }
 
-    #close-repair-btn {
-        position: absolute;
-        height: 70px;
-        width: 70px;
-        right: 10px;
-        top: 10px;
-    }
-
     #parts {
         grid-column: 2;
         margin: 0 3vw 0 3vw;
