@@ -24,20 +24,25 @@
         </div>
         <!-- Div to hold both edit and repair -->
         <div class="edit-delete-img">
-            <button>
+            <button
+                class="duration-75 transform hover:scale-110 motion-reduce:transform-none"
+                @click="editEntity(this.entity)"
+            >
                 <img
                     class="edit-delete-img-width"
                     src="@/assets/Images/edit-icon.png"
-                    @click="editEntity(this.entity)"
                     alt="Edit entity button"
                 />
             </button>
 
-            <button class="duration-75 transform hover:scale-110 motion-reduce:transform-none">
+            <button
+                class="duration-75 transform hover:scale-110 motion-reduce:transform-none"
+                @click="deleteEntity(this.entity)"
+            >
                 <img
                     class="edit-delete-img-width"
+                    id="delete-img"
                     src="@/assets/Images/delete-icon.png"
-                    @click="deleteEntity(this.entity)"
                     alt="Delete button"
                 />
             </button>
@@ -78,7 +83,7 @@ export default {
     align-items: center;
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr 1fr 40% 1fr 20px;
+    grid-template-columns: 1fr 1fr 40% 17vw 20px;
     grid-template-rows: auto 2px;
 
     .product-image-sunbell {
@@ -116,9 +121,16 @@ export default {
 
         .edit-delete-img-width {
             width: 20px;
-            margin-left: 50px;
-            margin-right: -4px;
+            margin: 5px;
         }
+
+        #delete-img {
+            margin-left: 40px;
+        }
+    }
+
+    button {
+        outline: none;
     }
 
     hr {
