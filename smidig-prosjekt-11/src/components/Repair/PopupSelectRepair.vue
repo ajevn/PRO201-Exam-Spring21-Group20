@@ -155,17 +155,23 @@ export default {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
+			
             const serialNr = this.$refs.inputSerialNumber.value;
-
-            if (serialNr == '') {
+            if (serialNr == '') { // No serial number provided
                 this.partsChosen = [];
                 this.serialInputIsEmpty = true;
-                //Please input serial number
                 this.modalTextBody = 'Please input serial number';
                 this.showModal = true;
                 return;
-            } else if (this.partsChosen.length == 0) {
-                //Please choose part
+            } else if (serialNr.length > 20) { // Serial number too long
+                this.modalTextBody = 'Serial number length must be less than 20';
+                this.showModal = true;
+                return;
+            } else if (isNaN(serialNr)) { // Serial number must be numeric
+                this.modalTextBody = 'Serial number can only contain numbers';
+                this.showModal = true;
+                return;
+            } else if (this.partsChosen.length == 0) { // Please choose part
                 this.modalTextBody = 'Please choose part';
                 this.showModal = true;
                 return;
@@ -202,7 +208,7 @@ export default {
                 this.$store.commit('addEntity', newEntity);
                 this.closePopup();
             } else {
-                this.modalTextBody = 'Serial Number Already Submitted';
+                this.modalTextBody = 'Serial number already submitted';
                 this.showModal = true;
                 this.partsChosen = [];
             }
