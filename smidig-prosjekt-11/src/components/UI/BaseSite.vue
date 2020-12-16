@@ -12,7 +12,7 @@
                 </div>
 
                 <div id="employee-div">
-                    <h1 class="font-standardText text-secondary">Employee, {{ user || 'x' }}</h1>
+                    <h1 class="font-standardText text-secondary">Employee, {{ user || ' ' }}</h1>
                 </div>
             </div>
         </header>

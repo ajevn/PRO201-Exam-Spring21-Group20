@@ -1,11 +1,11 @@
 <template>
     <div id="container" class="text-center rounded-lg">
         <!-- PRODUCT-DIV -->
-        <div id="products-container" class="grid-rows-3">
+        <div id="products-container" class="grid-rows-3 ">
             <h1>Product</h1>
             <div class="content-center">
                 <div id="popup-static-product-style">
-                    <img src="../../assets/Images/Parts/sunbellProductImage.png" alt="Product: Sunbell" />
+                    <img src="@/assets/Images/Parts/sunbellProductImage.png" alt="Product: Sunbell" />
                     <h2>Sunbell</h2>
                 </div>
             </div>
@@ -28,12 +28,12 @@
         <!-- PARTS-DIV -->
         <div id="parts" class="col-span-2">
             <modal-error-message v-if="showModal == true" @close="showModal = false">
-                <template v-slot:body>{{ modalTextBody }}</template
-                ><!-- Serial Number Already Exists -->
+                <template v-slot:body>{{ modalTextBody }}</template>
+                <!-- Serial Number Already Exists -->
             </modal-error-message>
 
             <h1>Parts</h1>
-            <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
+            <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5 ">
                 <a
                     class="popup-products"
                     v-for="product in productImages"
@@ -41,6 +41,7 @@
                     @click="selectPart(product)"
                 >
                     <img
+                        class="duration-75 transform rounded-md hover:scale-105 "
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
                     />
@@ -51,7 +52,13 @@
 
         <!-- Creating space for the close button of the project -->
         <slot />
-        <button class="bg-universalGreen" id="next-btn" @click="submitPartsSelected">NEXT</button>
+        <button
+            class="font-standardText duration-75 transform rounded-md hover:scale-105 motion-reduce:transform-none bg-universalGreen"
+            id="next-btn"
+            @click="submitPartsSelected"
+        >
+            <h3>NEXT</h3>
+        </button>
     </div>
 </template>
 
@@ -59,6 +66,11 @@
 import ModalErrorMessage from '@/components/Modals/ModalErrorMessage.vue';
 
 export default {
+    name: 'PopupSelect',
+    props: {
+        pictures: Array
+    },
+    emits: ['clicked'],
     components: {
         ModalErrorMessage
     },
@@ -123,7 +135,7 @@ export default {
         selectPart(product) {
             product.isChecked = !product.isChecked; // Flips the boolean value, true->false, false->true
 
-            let parentEl = event.target.parentElement;
+            const parentEl = event.target.parentElement;
 
             // To prevent user to change color of the wrong parent
             if (parentEl.id === 'parts-cont-no-change') return;
@@ -143,28 +155,44 @@ export default {
                     this.partsChosen.push(this.productImages[i]);
                 }
             }
-            var serialNr = this.$refs.inputSerialNumber.value;
+            const serialNr = this.$refs.inputSerialNumber.value;
 
             if (serialNr == '') {
                 this.partsChosen = [];
                 this.serialInputIsEmpty = true;
-                this.modalTextBody = 'Please Input Serial Number';
+                //Please input serial number
+                this.modalTextBody = 'Please input serial number';
                 this.showModal = true;
                 return;
             } else if (this.partsChosen.length == 0) {
-                //
-                this.modalTextBody = 'Please Select Parts';
+                //Please choose part
+                this.modalTextBody = 'Please choose part';
                 this.showModal = true;
                 return;
             }
-            // Creating an entity of chosen part(s) and serialnumber, and parsing to state
-            let newEntity = {
+
+            const stateEntities = this.$store.getters.getEntities;
+
+            // Get first available unique id
+            let newId = 0;
+            const takenIds = [];
+            for (let i = 0; i < stateEntities.length; i++) {
+                takenIds[stateEntities[i].id] = true;
+            }
+            for (let i = 0; i <= stateEntities.length; i++) {
+                if (!takenIds[i]) {
+                    newId = i;
+                    break;
+                }
+            }
+
+            const newEntity = {
+                id: newId,
                 entitySerialNr: serialNr,
                 parts: this.partsChosen
             };
-            var stateEntities = this.$store.getters.getEntities;
 
-            let exists = stateEntities.findIndex(
+            const exists = stateEntities.findIndex(
                 entity => entity.entitySerialNr === newEntity.entitySerialNr
             );
             // Check for serialnumber
@@ -172,17 +200,16 @@ export default {
             if (exists == -1) {
                 this.serialInputIsEmpty = true;
                 this.$store.commit('addEntity', newEntity);
-                this.$emit('clicked');
+                this.closePopup();
             } else {
-                this.modalTextBody = 'Serial nr doesnt exist';
+                this.modalTextBody = 'Serial Number Already Submitted';
                 this.showModal = true;
                 this.partsChosen = [];
             }
+        },
+        closePopup() {
+            this.$emit('clicked');
         }
-    },
-    name: 'PopupSelect',
-    props: {
-        pictures: Array
     }
 };
 </script>
@@ -273,12 +300,6 @@ export default {
         background-color: #f8f6f2;
     }
 
-    #exit-btn {
-        position: absolute;
-        top: 0;
-        height: 200px;
-    }
-
     #next-btn {
         width: 85px;
         height: 45px;
@@ -286,7 +307,6 @@ export default {
         right: 30px;
         bottom: 30px;
         border: 1px solid black;
-        border-radius: 2px;
     }
 
     .popup-products {

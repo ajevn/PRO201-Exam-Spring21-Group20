@@ -1,7 +1,7 @@
 <template>
     <teleport to="body">
         <transition name="modal-fade">
-            <div class="modal-backdrop">
+            <div class="modal-backdrop z-50">
                 <div
                     class="rounded-lg modal"
                     role="dialog"
@@ -35,7 +35,7 @@
 <script>
 export default {
     name: 'modal',
-
+    emits: ['close'],
     methods: {
         close() {
             this.$emit('close');

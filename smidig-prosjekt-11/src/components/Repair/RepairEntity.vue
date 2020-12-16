@@ -10,6 +10,7 @@
         <span
             ><div class="border-solid border-2">{{ this.entitySerialNumber }}</div></span
         >
+
         <!-- Loops through the selected parts for this repair, and displays their images -->
 
         <div id="parts-container">
@@ -23,15 +24,16 @@
         </div>
         <!-- Div to hold both edit and repair -->
         <div class="edit-delete-img">
-            <button @click="editRepair" class="transform hover:scale-110 motion-reduce:transform-none">
+            <button>
                 <img
                     class="edit-delete-img-width"
                     src="@/assets/Images/edit-icon.png"
+                    @click="editEntity(this.entity)"
                     alt="Edit entity button"
                 />
             </button>
 
-            <button class="transform hover:scale-110 motion-reduce:transform-none">
+            <button class="duration-75 transform hover:scale-110 motion-reduce:transform-none">
                 <img
                     class="edit-delete-img-width"
                     src="@/assets/Images/delete-icon.png"
@@ -58,6 +60,9 @@ export default {
         }
     },
     methods: {
+        editEntity: function() {
+            this.$emit('edit-entity', this.entitySerialNumber);
+        },
         deleteEntity: function() {
             this.$store.commit('deleteEntity', this.entitySerialNumber);
         }
