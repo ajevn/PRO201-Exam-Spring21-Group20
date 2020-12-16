@@ -35,7 +35,7 @@
 <script>
 export default {
     name: 'modal',
-
+    emits: ['close'],
     methods: {
         close() {
             this.$emit('close');

@@ -28,8 +28,8 @@
         <!-- PARTS-DIV -->
         <div id="parts" class="col-span-2">
             <modal-error-message v-if="showModal == true" @close="showModal = false">
-                <template v-slot:body>{{ modalTextBody }}</template
-                ><!-- Serial Number Already Exists -->
+                <template v-slot:body>{{ modalTextBody }}</template>
+                <!-- Serial Number Already Exists -->
             </modal-error-message>
 
             <h1>Parts</h1>
@@ -41,7 +41,7 @@
                     @click="selectPart(product)"
                 >
                     <img
-                        class="duration-75 transform rounded-md hover:scale-105 rounded-lg "
+                        class="duration-75 transform rounded-md hover:scale-105 "
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
                     />
@@ -52,7 +52,13 @@
 
         <!-- Creating space for the close button of the project -->
         <slot />
-        <button class="font-standardText duration-75 transform rounded-md hover:scale-105 motion-reduce:transform-none bg-universalGreen" id="next-btn" @click="submitPartsSelected"><h3>NEXT</h3></button>
+        <button
+            class="font-standardText duration-75 transform rounded-md hover:scale-105 motion-reduce:transform-none bg-universalGreen"
+            id="next-btn"
+            @click="submitPartsSelected"
+        >
+            <h3>NEXT</h3>
+        </button>
     </div>
 </template>
 
