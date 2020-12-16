@@ -1,5 +1,5 @@
 module.exports = {
-    purge: ['./src/**/*.html', './src/**/*.vue'],
+    purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
     darkMode: 'media', // or 'media' or 'class'
     theme: {
         backgroundColor: theme => ({
@@ -16,7 +16,6 @@ module.exports = {
         fontFamily: {
             standardText: ['Helvetica-Neue', 'Arial', 'sans-serif']
         },
-
         extend: {}
     },
     variants: {
