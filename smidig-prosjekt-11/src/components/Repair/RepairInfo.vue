@@ -110,28 +110,34 @@ export default {
 }
 
 #plus-btn {
-    margin: 2.5vh auto 2.5vh auto;
+    margin: 2.5vh auto;
     width: 3vw;
     outline: none;
 }
+
 #parts-popup {
-    background-color: white;
+    background-color: #F8F6F2;
     position: absolute;
+    left:0;
+    right:0;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
     width: 65vw;
     height: 60vh;
-    top: 20%;
-    left: 15vw;
     border: 1px solid #423048;
 }
 
 #edit-popup {
     z-index: 10;
     position: absolute;
-    left: 30vw;
+    left:0;
+    right:0;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
     width: 38vw;
     height: 55vh;
-    top: 20%;
-
     background-color: #F8F6F2;
     border: 1px solid #423048;
 }

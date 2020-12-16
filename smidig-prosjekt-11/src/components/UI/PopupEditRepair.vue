@@ -221,7 +221,7 @@ export default {
         max-width: 125px;
         height: 11vh;
         cursor: pointer;
-        padding: 10px 10px 10px 10px;
+        padding: 10px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 10px;
@@ -262,7 +262,6 @@ export default {
 
     #parts {
         position: absolute;
-        // border: 3px solid blue;
         grid-column: 2;
         margin: 30px;
         background-color: #f8f6f2;
