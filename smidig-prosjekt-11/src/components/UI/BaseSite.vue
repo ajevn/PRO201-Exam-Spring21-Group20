@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import Hamburger from '@/components/Nav/Hamburger.vue';
-import HamburgerIcon from '@/components/UI/HamburgerIcon.vue';
+import Hamburger from '@/components/UI/Menu/Hamburger.vue';
+import HamburgerIcon from '@/components/UI/Menu/HamburgerIcon.vue';
 import LoginButton from '@/components/Login/LoginButton.vue';
 import { computed } from 'vue';
 import { useStore } from 'vuex';

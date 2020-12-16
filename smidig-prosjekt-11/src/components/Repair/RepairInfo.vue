@@ -47,7 +47,7 @@
 <script>
 import PopupSelectRepair from '@/components/Repair/PopupSelectRepair.vue';
 import RepairEntity from '@/components/Repair/RepairEntity.vue';
-import PopupEditRepair from '@/components/UI/PopupEditRepair.vue';
+import PopupEditRepair from '@/components/Repair/PopupEditRepair.vue';
 
 export default {
     data() {
