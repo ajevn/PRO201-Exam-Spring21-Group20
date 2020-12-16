@@ -70,7 +70,7 @@ export default {
     data() {
         return {
             id: -1, //fetched in renderSelects()
-			serial: -1,
+            serial: -1,
             serialInputIsEmpty: false,
             selectedEntitySerialNumber: 'noneselected',
             modalTextBody: '',
@@ -129,12 +129,11 @@ export default {
     methods: {
         selectPart(product) {
             product.isChecked = !product.isChecked;
-			//console.log('selectPart(), serialToEdit: ' + this.serialToEdit);
+            //console.log('selectPart(), serialToEdit: ' + this.serialToEdit);
         },
         submitPartsSelected() {
-			
             // Adding the marked parts to the partsChosen-array
-			this.partsChosen = [];
+            this.partsChosen = [];
             for (let i = 0; i < this.productImages.length; i++) {
                 if (this.productImages[i].isChecked) {
                     this.partsChosen.push(this.productImages[i]);
@@ -142,21 +141,25 @@ export default {
             }
 
             const serialNr = this.$refs.inputSerialNumber.value;
-            if (serialNr == '') { // No serial number provided
+            if (serialNr == '') {
+                // No serial number provided
                 this.partsChosen = [];
                 this.serialInputIsEmpty = true;
                 this.modalTextBody = 'Please input serial number';
                 this.showModal = true;
                 return;
-            } else if (serialNr.length > 20) { // Serial number too long
+            } else if (serialNr.length > 20) {
+                // Serial number too long
                 this.modalTextBody = 'Serial number length must be less than 20';
                 this.showModal = true;
                 return;
-            } else if (isNaN(serialNr)) { // Serial number must be numeric
+            } else if (isNaN(serialNr)) {
+                // Serial number must be numeric
                 this.modalTextBody = 'Serial number can only contain numbers';
                 this.showModal = true;
                 return;
-            } else if (this.partsChosen.length == 0) { // Please choose part
+            } else if (this.partsChosen.length == 0) {
+                // Please choose part
                 this.modalTextBody = 'Please choose part';
                 this.showModal = true;
                 return;
@@ -194,8 +197,8 @@ export default {
             const entity = this.$store.getters.getEntityBySerial(this.serialToEdit);
             // Get id in order to pass it to entityData.js later when submitting
             this.id = entity.id;
-			this.serial = this.serialToEdit;
-			const currentEntityParts = entity.parts;
+            this.serial = this.serialToEdit;
+            const currentEntityParts = entity.parts;
 
             currentEntityParts.forEach(part => {
                 this.productImages[part.partNumber - 1].isChecked = true;
