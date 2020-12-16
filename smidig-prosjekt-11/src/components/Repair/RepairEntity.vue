@@ -70,7 +70,6 @@ export default {
         },
         deleteEntity: function() {
             this.$store.commit('deleteEntity', this.entitySerialNumber);
-            // totalProducts --
         }
     }
 };

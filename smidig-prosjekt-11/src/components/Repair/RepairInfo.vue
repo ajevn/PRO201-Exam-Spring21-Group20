@@ -96,6 +96,7 @@ export default {
             // Updates entities from state manually
             this.entities = this.$store.getters.getEntities;
         },
+        // Function for scrolling to end after adding repair
         scrollToEnd() {
             const container = this.$refs.repairsContainer;
             container.scrollTop = container.scrollHeight;
@@ -116,10 +117,10 @@ export default {
 }
 
 #parts-popup {
-    background-color: #F8F6F2;
+    background-color: #f8f6f2;
     position: absolute;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
     top: 20%;
     margin-left: auto;
     margin-right: auto;
@@ -131,23 +132,23 @@ export default {
 #edit-popup {
     z-index: 10;
     position: absolute;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
     top: 20%;
     margin-left: auto;
     margin-right: auto;
     width: 38vw;
     height: 55vh;
-    background-color: #F8F6F2;
+    background-color: #f8f6f2;
     border: 1px solid #423048;
 }
 
 #close-repair-btn {
-        position: absolute;
-        height: 50px;
-        width: 50px;
-        right: 10px;
-        top: 10px;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    right: 10px;
+    top: 10px;
 }
 
 #entity-list-container {

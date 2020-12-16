@@ -117,8 +117,8 @@ export default {
                 },
                 {
                     partNumber: '7',
-                    partName: 'Torx-6',
-                    imgName: 'batteryBoxTorx6-removebg-preview',
+                    partName: 'PCBA',
+                    imgName: 'pcbaRevD2.6-removebg-preview',
                     isChecked: false
                 }
             ],
