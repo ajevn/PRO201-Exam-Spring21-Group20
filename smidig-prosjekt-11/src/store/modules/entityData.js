@@ -10,7 +10,7 @@ const mutations = {
         //this.idIncrementor++;
     },
     deleteEntity(state, payload) {
-        console.log('deleteEntity');
+        //Delets entity based on entity position in entityArray
         var entityArray = state.entityArray;
         let indexPos = entityArray.findIndex(entity => entity.entitySerialNr === payload);
 
