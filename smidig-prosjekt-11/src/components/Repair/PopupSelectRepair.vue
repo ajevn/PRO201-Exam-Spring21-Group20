@@ -246,7 +246,7 @@ export default {
         max-width: 125px;
         height: 11vh;
         cursor: pointer;
-        padding: 10px 10px 10px 10px;
+        padding: 10px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 10px;

@@ -31,8 +31,7 @@
                         :id="product.partNumber"
                         :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
                     />
-                    <h2></h2>
-                    <!--{{ product.partName }} -->
+                    <h2>{{ product.partName }}</h2>
                 </a>
             </div>
         </div>
@@ -230,9 +229,9 @@ export default {
 
     img {
         width: 8vw;
-        max-width: 110px;
-        max-height: 110px;
+        max-width: 100px;
         height: auto;
+        max-height: 100px;
         cursor: pointer;
         padding: 10px;
         margin-left: auto;
@@ -246,6 +245,35 @@ export default {
         grid-template-columns: repeat(4, auto);
         row-gap: 2vh;
         margin: auto;
+
+        
+        .popup-products {
+            background-color: #f8f6f2;
+            width: 15vh;
+            height: 15vh;
+            position: relative;
+            cursor: pointer;
+
+            h2 {
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 17px;
+                position: absolute;
+                bottom: 2px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            img {
+                -webkit-user-drag: none;
+            }
+
+            &:hover {
+                background-color: #7eb46b;
+            }
+        }
     }
 
     #serialnum-container {
@@ -295,26 +323,6 @@ export default {
         bottom: 20px;
         border: 1px solid black;
         border-radius: 2px;
-    }
-
-    .popup-products {
-        background-color: #f8f6f2;
-        width: 15vh;
-        height: 15vh;
-
-        h2 {
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 17px;
-        }
-
-        img {
-            -webkit-user-drag: none;
-        }
-
-        &:hover {
-            background-color: #7eb46b;
-        }
     }
 
     .checked {
