@@ -19,7 +19,7 @@
             </modal-error-message>
 
             <h1>Parts</h1>
-            <div id="parts-cont-no-change" class="grid grid-flow grid-cols-4 grid-rows-2 gap-5">
+            <div id="parts-cont-no-change">
                 <a
                     class="popup-products"
                     v-for="product in productImages"
@@ -216,12 +216,9 @@ export default {
 <style lang="scss" scoped>
 #container {
     width: 100%;
-    height: 100%;
     user-select: none;
     background-color: #f8f6f2;
 
-    display: grid;
-    grid-template-columns: auto 70%;
 
     h1 {
         font-size: 1.5em;
@@ -233,8 +230,9 @@ export default {
 
     img {
         width: 8vw;
-        max-width: 125px;
-        height: 11vh;
+        max-width: 110px;
+        max-height: 110px;
+        height: auto;
         cursor: pointer;
         padding: 10px;
         margin-left: auto;
@@ -242,11 +240,18 @@ export default {
         margin-bottom: 10px;
     }
 
+    #parts-cont-no-change {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        row-gap: 2vh;
+        margin: auto;
+    }
+
     #serialnum-container {
         position: absolute;
-        grid-row: 4;
         left: 40px;
-        bottom: 30px;
+        bottom: 20px;
 
         h3 {
             font-weight: bold;
@@ -276,8 +281,7 @@ export default {
     }
 
     #parts {
-        position: absolute;
-        grid-column: 2;
+        position: relative;
         margin: 30px;
         background-color: #f8f6f2;
     }
@@ -288,7 +292,7 @@ export default {
         font-weight: bold;
         position: absolute;
         right: 30px;
-        bottom: 30px;
+        bottom: 20px;
         border: 1px solid black;
         border-radius: 2px;
     }

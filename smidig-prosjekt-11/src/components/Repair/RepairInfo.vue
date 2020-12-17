@@ -137,10 +137,11 @@ export default {
     top: 20%;
     margin-left: auto;
     margin-right: auto;
-    width: 38vw;
+    width: 50vw;
     height: 55vh;
     background-color: #f8f6f2;
     border: 1px solid #423048;
+    border-radius: 5px;
 }
 
 #close-repair-btn {
