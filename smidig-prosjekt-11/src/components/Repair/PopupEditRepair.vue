@@ -274,6 +274,10 @@ export default {
                 background-color: #7eb46b;
             }
         }
+
+        .checked {
+            background-color: #7eb46b;
+        }
     }
 
     #serialnum-container {
@@ -323,10 +327,6 @@ export default {
         bottom: 20px;
         border: 1px solid black;
         border-radius: 2px;
-    }
-
-    .checked {
-        background-color: #7eb46b;
     }
 }
 </style>
