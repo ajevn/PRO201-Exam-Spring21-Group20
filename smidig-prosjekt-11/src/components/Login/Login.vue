@@ -2,7 +2,7 @@
     <!-- main page to login -->
     <div
         id="login-container"
-        class="relative container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center"
+        class="relative container w-full max-w-xs m-auto bg-logoBar rounded p-5 self-center rounded-lg shadow-lg ring-2 ring-black ring-opacity-50"
     >
         <!-- from to post -->
         <form @submit.prevent="post">

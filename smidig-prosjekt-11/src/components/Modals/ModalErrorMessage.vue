@@ -1,7 +1,8 @@
 <template>
     <teleport to="body">
         <transition name="modal-fade">
-            <div class="modal-backdrop">
+            <!-- Modal takes props form parent component and injects into corresponding slot. This makes custom modal messages -->
+            <div class="modal-backdrop z-50">
                 <div
                     class="rounded-lg modal"
                     role="dialog"
@@ -35,7 +36,7 @@
 <script>
 export default {
     name: 'modal',
-
+    emits: ['close'],
     methods: {
         close() {
             this.$emit('close');

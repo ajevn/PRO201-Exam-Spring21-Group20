@@ -1,10 +1,11 @@
 <template>
+    <!-- Component creates two buttons. Is used in home screen for selecting Repair/Elearning if user is logged in -->
     <div id="button-div" class="rounded-lg shadow-lg ring-2 ring-black ring-opacity-50">
         <router-link
             tag="button"
             to="/repair"
             type="button"
-            class="font-standardText button shadow-lg home-repair-ico-src home-ico-style transform hover:scale-105 motion-reduce:transform-none"
+            class="font-standardText button shadow-lg home-repair-ico-src home-ico-style duration-75 transform hover:scale-105 motion-reduce:transform-none"
         >
             <h4>Repair</h4>
         </router-link>
@@ -13,7 +14,7 @@
             tag="button"
             to="/#"
             type="button"
-            class="font-standardText button shadow-lg home-learn-ico-src home-ico-style transform hover:scale-105 motion-reduce:transform-none"
+            class="font-standardText button shadow-lg home-learn-ico-src home-ico-style duration-75 transform hover:scale-105 motion-reduce:transform-none"
         >
             <h4>E-learning</h4>
         </router-link>
