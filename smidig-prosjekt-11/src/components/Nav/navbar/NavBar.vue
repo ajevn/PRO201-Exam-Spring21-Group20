@@ -60,14 +60,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 .nav-bar {
-    width: 100%;
-    max-width: 100%;
-    height: 80px;
-    background: #2c2a29;
-    padding-left: 20px;
-    padding-right: 20px;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: 80px;
+  background: #2c2a29;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .hamburger-button {
