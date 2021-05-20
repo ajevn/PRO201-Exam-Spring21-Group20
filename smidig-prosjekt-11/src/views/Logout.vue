@@ -1,39 +1,55 @@
 <template>
-    <div class="logout-base">
-        <base-site> </base-site>
+  <div class="logout-base">
+    <base-site>
+      <div id="logout-container">
         <h1>You are now logged out</h1>
         <home-button class="home-b"></home-button>
-    </div>
+      </div>
+    </base-site>
+  </div>
 </template>
 
 <script>
-import BaseSite from '@/components/UI/BaseSite.vue';
-import HomeButton from '@/components/UI/HomeButton.vue';
+import BaseSite from "@/components/Nav/BaseSite.vue";
+import HomeButton from "@/components/UI/HomeButton.vue";
 
 export default {
-    name: 'LogoutPage',
-    setup() {
-        return {
-            BaseSite,
-            HomeButton
-        };
-    },
-    created: function() {
-        this.$store.commit('logout');
-    }
+  name: "LogoutPage",
+  created: function() {
+    this.$store.commit("logout");
+  },
+  components: {
+    BaseSite,
+    HomeButton
+  }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .logout-base {
-    text-align: center;
+  text-align: center;
 }
-.home-b {
-    margin-top: 4vh;
-}
-h1 {
-    margin-top: 16vh;
-    font-size: 45px;
+
+#logout-container {
+  position: relative;
+  top: 200px;
+
+  h1 {
+    font-size: 40px;
     color: #405c6a;
+  }
+  .home-b {
+    margin-top: 4vh;
+  }
+}
+
+@media only screen and (min-device-width: 600px) and (max-device-width: 1280px) and (orientation: landscape) {
+  #logout-container {
+    top: 100px;
+
+    h1 {
+      font-size: 30px;
+    }
+  }
 }
 </style>

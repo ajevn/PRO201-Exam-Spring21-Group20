@@ -1,33 +1,33 @@
 <template>
-    <!-- redirect page to login  -->
-    <base-site class="base-site">
-        <h1>Access denied, please log in</h1>
+  <!-- redirect page to login  -->
+  <base-site class="base-site">
+    <h1>Access denied, please log in</h1>
 
-        <login-button />
-    </base-site>
+    <login-button />
+  </base-site>
 </template>
 
 <script>
-import LoginButton from '@/components/Login/LoginButton.vue';
-import BaseSite from '@/components/UI/BaseSite.vue';
+import LoginButton from "@/components/Login/LoginButton.vue";
+import BaseSite from "@/components/Nav/BaseSite.vue";
 export default {
-    setup() {
-        return {
-            LoginButton,
-            BaseSite
-        };
-    }
+  setup() {
+    return {
+      LoginButton,
+      BaseSite
+    };
+  }
 };
 </script>
 
 <style>
 .base-site {
-    text-align: center;
+  text-align: center;
 }
 h1 {
-    margin-top: 16vh;
+  margin-top: 16vh;
 
-    font-size: 45px;
-    color: #405c6a;
+  font-size: 45px;
+  color: #405c6a;
 }
 </style>
