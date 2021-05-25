@@ -1,8 +1,10 @@
 <template>
-  <div class="logout-base">
+  <div>
     <base-site>
       <div class="header-container">
-        <h1>You are now logged out</h1>
+        <h1>
+          This page is not implemented
+        </h1>
         <home-select-button
           iconName="home"
           buttonTitle="Home"
@@ -13,23 +15,15 @@
     </base-site>
   </div>
 </template>
-
 <script>
-import BaseSite from "@/components/Nav/BaseSite.vue";
+import BaseSite from "../components/Nav/BaseSite.vue";
 import HomeSelectButton from "../components/Nav/HomeSelectButton.vue";
 
 export default {
-  name: "LogoutPage",
-  created: function() {
-    this.$store.commit("logout");
-  },
-  components: {
-    BaseSite,
-    HomeSelectButton
-  }
+  name: "NotImplementedPage",
+  components: { BaseSite, HomeSelectButton }
 };
 </script>
-
 <style lang="scss" scoped>
 .header-container {
   height: 100%;

@@ -32,6 +32,14 @@
           />
           <span>{{ CPError }}<br /></span>
         </div>
+        <div class="input">
+          <label>User Camp: </label>
+          <select v-model="campName" required>
+            <option v-for="camp in camps" :key="camp.name">{{
+              camp.name
+            }}</option>
+          </select>
+        </div>
         <div class="admin-check">
           <label>Admin: </label>
           <input v-model="admin" type="checkbox" />
@@ -51,6 +59,15 @@ import { useField, useForm } from "vee-validate";
 
 export default {
   name: "UserAdministrationPage",
+  data() {
+    return {
+      camps: []
+    };
+  },
+  async created() {
+    const response = await fetch("http://localhost:3000/api/camp");
+    this.camps = await response.json();
+  },
   setup() {
     const schema = {
       username(value) {
@@ -88,6 +105,8 @@ export default {
     const { errorMessage: CPError, value: confirmPassword } = useField(
       "confirmPassword"
     );
+    const { value: campName } = useField("campName");
+
     const { value: admin } = useField("admin");
 
     return {
@@ -99,6 +118,7 @@ export default {
       CPError,
       isSubmitting,
       onSubmit,
+      campName,
       admin
     };
   }

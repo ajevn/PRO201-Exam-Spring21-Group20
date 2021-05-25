@@ -15,6 +15,12 @@
         :icon="it.iconName"
         :linkDestination="it.link"
       />
+
+      <nav-link
+        :textValue="loginItem.itemTitle"
+        :icon="loginItem.iconName"
+        :linkDestination="loginItem.link"
+      />
     </ul>
     <!-- <h1 class="user-header">{{ user || 'Not logged in' }}</h1> -->
   </div>
@@ -31,24 +37,47 @@ export default {
         {
           itemTitle: "Profile",
           iconName: "user",
-          link: "repair",
+          link: "notimplemented",
           alt: "User icon"
         },
         {
           itemTitle: "Certifications",
           iconName: "profile",
-          link: "repair",
+          link: "notimplemented",
           alt: "Certifications icon"
-        },
-        {
-          itemTitle: "Log in",
-          iconName: "enter",
-          link: "repair",
-          alt: "Login icon"
         }
       ],
-      menuIsOpen: false // Trenger vi denne?
+      menuIsOpen: false
     };
+  },
+  computed: {
+    loginItem: function() {
+      const userId = this.$store.getters.getUserId;
+
+      if (!userId) {
+        return {
+          itemTitle: "Log in",
+          iconName: "enter",
+          link: "login",
+          alt: "Login icon"
+        };
+      } else {
+        return {
+          itemTitle: "Log out",
+          iconName: "exit",
+          link: "logout",
+          alt: "Logout icon"
+        };
+      }
+    },
+    isLoggedIn: function() {
+      const userId = this.$store.getters.getUserId;
+      if (!userId) {
+        return false;
+      } else {
+        return true;
+      }
+    }
   },
   methods: {
     toggleMenu() {
@@ -91,9 +120,6 @@ export default {
 }
 
 .user-header {
-  // position: absolute;
-  // right: 0px;
-  // top: 0px;
   font-size: 1rem;
   color: #7eb46b;
 }
@@ -103,7 +129,6 @@ export default {
   right: 20px;
   display: flex;
   z-index: 999;
-  // border: 1px solid red;
 }
 
 @media screen and (max-width: 960px) {
@@ -113,7 +138,7 @@ export default {
     left: -100%;
     right: auto;
     // width: 300px;
-    background: #25353d;
+    background: #3d3a39;
     transition: all 0.5s ease;
 
     padding: 20px;

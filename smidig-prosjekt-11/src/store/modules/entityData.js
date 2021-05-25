@@ -15,6 +15,10 @@ const mutations = {
 
     state.entityArray.splice(indexPos, 1);
   },
+  deleteAllEntity(state) {
+    //Deletes total entity position in entityArray
+    state.entityArray = [];
+  },
   editEntity(state, entity) {
     let success = false;
     for (const item of state.entityArray) {

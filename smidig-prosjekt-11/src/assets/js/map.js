@@ -1,8 +1,20 @@
 import "leaflet/dist/leaflet.js";
 import "leaflet.markercluster/dist/leaflet.markercluster.js";
 
-export function createMap(centerX, centerY, zoomLevel) {
+export function createMap(
+  centerX,
+  centerY,
+  zoomLevel,
+  showZoomControl,
+  campData,
+  products
+) {
   const L = window.L; // suppress 'L' is not defined error
+
+  console.log(products);
+
+  // FORTSETT HER!
+  products[0].totalRepairs = 111;
 
   // Fix to wrongly referenced image locations in Leaflet bundle
   delete L.Icon.Default.prototype._getIconUrl;
@@ -18,6 +30,7 @@ export function createMap(centerX, centerY, zoomLevel) {
   var map = L.map("mapid", {
     center: [centerX, centerY],
     zoom: zoomLevel,
+    zoomControl: showZoomControl,
     maxZoom: 10
   });
 
@@ -34,7 +47,31 @@ export function createMap(centerX, centerY, zoomLevel) {
     style: geojsonStyle
   }).addTo(map);
 
-  var campLabelIcon1 = L.divIcon({
+  var markers = L.markerClusterGroup();
+
+  for (let i = 0; i < campData.length; i++) {
+    var campLabelIcon = L.divIcon({
+      className: "camp-label",
+      html:
+        "<div>" +
+        '<img src="' +
+        layersPath +
+        '" />' +
+        "<p>" +
+        campData[i].id +
+        "</p>" +
+        "<div>" +
+        campData[i].location +
+        "</div>" +
+        "</div>"
+    });
+
+    var m = new L.marker(campData[i].geoloc, { icon: campLabelIcon });
+
+    markers.addLayer(m);
+  }
+
+  /*var campLabelIcon1 = L.divIcon({
     className: "camp-label",
     html:
       '<img src="' + layersPath + '" />' + "<p>Camp 1</p>" + "<div>723</div>"
@@ -53,9 +90,8 @@ export function createMap(centerX, centerY, zoomLevel) {
   var m2 = new L.marker([15, 20], { icon: campLabelIcon2 });
   var m3 = new L.marker([25, 15], { icon: campLabelIcon3 });
 
-  var markers = L.markerClusterGroup();
   markers.addLayer(m1);
   markers.addLayer(m2);
-  markers.addLayer(m3);
+  markers.addLayer(m3);*/
   map.addLayer(markers);
 }
