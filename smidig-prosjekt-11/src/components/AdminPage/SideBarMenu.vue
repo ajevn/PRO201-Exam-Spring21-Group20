@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div>{{ timestamp }}</div>
     <div class="flex-container">
       <div class="flex-items">
         <div
@@ -116,26 +115,10 @@ export default {
     };
   },
   components: { IconBase },
-  created() {
-    setInterval(this.getNow, 1000);
-  },
   methods: {
     selectSection(event) {
       this.selected = event;
       this.$emit("childToParent", event);
-    },
-    getNow() {
-      const today = new Date();
-      const date =
-        today.getFullYear() +
-        "-" +
-        (today.getMonth() + 1) +
-        "-" +
-        today.getDate();
-      const time =
-        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      const dateTime = date + " " + time;
-      this.timestamp = dateTime;
     }
   },
   data() {
@@ -155,15 +138,12 @@ export default {
   filter: grayscale(100%);
 }
 .container {
-  width: 13vw;
-  height: 92vh;
   background-color: #fbf6ed;
 }
 
 .flex-container {
-  width: 100%;
-  height: 92vh;
-  background-color: #e6e6eb;
+  height: 91.2vh;
+  background-color: #e9e6e0;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;

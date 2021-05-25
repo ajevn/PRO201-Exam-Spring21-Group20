@@ -8,11 +8,11 @@
       <slot />
     </div>
 
-    <!-- <footer>
-            <div class="copyright-header">
-                Copyright &copy; 2020 - Smidig-Prosjekt Gruppe 11
-            </div>
-        </footer> -->
+    <footer>
+      <div class="copyright-header">
+        Copyright &copy; 2021 - Smidig-Prosjekt Gruppe 11
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -25,8 +25,6 @@ import NavBar from "./navbar/NavBar.vue";
 export default {
   components: {
     NavBar
-
-    // Hamburger
   },
   name: "LogoBar",
   setup() {
@@ -39,8 +37,6 @@ export default {
       router.push({ name: "home" });
     }
     return {
-      // HamburgerIcon,
-      // LoginButton,
       user,
       goHome
     };
@@ -64,7 +60,7 @@ export default {
 <style lang="scss" scoped>
 .content-container {
   height: calc(100vh - 80px);
-  background: linear-gradient(160deg, #fbf6ed 0%, #cdcbcbff 100%);
+  background: linear-gradient(160deg, #c4c4c4 0%, #57595d 100%);
 }
 
 .white-text {

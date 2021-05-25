@@ -24,10 +24,10 @@ a {
     margin-top: 8vh;
     width: 250px;
     height: 70px;
-    background-color: #405c6a;
+    background-color: #2c2a29;
     position: relative;
     border-radius: 5px;
-    box-shadow: -1px -2px #899599;
+    box-shadow: -1px -2px #504d4c;
 
     p {
       color: #ffffff;
@@ -43,17 +43,20 @@ a {
       right: 0;
       margin: 15px;
       width: 16%;
+      transition: 150ms;
     }
 
     &:hover {
-      background-color: #5f7f8e;
+      background-color: #4d5050;
+      color: #ececec;
+      transform: scale(1.01);
     }
 
     &:active {
-      transform: scale(0.98);
+      transform: scale(1);
       transition-duration: 10ms;
-      box-shadow: inset 3px 3px 2px #899599;
-      background-color: #81aabd;
+      box-shadow: inset 2px 2px 1px #959595;
+      background-color: #6d6d6d;
     }
   }
 }

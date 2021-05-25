@@ -1,5 +1,4 @@
 <template>
-  <!-- Component creates two buttons. Is used in home screen for selecting Repair/Elearning if user is logged in -->
   <div id="button-div">
     <router-link
       v-if="isAdmin === true"
@@ -18,7 +17,7 @@
     >
       <h4>Register Repair</h4>
     </router-link>
-
+    <!-- 
     <router-link
       tag="button"
       to="/#"
@@ -27,21 +26,38 @@
     >
       <h4>E-learning</h4>
     </router-link>
+    -->
+    <button
+      class="font-standardText button home-learn-ico-src home-ico-style"
+      @click="showModal = true"
+    >
+      <h4>E-learning</h4>
+    </button>
+    <modal-error-message v-if="showModal === true" @close="showModal = false">
+      <template v-slot:body>E-learning is not implemented yet</template>
+    </modal-error-message>
   </div>
 </template>
 
 <script>
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
+import ModalErrorMessage from "../../components/Modals/ModalErrorMessage.vue";
+import { ref } from "vue";
 
 export default {
   name: "Home",
+  components: {
+    ModalErrorMessage
+  },
   setup() {
     const store = useStore();
     const router = useRouter();
+    const showModal = ref(false);
     return {
       store,
-      router
+      router,
+      showModal
     };
   },
   methods: {
@@ -72,8 +88,9 @@ export default {
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
     0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
     0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
-    0 100px 80px rgba(0, 0, 0, 0.07), -2px -3px #899599;
+    0 100px 80px rgba(0, 0, 0, 0.07), -2px -3px #585858;
 }
+
 .button {
   background-color: #ececec;
   text-align: center;
@@ -86,32 +103,38 @@ export default {
   height: 6vh;
   margin: 5% 10% auto 5%;
   outline: none;
-  box-shadow: -1px -2px #899599;
+  transition: 150ms;
 
   &:hover {
-    background-color: #c0f6ae;
+    background-color: #959595;
+    color: #ececec;
+    transform: scale(1.01);
   }
 
   &:active {
-    transform: scale(0.98);
+    transform: scale(1);
     transition-duration: 10ms;
-    box-shadow: inset 2px 2px 2px #899599;
-    background-color: #d6ffcb;
+    box-shadow: inset 2px 2px 1px #4d5050;
+    background-color: #6d6d6d;
   }
 
   h4 {
     margin-top: 2%;
   }
 }
+
 .isAdminClass {
   height: 30vh;
 }
+
 .home-repair-ico-src {
   background-image: url("../../assets/Images/Icons/landing_repair.png");
 }
+
 .home-learn-ico-src {
   background-image: url("../../assets/Images/Icons/landing_elearn.png");
 }
+
 .home-ico-style {
   background-repeat: no-repeat;
   background-position: right 10px center;

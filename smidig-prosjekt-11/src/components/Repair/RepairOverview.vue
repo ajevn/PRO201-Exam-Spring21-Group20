@@ -1,11 +1,11 @@
 <template>
   <div id="overview-container">
-    <label class="font-standardText">Product</label>
-    <label class="font-standardText">Serial Number</label>
-    <label class="font-standardText">Parts</label>
-    <div id="edit-delete-label">
-      <label class="font-standardText">Edit</label>
-      <label class="font-standardText">Delete</label>
+    <label class="product-label font-standardText">Product</label>
+    <label class="serial-label font-standardText">Serial Number</label>
+    <label class="part-label font-standardText">Parts</label>
+    <div class="edit-delete-container">
+      <label class="edit-label font-standardText">Edit</label>
+      <label class="delete-label font-standardText">Delete</label>
     </div>
   </div>
 </template>
@@ -18,9 +18,10 @@ export default {};
 #overview-container {
   background-color: #7eb46b;
   height: 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 40% 1fr 20px;
+
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 
   label {
     color: #273422;
@@ -29,20 +30,50 @@ export default {};
     display: inline-block;
   }
 
-  #edit-delete-label {
-    grid-column: 4;
-    display: inline-block;
-    text-align: center;
+  .product-label {
+    margin-left: 50px;
+    // border: 1px solid black;
+    width: 83px;
+  }
 
+  .serial-label {
+    width: 250px;
+    // border: 1px solid blue;
+  }
+
+  .part-label {
+    width: 40vw;
+    // border: 1px solid blue;
+  }
+
+  .edit-delete-container {
+    margin-right: 65px;
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    // border: 1px solid blue;
     label {
-      margin-left: 30px;
+      position: relative;
+    }
+  }
+
+  .edit-label {
+    left: -6px;
+  }
+
+  @media only screen and (min-device-width: 600px) and (max-device-width: 1280px) and (orientation: landscape) {
+    .font-standardText {
+      font-size: 12px;
+    }
+    .delete-label {
+      right: -12px;
     }
   }
 }
 
-@media only screen and (min-device-width: 600px) and (max-device-width: 1280px) and (orientation: landscape) {
-  .font-standardText {
-    font-size: 12px;
-  }
-}
+// @media only screen and (min-device-width: 600px) and (max-device-width: 1280px) and (orientation: landscape) {
+//     .font-standardText {
+//         font-size: 12px;
+//     }
+// }
 </style>

@@ -46,7 +46,7 @@ export default {
 .home-select {
   margin: auto;
   position: relative;
-  top: 37%;
+  top: 30%;
   z-index: 2;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
     0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),

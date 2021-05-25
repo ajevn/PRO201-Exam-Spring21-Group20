@@ -36,7 +36,7 @@ export default {
 
   h1 {
     font-size: 40px;
-    color: #405c6a;
+    color: #2c2a29;
   }
   .home-b {
     margin-top: 4vh;

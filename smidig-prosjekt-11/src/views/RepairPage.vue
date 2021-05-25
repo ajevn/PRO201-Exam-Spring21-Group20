@@ -1,11 +1,14 @@
 <template>
   <div class="repair" v-if="user">
-    <base-site>
-      <repair-overview />
+    <div>
+      <nav-bar />
+    </div>
+    <repair-overview />
+    <div id="repair-gradient">
       <section class="ListRepairs">
         <repair-info></repair-info>
       </section>
-    </base-site>
+    </div>
 
     <progress-bar />
   </div>
@@ -13,11 +16,11 @@
 </template>
 
 <script>
-import BaseSite from "@/components/Nav/BaseSite.vue";
 import RepairOverview from "@/components/Repair/RepairOverview.vue";
 import RepairInfo from "@/components/Repair/RepairInfo.vue";
 import ProgressBar from "@/components/Feedback/ProgressBar.vue";
 import RedirectLogin from "@/components/Login/RedirectLogin.vue";
+import NavBar from "@/components/Nav/navbar/NavBar";
 
 export default {
   data() {
@@ -29,7 +32,7 @@ export default {
 
   name: "Repair",
   components: {
-    BaseSite,
+    NavBar,
     RepairOverview,
     RepairInfo,
     ProgressBar,
@@ -37,4 +40,8 @@ export default {
   }
 };
 </script>
-<style scoped></style>
+<style lang="scss" scoped>
+#repair-gradient {
+  background: linear-gradient(160deg, #fbf6ed 0%, #cdcbcbff 100%);
+}
+</style>

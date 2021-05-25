@@ -25,10 +25,18 @@
             <button
               type="button"
               class="btn-green font-standardText"
+              @click="commit"
+              aria-label="Close modal"
+            >
+              Yes
+            </button>
+            <button
+              type="button"
+              class="btn-green font-standardText"
               @click="close"
               aria-label="Close modal"
             >
-              OK
+              No
             </button>
           </footer>
         </div>

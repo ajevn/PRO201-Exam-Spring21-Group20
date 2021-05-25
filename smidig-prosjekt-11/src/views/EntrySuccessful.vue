@@ -1,13 +1,11 @@
 <template>
   <div v-if="user">
-    <div class="entry-successful">
-      <nav-bar />
-    </div>
+    <base-site>
+      <!-- Renders Component to show text/icon/home-btn -->
+      <approved-report />
 
-    <!-- Renders Component to show text/icon/home-btn -->
-    <approved-report />
-
-    <progress-bar />
+      <progress-bar />
+    </base-site>
   </div>
   <redirect-login v-else />
 </template>
@@ -17,8 +15,8 @@
 import ApprovedReport from "@/components/Feedback/ApprovedReport.vue";
 import ProgressBar from "@/components/Feedback/ProgressBar.vue";
 import RedirectLogin from "@/components/Login/RedirectLogin.vue";
+import BaseSite from "../components/Nav/BaseSite.vue";
 import { useStore } from "vuex";
-import NavBar from "@/components/Nav/navbar/NavBar";
 
 export default {
   name: "entrySuccessful",
@@ -30,10 +28,10 @@ export default {
     };
   },
   components: {
-    NavBar,
     ApprovedReport,
     ProgressBar,
-    RedirectLogin
+    RedirectLogin,
+    BaseSite
   }
 };
 </script>

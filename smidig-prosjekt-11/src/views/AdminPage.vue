@@ -23,7 +23,7 @@ import BaseSite from "@/components/Nav/BaseSite.vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import SideBarMenu from "@/components/AdminPage/SideBarMenu";
-import DashboardPage from "@/components/AdminPage/DashboardMainPage.vue";
+import DashboardPage from "@/components/AdminPage/Dashboard/DashboardMainPage.vue";
 import CampDataPage from "@/components/AdminPage/CampDataPage";
 import ProductDataPage from "../components/AdminPage/ProductDataPage";
 import UserAdministrationPage from "../components/AdminPage/UserAdministrationPage";
@@ -73,10 +73,14 @@ export default {
 </script>
 
 <style scoped>
+.component-section-container {
+}
 .grid-layout {
-  display: flex;
-  flex-flow: row;
-  align-content: flex-start;
+  display: grid;
+  grid-template-columns: 17% 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  background-color: white;
 }
 .side-bar {
   width: auto;

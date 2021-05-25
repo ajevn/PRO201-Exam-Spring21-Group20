@@ -29,9 +29,10 @@ export default {
 
   h1 {
     font-size: 50px;
-    margin-top: 10vh;
+    margin: 0;
+    padding-top: 10vh;
     font-weight: bold;
-    color: #7eb46b;
+    color: #2c2a29;
   }
 
   img {

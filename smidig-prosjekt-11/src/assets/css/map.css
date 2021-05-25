@@ -1,0 +1,24 @@
+.camp-label {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 0 20px 20px 20px;
+  box-shadow: 5px 3px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100px !important;
+  height: auto !important;
+  margin: 0 auto;
+}
+
+.camp-label img {
+  float: left;
+  padding-top: 2px;
+}
+
+.camp-label p {
+  color: grey;
+}
+
+.camp-label div {
+}

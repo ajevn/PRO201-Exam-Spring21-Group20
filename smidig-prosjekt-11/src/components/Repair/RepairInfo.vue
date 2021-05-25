@@ -3,21 +3,14 @@
   <div :class="{ backdrop: showRepair || showEdit }">
     <!-- https://forum.vuejs.org/t/popup-how-to-hide-a-popup-by-clicking-outside-of-the-popup-window/59693 -- Mulighet for å trykke utenfor popup for å lukke? -->
     <div id="parts-popup" v-if="showRepair === true">
-      <popup-select-repair @clicked="closeRepair()">
-        <icon-base
-          class="close-repair-ic"
-          iconName="cross"
-          iconColor="darkred"
-          v-on:click="closeRepair"
-        />
-      </popup-select-repair>
+      <popup-select-repair @onCloseRepair="closeRepair()" />
     </div>
 
     <div id="edit-popup" v-if="showEdit">
       <popup-edit-repair
         ref="editref"
         @clicked="closeEdit()"
-        :serialToEdit="editSerial"
+        :idToEdit="editId"
       >
       </popup-edit-repair>
     </div>
@@ -25,22 +18,31 @@
     <!-- Grid system for submitted models -->
     <section id="entity-list-container" ref="repairsContainer">
       <div>
-        <div v-for="entity in entities" :key="entity.entitySerialNr">
+        <div v-for="entity in entities" :key="entity.id">
           <repair-entity
             @edit-entity="editRepair($event)"
-            :entitySerialNumber="entity.entitySerialNr"
             :entityParts="entity.parts"
+            :entityId="entity.id"
+            :entitySerialNumber="
+              entity.entitySerialNr.length >= 1
+                ? entity.entitySerialNr
+                : 'No Serial Number'
+            "
           >
           </repair-entity>
         </div>
 
-        <img
-          v-show="showRepair === false"
-          id="plus-btn"
-          src="@/assets/Images/Icons/plus-icon.png"
-          v-on:click="addRepair()"
-          alt="add new repair"
-        />
+        <div class="plus-icon-container">
+          <icon-base
+            v-show="showRepair === false"
+            id="plus-btn"
+            iconName="plus"
+            iconColor="#423048"
+            iconWidth="100%"
+            iconHeight="100%"
+            v-on:click="addRepair()"
+          />
+        </div>
       </div>
     </section>
   </div>
@@ -58,7 +60,7 @@ export default {
       entities: [],
       showRepair: false,
       showEdit: false,
-      editSerial: "EditSerial"
+      editId: -1
     };
   },
   created() {
@@ -75,8 +77,8 @@ export default {
     IconBase
   },
   methods: {
-    editRepair(serial) {
-      this.editSerial = serial;
+    editRepair(id) {
+      this.editId = id;
 
       //Function to render selected entity parts
       //this.$refs.editref.renderSelects();
@@ -114,17 +116,19 @@ export default {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.plus-icon-container {
+  width: 50px;
+  height: 50px;
+  margin: 2.5vh auto;
+  cursor: pointer;
+}
+
 #plus-btn {
   margin: 2.5vh auto;
   width: 3vw;
   outline: none;
   border-radius: 50%;
   cursor: pointer;
-
-  &:hover {
-    transform: scale(1.05);
-    transition-duration: 75ms;
-  }
 }
 
 #parts-popup {
@@ -138,6 +142,7 @@ export default {
   width: 65vw;
   height: 60vh;
   border: 1px solid #423048;
+  border-radius: 10px;
 }
 
 #edit-popup {
@@ -171,13 +176,6 @@ export default {
 .icon-container {
   width: 30px;
   height: 30px;
-}
-
-.close-repair-ic {
-  cursor: pointer;
-  position: absolute;
-  right: 10px;
-  top: 10px;
 }
 
 #entity-list-container {
