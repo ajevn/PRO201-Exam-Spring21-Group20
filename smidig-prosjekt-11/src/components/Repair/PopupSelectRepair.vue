@@ -61,7 +61,8 @@
       <icon-base
         class="close-repair-ic"
         iconName="cross"
-        iconColor="darkred"
+        iconColor="#C93333"
+        icon-hover-color="#A80000"
         v-on:click="closePopup"
       />
     </div>
@@ -69,7 +70,8 @@
     <icon-base
       class="submit-ic"
       iconName="checkmark"
-      iconColor="darkgreen"
+      iconColor="#7EB46B"
+      icon-hover-color="#006400"
       @click="submitPartsSelected"
       iconWidth="40"
       iconHeight="40"

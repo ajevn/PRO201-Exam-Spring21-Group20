@@ -61,6 +61,7 @@
           iconColor="#7eb46b"
           iconWidth="100%"
           iconHeight="100%"
+          icon-hover-color="#98DA81"
         />
       </router-link>
 

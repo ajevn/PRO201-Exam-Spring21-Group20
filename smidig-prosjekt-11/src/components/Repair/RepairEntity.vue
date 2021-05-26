@@ -34,7 +34,8 @@
         <div class="edit-delete-ic-container">
           <icon-base
             iconName="pencil"
-            iconColor="darkblue"
+            iconColor="#4040D9"
+            icon-hover-color="#0101B0"
             iconWidth="100%"
             iconHeight="100%"
           />
@@ -46,7 +47,8 @@
           <icon-base
             id="delete-ic"
             iconName="cross"
-            iconColor="darkred"
+            iconColor="#C93333"
+            icon-hover-color="#A80000"
             iconWidth="100%"
             iconHeight="100%"
           />
