@@ -9,11 +9,15 @@
     </div>
     <ul class="nav-menu" v-bind:class="{ active: menuIsOpen }">
       <nav-link
-        v-for="(it, index) in menuItems"
-        :key="index"
-        :textValue="it.itemTitle"
-        :icon="it.iconName"
-        :linkDestination="it.link"
+        :textValue="'Profile'"
+        :icon="'user'"
+        :linkDestination="'profile'"
+      />
+
+      <nav-link
+        :textValue="'Certification'"
+        :icon="'profile'"
+        :linkDestination="'notimplemented'"
       />
 
       <nav-link
