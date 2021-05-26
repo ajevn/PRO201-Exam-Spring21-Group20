@@ -7,14 +7,10 @@ export function createMap(
   zoomLevel,
   showZoomControl,
   campData,
-  products
+  products,
+  updateData
 ) {
   const L = window.L; // suppress 'L' is not defined error
-
-  console.log(products);
-
-  // FORTSETT HER!
-  products[0].totalRepairs = 111;
 
   // Fix to wrongly referenced image locations in Leaflet bundle
   delete L.Icon.Default.prototype._getIconUrl;
@@ -53,45 +49,32 @@ export function createMap(
     var campLabelIcon = L.divIcon({
       className: "camp-label",
       html:
-        "<div>" +
-        '<img src="' +
-        layersPath +
-        '" />' +
-        "<p>" +
-        campData[i].id +
-        "</p>" +
-        "<div>" +
-        campData[i].location +
-        "</div>" +
-        "</div>"
+        `<div>
+        <img src="
+        ${layersPath}
+        " />
+        <p>
+        ${campData[i].id}
+        </p>
+        <div>
+        ${campData[i].location}
+        </div>
+        </div>`
     });
 
     var m = new L.marker(campData[i].geoloc, { icon: campLabelIcon });
 
+    m.addEventListener("click", function(){
+      console.log("clicked on camp " + campData[i].id);
+      for (let j = 0; j < products.length; j++) {
+        products[j].totalRepairs = j;
+      }
+      map.setView(campData[i].geoloc, 6);
+      updateData();
+    });
+
     markers.addLayer(m);
   }
 
-  /*var campLabelIcon1 = L.divIcon({
-    className: "camp-label",
-    html:
-      '<img src="' + layersPath + '" />' + "<p>Camp 1</p>" + "<div>723</div>"
-  });
-  var campLabelIcon2 = L.divIcon({
-    className: "camp-label",
-    html:
-      '<img src="' + layersPath + '" />' + "<p>Camp 2</p>" + "<div>1,374</div>"
-  });
-  var campLabelIcon3 = L.divIcon({
-    className: "camp-label",
-    html: '<img src="' + layersPath + '" />' + "<p>Camp 3</p>" + "<div>15</div>"
-  });
-
-  var m1 = new L.marker([20, 20], { icon: campLabelIcon1 });
-  var m2 = new L.marker([15, 20], { icon: campLabelIcon2 });
-  var m3 = new L.marker([25, 15], { icon: campLabelIcon3 });
-
-  markers.addLayer(m1);
-  markers.addLayer(m2);
-  markers.addLayer(m3);*/
   map.addLayer(markers);
 }
