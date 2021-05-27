@@ -9,17 +9,6 @@ const db = require("../db/mongo");
 
 const users = db.get("users");
 
-const registerSchema = Joi.object({
-  username: Joi.string().alphanum().min(3).max(30).required(),
-  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{6,30}$")).required(),
-  admin: Joi.boolean().default(false),
-  campName: Joi.string().alphanum().required(),
-});
-const editSchema = Joi.object({
-  oldPassword: Joi.string().min(3).required(),
-  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{6,30}$")).required(),
-});
-
 //Local login route -- Authenticates with passport and bcrypt for password hashing/unh
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
@@ -35,11 +24,17 @@ router.post("/login", (req, res, next) => {
         ...req.user,
         password: undefined,
       };
-      res.status(200).send(userInfo);
+      res.status(200).json(userInfo);
     });
   })(req, res);
 });
 
+const registerSchema = Joi.object({
+  username: Joi.string().alphanum().min(3).max(30).required(),
+  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{6,30}$")).required(),
+  admin: Joi.boolean().default(false),
+  campName: Joi.string().alphanum().required(),
+});
 //Registration route -- Saves user in user storage after hashing password. -- Error handling and a bit of input validation/sanitation is done in frontend.
 router.post("/register", async (req, res, next) => {
   if (!req.user || !req.user.admin) return next();
@@ -62,6 +57,11 @@ router.post("/register", async (req, res, next) => {
       return res.status(500).send(e);
     }
   return res.status(409).json({ messages: "Username already exists" });
+});
+
+const editSchema = Joi.object({
+  oldPassword: Joi.string().min(3).required(),
+  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{6,30}$")).required(),
 });
 router.patch("/edit", async (req, res) => {
   if (!req.user) return res.status(401).send();
@@ -89,6 +89,11 @@ router.patch("/edit", async (req, res) => {
 router.get("/logout", (req, res) => {
   req.logout();
   res.status(200).send();
+});
+
+router.get("/user", (req, res) => {
+  if (!req.user) return res.status(401).send();
+  res.status(200).json(req.user);
 });
 
 router.get("/admin", async (req, res) => {
