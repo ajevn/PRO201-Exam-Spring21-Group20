@@ -47,7 +47,7 @@ router.get("/:name", async (req, res) => {
   // get one camp
   const { name } = req.params;
   const camps = await camp.findOne({ name: name });
-  res.json(camps);
+  res.json(camps ? camps : {});
 });
 
 router.post("/", async (req, res) => {

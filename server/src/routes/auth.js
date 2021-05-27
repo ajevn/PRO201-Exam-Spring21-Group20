@@ -22,12 +22,12 @@ const editSchema = Joi.object({
 
 //Local login route -- Authenticates with passport and bcrypt for password hashing/unh
 router.post("/login", (req, res, next) => {
-  passport.authenticate("local", function (err, user, info) {
+  passport.authenticate("local", (err, user, info) => {
     if (err) return next(err);
 
     if (!user) return res.status(401).send({ messages: info });
 
-    req.logIn(user, function (err) {
+    req.logIn(user, (err) => {
       if (err) return next(err);
 
       //Sending necessary data to frontend -- Extracting necessary info from req.user to avoid sending whole user object which includes password
@@ -53,19 +53,17 @@ router.post("/register", async (req, res, next) => {
   const username = await users.findOne({ username: value.username });
   if (!username)
     try {
-      const user = {
+      await users.insert({
         ...value,
         password: hashedPassword,
-      };
-      await users.insert(user);
-
-      return res.sendStatus(200);
+      });
+      return res.sendStatus(201);
     } catch (e) {
       return res.status(500).send(e);
     }
   return res.status(409).json({ messages: "Username already exists" });
 });
-router.patch("/edit", async (req, res, next) => {
+router.patch("/edit", async (req, res) => {
   if (!req.user) return res.status(401).send();
   try {
     const value = await editSchema.validateAsync(req.body);
