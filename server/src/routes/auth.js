@@ -9,11 +9,15 @@ const db = require("../db/mongo");
 
 const users = db.get("users");
 
-const schema = Joi.object({
+const registerSchema = Joi.object({
   username: Joi.string().alphanum().min(3).max(30).required(),
-  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{6,30}$")),
+  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{6,30}$")).required(),
   admin: Joi.boolean().default(false),
   campName: Joi.string().alphanum().required(),
+});
+const editSchema = Joi.object({
+  oldPassword: Joi.string().min(3).required(),
+  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{6,30}$")).required(),
 });
 
 //Local login route -- Authenticates with passport and bcrypt for password hashing/unh
@@ -37,11 +41,12 @@ router.post("/login", (req, res, next) => {
 });
 
 //Registration route -- Saves user in user storage after hashing password. -- Error handling and a bit of input validation/sanitation is done in frontend.
-router.post("/register", async (req, res) => {
+router.post("/register", async (req, res, next) => {
+  if (!req.user || !req.user.admin) return next();
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
   let value;
   try {
-    value = await schema.validateAsync(req.body);
+    value = await registerSchema.validateAsync(req.body);
   } catch (err) {
     return res.status(400).json({ error: err });
   }
@@ -60,10 +65,31 @@ router.post("/register", async (req, res) => {
     }
   return res.status(409).json({ messages: "Username already exists" });
 });
+router.patch("/edit", async (req, res, next) => {
+  if (!req.user) return res.status(401).send();
+  try {
+    const value = await editSchema.validateAsync(req.body);
+    const username = await users.findOne({ _id: req.user._id });
+    let passwordMatch = await bcrypt.compare(
+      value.oldPassword,
+      username.password
+    );
+    if (!passwordMatch)
+      return res.status(400).json({ error: "incorrect password" });
+    const hashedPassword = await bcrypt.hash(value.password, 10);
+    await users.findOneAndUpdate(
+      { _id: username._id },
+      { $set: { password: hashedPassword } }
+    );
+    res.status(200).send();
+  } catch (err) {
+    return res.status(400).json({ error: err });
+  }
+});
+
 //Invoking logout() will remove the req.user property and clear the login session (if any).
 router.get("/logout", (req, res) => {
   req.logout();
-  //TODO Update redirect route
   res.status(200).send();
 });
 
