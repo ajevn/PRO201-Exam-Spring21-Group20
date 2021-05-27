@@ -3,16 +3,28 @@
     <form>
       <div class="wrapper">
         <div class="input">
-          <label>Username: </label>
-          <input type="text" placeholder="Enter Username" required />
+          <label>Camp name: </label>
+          <input type="text" placeholder="Enter Camp name" required />
         </div>
         <div class="input">
-          <label>Password: </label>
-          <input type="password" placeholder="Enter Password" required />
+          <label>Country: </label>
+          <input type="text" placeholder="Enter Country" required />
         </div>
         <div class="input">
-          <label>Confirm Password: </label>
-          <input type="password" placeholder="Enter Password" required />
+          <label>Coordinates: </label>
+          <input type="text" placeholder="Enter Coordinates" required />
+        </div>
+        <div class="input">
+          <label>Population: </label>
+          <input type="text" placeholder="Enter Population" required />
+        </div>
+        <div class="input">
+          <label>Sunbells: </label>
+          <input
+            type="number"
+            placeholder="Enter number of Sunbells"
+            required
+          />
         </div>
         <div>
           <button id="submit-btn" type="submit">
