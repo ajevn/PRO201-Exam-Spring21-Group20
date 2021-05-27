@@ -246,8 +246,6 @@ export default {
 
   h1 {
     font-size: 1.5em;
-    // margin: 3vh;
-    // padding-bottom: 2vh;
     font-weight: bold;
     margin: 0;
     color: #38293c;
@@ -309,11 +307,7 @@ export default {
         text-align: center;
         font-weight: bold;
         font-style: italic;
-      }
-
-      #emptySerialNumberCheckbox {
-        width: 2vw;
-        height: 2vh;
+        outline: none;
       }
     }
   }
@@ -321,15 +315,12 @@ export default {
   .part-container {
     display: flex;
     flex-direction: column;
-
     align-items: center;
     background-color: #f8f6f2;
     padding: 10px;
     border-radius: 10px;
-    // border: 1px solid blue;
 
     .part-grid {
-      // border: 1px solid red;
       height: 80%;
       width: 100%;
       margin: 10px 0 10px 0;
@@ -344,7 +335,6 @@ export default {
     }
 
     .part-grid-entity {
-      // border: 1px solid black;
       display: flex;
       flex-direction: column;
       cursor: pointer;
@@ -381,10 +371,6 @@ export default {
     right: 20px;
     bottom: 20px;
     cursor: pointer;
-
-    // h3 {
-    //   color: #fff;
-    // }
   }
 
   .close-repair-ic {
@@ -395,40 +381,51 @@ export default {
   }
 }
 
-// @media only screen and (min-device-width: 600px) and (max-device-width: 1280px) and (orientation: landscape) {
-//   #container {
-//     h1 {
-//       font-size: 1em;
-//     }
-//     img {
-//       margin-bottom: 5px;
-//     }
+@media only screen and (min-device-width: 600px) and (max-device-width: 1280px) and (orientation: landscape) {
+  #popup-container {
+    h1 {
+      font-size: 1.2rem;
+    }
 
-//     #products-container {
-//       #popup-static-product-style {
-//         h2 {
-//           font-size: 12px;
-//         }
-//       }
-//     }
+    .product-container {
+      width: 150px;
+      grid-template-rows: 70% 30%;
 
-//     #parts {
-//       .parts-container {
-//         a {
-//           width: 80px;
+      .product-section {
+        width: 150px;
+      }
 
-//           h2 {
-//             font-size: 10px;
-//           }
-//         }
-//       }
-//     }
+      #popup-static-product-style {
+        h2 {
+          font-size: 14px;
+        }
+      }
 
-//     #next-btn {
-//       width: 65px;
-//       height: 30px;
-//       font-size: 12px;
-//     }
-//   }
-// }
+      .serial-section {
+        h1 {
+          font-size: 14px;
+        }
+        input {
+          width: 85%;
+          font-size: 10px;
+        }
+      }
+    }
+
+    .part-container {
+      width: 400px;
+      height: 300px;
+
+      .part-grid {
+        gap: 0 5px;
+      }
+
+      .part-grid-entity {
+        h2 {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+}
 </style>

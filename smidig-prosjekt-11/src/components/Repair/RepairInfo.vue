@@ -186,6 +186,10 @@ export default {
 }
 
 @media only screen and (min-device-width: 600px) and (max-device-width: 1280px) and (orientation: landscape) {
+  #parts-popup {
+    width: 75vw;
+  }
+
   #close-repair-btn {
     height: 15px;
     width: 15px;
