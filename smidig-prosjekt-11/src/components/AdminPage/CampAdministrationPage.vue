@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1>Add new Camp</h1>
     <form>
       <div class="wrapper">
         <div class="input">
@@ -65,12 +66,20 @@ export default {
   max-width: 100%;
   height: 100%;
 
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #2c2a29;
+  }
+
   .wrapper {
     background: #2c2a29;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-bottom: 50px;
     width: 100%;
     border-radius: 5px;
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
