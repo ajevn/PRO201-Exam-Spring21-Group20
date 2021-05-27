@@ -169,7 +169,7 @@ export default {
     },
     delayedHide() {
       var that = this;
-      setTimeout(function() { that.showSearchSuggestions = false; }, 100);
+      setTimeout(function() { that.showSearchSuggestions = false; }, 200);
     },
     showResult(product) {
       console.log(product);
