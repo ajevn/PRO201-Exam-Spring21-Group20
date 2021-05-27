@@ -58,24 +58,29 @@
           <h2>{{ product.partName }}</h2>
         </div>
       </div>
+      <div class="close-container-ic">
+        <icon-base
+          class="close-repair-ic"
+          iconName="cross"
+          iconColor="#C93333"
+          icon-hover-color="#A80000"
+          iconWidth="100%"
+          iconHeight="100%"
+          v-on:click="closePopup"
+        />
+      </div>
+    </div>
+    <div class="submit-container-ic">
       <icon-base
-        class="close-repair-ic"
-        iconName="cross"
-        iconColor="#C93333"
-        icon-hover-color="#A80000"
-        v-on:click="closePopup"
+        class="submit-ic"
+        iconName="checkmark"
+        iconColor="#7EB46B"
+        icon-hover-color="#006400"
+        @click="submitPartsSelected"
+        iconWidth="100%"
+        iconHeight="100%"
       />
     </div>
-
-    <icon-base
-      class="submit-ic"
-      iconName="checkmark"
-      iconColor="#7EB46B"
-      icon-hover-color="#006400"
-      @click="submitPartsSelected"
-      iconWidth="40"
-      iconHeight="40"
-    />
   </div>
 </template>
 
@@ -366,33 +371,47 @@ export default {
     }
   }
 
-  .submit-ic {
+  .submit-container-ic {
+    width: 40px;
+    height: 40px;
     position: absolute;
     right: 20px;
-    bottom: 20px;
-    cursor: pointer;
+    bottom: 10px;
+
+    .submit-ic {
+      cursor: pointer;
+    }
   }
 
-  .close-repair-ic {
-    cursor: pointer;
+  .close-container-ic {
+    width: 40px;
+    height: 40px;
     position: absolute;
     right: 10px;
     top: 10px;
+
+    .close-repair-ic {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 
-@media only screen and (min-device-width: 600px) and (max-device-width: 1280px) and (orientation: landscape) {
+@media only screen and (min-device-width: 600px) and (max-width: 1280px) and (orientation: landscape) {
   #popup-container {
+    height: 54vh;
+
     h1 {
       font-size: 1.2rem;
     }
 
     .product-container {
-      width: 150px;
+      width: 30vh;
       grid-template-rows: 70% 30%;
 
       .product-section {
-        width: 150px;
+        width: 30vh;
       }
 
       #popup-static-product-style {
@@ -405,6 +424,7 @@ export default {
         h1 {
           font-size: 14px;
         }
+
         input {
           width: 85%;
           font-size: 10px;
@@ -413,8 +433,8 @@ export default {
     }
 
     .part-container {
-      width: 400px;
-      height: 300px;
+      width: 65vh;
+      height: 50vh;
 
       .part-grid {
         gap: 0 5px;
@@ -424,6 +444,26 @@ export default {
         h2 {
           font-size: 0.6rem;
         }
+      }
+    }
+
+    .submit-container-ic {
+      width: 30px;
+      height: 30px;
+
+      .submit-ic {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .close-container-ic {
+      width: 20px;
+      height: 20px;
+
+      .close-repair-ic {
+        width: 20px;
+        height: 20px;
       }
     }
   }
