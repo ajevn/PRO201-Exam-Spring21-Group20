@@ -63,11 +63,15 @@ export default {};
     }
 
     .edit-label {
-      left: -10px;
+      left: 5px;
     }
 
     .delete-label {
       right: -12px;
+    }
+
+    .edit-delete-container {
+      margin-right: 40px;
     }
   }
 }

@@ -186,51 +186,15 @@ input {
   }
 
   .edit-delete-icons {
+    margin-right: 40px;
+    width: 90px;
+
     .edit-delete-ic-container {
       width: 18px;
       height: 18px;
     }
   }
 }
-
-// @media only screen and (min-device-width: 600px) and (max-width: 960px) {
-// #product-container {
-//   .product-image-sunbell {
-//       margi
-
-//   }
-
-// #product-serial-number {
-//     font-size: 12px;
-//     width: 25vh;
-// }
-
-// .parts-container {
-//   width: 20vw;
-//   display: grid;
-//   align-items: center;
-//   justify-content: center;
-//   grid-template-columns: repeat(4, minmax(0, 1fr));
-//   grid-template-rows: repeat(2, minmax(0, 1fr));
-// }
-
-// .part-img {
-//   height: 90%;
-//   border-radius: 10px;
-//   background-color: #dad2cb;
-//   margin-left: 3px;
-// }
-
-// .edit-delete-icons {
-//   margin-right: 10px;
-//   width: 50px;
-
-//   .edit-delete-ic-container {
-//     width: 15px;
-//     height: 15px;
-//   }
-// }
-// }
 
 #seperator {
   margin: auto;
