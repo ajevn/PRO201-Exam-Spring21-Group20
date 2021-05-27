@@ -4,23 +4,36 @@
       <div class="wrapper">
         <div class="input">
           <label>Camp name: </label>
-          <input type="text" placeholder="Enter Camp name" required />
+          <input
+            v-model="id"
+            type="text"
+            placeholder="Enter Camp name"
+            required
+          />
         </div>
         <div class="input">
           <label>Country: </label>
-          <input type="text" placeholder="Enter Country" required />
+          <input
+            v-model="location"
+            type="text"
+            placeholder="Enter Country"
+            required
+          />
         </div>
         <div class="input">
           <label>Coordinates: </label>
-          <input type="text" placeholder="Enter Coordinates" required />
-        </div>
-        <div class="input">
-          <label>Population: </label>
-          <input type="text" placeholder="Enter Population" required />
+          <input
+            v-model="geoloc"
+            type="text"
+            placeholder="Enter Coordinates"
+            required
+          />
+          <span>Input Coordinates as: -1.043, 8.739</span>
         </div>
         <div class="input">
           <label>Sunbells: </label>
           <input
+            v-model="campAmount"
             type="number"
             placeholder="Enter number of Sunbells"
             required
@@ -67,7 +80,7 @@ export default {
 
     .input {
       margin-bottom: 1vh;
-      width: 400px;
+      width: 500px;
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
@@ -80,7 +93,7 @@ export default {
       }
 
       input {
-        width: 200px;
+        width: 300px;
         padding: 0.4em;
         box-shadow: inset -2px -2px #899599;
         outline: none;
@@ -91,6 +104,14 @@ export default {
         &::placeholder {
           color: #6d6d6d;
         }
+      }
+
+      span {
+        width: 100%;
+        font-size: 14px;
+        font-weight: bold;
+        color: #cdcdcd;
+        margin: 10px 0;
       }
     }
     #submit-btn {
