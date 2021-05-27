@@ -38,24 +38,29 @@
         placeholder="Example: 1234 5678"
       />
     </div>
+    <div class="close-container-ic">
+      <icon-base
+        class="close-repair-ic"
+        iconName="cross"
+        iconColor="#C93333"
+        icon-hover-color="#A80000"
+        iconWidth="100%"
+        iconHeight="100%"
+        v-on:click="closePopup"
+      />
+    </div>
 
-    <icon-base
-      class="close-repair-ic"
-      iconName="cross"
-      iconColor="#C93333"
-      icon-hover-color="#A80000"
-      v-on:click="closePopup"
-    />
-
-    <icon-base
-      class="submit-ic"
-      iconName="checkmark"
-      iconColor="#7EB46B"
-      icon-hover-color="#006400"
-      @click="submitPartsSelected"
-      iconWidth="40"
-      iconHeight="40"
-    />
+    <div class="submit-container-ic">
+      <icon-base
+        class="submit-ic"
+        iconName="checkmark"
+        iconColor="#7EB46B"
+        icon-hover-color="#006400"
+        @click="submitPartsSelected"
+        iconWidth="100%"
+        iconHeight="100%"
+      />
+    </div>
   </div>
 </template>
 
@@ -223,8 +228,8 @@ export default {
     position: relative;
     background-color: #f8f6f2;
     display: flex;
+    gap: 10px;
     flex-direction: column;
-    // border: 1px solid red;
     padding-top: 10px;
     border-radius: 10px;
   }
@@ -232,9 +237,8 @@ export default {
   h1 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #38293c;
+    color: #2c2a29;
     margin: 0 auto;
-    // border: 1px solid salmon;
   }
 
   .part-grid {
@@ -248,15 +252,10 @@ export default {
     align-items: center;
     justify-items: center;
 
-    // border: 1px solid blue;
-
     .part-grid-item {
-      // border: 1px solid green;
       background-color: #f8f6f2;
       width: 75%;
-      // height: 80%;
       cursor: pointer;
-
       display: flex;
       flex-direction: column;
 
@@ -284,7 +283,6 @@ export default {
   }
 
   .serial-container {
-    // border: 1px solid blue;
     padding: 5px;
 
     h3 {
@@ -297,7 +295,7 @@ export default {
     }
 
     input {
-      border: 1.5px solid #423048;
+      border: 1.5px solid #2c2a29;
       border-radius: 5px;
       background-color: #fffefd;
       color: #050505;
@@ -306,51 +304,74 @@ export default {
     }
   }
 
-  .close-repair-ic {
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-  }
-
-  .submit-ic {
+  .submit-container-ic {
+    width: 40px;
+    height: 40px;
     position: absolute;
     right: 20px;
     bottom: 10px;
-    cursor: pointer;
+
+    .submit-ic {
+      cursor: pointer;
+    }
+  }
+
+  .close-container-ic {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    .close-repair-ic {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 
-@media only screen and (min-device-width: 600px) and (max-device-width: 1280px) and (orientation: landscape) {
-  #container {
+@media only screen and (min-device-width: 600px) and (max-width: 1280px) and (orientation: landscape) {
+  .edit-repair-container {
     h1 {
-      font-size: 1em;
-    }
-
-    img {
-      width: 7vw;
-      height: 10vh;
+      font-size: 1.3rem;
     }
 
     .part-grid {
+      gap: 0 5px;
       .part-grid-item {
-        margin: 0;
-        width: 13vh;
-        height: 13vh;
-
         h2 {
-          font-size: 10px;
+          font-size: 0.6rem;
         }
       }
     }
 
     .serial-container {
       h3 {
-        font-size: 12px;
+        font-size: 14px;
       }
-
       input {
-        font-size: 11px;
+        font-size: 10px;
+      }
+    }
+
+    .submit-container-ic {
+      width: 25px;
+      height: 25px;
+
+      .submit-ic {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    .close-container-ic {
+      width: 20px;
+      height: 20px;
+
+      .close-repair-ic {
+        width: 20px;
+        height: 20px;
       }
     }
   }
