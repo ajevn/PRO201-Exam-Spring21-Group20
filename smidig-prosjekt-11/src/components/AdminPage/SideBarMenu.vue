@@ -97,6 +97,30 @@
           </div>
         </div>
       </div>
+      <div class="flex-items">
+        <div
+          class="section-item-styling"
+          :class="{ 'section-selected': selected === 'CampsAdmin' }"
+          @click="selectSection('CampsAdmin')"
+        >
+          <div>
+            <p
+              class="section-item-text"
+              :class="{ 'section-selected-text': selected === 'CampsAdmin' }"
+            >
+              Camp Administration
+            </p>
+          </div>
+          <div class="icon-container">
+            <icon-base
+              :iconName="'home'"
+              iconColor="#828B96"
+              iconWidth="30%"
+              iconHeight="30%"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -184,6 +208,16 @@ export default {
 }
 
 .flex-items:nth-child(4) {
+  padding: 0 7px;
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.flex-items:nth-child(5) {
   padding: 0 7px;
   display: block;
   flex-grow: 0;
