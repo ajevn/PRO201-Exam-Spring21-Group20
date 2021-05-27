@@ -433,6 +433,7 @@ export default {
     }
 
     .part-container {
+      margin: auto;
       width: 65vh;
       height: 50vh;
 
