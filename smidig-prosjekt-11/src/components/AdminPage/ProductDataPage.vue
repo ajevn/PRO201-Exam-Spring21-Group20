@@ -4,10 +4,7 @@
 
     <div class="country-list-flex-container">
       <div class="pie-chart-countries">
-        <vue3-chart-js
-          ref="chartRef"
-          v-bind="{ ...barChart }"
-        ></vue3-chart-js>
+        <vue3-chart-js ref="chartRef" v-bind="{ ...barChart }"></vue3-chart-js>
       </div>
     </div>
 
@@ -39,49 +36,58 @@ export default {
   name: "ProductDataPage",
   setup() {
     const chartRef = ref(null);
-  
-    const dataBank = [{
-      label: "Lamp item",
-      backgroundColor: "#f87979",
-      data: [922, 255, 260, 292, 503, 510, 530, 578, 720, 740, 839, 857]
-    }, {
-      label: "12V charger item",
-      backgroundColor: "#f87979",
-      data: [42, 140, 822, 327, 470, 532, 542, 544, 576, 677, 747, 893]
-    }, {
-      label: "Battery item",
-      backgroundColor: "#f87979",
-      data: [763, 52, 121, 317, 348, 355, 411, 458, 748, 186, 141, 184]
-    }, {
-      label: "Power button item",
-      backgroundColor: "#f87979",
-      data: [105, 854, 261, 344, 944, 357, 431, 732, 869, 875, 893, 353]
-    }, {
-      label: "Light bulb item",
-      backgroundColor: "#f87979",
-      data: [995, 92, 145, 188, 745, 299, 421, 461, 650, 274, 138, 872]
-    }, {
-      label: "Screen item",
-      backgroundColor: "#f87979",
-      data: [170, 172, 222, 309, 310, 87, 502, 506, 673, 31, 892, 398]
-    }, {
-      label: "Socket charger item",
-      backgroundColor: "#f87979",
-      data: [25, 825, 142, 559, 187, 288, 431, 488, 154, 707, 813, 854]
-    },{
-      label: "Solar panel item",
-      backgroundColor: "#f87979",
-      data: [2, 944, 141, 365, 379, 573, 685, 775, 822, 827, 913, 121]
-    }];
-    
+
+    const dataBank = [
+      {
+        label: "Lamp item",
+        backgroundColor: "#f87979",
+        data: [922, 255, 260, 292, 503, 510, 530, 578, 720, 740, 839, 857]
+      },
+      {
+        label: "12V charger item",
+        backgroundColor: "#f87979",
+        data: [42, 140, 822, 327, 470, 532, 542, 544, 576, 677, 747, 893]
+      },
+      {
+        label: "Battery item",
+        backgroundColor: "#f87979",
+        data: [763, 52, 121, 317, 348, 355, 411, 458, 748, 186, 141, 184]
+      },
+      {
+        label: "Power button item",
+        backgroundColor: "#f87979",
+        data: [105, 854, 261, 344, 944, 357, 431, 732, 869, 875, 893, 353]
+      },
+      {
+        label: "Light bulb item",
+        backgroundColor: "#f87979",
+        data: [995, 92, 145, 188, 745, 299, 421, 461, 650, 274, 138, 872]
+      },
+      {
+        label: "Screen item",
+        backgroundColor: "#f87979",
+        data: [170, 172, 222, 309, 310, 87, 502, 506, 673, 31, 892, 398]
+      },
+      {
+        label: "Socket charger item",
+        backgroundColor: "#f87979",
+        data: [25, 825, 142, 559, 187, 288, 431, 488, 154, 707, 813, 854]
+      },
+      {
+        label: "Solar panel item",
+        backgroundColor: "#f87979",
+        data: [2, 944, 141, 365, 379, 573, 685, 775, 822, 827, 913, 121]
+      }
+    ];
+
     function sumPartsOfType(productIndex) {
       var sum = 0;
-      for (let i = 0; i < dataBank[productIndex-1].data.length; i++) {
-        sum += dataBank[productIndex-1].data[i];
+      for (let i = 0; i < dataBank[productIndex - 1].data.length; i++) {
+        sum += dataBank[productIndex - 1].data[i];
       }
       return sum;
     }
-  
+
     function getSumPartsArray() {
       var sumParts = [];
       for (let i = 0; i < dataBank[0].data.length; i++) {
@@ -92,8 +98,8 @@ export default {
         sumParts.push(partSum);
       }
       return sumParts;
-    };
-  
+    }
+
     const barChart = {
       type: "bar",
       options: {
@@ -121,11 +127,13 @@ export default {
           "November",
           "December"
         ],
-        datasets: [{
-          label: "All items",
-          backgroundColor: "#f87979",
-          data: getSumPartsArray()
-        }]
+        datasets: [
+          {
+            label: "All items",
+            backgroundColor: "#f87979",
+            data: getSumPartsArray()
+          }
+        ]
       }
     };
 
@@ -141,15 +149,15 @@ export default {
   methods: {
     updateData(product) {
       if (product.isChecked === true) {
-        
         // show total sum
-        this.barChart.data.datasets = [ {
-          label: "All items",
-          backgroundColor: "#f87979",
-          data: this.getSumPartsArray()
-        }];
+        this.barChart.data.datasets = [
+          {
+            label: "All items",
+            backgroundColor: "#f87979",
+            data: this.getSumPartsArray()
+          }
+        ];
         product.isChecked = false;
-      
       } else {
         this.barChart.data.datasets[0] = this.dataBank[product.partNumber - 1];
         for (let i = 0; i < this.productImages.length; i++) {

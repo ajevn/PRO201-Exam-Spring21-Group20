@@ -8,7 +8,7 @@
         <div class="wrapper">
           <div class="input" id="username-wrapper">
             <label>Username: </label>
-            <p class="username-text">Repairfella</p>
+            <p class="username-text">Testuser</p>
           </div>
           <div class="input">
             <label>New Password: </label>
