@@ -1,7 +1,7 @@
 <template>
   <div class="main-information-topleft-container">
     <div class="header-text">
-      <p>Most Repaired Part</p>
+      <p>{{ cardTitle }}</p>
     </div>
     <div class="country-list-flex-container">
       <div class="pie-chart-countries">
@@ -30,6 +30,10 @@
 import Vue3ChartJs from "@j-t-mcc/vue3-chartjs";
 export default {
   name: "RepairPartBarChartComponent",
+  props: {
+    cardTitle: String,
+    amount: Number
+  },
   setup() {
     const doughnutChart = {
       type: "doughnut",
