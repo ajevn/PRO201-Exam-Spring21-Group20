@@ -242,7 +242,7 @@ h3 {
   font-weight: bold;
   position: absolute;
   top: 46%;
-  left: 50%;
+  left: 55%;
 }
 
 .map-container {
@@ -266,7 +266,7 @@ h3 {
   margin: auto auto 1vh;
   position: absolute;
   top: 50%;
-  left: 27%;
+  left: 30%;
 }
 
 .part-cards {
