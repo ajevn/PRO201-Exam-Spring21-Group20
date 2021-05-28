@@ -9,7 +9,7 @@
       >
         <TopMetrics
           :name-of-data="product.partName"
-          data-to-display="1000"
+          :data-to-display="product.partsChanged"
           :metric-icon-src="product.imgName"
           display-image="{{true}}"
         />
@@ -86,42 +86,50 @@ export default {
         {
           partNumber: "1",
           partName: "Lamp",
-          imgName: "ic-part-lamp"
+          imgName: "ic-part-lamp",
+          partsChanged: "5345"
         },
         {
           partNumber: "2",
           partName: "12V charger",
-          imgName: "ic-part-adapter-charger"
+          imgName: "ic-part-adapter-charger",
+          partsChanged: "9580"
         },
         {
           partNumber: "3",
           partName: "Battery",
-          imgName: "ic-part-battery"
+          imgName: "ic-part-battery",
+          partsChanged: "3802"
         },
         {
           partNumber: "4",
           partName: "Power button",
-          imgName: "ic-part-button"
+          imgName: "ic-part-button",
+          partsChanged: "593"
         },
         {
           partNumber: "5",
           partName: "Light bulb",
-          imgName: "ic-part-lightbulb"
+          imgName: "ic-part-lightbulb",
+          partsChanged: "6890"
         },
         {
           partNumber: "6",
           partName: "Screen",
-          imgName: "ic-part-screen"
+          imgName: "ic-part-screen",
+          partsChanged: "211"
         },
         {
           partNumber: "7",
           partName: "Socket charger",
-          imgName: "ic-part-socket-charger"
+          imgName: "ic-part-socket-charger",
+          partsChanged: "1843"
         },
         {
           partNumber: "8",
           partName: "Solar panel",
-          imgName: "ic-part-solar-panel"
+          imgName: "ic-part-solar-panel",
+          partsChanged: "2613"
         }
       ]
     };
