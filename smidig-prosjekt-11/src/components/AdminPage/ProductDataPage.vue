@@ -91,7 +91,6 @@ export default {
         }
         sumParts.push(partSum);
       }
-      console.log(sumParts);
       return sumParts;
     };
   
@@ -141,13 +140,16 @@ export default {
   components: { Vue3ChartJs, TopMetrics },
   methods: {
     updateData(product) {
-      console.log("partNumber: " + product.partNumber);
       if (product.isChecked === true) {
+        
         // show total sum
-        //console.log(this.barChart.data.datasets[0].data);
-        console.log(product.partNumber);
-        this.barChart.data.datasets[0].data = this.sumPartsOfType(product.partNumber);
+        this.barChart.data.datasets = [ {
+          label: "All items",
+          backgroundColor: "#f87979",
+          data: this.getSumPartsArray()
+        }];
         product.isChecked = false;
+      
       } else {
         this.barChart.data.datasets[0] = this.dataBank[product.partNumber - 1];
         for (let i = 0; i < this.productImages.length; i++) {

@@ -80,32 +80,32 @@ export default {
   mounted() {
     const campData = [
       {
-        id: "Hagadera",
+        id: "Hagadera Refugee Camp",
         location: "Kenya",
         geoloc: [40.5230712890625, 0.17028783523693297],
         campRepairs: [12, 40, 53, 0, 210, 32, 5, 21, 12, 0, 54, 23]
       },
       {
-        id: "Kakuma",
+        id: "Kakuma Refugee Camp",
         location: "Kenya",
         geoloc: [34.80743408203125, 3.760115447396889],
         campRepairs: [21, 5, 3, 243, 2, 42, 35, 41, 32, 14, 65, 15]
       },
       {
-        id: "Katumba",
+        id: "",
         location: "Tanzania",
         geoloc: [31.02813720703125, -6.287998672327658],
         campRepairs: [13, 0, 35, 2223, 2, 442, 345, 41, 32, 14, 0, 12]
       },
       {
-        id: "Pugnido",
+        id: "",
         location: "Ethiopia",
         geoloc: [34.00543212890625, 7.681051391626661],
         campRepairs: [40, 344, 35, 23, 2, 242, 34, 41, 32, 14, 65, 0]
       },
       {
-        id: "Yida",
-        location: "Sudan",
+        id: "",
+        location: "South Sudan",
         geoloc: [30.047607421875, 10.244654445228324],
         campRepairs: [6, 14, 325, 11, 22, 42, 12, 4, 32, 14, 3, 82]
       }
