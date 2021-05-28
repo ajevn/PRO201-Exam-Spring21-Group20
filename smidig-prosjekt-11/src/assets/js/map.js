@@ -29,6 +29,8 @@ export function createMap(
     zoomControl: showZoomControl,
     maxZoom: 10
   });
+  
+  map.zoomControl.setPosition('topright');
 
   // GeoJson styling
   const geojsonStyle = {
