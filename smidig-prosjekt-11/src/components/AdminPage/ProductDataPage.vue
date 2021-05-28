@@ -258,6 +258,7 @@ h3 {
   margin: auto auto 1vh;
 
   .part-cards {
+    cursor: pointer;
     width: 210px;
     height: 175px;
     transform: scale(0.75);
