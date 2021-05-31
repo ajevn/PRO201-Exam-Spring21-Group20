@@ -130,7 +130,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
@@ -232,7 +232,7 @@ export default {
 h1 {
   font-size: 1.5em;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-family: "Open Sans", sans-serif;
   color: #828b96;
 }
