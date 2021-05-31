@@ -9,6 +9,7 @@ const camp = db.get("camp");
 const schema = Joi.object({
   name: Joi.string().required(),
   type: Joi.string().alphanum().required(),
+  land: Joi.string().required(),
   coordinates: Joi.array().items(Joi.number()).length(2).required(),
 });
 
@@ -57,6 +58,7 @@ router.post("/", async (req, res) => {
   {
 	  "name":"oslo",
 	  "type":"asdf",
+	  "land":"Norway",
 	  "coordinates":[
 		  1.222333,
 		  13.12312
