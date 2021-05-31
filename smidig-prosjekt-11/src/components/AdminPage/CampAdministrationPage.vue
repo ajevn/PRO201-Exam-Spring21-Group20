@@ -68,6 +68,7 @@ export default {
 
   @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
   h1 {
+    margin-top: 7vh;
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 20px;

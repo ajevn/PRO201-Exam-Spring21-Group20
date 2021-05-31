@@ -136,11 +136,14 @@ export default {
   max-width: 100%;
   height: 100%;
 
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
   h1 {
-    font-size: 40px;
+    margin-top: 7vh;
+    font-size: 1.5em;
     font-weight: bold;
-    margin-bottom: 30px;
-    color: #2c2a29;
+    margin-bottom: 20px;
+    font-family: "Open Sans", sans-serif;
+    color: #828b96;
   }
   .wrapper {
     background: #2c2a29;
