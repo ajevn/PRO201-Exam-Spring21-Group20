@@ -53,7 +53,12 @@
       </div>
 
       <!-- Button to go back to previous page -->
-      <router-link :to="'/' + prevBtn">
+      <router-link
+        :to="'/' + prevBtn"
+        :class="{
+          'next-btn-none': isSuccessfulReport
+        }"
+      >
         <icon-base
           class="progress-bar-buttons"
           id="back-btn"
@@ -69,7 +74,9 @@
       <!-- Setting class if isSuccessfulReport is true -->
       <router-link
         :to="'/' + nextBtn"
-        :class="{ 'next-btn-none': isSuccessfulReport }"
+        :class="{
+          'next-btn-none': isSuccessfulReport || updateTotalProducts < 1
+        }"
       >
         <button id="forward-btn">
           <span class="font-standardText"
