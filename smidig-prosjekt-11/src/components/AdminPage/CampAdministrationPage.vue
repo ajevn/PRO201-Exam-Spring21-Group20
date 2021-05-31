@@ -29,7 +29,7 @@
             placeholder="Enter Coordinates"
             required
           />
-          <span>Input Coordinates as: -1.043, 8.739</span>
+          <span><i>Input Coordinates Format: &emsp; -1.043, 8.739</i></span>
         </div>
         <div class="input">
           <label>Sunbells: </label>
