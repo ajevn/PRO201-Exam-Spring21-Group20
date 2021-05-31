@@ -6,6 +6,7 @@
       <div class="pie-chart-countries">
         <vue3-chart-js ref="chartRef" v-bind="{ ...barChart }"></vue3-chart-js>
       </div>
+      <description-text description-text="Previous 12 Month Data History"></description-text>
     </div>
 
     <div class="part-grid">
@@ -24,6 +25,8 @@
         />
       </div>
     </div>
+    <description-text description-text="Total Parts Repaired"></description-text>
+
   </div>
 </template>
 
@@ -31,6 +34,7 @@
 import Vue3ChartJs from "@j-t-mcc/vue3-chartjs";
 import TopMetrics from "@/components/AdminPage/TopMetrics";
 import { ref } from "vue";
+import DescriptionText from "./DescriptionText";
 
 export default {
   name: "ProductDataPage",
@@ -145,7 +149,7 @@ export default {
       getSumPartsArray
     };
   },
-  components: { Vue3ChartJs, TopMetrics },
+  components: {DescriptionText, Vue3ChartJs, TopMetrics },
   methods: {
     updateData(product) {
       if (product.isChecked === true) {
@@ -240,7 +244,7 @@ export default {
 
 <style lang="scss" scoped>
 h3 {
-  font-size: 30px;
+  font-size: 1.3em;
   margin: 30px 0 20px 0;
 
   text-align: center;

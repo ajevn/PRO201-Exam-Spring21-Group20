@@ -30,19 +30,8 @@
     <div class="metric-chart-container">
       <!--<repair-part-bar-chart-component style="z-index: 1000" />-->
       <country-bar-chart-component
-        :cardTitle="'Registered Units Total'"
-        :amount="100000"
-        style="z-index: 1000"
-      />
-      <!--<repair-part-bar-chart-component style="z-index: 1000" />-->
-      <country-bar-chart-component
         :cardTitle="'Repaired Units Total'"
         :amount="350.204"
-        style="z-index: 1000"
-      />
-      <!--<repair-part-bar-chart-component style="z-index: 1000" />-->
-      <repair-part-bar-chart-component
-        :cardTitle="'Most Repaired Today'"
         style="z-index: 1000"
       />
       <!--<repair-part-bar-chart-component style="z-index: 1000" />-->
@@ -50,8 +39,12 @@
         :cardTitle="'Most Repaired Monthly'"
         style="z-index: 1000"
       />
+
     </div>
+
   </div>
+  <description-text description-text="Map of camps and metric details"></description-text>
+
 </template>
 
 <script>
@@ -63,11 +56,13 @@ import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import CountryBarChartComponent from "./Components/CountryBarChartComponent";
 import RepairPartBarChartComponent from "@/components/AdminPage/Dashboard/Components/RepairedPartBarChartComponent";
 import { createMap } from "@/assets/js/map.js";
+import DescriptionText from "../DescriptionText";
 
 export default {
   name: "DashboardPage",
   setup() {},
   components: {
+    DescriptionText,
     RepairPartBarChartComponent,
     CountryBarChartComponent,
     TopMetric
@@ -152,12 +147,7 @@ export default {
   z-index: 20;
   width: 20vw;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    ". ."
-    ". .";
+  padding-left: 20px;
 }
 
 .top-metrics-container {
