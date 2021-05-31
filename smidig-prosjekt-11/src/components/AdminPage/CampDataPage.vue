@@ -283,8 +283,8 @@ export default {
   left: 54%;
   text-align: center;
   width: 150px;
-  height: 50px;
-  box-shadow: -1px -2px #bbbbbb, 1px 2px 5px #899599;
+  height: 40px;
+  box-shadow: -1px -2px #e7e7e7, 1px 2px 5px #b8b8b8;
   border-radius: 5px;
   transition: 150ms;
 
@@ -301,7 +301,7 @@ export default {
   }
   button {
     width: 150px;
-    height: 50px;
+    height: 40px;
     color: #2c2a29;
     font-weight: bold;
     outline: none;
