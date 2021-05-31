@@ -11,6 +11,17 @@
 
     <div class="part-grid">
       <div
+        v-on:click="updateData()"
+        class="part-cards"
+        :class="{ partschecked: allParts.isChecked }"
+      >
+        <TopMetrics
+          :name-of-data="allParts.name"
+          :data-to-display="getSumAllParts()"
+        />
+      </div>
+      
+      <div
         v-for="product in productImages"
         v-on:click="updateData(product)"
         :class="{ partschecked: product.isChecked }"
@@ -91,6 +102,16 @@ export default {
       }
       return sum;
     }
+    
+    function getSumAllParts() {
+      var sum = 0;
+      for (let i = 0; i < dataBank[0].data.length; i++) {
+        for (let j = 0; j < dataBank.length; j++) {
+          sum += dataBank[j].data[i];
+        }
+      }
+      return sum;
+    }
 
     function getSumPartsArray() {
       var sumParts = [];
@@ -146,14 +167,22 @@ export default {
       chartRef,
       dataBank,
       sumPartsOfType,
-      getSumPartsArray
+      getSumPartsArray,
+      getSumAllParts
     };
   },
   components: {DescriptionText, Vue3ChartJs, TopMetrics },
   methods: {
     updateData(product) {
-      if (product.isChecked === true) {
-        // show total sum
+      
+      // Remove all checks
+      this.allParts.isChecked = false;
+      for (let i = 0; i < this.productImages.length; i++) {
+        this.productImages[i].isChecked = false;
+      }
+
+      // Check if "All parts" was clicked
+      if (product === undefined) {
         this.barChart.data.datasets = [
           {
             label: "All items",
@@ -161,12 +190,9 @@ export default {
             data: this.getSumPartsArray()
           }
         ];
-        product.isChecked = false;
+        this.allParts.isChecked = true;
       } else {
         this.barChart.data.datasets[0] = this.dataBank[product.partNumber - 1];
-        for (let i = 0; i < this.productImages.length; i++) {
-          this.productImages[i].isChecked = false;
-        }
         product.isChecked = true;
       }
 
@@ -186,6 +212,10 @@ export default {
   },*/
   data() {
     return {
+      allParts: {
+        name: "All parts",
+        isChecked: true
+      },
       productImages: [
         {
           partNumber: "1",
