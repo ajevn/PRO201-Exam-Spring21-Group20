@@ -11,13 +11,13 @@ const routes = [
     path: "/repair",
     name: "Repair",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/RepairPage.vue")
+      import("../views/RepairPage.vue")
   },
   {
     path: "/profile",
     name: "Profile",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/ProfilePage.vue")
+      import("../views/ProfilePage.vue")
   },
   {
     path: "/login",
