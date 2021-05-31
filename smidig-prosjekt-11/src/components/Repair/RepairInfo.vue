@@ -67,6 +67,11 @@ export default {
   created() {
     this.entities = this.$store.getters.getEntities;
   },
+  mounted(){
+    if(this.entities.length === 0){
+      this.showRepair = true;
+    }
+  },
   // Using updated lifecycle hook to scroll to bottom of div when re-rendering page
   updated() {
     this.$nextTick(() => this.scrollToEnd());
@@ -90,6 +95,7 @@ export default {
       // show new overlay
       this.showRepair = true;
       //alert(this.editSerial)
+      console.log(this.entities.length)
     },
     closeRepair() {
       // show new overlay
