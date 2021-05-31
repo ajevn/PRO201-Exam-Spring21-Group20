@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1>Add new User</h1>
     <form @submit="onSubmit">
       <div class="wrapper">
         <div class="input">
@@ -128,13 +129,19 @@ export default {
 <style lang="scss" scoped>
 .container {
   display: flex;
-  justify-content: center;
+  margin-top: 10vh;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   max-width: 100%;
   height: 100%;
 
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #2c2a29;
+  }
   .wrapper {
     background: #2c2a29;
     padding: 2rem;

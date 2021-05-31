@@ -59,7 +59,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   display: flex;
-  justify-content: center;
+  margin-top: 10vh;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
