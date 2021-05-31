@@ -10,7 +10,7 @@ const schema = Joi.array().items(
   Joi.object({
     serialNumber: Joi.string().alphanum().required(),
     productName: Joi.string().alphanum().min(1).required(),
-    createdAt: Joi.date().default(Date.now),
+    createdAt: Joi.date().default(new Date()),
     campName: Joi.string().alphanum().required(),
     parts: Joi.array()
       .items({

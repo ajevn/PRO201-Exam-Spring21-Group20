@@ -58,6 +58,7 @@ const fn = () => {
       serialNumber: "j" + Math.floor(Math.random() * 1000).toString(),
       productName,
       campName: campName[Math.floor(Math.random() * campName.length)],
+      createdAt: new Date(),
       parts,
     };
     body.push(report);

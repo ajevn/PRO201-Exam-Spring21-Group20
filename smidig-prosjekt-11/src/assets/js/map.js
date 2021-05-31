@@ -8,7 +8,9 @@ export function createMap(
   showZoomControl,
   campData,
   products,
-  updateData
+  updateData,
+  replaceMapWithResults,
+  setCampIndex
 ) {
   const L = window.L; // suppress 'L' is not defined error
 
@@ -71,8 +73,10 @@ export function createMap(
       for (let j = 0; j < products.length; j++) {
         products[j].totalRepairs = j;
       }
-      map.setView(campData[i].geoloc, 6);
       updateData();
+      setCampIndex(i);
+      replaceMapWithResults();
+      map.setView([23, 20], 2);      
     });
 
     markers.addLayer(m);
