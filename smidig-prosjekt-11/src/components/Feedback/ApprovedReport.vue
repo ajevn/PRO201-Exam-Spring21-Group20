@@ -5,13 +5,10 @@
       src="@/assets/Images/Icons/report-success-icon.png"
       alt="Report succesfully sent"
     />
-    <!-- Importing homebtn -->
-    <home-button></home-button>
   </div>
 </template>
 
 <script>
-import HomeButton from "@/components/UI/HomeButton.vue";
 import { onMounted } from "vue";
 import { useStore } from "vuex";
 
@@ -27,9 +24,7 @@ export default {
       });*/
       store.commit("deleteAllEntity", "");
     });
-    return {
-      HomeButton
-    };
+    return {};
   }
 };
 </script>
