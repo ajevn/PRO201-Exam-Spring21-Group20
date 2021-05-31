@@ -30,7 +30,7 @@
 
       <div>
         <!-- submit button -->
-        <input id="login-submit" type="submit" />
+        <input id="login-submit" type="submit" value="Log in"/>
       </div>
     </form>
   </div>
