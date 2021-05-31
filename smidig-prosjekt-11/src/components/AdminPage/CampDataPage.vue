@@ -7,7 +7,9 @@
       @focus="showSearchSuggestions = true"
       v-on:blur="delayedHide"
     />
-    <description-text description-text="Select a camp to display corresponding data"></description-text>
+    <description-text
+      description-text="Select a camp to display corresponding data"
+    ></description-text>
 
     <div class="search-suggestions" v-if="showSearchSuggestions">
       <div
@@ -16,11 +18,8 @@
         v-on:click="showResult(product)"
         style="margin: 0"
       >
-        <div>
-          <div>{{ product.id }}</div>
-          <div>
-            {{ product.location }}
-          </div>
+        <div class="search-list-items">
+          <div>{{ product.id }} ({{ product.location }})</div>
         </div>
       </div>
     </div>
@@ -32,14 +31,16 @@
     class="map-container"
   ></div>
 
-  <div v-if="mapIsHidden">
+  <div v-if="mapIsHidden" class="showMapBtn">
     <button v-on:click="replaceMapWithResults">Show map</button>
   </div>
 
   <div v-if="showSearchResults">
     <h3>
       Camp Data
-      {{ selectedCampIndex >= 0 ? ' for ' + campData[selectedCampIndex].id : '' }}
+      {{
+        selectedCampIndex >= 0 ? " for " + campData[selectedCampIndex].id : ""
+      }}
     </h3>
   </div>
 
@@ -196,14 +197,23 @@ export default {
     replaceMapWithResults() {
       this.mapIsHidden = !this.mapIsHidden;
       this.showSearchResults = !this.showSearchResults;
-
     },
     setCampIndex(i) {
       this.selectedCampIndex = i;
     }
   },
   mounted() {
-    createMap(23, 20, 2, true, this.campData, this.products, this.updateData, this.replaceMapWithResults, this.setCampIndex);
+    createMap(
+      23,
+      20,
+      2,
+      true,
+      this.campData,
+      this.products,
+      this.updateData,
+      this.replaceMapWithResults,
+      this.setCampIndex
+    );
     console.log(this.products[0].totalRepairs);
     //this.test();
     //this.$nextTick(function() {
@@ -248,13 +258,53 @@ export default {
     bottom: 0;
     width: 500px;
     height: 100px;
+    margin: 0;
     overflow-y: scroll;
-    padding: 10px;
     background: #fff;
     -webkit-box-shadow: 3px 3px 3px 2px rgba(90, 89, 89, 0.31);
     box-shadow: 3px 3px 15px 2px rgba(90, 89, 89, 0.31);
     border-radius: 0 0 10px 10px;
     z-index: 1000;
+
+    .search-list-items {
+      padding: 5px 5px 5px 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #d4d4d4;
+      }
+    }
+  }
+}
+
+.showMapBtn {
+  position: absolute;
+  top: 18%;
+  left: 54%;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  box-shadow: -1px -2px #bbbbbb, 1px 2px 5px #899599;
+  border-radius: 5px;
+  transition: 150ms;
+
+  &:hover {
+    background-color: #e5e5e5;
+    transform: scale(1.01);
+    color: #ececec;
+  }
+
+  &:active {
+    transform: scale(1);
+    box-shadow: inset 2px 2px 2px #899599;
+    background-color: #dedede;
+  }
+  button {
+    width: 150px;
+    height: 50px;
+    color: #2c2a29;
+    font-weight: bold;
+    outline: none;
   }
 }
 
@@ -262,8 +312,8 @@ h3 {
   font-size: 1.3em;
   font-weight: bold;
   position: absolute;
-  top: 46%;
-  left: 55%;
+  top: 36%;
+  left: 48%;
 }
 
 .map-container {
@@ -286,7 +336,7 @@ h3 {
   justify-content: center;
   margin: auto auto 1vh;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 30%;
 }
 
