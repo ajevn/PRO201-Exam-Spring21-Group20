@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <h1>Add new User</h1>
+
     <form @submit="onSubmit">
       <div class="wrapper">
         <div class="input">
@@ -224,6 +226,15 @@ export default {
       }
     }
   }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-family: "Open Sans", sans-serif;
+  color: #828b96;
 }
 
 button {
