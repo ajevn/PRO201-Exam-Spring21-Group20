@@ -63,7 +63,7 @@ router.post("/", async (req, res) => {
 	  ]
   }
  */
-  if (!req.user) return res.status(401).send();
+  if (!req.user || !req.user.admin) return res.status(401).send();
 
   try {
     const value = await schema.validateAsync(req.body);

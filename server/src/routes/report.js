@@ -23,6 +23,7 @@ const schema = Joi.array().items(
   })
 );
 router.get("/", async (req, res) => {
+  if (!req.user) return res.status(401).send();
   const data = await report.find({});
   res.json(data);
 });
