@@ -32,7 +32,7 @@
   ></div>
 
   <div v-if="mapIsHidden" class="showMapBtn">
-    <button v-on:click="replaceMapWithResults">Show map</button>
+    <button v-on:click="replaceResultsWithMap">Show map</button>
   </div>
 
   <div v-if="showSearchResults">
@@ -195,8 +195,12 @@ export default {
       this.replaceMapWithResults();
     },
     replaceMapWithResults() {
-      this.mapIsHidden = !this.mapIsHidden;
-      this.showSearchResults = !this.showSearchResults;
+      this.mapIsHidden = true;
+      this.showSearchResults = true;
+    },
+    replaceResultsWithMap() {
+      this.mapIsHidden = false;
+      this.showSearchResults = false;
     },
     setCampIndex(i) {
       this.selectedCampIndex = i;
