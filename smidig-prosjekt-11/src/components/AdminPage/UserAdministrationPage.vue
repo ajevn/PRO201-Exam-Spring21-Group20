@@ -129,7 +129,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   display: flex;
-  margin-top: 10vh;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
@@ -231,6 +231,15 @@ export default {
       }
     }
   }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: "Open Sans", sans-serif;
+  color: #828b96;
 }
 
 button {

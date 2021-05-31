@@ -59,18 +59,29 @@ export default {
 <style lang="scss" scoped>
 .container {
   display: flex;
-  margin-top: 10vh;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   max-width: 100%;
   height: 100%;
 
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
   h1 {
-    font-size: 40px;
+    font-size: 1.5em;
     font-weight: bold;
-    margin-bottom: 30px;
-    color: #2c2a29;
+    margin-bottom: 20px;
+    font-family: "Open Sans", sans-serif;
+    color: #828b96;
+  }
+
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+  .section-item-text {
+    font-size: 0.7em;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    color: #828b96;
   }
 
   .wrapper {

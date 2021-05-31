@@ -2,11 +2,12 @@
   <div id="search-container">
     <input
       type="text"
-      placeholder="Search..."
+      placeholder="Camp Search..."
       v-model="searchQuery"
       @focus="showSearchSuggestions = true"
       v-on:blur="delayedHide"
     />
+    <description-text description-text="Select a camp to display corresponding data"></description-text>
 
     <div class="search-suggestions" v-if="showSearchSuggestions">
       <div
@@ -30,7 +31,7 @@
     id="mapid"
     class="map-container"
   ></div>
-  
+
   <div v-if="mapIsHidden">
     <button v-on:click="replaceMapWithResults">Show map</button>
   </div>
@@ -41,7 +42,7 @@
       {{ selectedCampIndex >= 0 ? ' for ' + campData[selectedCampIndex].id : '' }}
     </h3>
   </div>
-  
+
   <div v-if="showSearchResults" class="part-grid">
     <div
       v-for="product in products"
@@ -65,6 +66,7 @@ import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import { createMap } from "@/assets/js/map.js";
 import TopMetrics from "@/components/AdminPage/TopMetrics";
 import { computed, ref } from "vue";
+import DescriptionText from "./DescriptionText";
 export default {
   name: "CampDataPage",
 
@@ -170,6 +172,7 @@ export default {
     return { searchedProducts, searchQuery, products, campData };
   },
   components: {
+    DescriptionText,
     TopMetrics
   },
   methods: {
@@ -193,7 +196,7 @@ export default {
     replaceMapWithResults() {
       this.mapIsHidden = !this.mapIsHidden;
       this.showSearchResults = !this.showSearchResults;
-      
+
     },
     setCampIndex(i) {
       this.selectedCampIndex = i;
@@ -255,6 +258,14 @@ export default {
   }
 }
 
+h3 {
+  font-size: 1.3em;
+  font-weight: bold;
+  position: absolute;
+  top: 46%;
+  left: 55%;
+}
+
 .map-container {
   position: absolute;
   top: 17%;
@@ -264,14 +275,6 @@ export default {
   margin: auto;
   background-color: #fff;
   border: 1px solid lightgrey;
-}
-
-h3 {
-  font-size: 20px;
-  font-weight: bold;
-  position: absolute;
-  top: 46%;
-  left: 55%;
 }
 
 .part-grid {
