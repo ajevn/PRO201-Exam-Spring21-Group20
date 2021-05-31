@@ -85,7 +85,7 @@ export default {
   methods: {
     editRepair(id) {
       this.editId = id;
-
+      this.$store.commit("updateBtn", true);
       //Function to render selected entity parts
       //this.$refs.editref.renderSelects();
 
@@ -94,18 +94,21 @@ export default {
     addRepair() {
       // show new overlay
       this.showRepair = true;
+      this.$store.commit("updateBtn", true);
       //alert(this.editSerial)
       console.log(this.entities.length)
     },
     closeRepair() {
       // show new overlay
       this.showRepair = false;
+      this.$store.commit("updateBtn", false);
       // Updates entities from state manually
       this.entities = this.$store.getters.getEntities;
     },
     closeEdit() {
       // show new overlay
       this.showEdit = false;
+      this.$store.commit("updateBtn", false);
       // Updates entities from state manually
       this.entities = this.$store.getters.getEntities;
     },

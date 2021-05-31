@@ -78,7 +78,8 @@
           'next-btn-none': isSuccessfulReport || updateTotalProducts < 1
         }"
       >
-        <button id="forward-btn">
+        <button id="forward-btn"
+          v-if="getStatus === false">
           <span class="font-standardText"
             >Submit
             <span style="font-size: 1.1em;">{{ updateTotalProducts }}</span>
@@ -113,6 +114,9 @@ export default {
   computed: {
     updateTotalProducts() {
       return this.$store.getters.getNumOfEntities;
+    },
+    getStatus(){
+      return this.$store.getters.getStatus;
     }
   },
 
