@@ -27,15 +27,22 @@
   </div>
 
   <div
-    v-bind:style="[showSearchResults ? { height: '250px' } : { height: '70%' }]"
+    v-bind:style="[mapIsHidden ? { display: 'none' } : { height: '70%' }]"
     id="mapid"
     class="map-container"
   ></div>
 
+  <div v-if="mapIsHidden">
+    <button v-on:click="replaceMapWithResults">Show map</button>
+  </div>
 
-  <h3>
-    Camp Data
-  </h3>
+  <div v-if="showSearchResults">
+    <h3>
+      Camp Data
+      {{ selectedCampIndex >= 0 ? ' for ' + campData[selectedCampIndex].id : '' }}
+    </h3>
+  </div>
+
   <div v-if="showSearchResults" class="part-grid">
     <div
       v-for="product in products"
@@ -184,11 +191,19 @@ export default {
         console.log(product.campRepairs[i]);
         this.products[i].totalRepairs = product.campRepairs[i];
       }
-      this.showSearchResults = true;
+      this.replaceMapWithResults();
+    },
+    replaceMapWithResults() {
+      this.mapIsHidden = !this.mapIsHidden;
+      this.showSearchResults = !this.showSearchResults;
+
+    },
+    setCampIndex(i) {
+      this.selectedCampIndex = i;
     }
   },
   mounted() {
-    createMap(23, 20, 2, true, this.campData, this.products, this.updateData);
+    createMap(23, 20, 2, true, this.campData, this.products, this.updateData, this.replaceMapWithResults, this.setCampIndex);
     console.log(this.products[0].totalRepairs);
     //this.test();
     //this.$nextTick(function() {
@@ -197,7 +212,9 @@ export default {
   data() {
     return {
       showSearchSuggestions: false,
-      showSearchResults: true
+      showSearchResults: false,
+      mapIsHidden: false,
+      selectedCampIndex: -1
     };
   }
 };
