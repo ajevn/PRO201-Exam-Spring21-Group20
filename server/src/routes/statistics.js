@@ -45,7 +45,7 @@ router.get("/totalRepairs", async (req, res, next) => {
   res.json({ totalRepairs: count });
 });
 
-router.get("/totalRepairs", async (req, res, next) => {
+router.get("/totalParts", async (req, res, next) => {
   if (!req.user || !req.user.admin) return next();
   const count = await getPartsCountArray();
   res.json({ totalRepairs: count });
