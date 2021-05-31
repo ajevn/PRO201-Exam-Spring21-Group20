@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Product Data Page</h3>
+    <h3>Part Statistics</h3>
 
     <div class="country-list-flex-container">
       <div class="pie-chart-countries">
