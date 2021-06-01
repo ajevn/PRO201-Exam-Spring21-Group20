@@ -15,7 +15,7 @@
           <product-data-page v-if="selectedSection === 'Parts'" />
           <camp-data-page
             v-if="selectedSection === 'Camps'"
-            v-bind:routedCampName="routedCampName"
+            v-bind:routedCampName="campNameToRoute"
           />
           <user-administration-page v-if="selectedSection === 'Users'" />
           <camp-administration-page v-if="selectedSection === 'CampsAdmin'" />
@@ -72,7 +72,7 @@ export default {
     onDashboardMapClick(param) {
       this.routedInParent = "Camps";
       this.selectedSection = "Camps";
-      this.campOverviewCampName = param;
+      this.campNameToRoute = param;
     }
   },
   data() {

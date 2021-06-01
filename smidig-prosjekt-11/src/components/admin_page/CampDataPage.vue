@@ -231,8 +231,7 @@ export default {
     return {
       showSearchSuggestions: false,
       showSearchResults: false,
-      mapIsHidden: false,
-      selectedCampName: ""
+      mapIsHidden: false
     };
   },
   props: {
