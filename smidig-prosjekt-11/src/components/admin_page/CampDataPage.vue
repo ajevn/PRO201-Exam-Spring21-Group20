@@ -8,7 +8,7 @@
       v-on:blur="delayedHide"
     />
     <description-text
-        class="description-text-element"
+      class="description-text-element"
       description-text="Select a camp to display corresponding data"
     ></description-text>
 
@@ -243,7 +243,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.description-text-element{
+.description-text-element {
   margin-top: 20px;
 }
 #search-container {
@@ -294,7 +294,7 @@ export default {
 
 .showMapBtn {
   position: absolute;
-  top: 18%;
+  top: 22%;
   left: 54%;
   text-align: center;
   width: 150px;
