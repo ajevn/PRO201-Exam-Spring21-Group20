@@ -201,17 +201,6 @@ export default {
       this.chartRef.update();
     }
   },
-  /*data() {  // Hente data fra backend
-    return {
-      parts: [
-        { partData: "Most changed parts", amount: 25},
-        { partData: "Venezuela", color: "#E46651", amount: 20 },
-        { partData: "Afghanistan", color: "#00D8FF", amount: 80 },
-        { partData: "Colombia", color: "#DD1B16", amount: 10 },
-        { partData: "Norge", color: "#41B883", amount: 7 }
-      ]
-    };
-  },*/
   data() {
     return {
       allParts: {

@@ -18,10 +18,6 @@ export default {
     const store = useStore();
 
     onMounted(async () => {
-      /*await fetch("http://localhost:3000",{
-        method: "POST",
-        body: {}
-      });*/
       store.commit("deleteAllEntity", "");
     });
     return {};

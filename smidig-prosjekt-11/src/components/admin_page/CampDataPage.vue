@@ -218,10 +218,6 @@ export default {
       this.replaceMapWithResults,
       this.setCampIndex
     );
-    console.log(this.products[0].totalRepairs);
-    //this.test();
-    //this.$nextTick(function() {
-    //});
   },
   data() {
     return {

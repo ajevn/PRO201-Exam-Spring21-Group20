@@ -114,9 +114,6 @@ export default {
       }
     ];
     createMap(23, 20, 2, true, campData, products);
-    /*this.$nextTick(function() {
-      createMap(23, 20, 2);
-    });*/
   },
   data() {
     return {};

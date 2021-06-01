@@ -25,7 +25,7 @@
     </div>
     <!-- Div to hold both edit and repair -->
     <div class="edit-delete-icons">
-      <button class="edit-delete-buttons" @click="editEntity(this.entity)">
+      <button class="edit-delete-buttons" @click="editEntity">
         <!-- <img
                     class="edit-delete-img-width"
                     src="@/assets/images/edit-icon.png"
@@ -42,7 +42,7 @@
         </div>
       </button>
 
-      <button class="edit-delete-buttons" @click="deleteEntity(this.entity)">
+      <button class="edit-delete-buttons" @click="deleteEntity">
         <div class="edit-delete-ic-container">
           <icon-base
             id="delete-ic"
