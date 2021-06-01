@@ -7,7 +7,6 @@
           <!-- Setting class if isSuccessfulReport and/or isUnsuccessfulReport is true -->
           <div
             id="progress-bar-width"
-            class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"
             :class="{
               'progress-bar-successful-line': isSuccessfulReport,
               'progress-bar-unsuccessful-line': isUnsuccessfulReport
