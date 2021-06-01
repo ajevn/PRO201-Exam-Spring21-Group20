@@ -18,7 +18,6 @@ export default {
 </script>
 
 <style scoped>
-
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 .section-item-text {
   font-size: 0.7em;
@@ -27,5 +26,4 @@ export default {
   font-style: italic;
   color: #828b96;
 }
-
 </style>
