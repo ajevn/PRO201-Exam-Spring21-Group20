@@ -6,7 +6,7 @@
 
 <script>
 import BaseSite from "@/components/Nav/BaseSite.vue";
-import Login from "@/components/Login/Login.vue";
+import Login from "@/components/login/Login.vue";
 
 export default {
   name: "LoginPage",

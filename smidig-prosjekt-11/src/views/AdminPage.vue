@@ -7,7 +7,7 @@
           v-on:childToParent="recievedClickInChildSideMenu"
         />
         <div class="component-section-container">
-          <dashboard-page v-if="selectedSection === 'Dashboard'" />
+          <dashboard-page v-if="selectedSection === 'dashboard'" />
           <product-data-page v-if="selectedSection === 'parts'" />
           <camp-data-page v-if="selectedSection === 'Camps'" />
           <user-administration-page v-if="selectedSection === 'Users'" />
@@ -23,12 +23,12 @@
 import BaseSite from "@/components/Nav/BaseSite.vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-import SideBarMenu from "@/components/AdminPage/SideBarMenu";
-import DashboardPage from "@/components/AdminPage/Dashboard/DashboardMainPage.vue";
-import CampDataPage from "@/components/AdminPage/CampDataPage";
-import ProductDataPage from "../components/AdminPage/ProductDataPage";
-import UserAdministrationPage from "../components/AdminPage/UserAdministrationPage";
-import CampAdministrationPage from "@/components/AdminPage/CampAdministrationPage";
+import SideBarMenu from "@/components/admin_page/SideBarMenu";
+import DashboardPage from "@/components/admin_page/dashboard/DashboardMainPage.vue";
+import CampDataPage from "@/components/admin_page/CampDataPage";
+import ProductDataPage from "../components/admin_page/ProductDataPage";
+import UserAdministrationPage from "../components/admin_page/UserAdministrationPage";
+import CampAdministrationPage from "@/components/admin_page/CampAdministrationPage";
 
 export default {
   name: "adminPage",
@@ -65,7 +65,7 @@ export default {
   },
   data() {
     return {
-      selectedSection: "Dashboard",
+      selectedSection: "dashboard",
       isAdmin: this.retrieveIsAdmin(),
       totalRep: "Total Repairs",
       totalUnitsRegistered: "Total Units Registered",

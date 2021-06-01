@@ -98,7 +98,7 @@
 </template>
 
 <script>
-import IconBase from "@/components/UI/IconBase";
+import IconBase from "@/components/ui/IconBase";
 export default {
   name: "Progress bar",
   components: { IconBase },

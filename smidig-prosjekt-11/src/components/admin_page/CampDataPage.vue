@@ -65,7 +65,7 @@ import "leaflet/dist/leaflet.css";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import { createMap } from "@/assets/js/map.js";
-import TopMetrics from "@/components/AdminPage/TopMetrics";
+import TopMetrics from "@/components/admin_page/TopMetrics";
 import { computed, ref } from "vue";
 import DescriptionText from "./DescriptionText";
 export default {

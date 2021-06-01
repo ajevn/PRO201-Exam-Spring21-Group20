@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-import IconBase from "../../UI/IconBase.vue";
+import IconBase from "../../ui/IconBase.vue";
 export default {
   name: "NavLink",
   components: { IconBase },

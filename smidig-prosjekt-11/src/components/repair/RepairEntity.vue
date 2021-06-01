@@ -13,7 +13,7 @@
     </div>
 
     <!-- Loops through the selected parts for this repair, and displays their images -->
- 
+
     <div class="parts-container">
       <img
         v-for="part in entityParts"
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import IconBase from "../UI/IconBase.vue";
+import IconBase from "../ui/IconBase.vue";
 export default {
   data() {
     return {};

@@ -46,7 +46,7 @@
 
 <script>
 import Vue3ChartJs from "@j-t-mcc/vue3-chartjs";
-import TopMetrics from "@/components/AdminPage/TopMetrics";
+import TopMetrics from "@/components/admin_page/TopMetrics";
 import { ref } from "vue";
 import DescriptionText from "./DescriptionText";
 

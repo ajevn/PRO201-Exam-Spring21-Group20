@@ -65,8 +65,8 @@
 </template>
 
 <script>
-import ModalErrorMessage from "@/components/Modals/ModalErrorMessage.vue";
-import IconBase from "../UI/IconBase.vue";
+import ModalErrorMessage from "@/components/modals/ModalErrorMessage.vue";
+import IconBase from "../ui/IconBase.vue";
 
 export default {
   name: "PopupEdit",

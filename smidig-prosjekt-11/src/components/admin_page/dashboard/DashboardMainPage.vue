@@ -48,13 +48,13 @@
 </template>
 
 <script>
-import TopMetric from "@/components/AdminPage/TopMetrics";
+import TopMetric from "@/components/admin_page/TopMetrics";
 import "@/assets/css/map.css";
 import "leaflet/dist/leaflet.css";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
-import CountryBarChartComponent from "./Components/CountryBarChartComponent";
-import RepairPartBarChartComponent from "@/components/AdminPage/Dashboard/Components/RepairedPartBarChartComponent";
+import CountryBarChartComponent from "./single_components/CountryBarChartComponent";
+import RepairPartBarChartComponent from "@/components/admin_page/dashboard/single_components/RepairedPartBarChartComponent";
 import { createMap } from "@/assets/js/map.js";
 import DescriptionText from "../DescriptionText";
 

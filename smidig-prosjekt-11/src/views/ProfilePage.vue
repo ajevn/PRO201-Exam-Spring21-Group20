@@ -50,10 +50,10 @@
 </template>
 
 <script>
-import RedirectLogin from "@/components/Login/RedirectLogin.vue";
+import RedirectLogin from "@/components/login/RedirectLogin.vue";
 import NavBar from "@/components/Nav/navbar/NavBar";
 import { useField, useForm } from "vee-validate";
-import ModalChangePassword from "@/components/Modals/ModalChangePassword";
+import ModalChangePassword from "@/components/modals/ModalChangePassword";
 
 export default {
   data() {

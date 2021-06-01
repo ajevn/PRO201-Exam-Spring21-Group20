@@ -16,7 +16,7 @@
   </router-link>
 </template>
 <script>
-import IconBase from "../../components/UI/IconBase.vue";
+import IconBase from "../ui/IconBase.vue";
 
 export default {
   name: "HomeSelectButton",

@@ -18,9 +18,9 @@
 
 <script>
 // @ is an alias to /src
-import ApprovedReport from "@/components/Feedback/ApprovedReport.vue";
-import ProgressBar from "@/components/Feedback/ProgressBar.vue";
-import RedirectLogin from "@/components/Login/RedirectLogin.vue";
+import ApprovedReport from "@/components/feedback/ApprovedReport.vue";
+import ProgressBar from "@/components/feedback/ProgressBar.vue";
+import RedirectLogin from "@/components/login/RedirectLogin.vue";
 import BaseSite from "../components/Nav/BaseSite.vue";
 import { useStore } from "vuex";
 import HomeSelectButton from "@/components/Nav/HomeSelectButton";

@@ -50,10 +50,10 @@
 </template>
 
 <script>
-import PopupSelectRepair from "@/components/Repair/PopupSelectRepair.vue";
-import RepairEntity from "@/components/Repair/RepairEntity.vue";
-import PopupEditRepair from "@/components/Repair/PopupEditRepair.vue";
-import IconBase from "../UI/IconBase.vue";
+import PopupSelectRepair from "@/components/repair/PopupSelectRepair.vue";
+import RepairEntity from "@/components/repair/RepairEntity.vue";
+import PopupEditRepair from "@/components/repair/PopupEditRepair.vue";
+import IconBase from "../ui/IconBase.vue";
 
 export default {
   data() {

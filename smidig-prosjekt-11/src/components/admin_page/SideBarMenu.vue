@@ -4,13 +4,13 @@
       <div class="flex-items">
         <div
           class="section-item-styling"
-          :class="{ 'section-selected': selected === 'Dashboard' }"
-          @click="selectSection('Dashboard')"
+          :class="{ 'section-selected': selected === 'dashboard' }"
+          @click="selectSection('dashboard')"
         >
           <div>
             <p
               class="section-item-text"
-              :class="{ 'section-selected-text': selected === 'Dashboard' }"
+              :class="{ 'section-selected-text': selected === 'dashboard' }"
             >
               Dashboard
             </p>
@@ -128,7 +128,7 @@
 <script>
 // @ is an alias to /src
 import { useRouter } from "vue-router";
-import IconBase from "../UI/IconBase";
+import IconBase from "../ui/IconBase";
 
 export default {
   name: "SideBarMenu",
@@ -148,7 +148,7 @@ export default {
   data() {
     return {
       timestamp: "",
-      selected: "Dashboard"
+      selected: "dashboard"
     };
   }
 };

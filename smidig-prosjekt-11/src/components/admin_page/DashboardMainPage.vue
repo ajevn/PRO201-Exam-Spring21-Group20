@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TopMetric from "@/components/AdminPage/TopMetrics";
+import TopMetric from "@/components/admin_page/TopMetrics";
 
 export default {
   name: "DashboardPage",

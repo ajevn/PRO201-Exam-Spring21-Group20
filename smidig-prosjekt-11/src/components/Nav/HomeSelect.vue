@@ -28,7 +28,7 @@
 <script>
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-import ModalErrorMessage from "../../components/Modals/ModalErrorMessage.vue";
+import ModalErrorMessage from "../../components/modals/ModalErrorMessage.vue";
 import { ref } from "vue";
 import HomeSelectButton from "./HomeSelectButton";
 
