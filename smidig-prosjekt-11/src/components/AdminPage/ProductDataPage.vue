@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div class="parts-data-container">
     <h3>Part Statistics</h3>
 
     <div class="country-list-flex-container">
       <div class="pie-chart-countries">
         <vue3-chart-js ref="chartRef" v-bind="{ ...barChart }"></vue3-chart-js>
       </div>
-      <description-text description-text="Previous 12 Month Data History"></description-text>
+      <description-text
+        description-text="Previous 12 Month Data History"
+      ></description-text>
     </div>
 
     <div class="part-grid">
@@ -20,7 +22,7 @@
           :data-to-display="getSumAllParts()"
         />
       </div>
-      
+
       <div
         v-for="product in productImages"
         v-on:click="updateData(product)"
@@ -36,8 +38,9 @@
         />
       </div>
     </div>
-    <description-text description-text="Total Parts Repaired"></description-text>
-
+    <description-text
+      description-text="Total Parts Repaired"
+    ></description-text>
   </div>
 </template>
 
@@ -102,7 +105,7 @@ export default {
       }
       return sum;
     }
-    
+
     function getSumAllParts() {
       var sum = 0;
       for (let i = 0; i < dataBank[0].data.length; i++) {
@@ -171,10 +174,9 @@ export default {
       getSumAllParts
     };
   },
-  components: {DescriptionText, Vue3ChartJs, TopMetrics },
+  components: { DescriptionText, Vue3ChartJs, TopMetrics },
   methods: {
     updateData(product) {
-      
       // Remove all checks
       this.allParts.isChecked = false;
       for (let i = 0; i < this.productImages.length; i++) {
@@ -280,6 +282,11 @@ h3 {
   text-align: center;
   font-weight: bold;
   color: #2c2a29;
+}
+
+.parts-data-container {
+  overflow-y: scroll;
+  height: calc(100vh - 80px);
 }
 
 .part-grid {
