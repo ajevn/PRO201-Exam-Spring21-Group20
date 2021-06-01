@@ -15,13 +15,13 @@
           ></div>
         </div>
 
-        <!-- Images -->
+        <!-- images -->
         <div
           class="progress-bar-done progress-bar-icons"
           id="progress-bar-home"
         >
           <img
-            src="@/assets/Images/Icons/home-icon.png"
+            src="@/assets/images/icons/home-icon.png"
             alt="Progress bar, Home button"
           />
         </div>
@@ -31,7 +31,7 @@
           id="progress-bar-edit-report"
         >
           <img
-            src="@/assets/Images/Icons/edit-report-icon.png"
+            src="@/assets/images/icons/edit-report-icon.png"
             alt="Progress bar, Edit report"
           />
         </div>
@@ -46,7 +46,7 @@
           id="progress-bar-success"
         >
           <img
-            src="@/assets/Images/Icons/report-success-white-icon.png"
+            src="@/assets/images/icons/report-success-white-icon.png"
             alt="Progress bar, Report sent"
           />
         </div>
@@ -86,7 +86,7 @@
             Repairs</span
           >
           <img
-            src="@/assets/Images/Icons/enter.png"
+            src="@/assets/images/icons/enter.png"
             alt="Go to next page"
             id="submit-icon"
           />

@@ -2,7 +2,7 @@
   <div id="approved-report-container">
     <h1>ENTRY SUCCESSFUL</h1>
     <img
-      src="@/assets/Images/Icons/report-success-icon.png"
+      src="@/assets/images/icons/report-success-icon.png"
       alt="Report succesfully sent"
     />
   </div>

@@ -6,10 +6,10 @@
     @mouseover="hovering = true"
     @mouseout="hovering = false"
   >
-    <!-- <use :xlink:href="`../../assets/Images/Icons/sprite.svg#icon-${iconName}`"></use> -->
+    <!-- <use :xlink:href="`../../assets/images/icons/sprite.svg#icon-${iconName}`"></use> -->
     <use
       :xlink:href="
-        require('../../assets/Images/Icons/sprite.svg') + '#icon-' + iconName
+        require('../../assets/images/icons/sprite.svg') + '#icon-' + iconName
       "
       :fill="dynamicFill"
       :width="iconWidth"

@@ -2,7 +2,7 @@
   <div id="product-container">
     <img
       class="product-img"
-      src="@/assets/Images/Parts/sunbellProductImage.png"
+      src="@/assets/images/parts/sunbellProductImage.png"
       alt="sunbell"
     />
     <!-- <div class="product-img-container">
@@ -19,7 +19,7 @@
         v-for="part in entityParts"
         :key="part.partNumber"
         class="part-img"
-        :src="require('@/assets/Images/Parts/' + part.imgName + '.png')"
+        :src="require('@/assets/images/parts/' + part.imgName + '.png')"
         alt="{{part.partName}}"
       />
     </div>
@@ -28,7 +28,7 @@
       <button class="edit-delete-buttons" @click="editEntity(this.entity)">
         <!-- <img
                     class="edit-delete-img-width"
-                    src="@/assets/Images/edit-icon.png"
+                    src="@/assets/images/edit-icon.png"
                     alt="Edit entity button"
                 /> -->
         <div class="edit-delete-ic-container">
