@@ -4,7 +4,7 @@
 
     <div class="logo-container">
       <router-link class="logo-link" to="/">
-        <img id="logo-img" src="@/assets/Images/logo-bright.svg" alt="Bright" />
+        <img id="logo-img" src="@/assets/images/logo-bright.svg" alt="Bright" />
       </router-link>
     </div>
     <ul class="nav-menu" v-bind:class="{ active: menuIsOpen }">

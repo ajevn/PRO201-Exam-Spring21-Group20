@@ -2,7 +2,7 @@
   <div id="product-container">
     <img
       class="product-img"
-      src="@/assets/Images/parts/sunbellProductImage.png"
+      src="@/assets/images/parts/sunbellProductImage.png"
       alt="sunbell"
     />
     <!-- <div class="product-img-container">

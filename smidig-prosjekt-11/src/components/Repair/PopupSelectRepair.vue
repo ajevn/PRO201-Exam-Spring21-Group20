@@ -6,7 +6,7 @@
         <h1>Product</h1>
         <div id="popup-static-product-style">
           <img
-            src="@/assets/Images/parts/sunbellProductImage.png"
+            src="@/assets/images/parts/sunbellProductImage.png"
             alt="Product: Sunbell"
           />
           <h2>Sunbell</h2>

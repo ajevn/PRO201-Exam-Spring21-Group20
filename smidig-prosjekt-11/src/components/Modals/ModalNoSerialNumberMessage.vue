@@ -11,7 +11,7 @@
         >
           <header class="modal-header" id="modalTitle">
             <img
-              src="@/assets/Images/alert.png"
+              src="@/assets/images/alert.png"
               id="header-image"
               alt="Alert image"
             />
