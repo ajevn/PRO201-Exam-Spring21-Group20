@@ -8,6 +8,7 @@
       v-on:blur="delayedHide"
     />
     <description-text
+        class="description-text-element"
       description-text="Select a camp to display corresponding data"
     ></description-text>
 
@@ -235,6 +236,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.description-text-element{
+  margin-top: 20px;
+}
 #search-container {
   display: flex;
   flex-wrap: wrap; /* Optional. only if you want the items to wrap */
@@ -326,7 +330,7 @@ h3 {
   right: 1.5%;
   width: 80vw;
   height: 250px;
-  margin: auto;
+  margin: 20px auto auto auto;
   background-color: #fff;
   border: 1px solid lightgrey;
 }

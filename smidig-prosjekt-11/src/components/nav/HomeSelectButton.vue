@@ -44,7 +44,7 @@ export default {
 <style lang="scss">
 .home-select-button {
   background-color: #ececec;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
   border-radius: 5px;
   color: #2c2a29;
@@ -59,6 +59,7 @@ export default {
   margin-bottom: 30px;
 
   h4 {
+    padding-left: 30px;
     flex: 1;
     // text-align: center;
   }

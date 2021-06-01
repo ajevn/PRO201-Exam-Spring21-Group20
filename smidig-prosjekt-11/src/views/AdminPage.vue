@@ -76,8 +76,7 @@ export default {
 </script>
 
 <style scoped>
-.component-section-container {
-}
+
 .grid-layout {
   display: grid;
   grid-template-columns: 17% 1fr;

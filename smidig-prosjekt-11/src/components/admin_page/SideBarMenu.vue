@@ -246,7 +246,7 @@ export default {
   text-align: start;
   font-size: 1em;
   font-family: "Open Sans", sans-serif;
-  color: #828b96;
+  color: #686e75;
   line-height: 100%;
   padding: 14px 14px 14px 60px;
 }
