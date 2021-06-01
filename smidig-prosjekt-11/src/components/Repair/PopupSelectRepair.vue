@@ -6,7 +6,7 @@
         <h1>Product</h1>
         <div id="popup-static-product-style">
           <img
-            src="@/assets/Images/Parts/sunbellProductImage.png"
+            src="@/assets/Images/parts/sunbellProductImage.png"
             alt="Product: Sunbell"
           />
           <h2>Sunbell</h2>
@@ -52,7 +52,7 @@
             class="part-icon"
             :class="{ partchecked: product.isChecked }"
             :id="product.partNumber"
-            :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
+            :src="require('@/assets/images/parts/' + product.imgName + '.png')"
             alt="{{product.partName}}"
           />
           <h2>{{ product.partName }}</h2>
@@ -193,7 +193,7 @@ export default {
         return;
       } else if (this.partsChosen.length === 0) {
         // Please choose part
-        this.modalTextBody = "Please Select Parts";
+        this.modalTextBody = "Please Select parts";
         this.showModal = true;
         return;
       } else if (serialNr === "" && !this.noSerialNumberCommitted) {

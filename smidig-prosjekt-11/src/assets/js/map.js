@@ -22,7 +22,7 @@ export function createMap(
     shadowUrl: require("leaflet/dist/images/marker-shadow.png")
   });
 
-  const layersPath = require("../Images/layers.png");
+  const layersPath = require("../images/layers.png");
   const geojsonPath = require("../data/custom.geo.json");
 
   var map = L.map("mapid", {

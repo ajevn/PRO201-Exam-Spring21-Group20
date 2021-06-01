@@ -19,7 +19,7 @@
             class="part-icon"
             :id="product.partNumber"
             :class="{ partchecked: product.isChecked }"
-            :src="require('@/assets/Images/Parts/' + product.imgName + '.png')"
+            :src="require('@/assets/images/parts/' + product.imgName + '.png')"
             alt="{{product.partName}}"
           />
           <h2>{{ product.partName }}</h2>

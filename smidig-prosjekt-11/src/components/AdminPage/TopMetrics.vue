@@ -5,7 +5,7 @@
         v-if="displayImage"
         class="part-icon"
         :id="{ partNumber }"
-        :src="require('@/assets/Images/Parts/' + metricIconSrc + '.png')"
+        :src="require('@/assets/images/parts/' + metricIconSrc + '.png')"
         alt="{{partName}}"
       />
       <p class="section-item-text">{{ nameOfData }}</p>

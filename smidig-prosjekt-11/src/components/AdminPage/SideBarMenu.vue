@@ -28,13 +28,13 @@
       <div class="flex-items">
         <div
           class="section-item-styling"
-          :class="{ 'section-selected': selected === 'Parts' }"
-          @click="selectSection('Parts')"
+          :class="{ 'section-selected': selected === 'parts' }"
+          @click="selectSection('parts')"
         >
           <div>
             <p
               class="section-item-text"
-              :class="{ 'section-selected-text': selected === 'Parts' }"
+              :class="{ 'section-selected-text': selected === 'parts' }"
             >
               Parts Overview
             </p>

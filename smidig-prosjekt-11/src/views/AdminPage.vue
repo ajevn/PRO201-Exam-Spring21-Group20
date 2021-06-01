@@ -8,7 +8,7 @@
         />
         <div class="component-section-container">
           <dashboard-page v-if="selectedSection === 'Dashboard'" />
-          <product-data-page v-if="selectedSection === 'Parts'" />
+          <product-data-page v-if="selectedSection === 'parts'" />
           <camp-data-page v-if="selectedSection === 'Camps'" />
           <user-administration-page v-if="selectedSection === 'Users'" />
           <camp-administration-page v-if="selectedSection === 'CampsAdmin'" />
