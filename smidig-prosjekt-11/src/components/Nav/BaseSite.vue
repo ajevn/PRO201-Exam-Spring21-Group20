@@ -7,12 +7,6 @@
     <div class="content-container">
       <slot />
     </div>
-
-    <footer>
-      <div class="copyright-header">
-        Copyright &copy; 2021 - Smidig-Prosjekt Gruppe 11
-      </div>
-    </footer>
   </div>
 </template>
 
@@ -64,13 +58,6 @@ export default {
 }
 
 .white-text {
-  color: white;
-}
-
-.copyright-header {
-  position: absolute;
-  left: 5px;
-  bottom: 5px;
   color: white;
 }
 </style>

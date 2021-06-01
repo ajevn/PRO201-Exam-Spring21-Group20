@@ -4,6 +4,11 @@
       <div class="home-select-container">
         <home-select @click="showModal = true" class="home-select" />
       </div>
+      <footer>
+        <div class="copyright-header">
+          Copyright &copy; 2021 - Smidig-Prosjekt Gruppe 11
+        </div>
+      </footer>
     </base-site>
   </div>
 </template>
@@ -52,5 +57,12 @@ export default {
     0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
     0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
     0 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.copyright-header {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  color: white;
 }
 </style>
