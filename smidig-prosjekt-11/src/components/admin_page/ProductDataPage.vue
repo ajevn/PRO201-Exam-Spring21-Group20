@@ -310,6 +310,7 @@ h3 {
 }
 
 .partschecked {
-  background-color: #7eb46b;
+  background-color: #E9E6E0;
+
 }
 </style>
