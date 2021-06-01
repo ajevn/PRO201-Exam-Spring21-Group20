@@ -29,7 +29,7 @@
             placeholder="Enter Coordinates"
             required
           />
-          <span><i>Input Coordinates Format: &emsp; -1.043, 8.739</i></span>
+          <span><i>Input Coordinate Format: &emsp; 0.00,0.00</i><br><a href="http://geojson.io/">Map Tool Link</a></span>
         </div>
         <div class="input">
           <label>Sunbells: </label>
@@ -57,6 +57,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a {
+  color: #4aae9b;
+  text-decoration: underline;
+}
+a:hover {
+  color: lightblue;
+  text-decoration: underline;
+}
 .container {
   display: flex;
   justify-content: start;

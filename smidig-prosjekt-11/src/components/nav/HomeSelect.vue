@@ -87,6 +87,7 @@ export default {
 #button-div {
   width: 400px;
   padding-top: 30px;
+  font-size: 0.9em;
   border-radius: 5px;
   background-color: #2c2a29;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),

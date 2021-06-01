@@ -151,7 +151,7 @@ export default {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 100%;
+    width: 40vw;
     border-radius: 5px;
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
       0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
