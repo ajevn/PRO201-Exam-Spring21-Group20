@@ -86,6 +86,6 @@ export default {
   background-color: white;
 }
 .side-bar {
-  width: auto;
+  width: 275px;
 }
 </style>
