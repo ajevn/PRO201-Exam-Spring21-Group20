@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import BaseSite from "@/components/Nav/BaseSite.vue";
-import HomeSelectButton from "@/components/Nav/HomeSelectButton";
+import BaseSite from "@/components/nav/BaseSite.vue";
+import HomeSelectButton from "@/components/nav/HomeSelectButton";
 export default {
   components: { HomeSelectButton },
   setup() {

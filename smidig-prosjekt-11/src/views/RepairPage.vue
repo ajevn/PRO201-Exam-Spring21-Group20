@@ -20,7 +20,7 @@ import RepairOverview from "@/components/repair/RepairOverview.vue";
 import RepairInfo from "@/components/repair/RepairInfo.vue";
 import ProgressBar from "@/components/feedback/ProgressBar.vue";
 import RedirectLogin from "@/components/login/RedirectLogin.vue";
-import NavBar from "@/components/Nav/navbar/NavBar";
+import NavBar from "@/components/nav/navbar/NavBar";
 
 export default {
   data() {

@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import BaseSite from "@/components/Nav/BaseSite.vue";
-import HomeSelectButton from "../components/Nav/HomeSelectButton.vue";
+import BaseSite from "@/components/nav/BaseSite.vue";
+import HomeSelectButton from "../components/nav/HomeSelectButton.vue";
 
 export default {
   name: "LogoutPage",

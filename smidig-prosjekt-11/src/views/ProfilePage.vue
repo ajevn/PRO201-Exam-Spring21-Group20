@@ -51,7 +51,7 @@
 
 <script>
 import RedirectLogin from "@/components/login/RedirectLogin.vue";
-import NavBar from "@/components/Nav/navbar/NavBar";
+import NavBar from "@/components/nav/navbar/NavBar";
 import { useField, useForm } from "vee-validate";
 import ModalChangePassword from "@/components/modals/ModalChangePassword";
 

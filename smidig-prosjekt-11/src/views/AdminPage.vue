@@ -20,7 +20,7 @@
 
 <script>
 // @ is an alias to /src
-import BaseSite from "@/components/Nav/BaseSite.vue";
+import BaseSite from "@/components/nav/BaseSite.vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import SideBarMenu from "@/components/admin_page/SideBarMenu";

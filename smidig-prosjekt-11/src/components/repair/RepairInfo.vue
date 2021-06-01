@@ -67,8 +67,8 @@ export default {
   created() {
     this.entities = this.$store.getters.getEntities;
   },
-  mounted(){
-    if(this.entities.length === 0){
+  mounted() {
+    if (this.entities.length === 0) {
       this.showRepair = true;
     }
   },
@@ -96,7 +96,7 @@ export default {
       this.showRepair = true;
       this.$store.commit("updateBtn", true);
       //alert(this.editSerial)
-      console.log(this.entities.length)
+      console.log(this.entities.length);
     },
     closeRepair() {
       // show new overlay
