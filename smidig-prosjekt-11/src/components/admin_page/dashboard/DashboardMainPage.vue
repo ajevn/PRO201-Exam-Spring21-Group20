@@ -39,12 +39,11 @@
         :cardTitle="'Most Repaired Monthly'"
         style="z-index: 1000"
       />
-
     </div>
-
   </div>
-  <description-text description-text="Map of camps and metric details"></description-text>
-
+  <description-text
+    description-text="Map of camps and metric details"
+  ></description-text>
 </template>
 
 <script>
@@ -57,10 +56,16 @@ import CountryBarChartComponent from "./single_components/CountryBarChartCompone
 import RepairPartBarChartComponent from "@/components/admin_page/dashboard/single_components/RepairedPartBarChartComponent";
 import { createMap } from "@/assets/js/map.js";
 import DescriptionText from "../DescriptionText";
+import { useRouter } from "vue-router";
 
 export default {
   name: "DashboardPage",
-  setup() {},
+  setup() {
+    const router = useRouter();
+    return {
+      router
+    };
+  },
   components: {
     DescriptionText,
     RepairPartBarChartComponent,
@@ -70,6 +75,9 @@ export default {
   methods: {
     showAlert() {
       alert("Klikka på stats");
+    },
+    childMapClick(param) {
+      this.$emit("childToParent", param);
     }
   },
   mounted() {
@@ -113,7 +121,18 @@ export default {
         totalRepairs: "0"
       }
     ];
-    createMap(23, 20, 2, true, campData, products);
+    createMap(
+      23,
+      20,
+      2,
+      true,
+      campData,
+      products,
+      null,
+      null,
+      null,
+      this.childMapClick
+    );
     /*this.$nextTick(function() {
       createMap(23, 20, 2);
     });*/

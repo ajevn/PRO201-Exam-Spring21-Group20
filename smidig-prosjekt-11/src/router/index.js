@@ -10,14 +10,12 @@ const routes = [
   {
     path: "/repair",
     name: "Repair",
-    component: () =>
-      import("../views/RepairPage.vue")
+    component: () => import("../views/RepairPage.vue")
   },
   {
     path: "/profile",
     name: "Profile",
-    component: () =>
-      import("../views/ProfilePage.vue")
+    component: () => import("../views/ProfilePage.vue")
   },
   {
     path: "/login",

@@ -1,19 +1,19 @@
 const state = {
-    active: true
+  active: true
 };
 
 const mutations = {
-    updateBtn(state, value){
-        state.active = value;
-    }
+  updateBtn(state, value) {
+    state.active = value;
+  }
 };
 
 const getters = {
-    getStatus: state => state.active
+  getStatus: state => state.active
 };
 
-export default{
-    state,
-    mutations,
-    getters
-}
+export default {
+  state,
+  mutations,
+  getters
+};

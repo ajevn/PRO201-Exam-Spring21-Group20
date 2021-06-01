@@ -4,13 +4,13 @@
       <div class="flex-items">
         <div
           class="section-item-styling"
-          :class="{ 'section-selected': selected === 'dashboard' }"
-          @click="selectSection('dashboard')"
+          :class="{ 'section-selected': selected === 'Dashboard' }"
+          @click="selectSection('Dashboard')"
         >
           <div>
             <p
               class="section-item-text"
-              :class="{ 'section-selected-text': selected === 'dashboard' }"
+              :class="{ 'section-selected-text': selected === 'Dashboard' }"
             >
               Dashboard
             </p>
@@ -28,13 +28,13 @@
       <div class="flex-items">
         <div
           class="section-item-styling"
-          :class="{ 'section-selected': selected === 'parts' }"
-          @click="selectSection('parts')"
+          :class="{ 'section-selected': selected === 'Parts' }"
+          @click="selectSection('Parts')"
         >
           <div>
             <p
               class="section-item-text"
-              :class="{ 'section-selected-text': selected === 'parts' }"
+              :class="{ 'section-selected-text': selected === 'Parts' }"
             >
               Parts Overview
             </p>
@@ -139,6 +139,9 @@ export default {
     };
   },
   components: { IconBase },
+  props: {
+    routeFromParent: String
+  },
   methods: {
     selectSection(event) {
       this.selected = event;
@@ -148,7 +151,7 @@ export default {
   data() {
     return {
       timestamp: "",
-      selected: "dashboard"
+      selected: this.routeFromParent
     };
   }
 };

@@ -4,12 +4,19 @@
       <div class="grid-layout">
         <side-bar-menu
           class="side-bar"
+          :routeFromParent="routedInParent"
           v-on:childToParent="recievedClickInChildSideMenu"
         />
         <div class="component-section-container">
-          <dashboard-page v-if="selectedSection === 'dashboard'" />
-          <product-data-page v-if="selectedSection === 'parts'" />
-          <camp-data-page v-if="selectedSection === 'Camps'" />
+          <dashboard-page
+            v-if="selectedSection === 'Dashboard'"
+            @childToParent="onDashboardMapClick"
+          />
+          <product-data-page v-if="selectedSection === 'Parts'" />
+          <camp-data-page
+            v-if="selectedSection === 'Camps'"
+            v-bind:routedCampName="routedCampName"
+          />
           <user-administration-page v-if="selectedSection === 'Users'" />
           <camp-administration-page v-if="selectedSection === 'CampsAdmin'" />
         </div>
@@ -61,15 +68,22 @@ export default {
     },
     recievedClickInChildSideMenu(event) {
       this.selectedSection = event;
+    },
+    onDashboardMapClick(param) {
+      this.routedInParent = "Camps";
+      this.selectedSection = "Camps";
+      this.campOverviewCampName = param;
     }
   },
   data() {
     return {
-      selectedSection: "dashboard",
+      selectedSection: "Dashboard",
+      routedInParent: "Dashboard",
       isAdmin: this.retrieveIsAdmin(),
       totalRep: "Total Repairs",
       totalUnitsRegistered: "Total Units Registered",
-      mostRepairedPartToday: "Most Repaired Part Today"
+      mostRepairedPartToday: "Most Repaired Part Today",
+      campNameToRoute: ""
     };
   }
 };

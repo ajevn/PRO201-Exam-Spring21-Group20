@@ -33,6 +33,10 @@ router.get("/test", async (req, res) => {
   const data = await getRepairsCountByMonth();
   res.status(200).json(data);
 });
+router.get("/test1", async (req, res) => {
+  const data = await report.find({});
+  res.status(200).json(data);
+});
 
 router.get("/testdb", async (req, res) => {
   const data = await getPartsCountArray();

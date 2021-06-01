@@ -39,9 +39,7 @@
   <div v-if="showSearchResults">
     <h3>
       Camp Data
-      {{
-        selectedCampIndex >= 0 ? " for " + campData[selectedCampIndex].id : ""
-      }}
+      {{ selectedCampName != "" ? " for " + selectedCampName : "" }}
     </h3>
   </div>
 
@@ -188,11 +186,11 @@ export default {
       }, 200);
     },
     showResult(product) {
-      console.log(product);
       for (let i = 0; i < this.products.length; i++) {
         console.log(product.campRepairs[i]);
         this.products[i].totalRepairs = product.campRepairs[i];
       }
+      this.selectedCampName = product.id;
       this.replaceMapWithResults();
     },
     replaceMapWithResults() {
@@ -203,8 +201,8 @@ export default {
       this.mapIsHidden = false;
       this.showSearchResults = false;
     },
-    setCampIndex(i) {
-      this.selectedCampIndex = i;
+    setSelectedCampName(name) {
+      this.selectedCampName = name;
     }
   },
   mounted() {
@@ -217,20 +215,30 @@ export default {
       this.products,
       this.updateData,
       this.replaceMapWithResults,
-      this.setCampIndex
+      this.setSelectedCampName,
+      null
     );
-    console.log(this.products[0].totalRepairs);
-    //this.test();
-    //this.$nextTick(function() {
-    //});
+    if (this.routedCampName) {
+      this.setSelectedCampName(this.routedCampName);
+      this.replaceMapWithResults();
+      for (let i = 0; i < this.products.length; i++) {
+        this.products[i].totalRepairs = i;
+      }
+      this.updateData();
+    }
   },
   data() {
     return {
       showSearchSuggestions: false,
       showSearchResults: false,
       mapIsHidden: false,
-      selectedCampIndex: -1
+      selectedCampName: ""
     };
+  },
+  props: {
+    routedCampName: {
+      type: String
+    }
   }
 };
 </script>
