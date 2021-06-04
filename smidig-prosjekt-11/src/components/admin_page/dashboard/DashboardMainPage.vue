@@ -3,44 +3,57 @@
     <div class="top-metrics-container-inner">
       <top-metric
         :name-of-data="'Total Repaired Units'"
-        data-to-display="333.123"
+        :data-to-display="data.length.toString()"
       />
     </div>
     <div class="top-metrics-container-inner">
       <top-metric
         :name-of-data="'Total Units Registered'"
-        data-to-display="1.000.000"
+        data-to-display="30.920"
       />
     </div>
     <div class="top-metrics-container-inner">
       <top-metric
         :name-of-data="'Most Repaired Part Today'"
-        data-to-display="PCB"
+        :data-to-display="getMostRepairedPartDaily()"
       />
     </div>
     <div class="top-metrics-container-inner">
       <top-metric
         :name-of-data="'Most Repaired Part Monthly'"
-        data-to-display="Battery"
+        :data-to-display="getMostRepairedPartMonthly()"
       />
     </div>
   </div>
 
   <div id="mapid" class="map-container">
     <div class="metric-chart-container">
+      <!-- Loading Icon -->
+      <div class="lds-ring" v-if="isMapLoading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
       <!--<repair-part-bar-chart-component style="z-index: 1000" />-->
       <country-bar-chart-component
+        v-show="isMapLoading === false"
         :cardTitle="'Repaired Units Total'"
-        :amount="350.204"
+        :amount="data.length.toString()"
+        :repairData="data"
         style="z-index: 1000"
       />
       <!--<repair-part-bar-chart-component style="z-index: 1000" />-->
       <repair-part-bar-chart-component
+        v-show="isMapLoading === false"
         :cardTitle="'Most Repaired Monthly'"
+        :repairData="data"
         style="z-index: 1000"
       />
     </div>
   </div>
+
   <description-text
     description-text="Map of camps and metric details"
   ></description-text>
@@ -57,13 +70,64 @@ import RepairPartBarChartComponent from "@/components/admin_page/dashboard/singl
 import { createMap } from "@/assets/js/map.js";
 import DescriptionText from "../DescriptionText";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { /*getCurrentInstance,*/ onMounted, ref } from "vue";
 
 export default {
   name: "DashboardPage",
-  setup() {
+  emits: ["childToParent"],
+  setup(_, { emit }) {
     const router = useRouter();
+    const store = useStore();
+    const retrievedData = [];
+    //const { ctx: _this } = getCurrentInstance();
+    const campData = ref([]);
+    const products = [
+      {
+        partNumber: "1",
+        partName: "Lamp",
+        imgName: "ic-part-lamp",
+        totalRepairs: "0"
+      }
+    ];
+
+    const isMapLoading = ref(true);
+    onMounted(async () => {
+      await store.dispatch("fetchAllRepairs");
+      await store.dispatch("fetchMonthlyRepairs");
+      await store.dispatch("fetchDailyRepairs");
+      await store.dispatch("fetchCampData");
+      campData.value = await store.getters.getCampData;
+      isMapLoading.value = false;
+
+      createMap(
+        23,
+        20,
+        2,
+        true,
+        campData.value,
+        products,
+        null,
+        null,
+        null,
+        childMapClick
+      );
+
+      function childMapClick(param) {
+        emit("childToParent", param);
+      }
+    });
+
     return {
-      router
+      router,
+      store,
+      retrievedData,
+      isMapLoading
+    };
+  },
+  data() {
+    return {
+      data: this.store.getters.getAllRepairs
     };
   },
   components: {
@@ -73,72 +137,25 @@ export default {
     TopMetric
   },
   methods: {
+    getMostRepairedPartMonthly() {
+      const mostRepairedMonthly = this.store.getters.getMostRepairedPartMonthly;
+      if (mostRepairedMonthly.length > 0) {
+        return mostRepairedMonthly;
+      } else {
+        return "N/A";
+      }
+    },
+    getMostRepairedPartDaily() {
+      const mostRepairedDaily = this.store.getters.getMostRepairedPartDaily;
+      if (mostRepairedDaily.length > 0) {
+        return mostRepairedDaily;
+      } else {
+        return "N/A";
+      }
+    },
     showAlert() {
       alert("Klikka på stats");
-    },
-    childMapClick(param) {
-      this.$emit("childToParent", param);
     }
-  },
-  mounted() {
-    const campData = [
-      {
-        id: "Hagadera Refugee Camp",
-        location: "Kenya",
-        geoloc: [40.5230712890625, 0.17028783523693297],
-        campRepairs: [12, 40, 53, 0, 210, 32, 5, 21, 12, 0, 54, 23]
-      },
-      {
-        id: "Kakuma Refugee Camp",
-        location: "Kenya",
-        geoloc: [34.80743408203125, 3.760115447396889],
-        campRepairs: [21, 5, 3, 243, 2, 42, 35, 41, 32, 14, 65, 15]
-      },
-      {
-        id: "Katumba Refugee Camp",
-        location: "Tanzania",
-        geoloc: [31.02813720703125, -6.287998672327658],
-        campRepairs: [13, 0, 35, 2223, 2, 442, 345, 41, 32, 14, 0, 12]
-      },
-      {
-        id: "Pugnido Refugee Camp",
-        location: "Ethiopia",
-        geoloc: [34.00543212890625, 7.681051391626661],
-        campRepairs: [40, 344, 35, 23, 2, 242, 34, 41, 32, 14, 65, 0]
-      },
-      {
-        id: "Yida Refugee Camp",
-        location: "South Sudan",
-        geoloc: [30.047607421875, 10.244654445228324],
-        campRepairs: [6, 14, 325, 11, 22, 42, 12, 4, 32, 14, 3, 82]
-      }
-    ];
-    const products = [
-      {
-        partNumber: "1",
-        partName: "Lamp",
-        imgName: "ic-part-lamp",
-        totalRepairs: "0"
-      }
-    ];
-    createMap(
-      23,
-      20,
-      2,
-      true,
-      campData,
-      products,
-      null,
-      null,
-      null,
-      this.childMapClick
-    );
-    /*this.$nextTick(function() {
-      createMap(23, 20, 2);
-    });*/
-  },
-  data() {
-    return {};
   }
 };
 </script>
@@ -169,10 +186,59 @@ export default {
   padding-left: 20px;
 }
 
-.top-metrics-container {
+.top-metrics-container-inner {
   width: 1fr;
   height: 200px;
   padding: 30px;
   text-align: center;
+}
+
+/* Loading Icon */
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  left: 36vw;
+  top: 25vh;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #abcd transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

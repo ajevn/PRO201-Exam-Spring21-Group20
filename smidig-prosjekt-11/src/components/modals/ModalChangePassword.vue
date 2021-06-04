@@ -83,6 +83,8 @@ export default {
   display: flex;
   flex-direction: column;
   border-radius: 0.5rem;
+  position: relative;
+  top: 250px;
 }
 
 .modal-header {

@@ -26,7 +26,7 @@ export function createMap(
   const layersPath = require("../images/layers.png");
   const geojsonPath = require("../data/custom.geo.json");
 
-  var map = L.map("mapid", {
+  const map = L.map("mapid", {
     center: [centerX, centerY],
     zoom: zoomLevel,
     zoomControl: showZoomControl,
@@ -34,7 +34,6 @@ export function createMap(
   });
 
   map.zoomControl.setPosition("topright");
-
   // GeoJson styling
   const geojsonStyle = {
     color: "#123123",
@@ -48,35 +47,35 @@ export function createMap(
     style: geojsonStyle
   }).addTo(map);
 
-  var markers = L.markerClusterGroup();
+  const markers = L.markerClusterGroup();
 
-  for (let i = 0; i < campData.length; i++) {
-    var campLabelIcon = L.divIcon({
+  for (const item of campData) {
+    const campLabelIcon = L.divIcon({
       className: "camp-label",
       html: `<div>
         <img src="
         ${layersPath}
         " />
         <p>
-        ${campData[i].id}
+        ${item.id}
         </p>
         <div>
-        ${campData[i].location}
+        ${item.location}
         </div>
         </div>`
     });
 
-    var m = new L.marker(campData[i].geoloc, { icon: campLabelIcon });
+    const m = new L.marker(item.geoloc, { icon: campLabelIcon });
 
     // Create click listener for Camp Overview map
     if (updateData) {
       m.addEventListener("click", function() {
-        //console.log("clicked on camp " + campData[i].id);
         for (let j = 0; j < products.length; j++) {
-          products[j].totalRepairs = j;
+          products[j].totalRepairs = item.campRepairs[j];
         }
+
         updateData();
-        setSelectedCampName(campData[i].id);
+        setSelectedCampName(item.id);
         replaceMapWithResults();
         map.setView([23, 20], 2);
       });
@@ -85,7 +84,7 @@ export function createMap(
     // Create click listener for Dashboard map
     else {
       m.addEventListener("click", function() {
-        childMapClick(campData[i].id);
+        childMapClick(item.id);
       });
     }
 

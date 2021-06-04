@@ -39,7 +39,7 @@ const routes = [
   },
   {
     path: "/notimplemented",
-    name: "Not implemented",
+    name: "NotImplemented",
     component: () => import("../views/NotImplementedPage.vue")
   }
 ];
@@ -47,6 +47,24 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+});
+
+// UNCOMMENT TO ENFORCE NAVIGATION GUARDS:
+
+import store from "../store";
+
+router.beforeEach((to, from, next) => {
+  const userData = store.getters.getUserData;
+  console.log(userData);
+  if (to.path !== "/login" && !userData) {
+    next("/login");
+  } else if (to.path === "/login" && userData) {
+    next(false);
+  } else if (to.path === "/admin" && !userData.admin) {
+    next("/");
+  } else {
+    next();
+  }
 });
 
 export default router;

@@ -1,7 +1,14 @@
 <template>
   <div class="container">
     <h1>Add new User</h1>
-    <form @submit="onSubmit">
+    <form
+      @submit="
+        () => {
+          onSubmit();
+          showToast();
+        }
+      "
+    >
       <div class="wrapper">
         <div class="input">
           <label>Username: </label>
@@ -50,6 +57,7 @@
             Submit
           </button>
         </div>
+        <!-- <div class="form-message" v-if="formMessageExists">{{ formMessage }}</div> -->
       </div>
     </form>
   </div>
@@ -57,19 +65,35 @@
 
 <script>
 import { useField, useForm } from "vee-validate";
+import { useStore } from "vuex";
 
 export default {
   name: "UserAdministrationPage",
   data() {
     return {
       camps: []
+      // formMessage: ""
     };
   },
+  methods: {
+    showToast: function() {
+      this.$toast.success(`User created`, {
+        position: "bottom"
+      });
+    }
+  },
+  // computed: {
+  //   formMessageExists() {
+  //     return this.formMessage !== "";
+  //   }
+  // },
   async created() {
     const response = await fetch("http://localhost:3000/api/camp");
     this.camps = await response.json();
   },
   setup() {
+    const store = useStore();
+
     const schema = {
       username(value) {
         return value && value.length >= 6
@@ -87,16 +111,39 @@ export default {
           : "Password needs to match password";
       }
     };
+
     const { handleSubmit, isSubmitting } = useForm({
       validationSchema: schema
     });
 
     const onSubmit = handleSubmit((values, { resetForm }) => {
-      console.log(values); // send data to API
+      delete values.confirmPassword;
 
-      // reset the form and the field values to their initial values
-      resetForm();
+      store
+        .dispatch("createUser", values)
+        .then(() => {
+          // reset the form and the field values to their initial values
+          resetForm();
+          //this.formMessage = "New user created";
+
+          // Success message display
+        })
+        .catch(error => {
+          console.error("errorcatch", error);
+          resetForm();
+          switch (error.response.status) {
+            case 400:
+              //this.formMessage = 'Invalid username/password';
+              break;
+            case 409:
+              //this.formMessage = 'Username already exists';
+              break;
+            case 500:
+            //this.formMessage = 'Internal server error';
+          }
+        });
     });
+
     const { errorMessage: usernameError, value: username } = useField(
       "username"
     );
@@ -117,8 +164,8 @@ export default {
       passwordError,
       confirmPassword,
       CPError,
-      isSubmitting,
       onSubmit,
+      isSubmitting,
       campName,
       admin
     };
@@ -136,6 +183,12 @@ export default {
   max-width: 100%;
   height: 100%;
 
+  .form-message {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+  }
+
   @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
   h1 {
     margin-top: 7vh;
@@ -151,7 +204,7 @@ export default {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 40vw;
+    width: auto;
     border-radius: 5px;
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
       0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),

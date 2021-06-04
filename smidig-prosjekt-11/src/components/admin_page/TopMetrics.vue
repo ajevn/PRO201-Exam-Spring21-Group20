@@ -19,7 +19,7 @@ export default {
   components: {},
   props: {
     nameOfData: String,
-    dataToDisplay: String,
+    dataToDisplay: [Number, String],
     metricIconSrc: String,
     partNumber: String,
     displayImage: {

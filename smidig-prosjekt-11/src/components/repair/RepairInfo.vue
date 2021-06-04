@@ -95,8 +95,6 @@ export default {
       // show new overlay
       this.showRepair = true;
       this.$store.commit("updateBtn", true);
-      //alert(this.editSerial)
-      console.log(this.entities.length);
     },
     closeRepair() {
       // show new overlay

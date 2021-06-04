@@ -40,7 +40,7 @@
     </modal-no-serial-number-message>
     <!-- PARTS-DIV -->
     <div class="part-container">
-      <h1 @click="logStatement()">Parts</h1>
+      <h1>Parts</h1>
       <div id="parts-cont-no-change" class="part-grid">
         <div
           class="part-grid-entity"
@@ -74,7 +74,7 @@
       <icon-base
         class="submit-ic"
         iconName="checkmark"
-        iconColor="#7EB46B"
+        iconColor="#6A975A"
         icon-hover-color="#006400"
         @click="submitPartsSelected"
         iconWidth="100%"
@@ -165,9 +165,6 @@ export default {
     };
   },
   methods: {
-    logStatement() {
-      console.log(this.productImages[0].partName);
-    },
     selectPart(product) {
       product.isChecked = !product.isChecked; // Flips the boolean value, true->false, false->true
     },
@@ -372,8 +369,8 @@ export default {
   }
 
   .submit-container-ic {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     position: absolute;
     right: 20px;
     bottom: 10px;
@@ -384,16 +381,16 @@ export default {
   }
 
   .close-container-ic {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     position: absolute;
     right: 10px;
     top: 10px;
 
     .close-repair-ic {
       cursor: pointer;
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
     }
   }
 }

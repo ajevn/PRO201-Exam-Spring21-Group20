@@ -1,22 +1,18 @@
 <template>
   <div id="button-div">
-    <!-- <router-link
-      v-if="isAdmin === true"
-      tag="button"
-      to="/admin"
-      type="button"
-      class="font-standardText button home-learn-ico-src home-ico-style"
-    >
-    <icon-base iconName="home" iconColor="#2c2a29"></icon-base>
-      <h4>Admin</h4>
-    </router-link> -->
-
     <home-select-button
       v-for="(val, index) in buttonValues"
       :key="index"
       :iconName="val.icon"
       :buttonTitle="val.title"
       :routerLinkDest="val.destination"
+    />
+
+    <home-select-button
+      v-if="isAdmin"
+      iconName="equalizer"
+      buttonTitle="Admin"
+      routerLinkDest="admin"
     />
 
     <modal-error-message v-if="showModal === true" @close="showModal = false">
@@ -48,19 +44,13 @@ export default {
       showModal
     };
   },
-  methods: {
-    retrieveIsAdmin() {
-      const result = useStore().getters.getIsAdmin;
-      if (result === false) {
-        this.router.push({ name: "Home" });
-      } else {
-        return true;
-      }
+  computed: {
+    isAdmin() {
+      return useStore().getters.getUserData.admin;
     }
   },
   data() {
     return {
-      isAdmin: this.retrieveIsAdmin(),
       buttonValues: [
         {
           icon: "wrench",
@@ -71,11 +61,6 @@ export default {
           icon: "education",
           title: "E-Learning",
           destination: "notimplemented"
-        },
-        {
-          icon: "equalizer",
-          title: "Admin",
-          destination: "admin"
         }
       ]
     };

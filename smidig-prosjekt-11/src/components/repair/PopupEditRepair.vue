@@ -54,7 +54,7 @@
       <icon-base
         class="submit-ic"
         iconName="checkmark"
-        iconColor="#7EB46B"
+        iconColor="#6A975A"
         icon-hover-color="#006400"
         @click="submitPartsSelected"
         iconWidth="100%"
@@ -305,8 +305,8 @@ export default {
   }
 
   .submit-container-ic {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     position: absolute;
     right: 20px;
     bottom: 10px;
@@ -317,16 +317,16 @@ export default {
   }
 
   .close-container-ic {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     position: absolute;
     right: 10px;
     top: 10px;
 
     .close-repair-ic {
       cursor: pointer;
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
     }
   }
 }

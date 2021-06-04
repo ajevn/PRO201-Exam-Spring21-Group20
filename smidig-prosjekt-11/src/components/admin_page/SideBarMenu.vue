@@ -140,7 +140,15 @@ export default {
   },
   components: { IconBase },
   props: {
-    routeFromParent: String
+    routeFromParent: String,
+    selectedSection: String
+  },
+  watch: {
+    // Selects "Camp Overview" when a camp is clicked from DashboardMainPage
+    selectedSection(newValue) {
+      //, oldValue) {
+      this.selected = newValue;
+    }
   },
   methods: {
     selectSection(event) {

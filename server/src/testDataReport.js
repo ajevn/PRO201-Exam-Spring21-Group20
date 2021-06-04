@@ -1,14 +1,8 @@
-const productName = `SunBell`;
+const productName = `Sunbell`;
 
 //Camp name
 
-const campName = [
-  "Yida Refugee Camp",
-  "Pugnido Refugee Camp",
-  "Katumba Refugee Camp",
-  "Kakuma Refugee Camp",
-  "Hagadera Refugee Camp",
-];
+const campName = ["Yida", "Pugnido", "Katumba", "Kakuma", "Hagadera"];
 //Partname
 
 const partsList = [
@@ -45,20 +39,26 @@ const partsList = [
     partName: "Solar panel",
   },
 ];
+function randomDate() {
+  const date = new Date();
+  date.setMonth(Math.floor(Math.random() * 5));
+  return date;
+}
 
 const fn = () => {
   const body = [];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 80; i++) {
     const parts = [];
     const randomNumber = Math.floor(Math.random() * 4) + 1;
     for (let j = 0; j < randomNumber; j++) {
       parts.push(partsList[Math.floor(Math.random() * partsList.length)]);
     }
+    const date = randomDate();
     let report = {
       serialNumber: "j" + Math.floor(Math.random() * 1000).toString(),
       productName,
       campName: campName[Math.floor(Math.random() * campName.length)],
-      createdAt: new Date(),
+      createdAt: date,
       parts,
     };
     body.push(report);

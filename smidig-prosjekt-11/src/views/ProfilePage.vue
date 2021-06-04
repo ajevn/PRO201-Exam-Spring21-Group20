@@ -1,14 +1,28 @@
 <template>
-  <div class="repair" v-if="user">
+  <div class="repair">
     <div>
       <nav-bar />
     </div>
     <div class="container">
-      <form @submit="submitClicked">
+      <form @submit.prevent="modalShow">
         <div class="wrapper">
           <div class="input" id="username-wrapper">
-            <label>Username: </label>
-            <p class="username-text">Testuser</p>
+            <label>User: </label>
+            <p class="value-text">{{ user.username }}</p>
+          </div>
+          <div class="input" id="location-wrapper">
+            <label>Location: </label>
+            <p class="value-text">{{ user.campName }}</p>
+          </div>
+          <div class="input">
+            <label>Old Password: </label>
+            <input
+              v-model="oldPassword"
+              type="password"
+              placeholder="Enter Old Password"
+              required
+            />
+            <span>{{ oldPasswordError }} <br /></span>
           </div>
           <div class="input">
             <label>New Password: </label>
@@ -40,49 +54,40 @@
     </div>
     <modal-change-password
       v-if="showModal === true"
-      @close="closeModal"
+      @close="modalHide"
       @commit="onSubmit"
     >
       <template v-slot:body>Confirm password change?</template>
     </modal-change-password>
   </div>
-  <redirect-login v-else />
 </template>
 
 <script>
-import RedirectLogin from "@/components/login/RedirectLogin.vue";
 import NavBar from "@/components/nav/navbar/NavBar";
 import { useField, useForm } from "vee-validate";
 import ModalChangePassword from "@/components/modals/ModalChangePassword";
+import { useStore } from "vuex";
+import { getCurrentInstance, ref } from "vue";
+import axios from "axios";
 
 export default {
-  data() {
-    return {
-      user: this.$store.getters.getUserId,
-      ListOfRepairs: [],
-      showModal: false
-    };
-  },
-  async created() {
-    //const response = await fetch("http://localhost:3000/api/camp");
-    //this.username = await response.json();
-  },
   name: "Repair",
   components: {
     ModalChangePassword,
-    NavBar,
-    RedirectLogin
-  },
-  methods: {
-    submitClicked: function() {
-      this.showModal = true;
-      //this.onSubmit(event);
-    },
-    closeModal: function() {
-      this.showModal = false;
-    }
+    NavBar
   },
   setup() {
+    const store = useStore();
+    const { ctx: _this } = getCurrentInstance();
+    const user = store.getters.getUserData;
+    const showModal = ref(false);
+    const { handleSubmit, isSubmitting } = useForm({
+      validationSchema: schema
+    });
+
+    const ud = JSON.parse(window.sessionStorage.getItem("user-data"));
+    console.log(ud);
+
     const schema = {
       password(value) {
         return value && value.length >= 6
@@ -90,23 +95,11 @@ export default {
           : "Password needs to be 6 or longer";
       },
       confirmPassword(value) {
-        return value === password.value
-          ? true
-          : "Password needs to match password";
+        return value === password.value ? true : "Password must match";
       }
     };
-    const { handleSubmit, isSubmitting } = useForm({
-      validationSchema: schema
-    });
-
-    const onSubmit = handleSubmit((values, { resetForm }) => {
-      console.log(values); // send data to API
-
-      // reset the form and the field values to their initial values
-      resetForm();
-    });
-    const { errorMessage: usernameError, value: username } = useField(
-      "username"
+    const { errorMessage: oldPasswordError, value: oldPassword } = useField(
+      "oldPassword"
     );
     const { errorMessage: passwordError, value: password } = useField(
       "password"
@@ -115,9 +108,34 @@ export default {
       "confirmPassword"
     );
 
+    const modalShow = () => (showModal.value = true);
+    const modalHide = () => (showModal.value = false);
+    const showToast = () =>
+      _this.$toast.success(`Password changed`, {
+        position: "bottom"
+      });
+    const onSubmit = handleSubmit((values, { resetForm }) => {
+      modalHide();
+      try {
+        axios.patch(
+          "http://localhost:3000/api/edit",
+          { ...values, confirmPassword: undefined },
+          { withCredentials: true }
+        );
+        resetForm();
+        showToast();
+      } catch (e) {
+        console.error(e);
+      }
+    });
+
     return {
-      username,
-      usernameError,
+      modalShow,
+      modalHide,
+      showModal,
+      user,
+      oldPasswordError,
+      oldPassword,
       password,
       passwordError,
       confirmPassword,
@@ -132,9 +150,11 @@ export default {
 #repair-gradient {
   background: linear-gradient(160deg, #fbf6ed 0%, #cdcbcbff 100%);
 }
+
 #username-wrapper {
-  padding-bottom: 40px;
+  // padding-bottom: 40px;
 }
+
 .container {
   margin-top: 60px;
   display: flex;
@@ -158,10 +178,11 @@ export default {
       0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
       0 100px 80px rgba(0, 0, 0, 0.07), -2px -3px #899599;
 
-    .username-text {
+    .value-text {
       color: white;
       font-size: 1.5em;
     }
+
     .input {
       margin-bottom: 1vh;
       width: 400px;
@@ -211,6 +232,10 @@ export default {
       input {
         margin-left: 10px;
       }
+    }
+
+    #location-wrapper {
+      margin-bottom: 30px;
     }
 
     #submit-btn {

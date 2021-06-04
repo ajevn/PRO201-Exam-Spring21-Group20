@@ -1,12 +1,17 @@
 <template>
   <div class="container">
     <h1>Add new Camp</h1>
-    <form>
+    <form
+      @submit.prevent="
+        submit();
+        showToast();
+      "
+    >
       <div class="wrapper">
         <div class="input">
           <label>Camp name: </label>
           <input
-            v-model="id"
+            v-model="name"
             type="text"
             placeholder="Enter Camp name"
             required
@@ -15,7 +20,7 @@
         <div class="input">
           <label>Country: </label>
           <input
-            v-model="location"
+            v-model="Country"
             type="text"
             placeholder="Enter Country"
             required
@@ -24,14 +29,23 @@
         <div class="input">
           <label>Coordinates: </label>
           <input
-            v-model="geoloc"
+            v-model="geo"
             type="text"
             placeholder="Enter Coordinates"
             required
           />
-          <span><i>Input Coordinate Format: &emsp; 0.00,0.00</i><br><a href="http://geojson.io/">Map Tool Link</a></span>
+          <span>
+            <i
+              >Input Coordinate Format: &emsp; 0.00,0.00 (latitude,
+              longitude)</i
+            ><br />
+            <a href="http://geojson.io/">Map Tool Link</a>
+          </span>
+          <span v-if="error !== null">
+            <i>{{ error }}</i>
+          </span>
         </div>
-        <div class="input">
+        <!--<div class="input">
           <label>Sunbells: </label>
           <input
             v-model="campAmount"
@@ -39,7 +53,7 @@
             placeholder="Enter number of Sunbells"
             required
           />
-        </div>
+        </div> -->
         <div>
           <button id="submit-btn" type="submit">
             Submit
@@ -51,8 +65,53 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import { post } from "axios";
+
 export default {
-  name: "CampAdministrationPage"
+  name: "CampAdministrationPage",
+  methods: {
+    showToast: function() {
+      this.$toast.success(`Camp created`, {
+        position: "bottom"
+      });
+    }
+  },
+  setup() {
+    const name = ref("");
+    const Country = ref("");
+    const geo = ref("");
+    const error = ref(null);
+
+    const submit = async () => {
+      const location = geo.value.split(",");
+      error.value = null;
+      try {
+        await post(
+          "http://localhost:3000/api/camp",
+          {
+            name: name.value,
+            Country: Country.value,
+            coordinates: [parseFloat(location[0]), parseFloat(location[1])]
+          },
+          { withCredentials: true }
+        );
+        name.value = "";
+        Country.value = "";
+        geo.value = "";
+      } catch (e) {
+        error.value = "something went wrong";
+      }
+    };
+
+    return {
+      name,
+      Country,
+      geo,
+      submit,
+      error
+    };
+  }
 };
 </script>
 
@@ -61,10 +120,12 @@ a {
   color: #4aae9b;
   text-decoration: underline;
 }
+
 a:hover {
   color: lightblue;
   text-decoration: underline;
 }
+
 .container {
   display: flex;
   justify-content: start;
@@ -75,6 +136,7 @@ a:hover {
   height: 100%;
 
   @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
   h1 {
     margin-top: 7vh;
     font-size: 1.5em;
@@ -85,6 +147,7 @@ a:hover {
   }
 
   @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
   .section-item-text {
     font-size: 0.7em;
     text-align: center;
@@ -143,6 +206,7 @@ a:hover {
         margin: 10px 0;
       }
     }
+
     #submit-btn {
       margin-top: 50px;
       background-color: #ececec;

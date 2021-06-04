@@ -1,8 +1,13 @@
 <template>
   <!-- main page to login -->
   <div id="login-container">
+    <div v-if="messageExists" class="login-error-container">
+      {{ formMessage }}
+    </div>
     <!-- from to post -->
-    <form @submit.prevent="post">
+    <form
+      @submit.prevent="emitLogin({ username: username, password: password })"
+    >
       <div>
         <!-- username input -->
         <label for="username">Username</label>
@@ -27,7 +32,6 @@
           required
         />
       </div>
-
       <div>
         <!-- submit button -->
         <input id="login-submit" type="submit" value="Log in" />
@@ -36,38 +40,36 @@
   </div>
 </template>
 <script>
-import { ref, computed } from "vue";
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
 export default {
-  //composition API
-  setup() {
-    const store = useStore();
-    const router = useRouter();
-    const username = ref("");
-    const password = ref("");
-
-    //computed property from store
-    const user = computed(() => {
-      return store.getters.getUserId;
-    });
-    //is called on form submit
-    function post() {
-      login(username.value);
-      router.push({ name: "Home" });
-    }
-    // validate and send data to backend
-    function login(userId) {
-      //TODO submit to database and validate data
-      store.commit("login", userId);
-    }
-
+  data() {
     return {
-      username,
-      password,
-      post,
-      user
+      username: "",
+      password: ""
     };
+  },
+  emits: ["submitLogin"],
+  methods: {
+    emitLogin(loginValues) {
+      this.$emit("submitLogin", loginValues);
+    },
+    removePassword() {
+      this.password = "";
+    },
+    removeValues() {
+      this.password = "";
+      this.username = "";
+    }
+  },
+  props: {
+    formMessage: {
+      type: String,
+      defualt: ""
+    }
+  },
+  computed: {
+    messageExists() {
+      return this.formMessage !== "";
+    }
   }
 };
 </script>
@@ -134,6 +136,14 @@ export default {
       box-shadow: inset 2px 2px 2px #899599;
       background-color: #6d6d6d;
     }
+  }
+
+  .login-error-container {
+    color: rgb(165, 1, 1);
+    margin-bottom: 15px;
+    margin-top: 0px;
+    font-weight: 700;
+    text-align: center;
   }
 }
 

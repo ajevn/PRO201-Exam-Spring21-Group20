@@ -1,6 +1,8 @@
 <template>
   <div id="approved-report-container">
-    <h1>ENTRY SUCCESSFUL</h1>
+    <h1 v-if="success === true">ENTRY SUCCESSFUL</h1>
+    <h1 v-else-if="success === null">LOADING</h1>
+    <h1 v-else>ENTRY Fail</h1>
     <img
       src="@/assets/images/icons/report-success-icon.png"
       alt="Report succesfully sent"
@@ -9,18 +11,18 @@
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { useStore } from "vuex";
 
 export default {
   name: "Home",
   setup() {
     const store = useStore();
-
+    let success = ref(null);
     onMounted(async () => {
-      store.commit("deleteAllEntity", "");
+      success.value = await store.dispatch("postRepairs");
     });
-    return {};
+    return { success };
   }
 };
 </script>

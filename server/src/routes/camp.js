@@ -8,8 +8,7 @@ const camp = db.get("camp");
 
 const schema = Joi.object({
   name: Joi.string().required(),
-  type: Joi.string().alphanum().required(),
-  land: Joi.string().required(),
+  Country: Joi.string().required(),
   coordinates: Joi.array().items(Joi.number()).length(2).required(),
 });
 
@@ -20,23 +19,25 @@ router.get("/", async (req, res) => {
     await camp.insert([
       {
         name: "Pugnido",
-        type: "Point",
-        coordinates: [34.00543212890625, 7.681051391626661],
+        Country: "ethiopia",
+
+        coordinates: [7.681051391626661, 34.00543212890625],
       },
       {
         name: "Katumba",
-        type: "Point",
-        coordinates: [31.02813720703125, -6.287998672327658],
+        Country: "Tanzania",
+
+        coordinates: [-6.287998672327658, 31.02813720703125],
       },
       {
         name: "Hagadera",
-        type: "Point",
-        coordinates: [40.5230712890625, 0.17028783523693297],
+        Country: "Kenya",
+        coordinates: [0.17028783523693297, 40.5230712890625],
       },
       {
         name: "Yida",
-        type: "Point",
-        coordinates: [30.047607421875, 10.244654445228324],
+        Country: "South Sudan",
+        coordinates: [10.244654445228324, 30.047607421875],
       },
     ]);
     camps = await camp.find({});
@@ -57,7 +58,6 @@ router.post("/", async (req, res) => {
   /*
   {
 	  "name":"oslo",
-	  "type":"asdf",
 	  "land":"Norway",
 	  "coordinates":[
 		  1.222333,

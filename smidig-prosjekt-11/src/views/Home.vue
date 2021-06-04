@@ -14,22 +14,24 @@
 </template>
 
 <script>
-import BaseSite from "../components/nav/BaseSite.vue";
-import HomeSelect from "../components/nav/HomeSelect.vue";
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+import BaseSite from "@/components/nav/BaseSite.vue";
+import HomeSelect from "@/components/nav/HomeSelect.vue";
+// import { useStore } from "vuex";
 
 export default {
   data() {
     return {};
   },
-  name: "Home",
-  setup() {
-    const store = useStore();
-    const router = useRouter();
+  // setup() {
+  //   const store = useStore();
 
-    if (store.getters.getUserId == null) router.push({ name: "LoginPage" });
-  },
+  //   store.commit("authSuccess", {
+  //     username: "static_user",
+  //     campName: "Oslo",
+  //     isAdmin: true
+  //   });
+  // },
+  name: "Home",
   components: {
     BaseSite,
     HomeSelect

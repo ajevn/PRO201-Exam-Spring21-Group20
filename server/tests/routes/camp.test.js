@@ -51,7 +51,7 @@ describe("test camp endpoint", () => {
       .post("/api/camp")
       .send({
         name: "oslo",
-        type: "something",
+        Country: "Norway",
         coordinates: [1.222333, 13.12312],
       })
       .set("Content-Type", "application/json");
@@ -65,7 +65,7 @@ describe("test camp endpoint", () => {
       .post("/api/camp")
       .send({
         name: "oslo1",
-        type: "something",
+        Country: "Norway",
         coordinates: [1.222333, 13.12312],
       })
       .set("Content-Type", "application/json");
@@ -75,7 +75,7 @@ describe("test camp endpoint", () => {
       .post("/api/camp")
       .send({
         name: "oslo1",
-        type: "something",
+        Country: "Norway",
         coordinates: [1.222333, 13.12312],
       })
       .set("Content-Type", "application/json");

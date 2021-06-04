@@ -1,3 +1,5 @@
+import { post } from "axios";
+
 const state = {
   entityArray: []
 };
@@ -9,9 +11,7 @@ const mutations = {
   deleteEntity(state, payload) {
     //Deletes entity based on entity position in entityArray
     const entityArray = state.entityArray;
-    let indexPos = entityArray.findIndex(
-      entity => entity.id === payload
-    );
+    let indexPos = entityArray.findIndex(entity => entity.id === payload);
     state.entityArray.splice(indexPos, 1);
   },
   deleteAllEntity(state) {
@@ -47,8 +47,36 @@ const getters = {
   }
 };
 
+const actions = {
+  postRepairs: async function({ commit, state }) {
+    try {
+      const res = await post(
+        "http://localhost:3000/api/report",
+        [...state.entityArray].map(e => {
+          return {
+            serialNumber:
+              e.entitySerialNr.length > 0 ? e.entitySerialNr : "noSerial",
+            parts: e.parts.map(x => {
+              return { ...x, isChecked: undefined, imgName: undefined };
+            }),
+            productName: "Sunbell"
+          };
+        }),
+        {
+          withCredentials: true
+        }
+      );
+      if (res.status === 200) commit("deleteAllEntity");
+      return res.status === 200;
+    } catch (e) {
+      return false;
+    }
+  }
+};
+
 export default {
   state,
   mutations,
+  actions,
   getters
 };

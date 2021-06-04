@@ -1,13 +1,12 @@
 <template>
   <div class="parts-data-container">
-    <h3>Part Statistics</h3>
-
+    <h3>Repaired Parts Statistics</h3>
     <div class="country-list-flex-container">
       <div class="pie-chart-countries">
         <vue3-chart-js ref="chartRef" v-bind="{ ...barChart }"></vue3-chart-js>
       </div>
       <description-text
-        description-text="Previous 12 Month Data History"
+        description-text="Items repaired this year"
       ></description-text>
     </div>
 
@@ -20,6 +19,8 @@
         <TopMetrics
           :name-of-data="allParts.name"
           :data-to-display="getSumAllParts()"
+          :metric-icon-src="allParts.imgName"
+          :display-image="true"
         />
       </div>
 
@@ -34,7 +35,7 @@
           :name-of-data="product.partName"
           :data-to-display="sumPartsOfType(product.partNumber)"
           :metric-icon-src="product.imgName"
-          display-image="{{true}}"
+          :display-image="true"
         />
       </div>
     </div>
@@ -47,87 +48,113 @@
 <script>
 import Vue3ChartJs from "@j-t-mcc/vue3-chartjs";
 import TopMetrics from "@/components/admin_page/TopMetrics";
-import { ref } from "vue";
+import { onMounted, ref, watchEffect } from "vue";
 import DescriptionText from "./DescriptionText";
+import { useStore } from "vuex";
 
 export default {
   name: "ProductDataPage",
   setup() {
     const chartRef = ref(null);
-
-    const dataBank = [
+    const store = useStore();
+    const data = ref(null);
+    const allParts = ref({
+      name: "All parts",
+      imgName: "sunbell",
+      isChecked: true
+    });
+    const productImages = ref([
+      {
+        partNumber: "1",
+        partName: "Lamp",
+        imgName: "ic-part-lamp",
+        isChecked: false
+      },
+      {
+        partNumber: "2",
+        partName: "12V charger",
+        imgName: "ic-part-adapter-charger",
+        isChecked: false
+      },
+      {
+        partNumber: "3",
+        partName: "Battery",
+        imgName: "ic-part-battery",
+        isChecked: false
+      },
+      {
+        partNumber: "4",
+        partName: "Power button",
+        imgName: "ic-part-button",
+        isChecked: false
+      },
+      {
+        partNumber: "5",
+        partName: "Light bulb",
+        imgName: "ic-part-lightbulb",
+        isChecked: false
+      },
+      {
+        partNumber: "6",
+        partName: "Screen",
+        imgName: "ic-part-screen",
+        isChecked: false
+      },
+      {
+        partNumber: "7",
+        partName: "Socket charger",
+        imgName: "ic-part-socket-charger",
+        isChecked: false
+      },
+      {
+        partNumber: "8",
+        partName: "Solar panel",
+        imgName: "ic-part-solar-panel",
+        isChecked: false
+      }
+    ]);
+    const dataBank = ref([
       {
         label: "Lamp item",
         backgroundColor: "#f87979",
-        data: [922, 255, 260, 292, 503, 510, 530, 578, 720, 740, 839, 857]
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       {
         label: "12V charger item",
         backgroundColor: "#f87979",
-        data: [42, 140, 822, 327, 470, 532, 542, 544, 576, 677, 747, 893]
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       {
         label: "Battery item",
         backgroundColor: "#f87979",
-        data: [763, 52, 121, 317, 348, 355, 411, 458, 748, 186, 141, 184]
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       {
         label: "Power button item",
         backgroundColor: "#f87979",
-        data: [105, 854, 261, 344, 944, 357, 431, 732, 869, 875, 893, 353]
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       {
         label: "Light bulb item",
         backgroundColor: "#f87979",
-        data: [995, 92, 145, 188, 745, 299, 421, 461, 650, 274, 138, 872]
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       {
         label: "Screen item",
         backgroundColor: "#f87979",
-        data: [170, 172, 222, 309, 310, 87, 502, 506, 673, 31, 892, 398]
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       {
         label: "Socket charger item",
         backgroundColor: "#f87979",
-        data: [25, 825, 142, 559, 187, 288, 431, 488, 154, 707, 813, 854]
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       },
       {
         label: "Solar panel item",
         backgroundColor: "#f87979",
-        data: [2, 944, 141, 365, 379, 573, 685, 775, 822, 827, 913, 121]
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       }
-    ];
-
-    function sumPartsOfType(productIndex) {
-      var sum = 0;
-      for (let i = 0; i < dataBank[productIndex - 1].data.length; i++) {
-        sum += dataBank[productIndex - 1].data[i];
-      }
-      return sum;
-    }
-
-    function getSumAllParts() {
-      var sum = 0;
-      for (let i = 0; i < dataBank[0].data.length; i++) {
-        for (let j = 0; j < dataBank.length; j++) {
-          sum += dataBank[j].data[i];
-        }
-      }
-      return sum;
-    }
-
-    function getSumPartsArray() {
-      var sumParts = [];
-      for (let i = 0; i < dataBank[0].data.length; i++) {
-        var partSum = 0;
-        for (let j = 0; j < dataBank.length; j++) {
-          partSum += dataBank[j].data[i];
-        }
-        sumParts.push(partSum);
-      }
-      return sumParts;
-    }
-
+    ]);
     const barChart = {
       type: "bar",
       options: {
@@ -165,99 +192,111 @@ export default {
       }
     };
 
+    // Retrieves data and populates the dataBank array
+    onMounted(async () => {
+      await store.dispatch("fetchAllParts");
+      data.value = await store.getters.getProductData;
+
+      for (let i = 0; i < data.value.length; i++) {
+        if (data.value[i].productName === "Sunbell") {
+          const monthNumber = new Date(data.value[i].createdAt).getMonth();
+
+          for (let j = 0; j < data.value[i].parts.length; j++) {
+            addPart(data.value[i].parts[j].partNumber, monthNumber);
+          }
+        }
+      }
+      updateChartWithAllParts();
+    });
+
+    watchEffect(() => chartRef.value?.update());
+
+    // Adds a single repaired part to the dataBank array
+    function addPart(partNumber, monthNumber) {
+      dataBank.value[partNumber - 1].data[monthNumber]++;
+    }
+
+    // Updates the chart when an element is clicked
+    async function updateData(product) {
+      // Remove all checks
+      this.allParts.isChecked = false;
+      for (let i = 0; i < productImages.value.length; i++) {
+        productImages.value[i].isChecked = false;
+      }
+      // Check if "All parts" was clicked
+      if (product === undefined) {
+        barChart.data.datasets = [
+          {
+            label: "All items",
+            backgroundColor: "#f87979",
+            data: getSumPartsArray()
+          }
+        ];
+        this.allParts.isChecked = true;
+      } else {
+        barChart.data.datasets[0] = dataBank.value[product.partNumber - 1];
+        product.isChecked = true;
+      }
+      chartRef.value.update();
+    }
+
+    function updateChartWithAllParts() {
+      barChart.data.datasets = [
+        {
+          label: "All items",
+          backgroundColor: "#f87979",
+          data: getSumPartsArray()
+        }
+      ];
+    }
+
+    function sumPartsOfType(productIndex) {
+      var sum = 0;
+      for (let i = 0; i < dataBank.value[productIndex - 1].data.length; i++) {
+        sum += dataBank.value[productIndex - 1].data[i];
+      }
+      return sum;
+    }
+
+    function getSumAllParts() {
+      var sum = 0;
+      for (let i = 0; i < dataBank.value[0].data.length; i++) {
+        for (let j = 0; j < dataBank.value.length; j++) {
+          sum += dataBank.value[j].data[i];
+        }
+      }
+      return sum;
+    }
+
+    function getSumPartsArray() {
+      var sumParts = [];
+      for (let i = 0; i < dataBank.value[0].data.length; i++) {
+        var partSum = 0;
+        for (let j = 0; j < dataBank.value.length; j++) {
+          partSum += dataBank.value[j].data[i];
+        }
+        sumParts.push(partSum);
+      }
+      return sumParts;
+    }
+
     return {
+      data,
       barChart,
       chartRef,
       dataBank,
       sumPartsOfType,
       getSumPartsArray,
-      getSumAllParts
+      getSumAllParts,
+      updateData,
+      allParts,
+      productImages
     };
   },
   components: { DescriptionText, Vue3ChartJs, TopMetrics },
-  methods: {
-    updateData(product) {
-      // Remove all checks
-      this.allParts.isChecked = false;
-      for (let i = 0; i < this.productImages.length; i++) {
-        this.productImages[i].isChecked = false;
-      }
-
-      // Check if "All parts" was clicked
-      if (product === undefined) {
-        this.barChart.data.datasets = [
-          {
-            label: "All items",
-            backgroundColor: "#f87979",
-            data: this.getSumPartsArray()
-          }
-        ];
-        this.allParts.isChecked = true;
-      } else {
-        this.barChart.data.datasets[0] = this.dataBank[product.partNumber - 1];
-        product.isChecked = true;
-      }
-
-      this.chartRef.update();
-    }
-  },
+  methods: {},
   data() {
-    return {
-      allParts: {
-        name: "All parts",
-        isChecked: true
-      },
-      productImages: [
-        {
-          partNumber: "1",
-          partName: "Lamp",
-          imgName: "ic-part-lamp",
-          isChecked: false
-        },
-        {
-          partNumber: "2",
-          partName: "12V charger",
-          imgName: "ic-part-adapter-charger",
-          isChecked: false
-        },
-        {
-          partNumber: "3",
-          partName: "Battery",
-          imgName: "ic-part-battery",
-          isChecked: false
-        },
-        {
-          partNumber: "4",
-          partName: "Power button",
-          imgName: "ic-part-button",
-          isChecked: false
-        },
-        {
-          partNumber: "5",
-          partName: "Light bulb",
-          imgName: "ic-part-lightbulb",
-          isChecked: false
-        },
-        {
-          partNumber: "6",
-          partName: "Screen",
-          imgName: "ic-part-screen",
-          isChecked: false
-        },
-        {
-          partNumber: "7",
-          partName: "Socket charger",
-          imgName: "ic-part-socket-charger",
-          isChecked: false
-        },
-        {
-          partNumber: "8",
-          partName: "Solar panel",
-          imgName: "ic-part-solar-panel",
-          isChecked: false
-        }
-      ]
-    };
+    return {};
   },
   computed: {}
 };
@@ -310,7 +349,6 @@ h3 {
 }
 
 .partschecked {
-  background-color: #E9E6E0;
-
+  background-color: #e9e6e0;
 }
 </style>

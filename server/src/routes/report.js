@@ -8,14 +8,14 @@ const report = db.get("report");
 
 const schema = Joi.array().items(
   Joi.object({
-    serialNumber: Joi.string().alphanum().required(),
+    serialNumber: Joi.string().alphanum().default(""),
     productName: Joi.string().alphanum().min(1).required(),
     createdAt: Joi.date().default(new Date()),
-    campName: Joi.string().alphanum().required(),
+    campName: Joi.string().alphanum(),
     parts: Joi.array()
       .items({
         partNumber: Joi.string().alphanum().min(1).required(),
-        partName: Joi.string().alphanum().min(1).required(),
+        partName: Joi.string().min(1).required(),
       })
       .min(1)
       .max(9)
@@ -47,9 +47,10 @@ router.post("/", async (req, res) => {
 ]*/
 
   try {
-    const value = await schema.validateAsync(req.body);
+    let value = await schema.validateAsync(req.body);
+    console.log(JSON.stringify(value));
     const data = value.map((x) => {
-      return { ...x, username: req.user.username };
+      return { ...x, username: req.user.username, campName: req.user.campName };
     });
     try {
       await report.insert(data);
@@ -58,7 +59,8 @@ router.post("/", async (req, res) => {
       res.status(500).send({ error: e });
     }
   } catch (err) {
-    return res.status(400).json({ error: err });
+    console.log(err);
+    return res.status(400).json(err);
   }
 });
 

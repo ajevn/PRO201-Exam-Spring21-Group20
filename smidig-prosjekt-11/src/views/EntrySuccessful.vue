@@ -1,5 +1,5 @@
 <template>
-  <div v-if="user">
+  <div>
     <base-site>
       <!-- Renders Component to show text/icon/home-btn -->
       <approved-report />
@@ -13,32 +13,21 @@
       <progress-bar />
     </base-site>
   </div>
-  <redirect-login v-else />
 </template>
 
 <script>
 // @ is an alias to /src
 import ApprovedReport from "@/components/feedback/ApprovedReport.vue";
 import ProgressBar from "@/components/feedback/ProgressBar.vue";
-import RedirectLogin from "@/components/login/RedirectLogin.vue";
-import BaseSite from "../components/nav/BaseSite.vue";
-import { useStore } from "vuex";
+import BaseSite from "@/components/nav/BaseSite.vue";
 import HomeSelectButton from "@/components/nav/HomeSelectButton";
 
 export default {
   name: "entrySuccessful",
-  setup() {
-    const store = useStore();
-    const user = store.getters.getUserId;
-    return {
-      user
-    };
-  },
   components: {
     HomeSelectButton,
     ApprovedReport,
     ProgressBar,
-    RedirectLogin,
     BaseSite
   }
 };

@@ -11,7 +11,6 @@ export default {};
 </script>
 
 <style>
-
 * {
   font-family: Calibre, Arial, Helvetica, sans-serif;
 }

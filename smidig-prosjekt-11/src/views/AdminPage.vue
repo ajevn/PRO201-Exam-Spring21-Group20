@@ -2,9 +2,12 @@
   <div v-if="isAdmin === true">
     <base-site>
       <div class="grid-layout">
+        <!-- Using v-bind on selectedSection to let SideBarMenu know when
+             CampDataPage is routed from a camp click in DashboardMainPage -->
         <side-bar-menu
           class="side-bar"
           :routeFromParent="routedInParent"
+          :selectedSection="selectedSection"
           v-on:childToParent="recievedClickInChildSideMenu"
         />
         <div class="component-section-container">
@@ -16,6 +19,8 @@
           <camp-data-page
             v-if="selectedSection === 'Camps'"
             v-bind:routedCampName="campNameToRoute"
+            :resetCamp="resetCamp"
+            v-on:camp="editRoute"
           />
           <user-administration-page v-if="selectedSection === 'Users'" />
           <camp-administration-page v-if="selectedSection === 'CampsAdmin'" />
@@ -58,8 +63,15 @@ export default {
     BaseSite
   },
   methods: {
+    resetCamp() {
+      this.campNameToRoute = "";
+    },
+    editRoute() {
+      this.routedInParent = "Camps";
+      this.selectedSection = "Camps";
+    },
     retrieveIsAdmin() {
-      const result = useStore().getters.getIsAdmin;
+      const result = this.store.getters.getIsAdmin;
       if (result === false) {
         this.router.push({ name: "Home" });
       } else {
@@ -90,7 +102,6 @@ export default {
 </script>
 
 <style scoped>
-
 .grid-layout {
   display: grid;
   grid-template-columns: 17% 1fr;
@@ -98,7 +109,16 @@ export default {
   grid-row-gap: 0;
   background-color: white;
 }
+
 .side-bar {
   width: 275px;
+}
+
+.component-section-container {
+  width: calc(100vw - 280px);
+  height: calc(100vh - 80px);
+  position: absolute;
+  right: 0;
+  top: 80px;
 }
 </style>

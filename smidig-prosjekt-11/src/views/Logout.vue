@@ -21,7 +21,9 @@ import HomeSelectButton from "../components/nav/HomeSelectButton.vue";
 export default {
   name: "LogoutPage",
   created: function() {
-    this.$store.commit("logout");
+    this.$store.dispatch("logout").then(() => {
+      this.$router.push("/");
+    });
   },
   components: {
     BaseSite,
