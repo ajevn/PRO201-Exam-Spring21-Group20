@@ -1,1 +1,19 @@
-{}
+{
+  "name": "PRO201-1-20H-Gruppe11",
+  "version": "1.0.0",
+  "private": "true",
+  "scripts": {
+    "start": "node server/src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/97krihop/PRO201-1-20H-Gruppe11.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "apache 2.0",
+  "bugs": {
+    "url": "https://github.com/97krihop/PRO201-1-20H-Gruppe11/issues"
+  },
+  "homepage": "https://github.com/97krihop/PRO201-1-20H-Gruppe11#readme"
+}
