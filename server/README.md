@@ -1,3 +1,7 @@
-`npm i`
-`npm run dev`
-mongo on docker `docker run -d --name mongo-on-docker -p 27888:27017 -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=secret mongo`
+#Server
+
+### installation
+
+- `npm i`
+- make a file named `.env` with `MONGO_URL= ` and set the url to the database
+- `npm run start`

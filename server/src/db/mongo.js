@@ -1,7 +1,10 @@
 const monk = require("monk");
 const bcrypt = require("bcrypt");
 
-const db = monk(process.env.MONGO_URL);
+const db = monk(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 db.then(async () => {
   console.log("connection success");
   await addAdmin();

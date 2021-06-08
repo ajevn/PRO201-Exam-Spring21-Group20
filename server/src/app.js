@@ -12,18 +12,23 @@ const app = express();
 const passport = require("passport");
 const initializePassport = require("./config/passport");
 
+const store =
+  process.env.NODE_ENV === "production"
+    ? MongoStore.create({
+        mongoUrl: process.env.MONGO_URL,
+        dbName: "bright",
+        crypto: {
+          secret: process.env.MONGO_SECRET || "squirrel",
+        },
+      })
+    : undefined;
+
 const sessionParser = session({
   name: "bright.sid",
   secret: process.env.SESSION_SECRET || "secret",
   resave: false,
   saveUninitialized: false,
-  // store: MongoStore.create({
-  //   mongoUrl: process.env.MONGO_URL,
-  //   dbName: "bright",
-  //   crypto: {
-  //     secret: process.env.MONGO_SECRET || "squirrel",
-  //   },
-  // }),
+  store: store,
 });
 
 if (app.get("env") === "production") {
