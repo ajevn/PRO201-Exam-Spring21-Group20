@@ -14,7 +14,7 @@ const getters = {
 };
 const actions = {
   fetchAllParts: async context => {
-    const res = await get("http://localhost:3000/api/parts", {
+    const res = await get(`${process.env.VUE_APP_SERVER_URL}/api/parts`, {
       withCredentials: true
     });
     if (res.status === 200) context.commit("setData", res.data);

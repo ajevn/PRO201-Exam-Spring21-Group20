@@ -73,7 +73,7 @@ export default {
       error.value = null;
       try {
         await post(
-          "http://localhost:3000/api/camp",
+          `${process.env.VUE_APP_SERVER_URL}/api/camp`,
           {
             name: name.value,
             Country: Country.value,

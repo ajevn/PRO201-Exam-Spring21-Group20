@@ -12,29 +12,34 @@ const app = express();
 const passport = require("passport");
 const initializePassport = require("./config/passport");
 
-const store =
+const sessionParser =
   process.env.NODE_ENV === "production"
-    ? MongoStore.create({
-        mongoUrl: process.env.MONGO_URL,
-        dbName: "bright",
-        crypto: {
-          secret: process.env.MONGO_SECRET || "squirrel",
+    ? session({
+        name: "bright.sid",
+        secret: process.env.SESSION_SECRET || "secret",
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({
+          mongoUrl: process.env.MONGO_URL,
+          dbName: "bright",
+          crypto: {
+            secret: process.env.MONGO_SECRET || "squirrel",
+          },
+        }),
+        cookie: {
+          sameSite: "none",
+          secure: true,
         },
+        proxy: true,
       })
-    : undefined;
+    : session({
+        name: "bright.sid",
+        secret: process.env.SESSION_SECRET || "secret",
+        resave: false,
+        saveUninitialized: false,
+      });
 
-const sessionParser = session({
-  name: "bright.sid",
-  secret: process.env.SESSION_SECRET || "secret",
-  resave: false,
-  saveUninitialized: false,
-  store: store,
-});
-
-if (app.get("env") === "production") {
-  app.set("trust proxy", 1); // trust first proxy
-  sessionParser.cookie.secure = true; // serve secure cookies
-}
+if (app.get("env") === "production") app.set("trust proxy", 1); // trust first proxy
 
 const rateSpeedLimit = rateSpeedLimiter({
   delayAfter: 50, // slow down limit (in reqs)
@@ -42,17 +47,20 @@ const rateSpeedLimit = rateSpeedLimiter({
   delayMs: 2500, // slow down time
 });
 
+const corsOptions = {
+  origin: [
+    "http://localhost:8080",
+    "https://pro-201-gruppe11-a6mvlf399-97krihop.vercel.app",
+    "https://pro-201-gruppe11.vercel.app",
+  ],
+  credentials: true,
+};
 //use middleware
 app.use(bodyParser.json());
 app.use(sessionParser);
 app.use(helmet());
 app.use(rateSpeedLimit);
-app.use(
-  cors({
-    origin: ["http://localhost:8080", "http://example2.com"],
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
 //Passport initialization
 initializePassport(passport);
 app.use(passport.initialize());

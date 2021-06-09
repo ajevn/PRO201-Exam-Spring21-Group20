@@ -40,7 +40,7 @@ const actions = {
     commit("authRequest");
     return new Promise((resolve, reject) => {
       axios
-        .post("http://localhost:3000/api/login", user, {
+        .post(`${process.env.VUE_APP_SERVER_URL}/api/login`, user, {
           withCredentials: true
         })
         .then(res => {
@@ -57,7 +57,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       commit("authLogout");
       axios
-        .get("http://localhost:3000/api/logout")
+        .get(`${process.env.VUE_APP_SERVER_URL}/api/logout`)
         .then(res => {
           resolve(res);
         })
@@ -71,7 +71,7 @@ const actions = {
     commit("regRequest");
     return new Promise((resolve, reject) => {
       axios
-        .post("http://localhost:3000/api/register", userValues, {
+        .post(`${process.env.VUE_APP_SERVER_URL}/api/register`, userValues, {
           withCredentials: true
         })
         .then(res => {

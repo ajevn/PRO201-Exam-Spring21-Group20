@@ -68,7 +68,7 @@ export default {
     const store = useStore();
     const camps = ref([]);
     onMounted(async () => {
-      const { data } = await get("http://localhost:3000/api/camp");
+      const { data } = await get(`${process.env.VUE_APP_SERVER_URL}/api/camp`);
       camps.value = data;
     });
     const schema = {
