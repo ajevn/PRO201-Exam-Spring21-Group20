@@ -33,19 +33,22 @@
         </div>
 
         <div class="plus-icon-container">
-          <icon-base
-            v-show="showRepair === false"
-            id="plus-btn"
-            ref="plusbtn"
-            iconName="plus"
-            iconColor="#2C2A29"
-            icon-hover-color="#787370"
-            iconWidth="100%"
-            iconHeight="100%"
+          <button
+            type="button"
             v-on:click="addRepair()"
             @keydown.enter="addRepair()"
-            tabindex="0"
-          />
+          >
+            <icon-base
+              v-show="showRepair === false"
+              id="plus-btn"
+              ref="plusbtn"
+              iconName="plus"
+              iconColor="#2C2A29"
+              icon-hover-color="#787370"
+              iconWidth="100%"
+              iconHeight="100%"
+            />
+          </button>
         </div>
       </div>
     </section>
@@ -136,7 +139,8 @@ export default {
 }
 
 #plus-btn {
-  margin: 2.5vh auto;
+  //margin: 2.5vh auto;
+  height: 50px;
   width: 3vw;
   //outline: none;
   border-radius: 50%;

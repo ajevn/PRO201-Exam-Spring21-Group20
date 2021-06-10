@@ -14,9 +14,10 @@
       </div>
 
       <div class="serial-section">
-        <h1>Serial number</h1>
+        <label for="srn" class="h3">Serial number</label>
 
         <input
+          id="srn"
           ref="inputSerialNumber"
           v-on:keydown="serialInputIsEmpty = false"
           v-bind:class="{ serialInputEmpty: serialInputIsEmpty }"
@@ -62,31 +63,41 @@
         </div>
       </div>
       <div class="close-container-ic">
-        <icon-base
-          class="close-repair-ic"
-          iconName="cross"
-          iconColor="#C93333"
-          icon-hover-color="#A80000"
-          iconWidth="100%"
-          iconHeight="100%"
+        <button
+          type="button"
           v-on:click="closePopup"
           @keydown.enter="closePopup"
           :tabindex="tabindex + 1"
-        />
+        >
+          <icon-base
+            class="close-repair-ic"
+            iconName="cross"
+            iconColor="#C93333"
+            icon-hover-color="#A80000"
+            iconWidth="100%"
+            iconHeight="100%"
+          />
+          <span class="sr-only">Cancel</span>
+        </button>
       </div>
     </div>
     <div class="submit-container-ic">
-      <icon-base
-        class="submit-ic"
-        iconName="checkmark"
-        iconColor="#6A975A"
-        icon-hover-color="#006400"
+      <button
+        type="button"
         @click="submitPartsSelected"
         @keydown.enter="submitPartsSelected"
-        iconWidth="100%"
-        iconHeight="100%"
         :tabindex="tabindex + 1"
-      />
+      >
+        <icon-base
+          class="submit-ic"
+          iconName="checkmark"
+          iconColor="#6A975A"
+          icon-hover-color="#006400"
+          iconWidth="100%"
+          iconHeight="100%"
+        />
+        <span class="sr-only">Proceed</span>
+      </button>
     </div>
   </div>
 </template>
@@ -383,11 +394,12 @@ export default {
     width: 50px;
     height: 50px;
     position: absolute;
-    right: 20px;
-    bottom: 10px;
+    right: 10px;
+    bottom: 0px;
 
     .submit-ic {
       cursor: pointer;
+      height: 50px;
     }
   }
 
@@ -459,6 +471,8 @@ export default {
     .submit-container-ic {
       width: 25px;
       height: 25px;
+      position: absolute;
+      bottom: 10px;
 
       .submit-ic {
         width: 25px;
@@ -476,5 +490,29 @@ export default {
       }
     }
   }
+}
+
+/*
+https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/#accessible-close-buttons
+*/
+.sr-only {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.h3 {
+  display: block;
+  font-size: 1.1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
 </style>

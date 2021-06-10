@@ -41,7 +41,6 @@ router.post("/register", async (req, res, next) => {
     console.log("register not authenticated");
     return next();
   }
-  console.log(req.body);
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
   let value;
   try {
