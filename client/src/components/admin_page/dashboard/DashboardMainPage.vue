@@ -3,25 +3,25 @@
     <div class="top-metrics-container-inner">
       <top-metric
         :name-of-data="'Total Repaired Units'"
-        :data-to-display="data.length.toString()"
+        :data-to-display="data.length"
       />
     </div>
     <div class="top-metrics-container-inner">
       <top-metric
-        :name-of-data="'Total Units Registered'"
-        data-to-display="30.920"
+        :name-of-data="'Total Parts Replaced'"
+        :data-to-display="partsCount"
       />
     </div>
     <div class="top-metrics-container-inner">
       <top-metric
         :name-of-data="'Most Repaired Part Today'"
-        :data-to-display="getMostRepairedPartDaily()"
+        :data-to-display="mostRepairedDaily"
       />
     </div>
     <div class="top-metrics-container-inner">
       <top-metric
         :name-of-data="'Most Repaired Part Monthly'"
-        :data-to-display="getMostRepairedPartMonthly()"
+        :data-to-display="mostRepairedMonthly"
       />
     </div>
   </div>
@@ -82,6 +82,10 @@ export default {
     const retrievedData = [];
 
     const campData = ref([]);
+    const mostRepairedDaily = ref("");
+    const mostRepairedMonthly = ref("");
+    const partsCount = ref("");
+    const data = ref([]);
     const products = [
       {
         partNumber: "1",
@@ -113,21 +117,30 @@ export default {
         childMapClick
       );
 
-      function childMapClick(param) {
-        emit("childToParent", param);
-      }
+      mostRepairedDaily.value = store.getters.getMostRepairedPartDaily;
+      if (mostRepairedDaily.value.length === 0) mostRepairedDaily.value = "N/A";
+
+      mostRepairedMonthly.value = store.getters.getMostRepairedPartMonthly;
+      if (mostRepairedMonthly.value.length === 0)
+        mostRepairedMonthly.value = "N/A";
+
+      data.value = store.getters.getAllRepairs;
+      partsCount.value = data.value.flatMap(x => x.parts).length;
     });
 
+    function childMapClick(param) {
+      emit("childToParent", param);
+    }
+
     return {
+      mostRepairedMonthly,
+      partsCount,
+      mostRepairedDaily,
       router,
       store,
       retrievedData,
-      isMapLoading
-    };
-  },
-  data() {
-    return {
-      data: this.store.getters.getAllRepairs
+      isMapLoading,
+      data
     };
   },
   components: {
@@ -135,27 +148,6 @@ export default {
     RepairPartBarChartComponent,
     CountryBarChartComponent,
     TopMetric
-  },
-  methods: {
-    getMostRepairedPartMonthly() {
-      const mostRepairedMonthly = this.store.getters.getMostRepairedPartMonthly;
-      if (mostRepairedMonthly.length > 0) {
-        return mostRepairedMonthly;
-      } else {
-        return "N/A";
-      }
-    },
-    getMostRepairedPartDaily() {
-      const mostRepairedDaily = this.store.getters.getMostRepairedPartDaily;
-      if (mostRepairedDaily.length > 0) {
-        return mostRepairedDaily;
-      } else {
-        return "N/A";
-      }
-    },
-    showAlert() {
-      alert("Klikka på stats");
-    }
   }
 };
 </script>
@@ -200,6 +192,7 @@ export default {
   width: 80px;
   height: 80px;
 }
+
 .lds-ring div {
   box-sizing: border-box;
   display: block;
@@ -214,15 +207,19 @@ export default {
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #abcd transparent transparent transparent;
 }
+
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
 }
+
 .lds-ring div:nth-child(2) {
   animation-delay: -0.3s;
 }
+
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);
@@ -230,15 +227,5 @@ export default {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>

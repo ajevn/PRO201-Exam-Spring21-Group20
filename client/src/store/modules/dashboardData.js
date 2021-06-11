@@ -70,6 +70,8 @@ const actions = {
       );
       const data = res.data;
       commit("commitMonthlyRepairs", data);
+      const rest = mostUsed(data);
+      commit("commitMostRepairedPartMonthly", rest);
       return res.status === 200;
     } catch (e) {
       return false;
@@ -85,11 +87,28 @@ const actions = {
       );
       const data = res.data;
       commit("commitDailyRepairs", data);
+      const rest = mostUsed(data);
+
+      commit("commitMostRepairedPartDaily", rest);
       return res.status === 200;
     } catch (e) {
       return false;
     }
   }
+};
+
+const mostUsed = arr => {
+  let compare = "";
+  const obj = arr
+    .flatMap(x => x.parts)
+    .map(x => x.partName)
+    .reduce((acc, val) => {
+      if (val in acc) acc[val]++;
+      else acc[val] = 1;
+      if (acc[val] > compare) compare = acc[val];
+      return acc;
+    }, {});
+  return Object.keys(obj).reduce((a, b) => (obj[a] > obj[b] ? a : b));
 };
 
 export default {

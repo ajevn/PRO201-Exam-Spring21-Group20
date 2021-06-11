@@ -117,10 +117,7 @@ export default {
 
         repairListInner.sort(compare);
         repairListInner.reverse();
-        this.store.commit(
-          "commitMostRepairedPartMonthly",
-          repairListInner[0].partName
-        );
+
         this.repairList = repairListInner;
       } else {
         repairListInner.push({
