@@ -1,4 +1,4 @@
 # PRO201-1-20H-Gruppe11
 
-## RUN project
-- follow the readme in `./server` and `./client` folder to start server and client
+## Build and run project
+- Follow the readme in `./server` and `./client` folder to build and run the server and client.
